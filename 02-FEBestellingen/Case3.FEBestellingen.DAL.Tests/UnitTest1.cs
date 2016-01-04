@@ -11,7 +11,7 @@ namespace Case3.FEBestellingen.DAL.Tests
         {
 
 
-            Assert.AreEqual("1", "2");
+            //Assert.AreEqual("1", "2");
         }
     }
 }
