@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSBestellen.Schema", "Case3.PcSBestellen.Schema\Case3.PcSBestellen.Schema.csproj", "{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSBestellen.Contract", "Case3.PcSBestellen.Contract\Case3.PcSBestellen.Contract.csproj", "{A703CDF3-4B76-4B06-B172-ECDFC7F5AB16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSBestellen.Host", "Case3.PcSBestellen.Host\Case3.PcSBestellen.Host.csproj", "{8390C524-5EBD-47DB-9A35-34CADC3C5492}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSBestellen.Implementation", "Case3.PcSBestellen.Implementation\Case3.PcSBestellen.Implementation.csproj", "{3520EB86-5DD7-424F-A046-219231FE7C83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSBestellen.DAL", "Case3.PcSBestellen.DAL\Case3.PcSBestellen.DAL.csproj", "{5F4DFD8E-B602-4D1D-9613-0CD6357A3FF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSBestellen.Entities", "Case3.PcSBestellen.Entities\Case3.PcSBestellen.Entities.csproj", "{69E6C0B5-BD9B-4641-9238-C0E9C54F1766}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSBestellen.Agent", "Case3.PcSBestellen.Agent\Case3.PcSBestellen.Agent.csproj", "{91AC1292-B089-46EA-8CCA-0919B6CE637A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSBestellen.Agent.Tests", "Case3.PcSBestellen.Agent.Tests\Case3.PcSBestellen.Agent.Tests.csproj", "{05F97430-6546-481D-8492-F52B76239D0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSBestellen.DAL.Tests", "Case3.PcSBestellen.DAL.Tests\Case3.PcSBestellen.DAL.Tests.csproj", "{580346BB-1BC8-4459-BE7E-E4FECEE64F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSBestellen.Implementation.Tests", "Case3.PcSBestellen.Implementation.Tests\Case3.PcSBestellen.Implementation.Tests.csproj", "{649E3F8B-2046-4F33-B645-587431FAE382}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A703CDF3-4B76-4B06-B172-ECDFC7F5AB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A703CDF3-4B76-4B06-B172-ECDFC7F5AB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A703CDF3-4B76-4B06-B172-ECDFC7F5AB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A703CDF3-4B76-4B06-B172-ECDFC7F5AB16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8390C524-5EBD-47DB-9A35-34CADC3C5492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8390C524-5EBD-47DB-9A35-34CADC3C5492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8390C524-5EBD-47DB-9A35-34CADC3C5492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8390C524-5EBD-47DB-9A35-34CADC3C5492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3520EB86-5DD7-424F-A046-219231FE7C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3520EB86-5DD7-424F-A046-219231FE7C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3520EB86-5DD7-424F-A046-219231FE7C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3520EB86-5DD7-424F-A046-219231FE7C83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F4DFD8E-B602-4D1D-9613-0CD6357A3FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F4DFD8E-B602-4D1D-9613-0CD6357A3FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F4DFD8E-B602-4D1D-9613-0CD6357A3FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F4DFD8E-B602-4D1D-9613-0CD6357A3FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E6C0B5-BD9B-4641-9238-C0E9C54F1766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E6C0B5-BD9B-4641-9238-C0E9C54F1766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E6C0B5-BD9B-4641-9238-C0E9C54F1766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E6C0B5-BD9B-4641-9238-C0E9C54F1766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91AC1292-B089-46EA-8CCA-0919B6CE637A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91AC1292-B089-46EA-8CCA-0919B6CE637A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91AC1292-B089-46EA-8CCA-0919B6CE637A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91AC1292-B089-46EA-8CCA-0919B6CE637A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05F97430-6546-481D-8492-F52B76239D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05F97430-6546-481D-8492-F52B76239D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05F97430-6546-481D-8492-F52B76239D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05F97430-6546-481D-8492-F52B76239D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{580346BB-1BC8-4459-BE7E-E4FECEE64F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{580346BB-1BC8-4459-BE7E-E4FECEE64F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{580346BB-1BC8-4459-BE7E-E4FECEE64F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{580346BB-1BC8-4459-BE7E-E4FECEE64F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{649E3F8B-2046-4F33-B645-587431FAE382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649E3F8B-2046-4F33-B645-587431FAE382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649E3F8B-2046-4F33-B645-587431FAE382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649E3F8B-2046-4F33-B645-587431FAE382}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
