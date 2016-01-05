@@ -6,6 +6,7 @@
       <Word>Bestellingenbeheer</Word>
       <Word>Naam</Word>
       <Word>Bestellen</Word>
+      <Word>Bestellingen</Word>
     
       
     </Recognized>
@@ -26,6 +27,7 @@
       <Acronym>XML</Acronym>
       <Acronym>Pc</Acronym>
       <Acronym>DAL</Acronym>
+      <Acronym>Mvc</Acronym>
 
 
     </CasingExceptions> 
