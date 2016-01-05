@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BSKlantbeheer", "BSKlantbeheer", "{3E39BF98-E996-41DD-A9D3-18149FF0DA30}"
+	ProjectSection(SolutionItems) = preProject
+		03-BSKlantbeheer\Schema\Case3.BSKlantbeheer.V1.Messages.xsd = 03-BSKlantbeheer\Schema\Case3.BSKlantbeheer.V1.Messages.xsd
+		03-BSKlantbeheer\Schema\Case3.BSKlantbeheer.V1.Schema.xsd = 03-BSKlantbeheer\Schema\Case3.BSKlantbeheer.V1.Schema.xsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BSBestellingenbeheer", "BSBestellingenbeheer", "{195072D7-AC99-4B88-956D-5C4645DDC340}"
+	ProjectSection(SolutionItems) = preProject
+		04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Messages.xsd = 04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Messages.xsd
+		04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Schema.xsd = 04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Schema.xsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PcSWinkelen", "PcSWinkelen", "{8BEB941D-A158-4623-92DF-E846ECDE9863}"
+	ProjectSection(SolutionItems) = preProject
+		05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Messages.xsd = 05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Messages.xsd
+		05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Schema.xsd = 05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Schema.xsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PcSBestellen", "PcSBestellen", "{D192B03C-FAFC-4ECE-B689-6C1415E5DB18}"
+	ProjectSection(SolutionItems) = preProject
+		06-PcSBestellen\Schema\Case3.PcSBestellen.V1.Messages.xsd = 06-PcSBestellen\Schema\Case3.PcSBestellen.V1.Messages.xsd
+		06-PcSBestellen\Schema\Case3.PcSBestellen.V1.Schema.xsd = 06-PcSBestellen\Schema\Case3.PcSBestellen.V1.Schema.xsd
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

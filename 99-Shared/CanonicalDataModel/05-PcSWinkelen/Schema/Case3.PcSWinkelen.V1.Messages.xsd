@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+  targetNamespace="urn:case3-pcswinkelen:v1:messages"
+    elementFormDefault="qualified"
+    xmlns:msg="urn:case3-pcswinkelen:v1:messages"
+    xmlns:k="urn:case3-pcswinkelen:v1:schema"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:import namespace="urn:case3-pcswinkelen:v1:schema"
+             schemaLocation="Case3.PcSWinkelen.V1.Schema.xsd" />
+
+  
+</xs:schema>
