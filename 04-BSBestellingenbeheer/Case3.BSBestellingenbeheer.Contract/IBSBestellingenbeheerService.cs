@@ -7,5 +7,10 @@ using System.Text;
 
 namespace Case3.BSBestellingenbeheer.Contract
 {
-
+    [ServiceContract]
+    public interface IBSBestellingenbeheerService
+    {
+        [OperationContract]
+        string SayHelloTest(string name);
+    }
 }

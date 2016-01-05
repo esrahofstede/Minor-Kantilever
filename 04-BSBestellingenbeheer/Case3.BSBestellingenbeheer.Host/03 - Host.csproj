@@ -66,13 +66,10 @@
     <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
-    <Content Include="Service1.svc" />
+    <Content Include="BSBestellingen.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -90,9 +87,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Case3.BSBestellingenbeheer.Contract\02 - Contract.csproj">
-      <Project>{a654623f-7a0b-4abf-8e6e-a08ef24fdaba}</Project>
-      <Name>02 - Contract</Name>
+    <ProjectReference Include="..\Case3.BSBestellingenbeheer.Implementation\04 - Implementation.csproj">
+      <Project>{afc6389e-ad95-46a6-8b97-8b3c47e85c40}</Project>
+      <Name>04 - Implementation</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
