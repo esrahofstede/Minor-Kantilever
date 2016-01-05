@@ -4,6 +4,7 @@
     <Recognized>
       <Word>Klantbeheer</Word>
       <Word>Naam</Word>
+      <Word>Bestellen</Word>
     
       
     </Recognized>
@@ -22,6 +23,8 @@
   <Acronyms>
     <CasingExceptions>
       <Acronym>XML</Acronym>
+      <Acronym>Pc</Acronym>
+      <Acronym>DAL</Acronym>
 
 
     </CasingExceptions> 
