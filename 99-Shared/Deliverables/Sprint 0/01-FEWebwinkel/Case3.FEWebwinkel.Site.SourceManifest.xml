@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <DbFullSql path="C:\GIT\Goudgeel\01-FEWebwinkel\Case3.FEWebwinkel.Site\obj\Acceptatie\AutoScripts\FEWebwinkelDB-Deployment_SchemaOnly.sql" Transacted="True" />
+  <DbFullSql path="C:\GIT\Goudgeel\99-Shared\GRANTscript.sql" Transacted="False" />
+  <IisApp path="C:\GIT\Goudgeel\01-FEWebwinkel\Case3.FEWebwinkel.Site\obj\Acceptatie\Package\PackageTmp" />
+  <setAcl path="C:\GIT\Goudgeel\01-FEWebwinkel\Case3.FEWebwinkel.Site\obj\Acceptatie\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\GIT\Goudgeel\01-FEWebwinkel\Case3.FEWebwinkel.Site\obj\Acceptatie\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>
