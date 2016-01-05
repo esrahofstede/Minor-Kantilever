@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dictionary>
+  <Words>
+    <Recognized>
+      <Word>Databeheer</Word>
+    
+      
+    </Recognized>
+    <Unrecognized>
+    </Unrecognized>
+    <Deprecated>
+      <Term PreferredAlternate=""></Term>
+    </Deprecated>
+    <Compound>
+      <Term CompoundAlternate=""></Term>
+    </Compound>
+    <DiscreteExceptions>
+      <Term></Term>
+    </DiscreteExceptions>
+  </Words>
+  <Acronyms>
+    <CasingExceptions>
+      <Acronym>XML</Acronym>
+
+
+    </CasingExceptions>
+  </Acronyms>
+</Dictionary>
