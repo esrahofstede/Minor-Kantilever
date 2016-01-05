@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Case3.PcSBestellen.Contract;
+using Case3.PcSWinkelen.Contract;
 
-namespace Case3.PcSBestellen.Implementation
+namespace Case3.PcSWinkelen.Implementation
 {
-    public class PcSBestellenServiceHandler : IPcSBestellenService
+    public class PcSWinkelenServiceHandler : IPcSWinkelenService
     {
         public string SayHelloTest(string name)
         {
