@@ -8,5 +8,11 @@ namespace Case3.BSKlantbeheer.DAL
 {
     public class Class1
     {
+        public int hallo { get; set; }
+
+        public Class1()
+        {
+            hallo = 1;
+        }
     }
 }

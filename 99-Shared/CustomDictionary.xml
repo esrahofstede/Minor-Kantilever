@@ -2,7 +2,8 @@
 <Dictionary>
   <Words>
     <Recognized>
-      <Word>Databeheer</Word>
+      <Word>Klantbeheer</Word>
+      <Word>Naam</Word>
     
       
     </Recognized>
@@ -23,6 +24,6 @@
       <Acronym>XML</Acronym>
 
 
-    </CasingExceptions>
+    </CasingExceptions> 
   </Acronyms>
 </Dictionary>

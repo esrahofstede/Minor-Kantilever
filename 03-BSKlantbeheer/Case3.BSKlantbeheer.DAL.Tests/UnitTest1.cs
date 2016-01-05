@@ -9,6 +9,7 @@ namespace Case3.BSKlantbeheer.DAL.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            string hallo = "";
         }
     }
 }

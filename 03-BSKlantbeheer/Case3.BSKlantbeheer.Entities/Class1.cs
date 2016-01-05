@@ -8,5 +8,8 @@ namespace Case3.BSKlantbeheer.Entities
 {
     public class Class1
     {
+
+        public string Naam { get; set; }
+
     }
 }
