@@ -22,3 +22,32 @@ select,
 textarea {
     max-width: 280px;
 }
+
+div.catalog-section {
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+@media all and (max-width: 991px) {
+    div.catalog-section {
+        justify-content:space-around;
+    } 
+}
+.catalog-product {
+    display: inline-flex;
+    border:solid black 1px;
+    margin-bottom: 15px;  
+}
+
+.catalog-product > .img-wrapper {
+    
+}
+
+.catalog-product > .info-wrapper {
+    padding: 8px;
+    border-left: solid black 1px;
+}
+
+.catalog-product > .info-wrapper > p {
+    margin: 0px 0 3px;
+}

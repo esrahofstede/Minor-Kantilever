@@ -16,16 +16,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         {
 
 
-            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
-            try
-            {
-                ViewBag.Products = bSCatalogusBeheerAgent.GetProducts(1, 20);
-            }
-            catch
-            {
-
-            }
-
+           
             return View();
         }
 
