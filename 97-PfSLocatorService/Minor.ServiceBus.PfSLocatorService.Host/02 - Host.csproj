@@ -73,7 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\AcceptatieBldSrv.pubxml" />
-    <None Include="Properties\PublishProfiles\PFS.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
