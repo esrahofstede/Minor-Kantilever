@@ -8,14 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1", ClrNamespace="schemaswwwkantilevernl.bscatalogusbeheer.messages.v1")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ClrNamespace="schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="schemaswwwkantilevernl.bscatalogusbeheer.product.v1")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="schemaswwwkantilevernl.bscatalogusbeheer.categorie.v1")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:common:fouten:v1", ClrNamespace="schemaswwwkantilevernl.common.fouten.v1")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1", ClrNamespace="schemaswwwkantilevernl.bscatalogusbeheer.leverancier.v1")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1", ClrNamespace="Case3.FEWebwinkel.Messages")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ClrNamespace="Case3.FEWebwinkel.ProductUpdate")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.FEWebwinkel.Product")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.FEWebwinkel.Categorie")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:common:fouten:v1", ClrNamespace="Case3.FEWebwinkel.Fouten")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1", ClrNamespace="Case3.FEWebwinkel.Leverancier")]
 
-namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
+namespace Case3.FEWebwinkel.Messages
 {
     using System.Runtime.Serialization;
     
@@ -28,7 +28,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1.ProductUpdateCollection ProductUpdateListField;
+        private Case3.FEWebwinkel.ProductUpdate.ProductUpdateCollection ProductUpdateListField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -43,7 +43,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1.ProductUpdateCollection ProductUpdateList
+        public Case3.FEWebwinkel.ProductUpdate.ProductUpdateCollection ProductUpdateList
         {
             get
             {
@@ -64,11 +64,11 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1.ProductUpdateResultaatCollection ResultatenField;
+        private Case3.FEWebwinkel.ProductUpdate.ProductUpdateResultaatCollection ResultatenField;
         
         private bool SuccesField;
         
-        private schemaswwwkantilevernl.common.fouten.v1.FoutMelding FoutmeldingField;
+        private Case3.FEWebwinkel.Fouten.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -83,7 +83,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1.ProductUpdateResultaatCollection Resultaten
+        public Case3.FEWebwinkel.ProductUpdate.ProductUpdateResultaatCollection Resultaten
         {
             get
             {
@@ -109,7 +109,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public schemaswwwkantilevernl.common.fouten.v1.FoutMelding Foutmelding
+        public Case3.FEWebwinkel.Fouten.FoutMelding Foutmelding
         {
             get
             {
@@ -166,11 +166,11 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.product.v1.Product ProductField;
+        private Case3.FEWebwinkel.Product.Product ProductField;
         
         private bool SuccesField;
         
-        private schemaswwwkantilevernl.common.fouten.v1.FoutMelding FoutmeldingField;
+        private Case3.FEWebwinkel.Fouten.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -185,7 +185,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public schemaswwwkantilevernl.bscatalogusbeheer.product.v1.Product Product
+        public Case3.FEWebwinkel.Product.Product Product
         {
             get
             {
@@ -211,7 +211,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public schemaswwwkantilevernl.common.fouten.v1.FoutMelding Foutmelding
+        public Case3.FEWebwinkel.Fouten.FoutMelding Foutmelding
         {
             get
             {
@@ -244,9 +244,9 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         
         private System.Nullable<int> LeverancierField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.Sorteerveld SorteerveldField;
+        private Case3.FEWebwinkel.Messages.Sorteerveld SorteerveldField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.Sorteerrichting SorteerrichtingField;
+        private Case3.FEWebwinkel.Messages.Sorteerrichting SorteerrichtingField;
         
         private bool AlleenLeverbareProductenField;
         
@@ -345,7 +345,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
-        public schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.Sorteerveld Sorteerveld
+        public Case3.FEWebwinkel.Messages.Sorteerveld Sorteerveld
         {
             get
             {
@@ -358,7 +358,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
-        public schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.Sorteerrichting Sorteerrichting
+        public Case3.FEWebwinkel.Messages.Sorteerrichting Sorteerrichting
         {
             get
             {
@@ -445,7 +445,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.product.v1.ProductCollection ProductsField;
+        private Case3.FEWebwinkel.Product.ProductCollection ProductsField;
         
         private int PageField;
         
@@ -455,7 +455,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         
         private bool SuccesField;
         
-        private schemaswwwkantilevernl.common.fouten.v1.FoutMelding FoutmeldingField;
+        private Case3.FEWebwinkel.Fouten.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -470,7 +470,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public schemaswwwkantilevernl.bscatalogusbeheer.product.v1.ProductCollection Products
+        public Case3.FEWebwinkel.Product.ProductCollection Products
         {
             get
             {
@@ -535,7 +535,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public schemaswwwkantilevernl.common.fouten.v1.FoutMelding Foutmelding
+        public Case3.FEWebwinkel.Fouten.FoutMelding Foutmelding
         {
             get
             {
@@ -592,11 +592,11 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.leverancier.v1.LeverancierCollection LeveranciersField;
+        private Case3.FEWebwinkel.Leverancier.LeverancierCollection LeveranciersField;
         
         private bool SuccesField;
         
-        private schemaswwwkantilevernl.common.fouten.v1.FoutMelding FoutmeldingField;
+        private Case3.FEWebwinkel.Fouten.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -611,7 +611,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public schemaswwwkantilevernl.bscatalogusbeheer.leverancier.v1.LeverancierCollection Leveranciers
+        public Case3.FEWebwinkel.Leverancier.LeverancierCollection Leveranciers
         {
             get
             {
@@ -637,7 +637,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public schemaswwwkantilevernl.common.fouten.v1.FoutMelding Foutmelding
+        public Case3.FEWebwinkel.Fouten.FoutMelding Foutmelding
         {
             get
             {
@@ -679,11 +679,11 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.categorie.v1.CategorieCollection CategorieenField;
+        private Case3.FEWebwinkel.Categorie.CategorieCollection CategorieenField;
         
         private bool SuccesField;
         
-        private schemaswwwkantilevernl.common.fouten.v1.FoutMelding FoutmeldingField;
+        private Case3.FEWebwinkel.Fouten.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -698,7 +698,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public schemaswwwkantilevernl.bscatalogusbeheer.categorie.v1.CategorieCollection Categorieen
+        public Case3.FEWebwinkel.Categorie.CategorieCollection Categorieen
         {
             get
             {
@@ -724,7 +724,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public schemaswwwkantilevernl.common.fouten.v1.FoutMelding Foutmelding
+        public Case3.FEWebwinkel.Fouten.FoutMelding Foutmelding
         {
             get
             {
@@ -737,7 +737,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.messages.v1
         }
     }
 }
-namespace schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1
+namespace Case3.FEWebwinkel.ProductUpdate
 {
     using System.Runtime.Serialization;
     
@@ -745,7 +745,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductUpdateCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ItemName="ProductUpdate")]
-    public class ProductUpdateCollection : System.Collections.Generic.List<schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1.ProductUpdate>
+    public class ProductUpdateCollection : System.Collections.Generic.List<Case3.FEWebwinkel.ProductUpdate.ProductUpdate>
     {
     }
     
@@ -757,9 +757,9 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1.UpdateActie UpdateActieField;
+        private Case3.FEWebwinkel.ProductUpdate.UpdateActie UpdateActieField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.product.v1.Product ProductField;
+        private Case3.FEWebwinkel.Product.Product ProductField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -774,7 +774,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1.UpdateActie UpdateActie
+        public Case3.FEWebwinkel.ProductUpdate.UpdateActie UpdateActie
         {
             get
             {
@@ -787,7 +787,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
-        public schemaswwwkantilevernl.bscatalogusbeheer.product.v1.Product Product
+        public Case3.FEWebwinkel.Product.Product Product
         {
             get
             {
@@ -818,7 +818,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductUpdateResultaatCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ItemName="ProductUpdateResultaat")]
-    public class ProductUpdateResultaatCollection : System.Collections.Generic.List<schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1.ProductUpdateResultaat>
+    public class ProductUpdateResultaatCollection : System.Collections.Generic.List<Case3.FEWebwinkel.ProductUpdate.ProductUpdateResultaat>
     {
     }
     
@@ -830,9 +830,9 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.product.v1.ProductRef ProductRefField;
+        private Case3.FEWebwinkel.Product.ProductRef ProductRefField;
         
-        private schemaswwwkantilevernl.common.fouten.v1.FoutMelding FoutMeldingField;
+        private Case3.FEWebwinkel.Fouten.FoutMelding FoutMeldingField;
         
         private bool SuccessField;
         
@@ -849,7 +849,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public schemaswwwkantilevernl.bscatalogusbeheer.product.v1.ProductRef ProductRef
+        public Case3.FEWebwinkel.Product.ProductRef ProductRef
         {
             get
             {
@@ -862,7 +862,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public schemaswwwkantilevernl.common.fouten.v1.FoutMelding FoutMelding
+        public Case3.FEWebwinkel.Fouten.FoutMelding FoutMelding
         {
             get
             {
@@ -888,7 +888,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.productupdate.v1
         }
     }
 }
-namespace schemaswwwkantilevernl.bscatalogusbeheer.product.v1
+namespace Case3.FEWebwinkel.Product
 {
     using System.Runtime.Serialization;
     
@@ -919,7 +919,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.product.v1
         
         private System.Nullable<decimal> PrijsField;
         
-        private schemaswwwkantilevernl.bscatalogusbeheer.categorie.v1.CategorieCollection CategorieLijstField;
+        private Case3.FEWebwinkel.Categorie.CategorieCollection CategorieLijstField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -1051,7 +1051,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.product.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-        public schemaswwwkantilevernl.bscatalogusbeheer.categorie.v1.CategorieCollection CategorieLijst
+        public Case3.FEWebwinkel.Categorie.CategorieCollection CategorieLijst
         {
             get
             {
@@ -1118,11 +1118,11 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.product.v1
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ItemName="Product")]
-    public class ProductCollection : System.Collections.Generic.List<schemaswwwkantilevernl.bscatalogusbeheer.product.v1.Product>
+    public class ProductCollection : System.Collections.Generic.List<Case3.FEWebwinkel.Product.Product>
     {
     }
 }
-namespace schemaswwwkantilevernl.bscatalogusbeheer.categorie.v1
+namespace Case3.FEWebwinkel.Categorie
 {
     using System.Runtime.Serialization;
     
@@ -1130,7 +1130,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.categorie.v1
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CategorieCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ItemName="Categorie")]
-    public class CategorieCollection : System.Collections.Generic.List<schemaswwwkantilevernl.bscatalogusbeheer.categorie.v1.Categorie>
+    public class CategorieCollection : System.Collections.Generic.List<Case3.FEWebwinkel.Categorie.Categorie>
     {
     }
     
@@ -1185,7 +1185,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.categorie.v1
         }
     }
 }
-namespace schemaswwwkantilevernl.common.fouten.v1
+namespace Case3.FEWebwinkel.Fouten
 {
     using System.Runtime.Serialization;
     
@@ -1204,7 +1204,7 @@ namespace schemaswwwkantilevernl.common.fouten.v1
         
         private string MeldingField;
         
-        private schemaswwwkantilevernl.common.fouten.v1.FoutErnst NiveauField;
+        private Case3.FEWebwinkel.Fouten.FoutErnst NiveauField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -1258,7 +1258,7 @@ namespace schemaswwwkantilevernl.common.fouten.v1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public schemaswwwkantilevernl.common.fouten.v1.FoutErnst Niveau
+        public Case3.FEWebwinkel.Fouten.FoutErnst Niveau
         {
             get
             {
@@ -1286,7 +1286,7 @@ namespace schemaswwwkantilevernl.common.fouten.v1
         Melding = 2,
     }
 }
-namespace schemaswwwkantilevernl.bscatalogusbeheer.leverancier.v1
+namespace Case3.FEWebwinkel.Leverancier
 {
     using System.Runtime.Serialization;
     
@@ -1294,7 +1294,7 @@ namespace schemaswwwkantilevernl.bscatalogusbeheer.leverancier.v1
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="LeverancierCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1", ItemName="Leverancier")]
-    public class LeverancierCollection : System.Collections.Generic.List<schemaswwwkantilevernl.bscatalogusbeheer.leverancier.v1.Leverancier>
+    public class LeverancierCollection : System.Collections.Generic.List<Case3.FEWebwinkel.Leverancier.Leverancier>
     {
     }
     
@@ -1357,34 +1357,34 @@ public interface ICatalogusBeheer
 {
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/UpdateCatalogus", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/UpdateCatalogusResponse")]
-    schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgUpdateCatalogusResult UpdateCatalogus(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgUpdateCatalogusRequest message);
+    Case3.FEWebwinkel.Messages.MsgUpdateCatalogusResult UpdateCatalogus(Case3.FEWebwinkel.Messages.MsgUpdateCatalogusRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/UpdateCatalogus", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/UpdateCatalogusResponse")]
-    System.Threading.Tasks.Task<schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgUpdateCatalogusResult> UpdateCatalogusAsync(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgUpdateCatalogusRequest message);
+    System.Threading.Tasks.Task<Case3.FEWebwinkel.Messages.MsgUpdateCatalogusResult> UpdateCatalogusAsync(Case3.FEWebwinkel.Messages.MsgUpdateCatalogusRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductById", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductByIdResponse")]
-    schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductByIdResult FindProductById(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductByIdRequest message);
+    Case3.FEWebwinkel.Messages.MsgFindProductByIdResult FindProductById(Case3.FEWebwinkel.Messages.MsgFindProductByIdRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductById", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductByIdResponse")]
-    System.Threading.Tasks.Task<schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductByIdResult> FindProductByIdAsync(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductByIdRequest message);
+    System.Threading.Tasks.Task<Case3.FEWebwinkel.Messages.MsgFindProductByIdResult> FindProductByIdAsync(Case3.FEWebwinkel.Messages.MsgFindProductByIdRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProducts", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductsResponse")]
-    schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductsResult FindProducts(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductsRequest message);
+    Case3.FEWebwinkel.Messages.MsgFindProductsResult FindProducts(Case3.FEWebwinkel.Messages.MsgFindProductsRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProducts", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductsResponse")]
-    System.Threading.Tasks.Task<schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductsResult> FindProductsAsync(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductsRequest message);
+    System.Threading.Tasks.Task<Case3.FEWebwinkel.Messages.MsgFindProductsResult> FindProductsAsync(Case3.FEWebwinkel.Messages.MsgFindProductsRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindLeveranciers", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindLeveranciersResponse")]
-    schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindLeveranciersResult FindLeveranciers(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindLeveranciersRequest message);
+    Case3.FEWebwinkel.Messages.MsgFindLeveranciersResult FindLeveranciers(Case3.FEWebwinkel.Messages.MsgFindLeveranciersRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindLeveranciers", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindLeveranciersResponse")]
-    System.Threading.Tasks.Task<schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindLeveranciersResult> FindLeveranciersAsync(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindLeveranciersRequest message);
+    System.Threading.Tasks.Task<Case3.FEWebwinkel.Messages.MsgFindLeveranciersResult> FindLeveranciersAsync(Case3.FEWebwinkel.Messages.MsgFindLeveranciersRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindCategorieen", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindCategorieenResponse")]
-    schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindCategorieenResult FindCategorieen(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindCategorieenRequest message);
+    Case3.FEWebwinkel.Messages.MsgFindCategorieenResult FindCategorieen(Case3.FEWebwinkel.Messages.MsgFindCategorieenRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindCategorieen", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindCategorieenResponse")]
-    System.Threading.Tasks.Task<schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindCategorieenResult> FindCategorieenAsync(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindCategorieenRequest message);
+    System.Threading.Tasks.Task<Case3.FEWebwinkel.Messages.MsgFindCategorieenResult> FindCategorieenAsync(Case3.FEWebwinkel.Messages.MsgFindCategorieenRequest message);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1421,52 +1421,52 @@ public partial class CatalogusBeheerClient : System.ServiceModel.ClientBase<ICat
     {
     }
     
-    public schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgUpdateCatalogusResult UpdateCatalogus(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgUpdateCatalogusRequest message)
+    public Case3.FEWebwinkel.Messages.MsgUpdateCatalogusResult UpdateCatalogus(Case3.FEWebwinkel.Messages.MsgUpdateCatalogusRequest message)
     {
         return base.Channel.UpdateCatalogus(message);
     }
     
-    public System.Threading.Tasks.Task<schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgUpdateCatalogusResult> UpdateCatalogusAsync(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgUpdateCatalogusRequest message)
+    public System.Threading.Tasks.Task<Case3.FEWebwinkel.Messages.MsgUpdateCatalogusResult> UpdateCatalogusAsync(Case3.FEWebwinkel.Messages.MsgUpdateCatalogusRequest message)
     {
         return base.Channel.UpdateCatalogusAsync(message);
     }
     
-    public schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductByIdResult FindProductById(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductByIdRequest message)
+    public Case3.FEWebwinkel.Messages.MsgFindProductByIdResult FindProductById(Case3.FEWebwinkel.Messages.MsgFindProductByIdRequest message)
     {
         return base.Channel.FindProductById(message);
     }
     
-    public System.Threading.Tasks.Task<schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductByIdResult> FindProductByIdAsync(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductByIdRequest message)
+    public System.Threading.Tasks.Task<Case3.FEWebwinkel.Messages.MsgFindProductByIdResult> FindProductByIdAsync(Case3.FEWebwinkel.Messages.MsgFindProductByIdRequest message)
     {
         return base.Channel.FindProductByIdAsync(message);
     }
     
-    public schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductsResult FindProducts(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductsRequest message)
+    public Case3.FEWebwinkel.Messages.MsgFindProductsResult FindProducts(Case3.FEWebwinkel.Messages.MsgFindProductsRequest message)
     {
         return base.Channel.FindProducts(message);
     }
     
-    public System.Threading.Tasks.Task<schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductsResult> FindProductsAsync(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindProductsRequest message)
+    public System.Threading.Tasks.Task<Case3.FEWebwinkel.Messages.MsgFindProductsResult> FindProductsAsync(Case3.FEWebwinkel.Messages.MsgFindProductsRequest message)
     {
         return base.Channel.FindProductsAsync(message);
     }
     
-    public schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindLeveranciersResult FindLeveranciers(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindLeveranciersRequest message)
+    public Case3.FEWebwinkel.Messages.MsgFindLeveranciersResult FindLeveranciers(Case3.FEWebwinkel.Messages.MsgFindLeveranciersRequest message)
     {
         return base.Channel.FindLeveranciers(message);
     }
     
-    public System.Threading.Tasks.Task<schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindLeveranciersResult> FindLeveranciersAsync(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindLeveranciersRequest message)
+    public System.Threading.Tasks.Task<Case3.FEWebwinkel.Messages.MsgFindLeveranciersResult> FindLeveranciersAsync(Case3.FEWebwinkel.Messages.MsgFindLeveranciersRequest message)
     {
         return base.Channel.FindLeveranciersAsync(message);
     }
     
-    public schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindCategorieenResult FindCategorieen(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindCategorieenRequest message)
+    public Case3.FEWebwinkel.Messages.MsgFindCategorieenResult FindCategorieen(Case3.FEWebwinkel.Messages.MsgFindCategorieenRequest message)
     {
         return base.Channel.FindCategorieen(message);
     }
     
-    public System.Threading.Tasks.Task<schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindCategorieenResult> FindCategorieenAsync(schemaswwwkantilevernl.bscatalogusbeheer.messages.v1.MsgFindCategorieenRequest message)
+    public System.Threading.Tasks.Task<Case3.FEWebwinkel.Messages.MsgFindCategorieenResult> FindCategorieenAsync(Case3.FEWebwinkel.Messages.MsgFindCategorieenRequest message)
     {
         return base.Channel.FindCategorieenAsync(message);
     }

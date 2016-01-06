@@ -75,8 +75,16 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>svcutil ^
+  /out:$(ProjectDir)DTO\BSCatalogusBeheer.cs ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1,Case3.FEWebwinkel.Messages" ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1,Case3.FEWebwinkel.ProductUpdate" ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.FEWebwinkel.Product" ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.FEWebwinkel.Categorie" ^
+ /n:"urn:schemas-www-kantilever-nl:common:fouten:v1,Case3.FEWebwinkel.Fouten" ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1,Case3.FEWebwinkel.Leverancier" ^
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\Kantilever.ServiceBus\Contract\BSCatalogusBeheer\V1\ICatalogusBeheer.V1.wsdl"
+</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
