@@ -1,6 +1,10 @@
 ﻿body {
-    padding-top: 50px;
     padding-bottom: 20px;
+    font-family: Calibri!important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+ font-family: Calibri!important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +25,27 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.banner {
+    width: 100%;
+    height: auto;
+}
+
+.banner > img {
+    width: 100%;
+    height: auto;
+}
+
+.navbar-brand {
+    font-family: 'Vladimir Script';
+    font-size: 40px;
+}
+
+.navbar-inverse, .btn {
+       background-color: rgb(170,177,228)!important;
+       border-color: rgba(0, 0, 0, 0.17)!important;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a, .btn {
+    color: black!important;
 }
