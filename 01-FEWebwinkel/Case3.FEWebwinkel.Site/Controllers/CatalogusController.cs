@@ -13,12 +13,48 @@ namespace Case3.FEWebwinkel.Site.Controllers
         public ActionResult Index()
         {
 
-            //var a = new CatalogusViewModel() { Naam = "test", Afbeelding="" } 
+            var a = new Product.Product() {
+                Naam = "Test",
+                AfbeeldingURL = "http://t1.gstatic.com/images?q=tbn:ANd9GcRZUowFEn9dqtFvBQbopf7V922QlsDuYe0B4nMuLCrn8wsNQqVjeKJsLWQ",
+                LeverancierNaam = "Gazelle",
+                Prijs = 421.422M,
+                Id = 1
+            };
+            
+            var b = new Product.Product()
+            {
+                Naam = "Test",
+                AfbeeldingURL = "http://t1.gstatic.com/images?q=tbn:ANd9GcRZUowFEn9dqtFvBQbopf7V922QlsDuYe0B4nMuLCrn8wsNQqVjeKJsLWQ",
+                LeverancierNaam = "Gazelle",
+                Prijs = 421.422M,
+                Id = 1
+            };
+            var c = new Product.Product()
+            {
+                Naam = "Test",
+                AfbeeldingURL = "http://t1.gstatic.com/images?q=tbn:ANd9GcRZUowFEn9dqtFvBQbopf7V922QlsDuYe0B4nMuLCrn8wsNQqVjeKJsLWQ",
+                LeverancierNaam = "Gazelle",
+                Prijs = 421.422M,
+                Id = 1
+            };
+            var d = new Product.Product()
+            {
+                Naam = "Test",
+                AfbeeldingURL = "http://t1.gstatic.com/images?q=tbn:ANd9GcRZUowFEn9dqtFvBQbopf7V922QlsDuYe0B4nMuLCrn8wsNQqVjeKJsLWQ",
+                LeverancierNaam = "Gazelle",
+                Prijs = 421.422M,
+                Id = 1
+            };
 
-            //List<CatalogusViewModel> lijst = new List<CatalogusViewModel>();
+            List<Product.Product> lijst = new List<Product.Product>();
+
+            lijst.Add(a);
+            lijst.Add(b);
+            lijst.Add(c);
+            lijst.Add(d);
 
 
-            return View();
+            return View(lijst);
         }
     }
 }

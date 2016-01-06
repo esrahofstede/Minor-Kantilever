@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Case3.FEWebwinkel.Product.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Catalogus</h2>
+
+<div class="catalog-section">
+    @foreach (var item in Model)
+    {
+        <div class="catalog-product">
+            <div class="img-wrapper">
+                <img src="@Html.DisplayFor(modelItem => item.AfbeeldingURL)" />
+            </div>
+            <div class="info-wrapper">
+                <p>
+                    @Html.DisplayFor(modelItem => item.Naam)
+                </p>
+                <p>
+
+                    @Html.DisplayFor(modelItem => item.LeverancierNaam)
+                </p>
+                <p>
+                    &#8364 @Html.DisplayFor(modelItem => item.Prijs)
+                </p>
+                <p>
+                    10 in voorraad
+                </p>
+            </div>
+        </div>
+    }
+    @foreach (var item in Model)
+    {
+        <div class="catalog-product">
+            <div class="img-wrapper">
+                <img src="@Html.DisplayFor(modelItem => item.AfbeeldingURL)" />
+            </div>
+            <div class="info-wrapper">
+                <p>
+                    @Html.DisplayFor(modelItem => item.Naam)
+                </p>
+                <p>
+
+                    @Html.DisplayFor(modelItem => item.LeverancierNaam)
+                </p>
+                <p>
+                    &#8364 @Html.DisplayFor(modelItem => item.Prijs)
+                </p>
+                <p>
+                    10 in voorraad
+                </p>
+            </div>
+        </div>
+    }
+</div>
