@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Minor.ServiceBus.Agent.Implementation;
 using System.Web.Mvc;
+using Case3.FEWebwinkel.Messages;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
@@ -14,11 +15,14 @@ namespace Case3.FEWebwinkel.Site.Controllers
         public ActionResult Index()
         {
             
+
+            
+
             /*ICatalogusBeheer agent = _factory.CreateAgent();
             MsgFindProductsResult result = agent.FindProducts(new MsgFindProductsRequest());
 
-            ViewBag.Products = result.Products;*/
-
+            ViewBag.Products = result.Products;
+            */
 
 
             /*ICatalogusBeheer catalogusBeheerClientProxy = new CatalogusBeheerClient("", "http://minorbldsrv:4000/Design_Time_Addresses/Kantilever/BSCatalogusBeheer/");
