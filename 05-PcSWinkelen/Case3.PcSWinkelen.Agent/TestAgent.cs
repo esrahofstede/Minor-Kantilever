@@ -10,14 +10,14 @@ namespace Case3.PcSWinkelen.Agent
 {
     public class TestAgent
     {
-        private ServiceFactory<IService> _factory;
+        private ServiceFactory<IBSVoorraadBeheer> _factory;
 
         /// <summary>
         /// Standaard constructor die een nieuwe ServiceFactory maakt voor de ISRDWService
         /// </summary>
         public TestAgent()
         {
-            _factory = new ServiceFactory<IService>("IServiceNaam");
+            _factory = new ServiceFactory<IBSVoorraadBeheer>("BSVoorraadBeheer");
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace Case3.PcSWinkelen.Agent
         /// Niet CLS compliant omdat de servicefactory generic is
         /// </summary>
         /// <param name="factory"></param>
-        public TestAgent(ServiceFactory<IService> factory)
+        public TestAgent(ServiceFactory<IBSVoorraadBeheer> factory)
         {
             _factory = factory;
         }
@@ -48,7 +48,7 @@ namespace Case3.PcSWinkelen.Agent
         /// <summary>
         /// to be replaced by a real service
         /// </summary>
-        public interface IService
+        public interface IBSVoorraadBeheer
         {
             string TestMethod();
         }

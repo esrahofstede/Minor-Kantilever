@@ -9,6 +9,8 @@ namespace Case3.PcSWinkelen.Agent.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            TestAgent agent = new TestAgent();
+            agent.SenndSomething();
         }
     }
 }
