@@ -10,7 +10,7 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
 {
     public class BSCatalogusBeheerAgentMock : IBSCatalogusBeheerAgent
     {
-        public List<Product> GetProducts(int page, int pageSize)
+        public IEnumerable<Product> GetProducts(int page, int pageSize)
         {
             List<Product> products = new List<Product>()
             {

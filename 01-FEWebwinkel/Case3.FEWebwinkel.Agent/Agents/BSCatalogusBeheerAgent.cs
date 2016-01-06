@@ -17,7 +17,7 @@ namespace Case3.FEWebwinkel.Agent
             _agent = _factory.CreateAgent();
         }
 
-        public List<Product> GetProducts(int page, int pageSize)
+        public IEnumerable<Product> GetProducts(int page, int pageSize)
         {
             MsgFindProductsResult result = _agent.FindProducts(new MsgFindProductsRequest() { Page = page, PageSize = pageSize });
             return result.Products;

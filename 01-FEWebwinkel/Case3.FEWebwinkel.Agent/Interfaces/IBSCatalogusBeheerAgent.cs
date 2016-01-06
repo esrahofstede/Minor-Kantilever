@@ -5,6 +5,6 @@ namespace Case3.FEWebwinkel.Agent.Interfaces
 {
     public interface IBSCatalogusBeheerAgent
     {
-        List<Product> GetProducts(int page, int pageSize);
+        IEnumerable<Product> GetProducts(int page, int pageSize);
     }
 }
