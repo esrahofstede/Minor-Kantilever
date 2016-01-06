@@ -5,16 +5,7 @@ namespace Case3.BTWConfigurationReader
     public class BTWCalculator
     {
         private BTWConfigReader _configReader;
-        /// <summary>
-        /// This property returns the BTW percentage in the ConfigFile
-        /// </summary>
-        public decimal BTWPercentage
-        {
-            get
-            {
-                return _configReader.GetBTWPercentage();
-            }
-        }
+
         /// <summary>
         /// This constructor is the default constructor
         /// </summary>
@@ -30,6 +21,17 @@ namespace Case3.BTWConfigurationReader
         public BTWCalculator(BTWConfigReader configReader)
         {
             _configReader = configReader;
+        }
+
+        /// <summary>
+        /// This property returns the BTW percentage in the ConfigFile
+        /// </summary>
+        public decimal BTWPercentage
+        {
+            get
+            {
+                return _configReader.GetBTWPercentage();
+            }
         }
 
         /// <summary>
