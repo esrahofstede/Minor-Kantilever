@@ -11,13 +11,16 @@ using System.Text;
 
 namespace Minor.ServiceBus.PfSLocatorService.Implementation
 {
+    /// <summary>
+    /// This class can find a mex address for a service
+    /// </summary>
     public class ServiceLocatorService : Contract.IServiceLocatorService
     {
         private DAL.IServiceLocationDataMapper _datamapper;
 
         public ServiceLocatorService()
         {
-            _datamapper = new ServiceLocationXMLDataMapper("../../../Minor.ServiceBus.PfSLocatorService.DAL/XML/locationData.xml");
+            _datamapper = new ServiceLocationXMLDataMapper();
         }
 
         public ServiceLocatorService(DAL.IServiceLocationDataMapper datamapper)
@@ -25,6 +28,11 @@ namespace Minor.ServiceBus.PfSLocatorService.Implementation
             _datamapper = datamapper;
         }
 
+        /// <summary>
+        /// Finds the metadata endpoint address of a service
+        /// </summary>
+        /// <param name="serviceLocation">A ServiceLocation object that includes a name, profile and version of a service</param>
+        /// <returns>The mex address of the service as a string. Or an exception.</returns>
         public string FindMetadataEndpointAddress(Contract.DTO.ServiceLocation serviceLocation)
         {
             FunctionalErrorList errorList = new FunctionalErrorList();

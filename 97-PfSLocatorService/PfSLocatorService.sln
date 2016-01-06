@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02 - Host", "Minor.ServiceBus.PfSLocatorService.Host\02 - Host.csproj", "{40471274-D4EA-441D-90B9-1CFE5BC8EFEC}"
 EndProject
@@ -19,34 +19,49 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07 - Integratie", "Minor.Se
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Acceptatie|Any CPU = Acceptatie|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40471274-D4EA-441D-90B9-1CFE5BC8EFEC}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
+		{40471274-D4EA-441D-90B9-1CFE5BC8EFEC}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
 		{40471274-D4EA-441D-90B9-1CFE5BC8EFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{40471274-D4EA-441D-90B9-1CFE5BC8EFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40471274-D4EA-441D-90B9-1CFE5BC8EFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40471274-D4EA-441D-90B9-1CFE5BC8EFEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FAA9DB8-1DB2-4085-A126-6A8EEEB1722B}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
+		{4FAA9DB8-1DB2-4085-A126-6A8EEEB1722B}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
 		{4FAA9DB8-1DB2-4085-A126-6A8EEEB1722B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4FAA9DB8-1DB2-4085-A126-6A8EEEB1722B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FAA9DB8-1DB2-4085-A126-6A8EEEB1722B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FAA9DB8-1DB2-4085-A126-6A8EEEB1722B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A19D2502-C95D-4B17-955C-8D96D287303D}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
+		{A19D2502-C95D-4B17-955C-8D96D287303D}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
 		{A19D2502-C95D-4B17-955C-8D96D287303D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A19D2502-C95D-4B17-955C-8D96D287303D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A19D2502-C95D-4B17-955C-8D96D287303D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A19D2502-C95D-4B17-955C-8D96D287303D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA5AFBE4-8679-4504-B5A4-98B98319D9E1}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
+		{CA5AFBE4-8679-4504-B5A4-98B98319D9E1}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
 		{CA5AFBE4-8679-4504-B5A4-98B98319D9E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA5AFBE4-8679-4504-B5A4-98B98319D9E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA5AFBE4-8679-4504-B5A4-98B98319D9E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA5AFBE4-8679-4504-B5A4-98B98319D9E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737B11BC-A3B7-47E7-A732-B46FF142DAA4}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
+		{737B11BC-A3B7-47E7-A732-B46FF142DAA4}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
 		{737B11BC-A3B7-47E7-A732-B46FF142DAA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{737B11BC-A3B7-47E7-A732-B46FF142DAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{737B11BC-A3B7-47E7-A732-B46FF142DAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{737B11BC-A3B7-47E7-A732-B46FF142DAA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9EAF28B-951E-49D9-B23B-662BEEE0F6CF}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
+		{D9EAF28B-951E-49D9-B23B-662BEEE0F6CF}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
 		{D9EAF28B-951E-49D9-B23B-662BEEE0F6CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D9EAF28B-951E-49D9-B23B-662BEEE0F6CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9EAF28B-951E-49D9-B23B-662BEEE0F6CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9EAF28B-951E-49D9-B23B-662BEEE0F6CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09040010-989C-42E5-8D4B-045B3DB68F41}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
+		{09040010-989C-42E5-8D4B-045B3DB68F41}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
 		{09040010-989C-42E5-8D4B-045B3DB68F41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{09040010-989C-42E5-8D4B-045B3DB68F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09040010-989C-42E5-8D4B-045B3DB68F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
