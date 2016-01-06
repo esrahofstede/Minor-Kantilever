@@ -60,7 +60,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BSCatalogusBeheerAgentTest.cs" />
-    <Compile Include="Mocks\BSCatalogusBeheerAgentMock.cs" />
+    <Compile Include="Mocks\CatalogusBeheerMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

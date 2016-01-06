@@ -16,7 +16,7 @@ namespace Case3.FEWebwinkel.Agent.Tests
             // Arrange
 
             // Act
-            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent(new CatalogusBeheerMock());
 
             // Assert
             Assert.IsNotNull(bSCatalogusBeheerAgent);
@@ -26,7 +26,7 @@ namespace Case3.FEWebwinkel.Agent.Tests
         public void FindProductsReturnsList()
         {
             // Arrange
-            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent(new CatalogusBeheerMock());
 
             // Act
             var products = bSCatalogusBeheerAgent.GetProducts();
@@ -39,7 +39,7 @@ namespace Case3.FEWebwinkel.Agent.Tests
         public void FindProductsReturnsListCount3()
         {
             // Arrange
-            BSCatalogusBeheerAgentMock bSCatalogusBeheerAgent = new BSCatalogusBeheerAgentMock();
+            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent(new CatalogusBeheerMock());
 
             // Act
             List<Product> products = bSCatalogusBeheerAgent.GetProducts();
@@ -53,7 +53,7 @@ namespace Case3.FEWebwinkel.Agent.Tests
         public void FindProductsIsProduct1ReallyProduct1()
         {
             // Arrange
-            BSCatalogusBeheerAgentMock bSCatalogusBeheerAgent = new BSCatalogusBeheerAgentMock();
+            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent(new CatalogusBeheerMock());
 
             // Act
             List<Product> products = bSCatalogusBeheerAgent.GetProducts();
