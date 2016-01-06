@@ -28,6 +28,11 @@ namespace Minor.ServiceBus.PfSLocatorService.DAL
             }
         }
 
+        public ServiceLocationXMLDataMapper()
+        {
+            _filePath = "locationData.xml";
+        }
+
         public string FindMetadataEndpointAddress(string name, string profile)
         {
             return GetMetaDataEndPointAdress(name, profile);
@@ -66,7 +71,7 @@ namespace Minor.ServiceBus.PfSLocatorService.DAL
         {
             string test = Directory.GetCurrentDirectory();
             string relativePath = Path.Combine(Directory.GetCurrentDirectory(), _filePath);
-            relativePath = MakeAbsolutePath("locationData.xml");
+            relativePath = MakeAbsolutePath(_filePath);
 
             XmlSerializer serializer = new XmlSerializer(typeof(locationData));
             using (StreamReader reader = new StreamReader(relativePath))

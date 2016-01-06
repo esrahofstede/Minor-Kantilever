@@ -17,7 +17,7 @@ namespace Minor.ServiceBus.PfSLocatorService.Implementation
 
         public ServiceLocatorService()
         {
-            _datamapper = new ServiceLocationXMLDataMapper("../../../Minor.ServiceBus.PfSLocatorService.DAL/XML/locationData.xml");
+            _datamapper = new ServiceLocationXMLDataMapper();
         }
 
         public ServiceLocatorService(DAL.IServiceLocationDataMapper datamapper)
