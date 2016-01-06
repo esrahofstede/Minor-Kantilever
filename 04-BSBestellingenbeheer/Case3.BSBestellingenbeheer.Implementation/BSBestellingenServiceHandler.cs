@@ -9,9 +9,10 @@ namespace Case3.BSBestellingenbeheer.Implementation
 {
     public class BSBestellingenServiceHandler : IBSBestellingenbeheerService
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1305:SpecifyIFormatProvider", MessageId = "System.String.Format(System.String,System.Object)")]
         public string SayHelloTest(string name)
         {
-            return $"Hello {name}";
+            return "Hello" + name;
         }
     }
 }
