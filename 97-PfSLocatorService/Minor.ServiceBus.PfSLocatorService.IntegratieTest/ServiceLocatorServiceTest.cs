@@ -41,8 +41,8 @@ namespace Minor.ServiceBus.PfSLocatorService.IntegratieTest
         //{
         //    ServiceLocation serviceLocation = new ServiceLocation
         //    {
-        //        Name = "PcSPlanningmaken",
-        //        Profile = "Acceptation"
+        //        Name = "BSVoorraadBeheer",
+        //        Profile = "Development"
         //    };
         //    EndpointAddress address = new EndpointAddress("net.pipe://localhost/ServiceLocatorService");
         //    Binding binding = new NetNamedPipeBinding();
@@ -53,7 +53,7 @@ namespace Minor.ServiceBus.PfSLocatorService.IntegratieTest
 
         //    string uri = proxy.FindMetadataEndpointAddress(serviceLocation);
 
-        //    Assert.AreEqual("http://infosupport.test/CAS", uri);
+        //    Assert.AreEqual("http://localhost:4001/Design_Time_Addresses/Kantilever/BSVoorraadBeheer/mex", uri);
         //}
     }
 }
