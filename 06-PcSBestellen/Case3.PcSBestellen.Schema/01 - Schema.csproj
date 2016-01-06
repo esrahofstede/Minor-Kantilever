@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\BSBestellingenbeheerTypes.cs" />
+    <Compile Include="DTO\BSKlantbeheerTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,7 +62,23 @@
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>svcutil.exe ^
+   /dconly ^
+   /out:$(ProjectDir)/DTO/BSKlantbeheerTypes.cs ^
+   /n:"urn:case3-bdklantbeheer:v1:messages,Case3.BSKlantbeheer.V1.Messages" ^
+   /n:"urn:case3-bdklantbeheer:v1:schema,Case3.BSKlantbeheer.V1.Schema" ^
+   "$(SolutionDir)..\99-Shared\CanonicalDataModel\03-BSKlantbeheer\Schema\*.xsd"
+
+svcutil.exe ^
+   /dconly ^
+   /out:$(ProjectDir)/DTO/BSBestellingenbeheerTypes.cs ^
+   /n:"urn:case3-bdbestellingenbeheer:v1:messages,Case3.BSBestellingenbeheer.V1.Messages" ^
+   /n:"urn:case3-bdbestellingenbeheer:v1:schema,Case3.BSBestellingenbeheer.V1.Schema" ^
+   "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\*.xsd"</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

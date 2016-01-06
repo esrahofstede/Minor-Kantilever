@@ -4,5 +4,15 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:k="urn:case3-bsklantbeheer:v1:schema"
 >
+  <xs:complexType name="Auto">
+    <xs:sequence>
+      <xs:element name="Merk" type="xs:string" />
+      <xs:element name="Type" type="xs:string" />
+      <xs:element name="Kenteken" type="xs:string" />
+      <xs:element name="Kleur" type="xs:string" />
+      <xs:element name="Id" type="xs:long" />
+      <xs:element name="KlantID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
 
 </xs:schema>
