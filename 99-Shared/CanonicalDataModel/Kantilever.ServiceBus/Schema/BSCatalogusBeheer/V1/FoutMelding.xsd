@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:schemas-www-kantilever-nl:common:fouten:v1" targetNamespace="urn:schemas-www-kantilever-nl:common:fouten:v1" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:include schemaLocation="FoutErnst.xsd"/>
+	<xs:complexType name="FoutMelding">
+		<xs:sequence>
+			<xs:element name="Bron" type="xs:string" />
+			<xs:element name="Nummer" type="xs:int" />
+			<xs:element name="Melding" type="xs:string"/>
+			<xs:element name="Niveau" type="tns:FoutErnst"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

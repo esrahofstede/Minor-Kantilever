@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1" xmlns:p="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" xmlns:v="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1" xmlns:uv="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1" targetNamespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1" xmlns:f="urn:schemas-www-kantilever-nl:common:fouten:v1" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" schemaLocation="..\..\BSCatalogusBeheer\V1\ProductRef.xsd"/>
+	<xs:import namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1" schemaLocation="ProductVoorraad.xsd"/>
+	<xs:import namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1" schemaLocation="UpdateProductVoorraad.xsd"/>
+		<xs:import namespace="urn:schemas-www-kantilever-nl:common:fouten:v1" schemaLocation="..\..\Common\V1\FoutMelding.xsd"/>
+	<xs:complexType name="MsgUpdateVoorraadRequest">
+		<xs:sequence>
+			<xs:element name="Product" type="p:ProductRef" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Update" type="uv:UpdateProductVoorraad" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MsgUpdateVoorraadResult">
+		<xs:sequence>
+
+			<xs:element name="ProductVoorraad" type="v:ProductVoorraad" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Succes" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Foutmelding" type="f:FoutMelding" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MsgFindVoorraadRequest">
+		<xs:sequence>
+			<xs:element name="Product" type="p:ProductRef" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MsgFindVoorraadResult">
+		<xs:sequence>
+
+			<xs:element name="ProductVoorraad" type="v:ProductVoorraad" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Succes" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Foutmelding" type="f:FoutMelding" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

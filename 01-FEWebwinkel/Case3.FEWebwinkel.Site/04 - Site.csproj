@@ -51,9 +51,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Minor.ServiceBus.Agent.Implementation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=73e451069382071b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Minor.Caespi.ServiceBus.Agent.1.0.0.3\lib\net452\Minor.ServiceBus.Agent.Implementation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -212,7 +218,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -260,6 +268,19 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Case3.FEWebwinkel.Agent\02 - Agent.csproj">
+      <Project>{4ee01468-f2cf-4244-acdb-667440989277}</Project>
+      <Name>02 - Agent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.FEWebwinkel.Schema\01 - Schema.csproj">
+      <Project>{2a4b79e8-2e92-4e56-90eb-bc9b66d6373e}</Project>
+      <Name>01 - Schema</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
