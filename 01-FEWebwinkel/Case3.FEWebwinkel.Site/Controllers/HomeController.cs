@@ -4,32 +4,27 @@ using System.Linq;
 using System.Web;
 using Minor.ServiceBus.Agent.Implementation;
 using System.Web.Mvc;
-using Case3.FEWebwinkel.Messages;
+using Case3.FEWebwinkel.Schema.Messages;
+using Case3.FEWebwinkel.Agent;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
     public class HomeController : Controller
     {
-        //private ServiceFactory<ICatalogusBeheer> _factory;
 
         public ActionResult Index()
         {
-            
-
-            
-
-            /*ICatalogusBeheer agent = _factory.CreateAgent();
-            MsgFindProductsResult result = agent.FindProducts(new MsgFindProductsRequest());
-
-            ViewBag.Products = result.Products;
-            */
 
 
-            /*ICatalogusBeheer catalogusBeheerClientProxy = new CatalogusBeheerClient("", "http://minorbldsrv:4000/Design_Time_Addresses/Kantilever/BSCatalogusBeheer/");
-            MsgFindProductsRequest findProductRequestMessage = new MsgFindProductsRequest();
-            MsgFindProductsResult findProductResultMessage = catalogusBeheerClientProxy.FindProducts(findProductRequestMessage);
-            */
+            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            try
+            {
+                ViewBag.Products = bSCatalogusBeheerAgent.GetProducts(1, 20);
+            }
+            catch
+            {
 
+            }
 
             return View();
         }
