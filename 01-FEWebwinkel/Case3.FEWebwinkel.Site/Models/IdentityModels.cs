@@ -21,7 +21,7 @@ namespace Case3.FEWebwinkel.Site.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("FEWebwinkelDB", throwIfV1Schema: false)
         {
         }
 
