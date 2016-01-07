@@ -29,14 +29,10 @@ textarea {
 
 div.catalog-section {
     display:flex;
-    justify-content:space-between;
+    justify-content:flex-start;
     flex-wrap:wrap;
 }
-@media all and (max-width: 991px) {
-    div.catalog-section {
-        justify-content:space-around;
-    } 
-}
+
 .catalog-product {
     border:solid black 1px;
     margin-bottom: 15px;  

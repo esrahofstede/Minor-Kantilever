@@ -8,9 +8,7 @@ namespace Case3.FEWebwinkel.Site.ViewModels
         public string Naam { get; set; }
         public decimal? Prijs { get; set; }
         public int Voorraad { get; set; }
-        public string Afbeeldingslocatie {
-            get { return "../Content/Product_img/" + Afbeeldingslocatie; }
-            set { Afbeeldingslocatie = value; } }
+        public string Afbeeldingslocatie { get; set; }
         public string Leverancier { get; set; }
     }
 }

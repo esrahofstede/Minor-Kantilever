@@ -1,33 +1,43 @@
-﻿using Case3.FEWebwinkel.Agent;
-using Case3.FEWebwinkel.Schema.Product;
-using Case3.FEWebwinkel.Site.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Case3.FEWebwinkel.Site.Managers;
 using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
     public class CatalogusController : Controller
     {
-        // GET: Catalogus
+        private ICatalogusManager _catalogusManager;
+        /// <summary>
+        /// This constructor is the default constructor
+        /// </summary>
+        public CatalogusController()
+        {
+            _catalogusManager = new CatalogusManager();
+        }
+        /// <summary>
+        /// This constructor is for testing purposes
+        /// </summary>
+        /// <param name="manager">This should be a mock of CatalogusManager</param>
+        public CatalogusController(CatalogusManager manager)
+        {
+            _catalogusManager = manager;
+        }
+        
         public ActionResult Index()
         {
 
-            List<Product> model = new List<Product>();
-            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            //List<Product> model = new List<Product>();
+            //BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
             
             try
             {
                 
-                 model = bSCatalogusBeheerAgent.GetProducts(1, 20);
+                 //model = bSCatalogusBeheerAgent.GetProducts(1, 20);
             }
             catch
             {
 
             }
-
+            var model = _catalogusManager.GetProducts(1, 20);
             return View(model);
         }
     }

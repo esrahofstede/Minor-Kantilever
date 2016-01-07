@@ -17,8 +17,8 @@ namespace Case3.FEWebwinkel.Agent
 
         public PcSWinkelenAgent()
         {
-            _factory = new ServiceFactory<IPcSWinkelenService>("PcSWinkelen");
-            _agent = _factory.CreateAgent();
+            //_factory = new ServiceFactory<IPcSWinkelenService>("PcSWinkelen");
+            //_agent = _factory.CreateAgent();
         }
 
         public PcSWinkelenAgent(IPcSWinkelenService agent)
@@ -28,8 +28,31 @@ namespace Case3.FEWebwinkel.Agent
 
         public CatalogusCollection GetProducts(int page, int pageSize)
         {
-            FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize });
-            return result.Products;
+            //FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize });
+            var catalogusCollection = new CatalogusCollection
+            {
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 1,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
+            };
+            //return result.Products;
+            return catalogusCollection;
         }
 
         public CatalogusCollection GetProducts()
