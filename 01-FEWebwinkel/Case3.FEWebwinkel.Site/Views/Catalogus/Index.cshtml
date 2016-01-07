@@ -10,24 +10,32 @@
     @foreach (var item in Model)
     {
         <div class="catalog-product">
-            <div class="img-wrapper">
-                <img src="@Html.DisplayFor(modelItem => item.AfbeeldingURL)" />
-            </div>
-            <div class="info-wrapper">
-                <p>
-                    @Html.DisplayFor(modelItem => item.Naam)
-                </p>
-                <p>
+            
+            <div class="product-top">
+                <div class="img-wrapper" style="background-image:url(../Content/Product_img/julianax_r_02_yellow_small.gif)">
+                    
+                </div>
+                <div class="info-wrapper">
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Naam)
+                    </p>
+                    <p>
 
-                    @Html.DisplayFor(modelItem => item.LeverancierNaam)
-                </p>
-                <p>
-                    &#8364 @Html.DisplayFor(modelItem => item.Prijs)
-                </p>
-                <p>
-                    10 in voorraad
-                </p>
+                        @Html.DisplayFor(modelItem => item.LeverancierNaam)
+                    </p>
+                    <p>
+                        &#8364 @Html.DisplayFor(modelItem => item.Prijs)
+                    </p>
+                    <p>
+                        10 in voorraad
+                    </p>
+                </div>
             </div>
+
+            <div class="product-bottom">
+                <a href="http://asp.net" class="btn btn-primary">Aan winkelmand toevoegen</a>
+            </div>
+            
         </div>
     }
 

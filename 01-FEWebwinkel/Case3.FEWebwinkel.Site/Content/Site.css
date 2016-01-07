@@ -38,13 +38,43 @@ div.catalog-section {
     } 
 }
 .catalog-product {
-    display: inline-flex;
     border:solid black 1px;
     margin-bottom: 15px;  
+    padding: 5px;
+    margin-left: 15px;
+    max-width: 211px;
+    min-width: 211px;
 }
 
-.catalog-product > .img-wrapper {
-    
+.product-top {
+    display: flex;
+    width:100%;
+    min-height: 109px;
+}
+
+.product-bottom {
+    padding:5px;
+
+}
+
+.product-bottom > .btn {
+    width: 100%;
+    font-size: 12px;
+}
+
+.info-wrapper > p {
+    margin-bottom: 10px!important;
+    line-height: 13px;
+    padding-left: 3px;
+}
+
+.img-wrapper {
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 80px;
+}
 }
 
 .catalog-product > .info-wrapper {
