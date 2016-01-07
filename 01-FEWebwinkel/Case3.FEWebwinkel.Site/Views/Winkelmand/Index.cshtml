@@ -1,0 +1,57 @@
+﻿@model Case3.FEWebwinkel.Site.Models.WinkelmandViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Winkelmand</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Artikel
+        </th>
+        <th>
+            Prijs (incl. BTW)
+        </th>
+        <th>
+            Aantal
+        </th>
+        <th>
+            Totaal (incl. BTW)
+        </th>
+    </tr>
+
+@foreach (var item in Model.Artikelen) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtikelNaam)
+        </td>
+        <td>
+            € @Html.DisplayFor(modelItem => item.Prijs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aantal)
+        </td>
+        <td>
+            € @(item.Prijs * item.Aantal)
+        </td>
+    </tr>
+}
+    <tr>
+        <td class="total"></td>
+        <td class="total"></td>
+        <td class="total">
+            <div class="pull-right">
+                Totaal Excl. BTW: <br />
+                @Model.BTWPercentage% BTW Totaal: <br />
+                Totaal Incl. BTW:
+            </div>
+        </td>
+        <td class="total">
+            € @Model.TotaalExclBTW <br />
+            € @Model.TotaalBTW <br />
+            € @Model.TotaalInclBTW
+        </td>
+    </tr>
+</table>
