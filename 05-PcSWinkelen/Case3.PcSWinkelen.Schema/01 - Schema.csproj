@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\BSCatalogusBeheer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,9 +72,7 @@
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>svcutil ^
