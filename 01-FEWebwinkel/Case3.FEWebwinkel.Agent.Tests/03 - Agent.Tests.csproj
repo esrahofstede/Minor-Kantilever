@@ -59,8 +59,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="BSCatalogusBeheerAgentTest.cs" />
+    <Compile Include="Mocks\CatalogusBeheerMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Case3.FEWebwinkel.Agent\02 - Agent.csproj">
+      <Project>{4EE01468-F2CF-4244-ACDB-667440989277}</Project>
+      <Name>02 - Agent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.FEWebwinkel.Schema\01 - Schema.csproj">
+      <Project>{2a4b79e8-2e92-4e56-90eb-bc9b66d6373e}</Project>
+      <Name>01 - Schema</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Case3.FEWebwinkel.Site.Models;
+using Case3.FEWebwinkel.Site.ViewModels;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {

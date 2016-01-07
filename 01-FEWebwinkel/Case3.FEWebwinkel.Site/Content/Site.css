@@ -27,25 +27,31 @@ textarea {
     max-width: 280px;
 }
 
-.banner {
-    width: 100%;
-    height: auto;
+div.catalog-section {
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+@media all and (max-width: 991px) {
+    div.catalog-section {
+        justify-content:space-around;
+    } 
+}
+.catalog-product {
+    display: inline-flex;
+    border:solid black 1px;
+    margin-bottom: 15px;  
 }
 
-.banner > img {
-    width: 100%;
-    height: auto;
+.catalog-product > .img-wrapper {
+    
 }
 
-.navbar-brand {
-    font-family: 'Vladimir Script';
-    font-size: 40px;
+.catalog-product > .info-wrapper {
+    padding: 8px;
+    border-left: solid black 1px;
 }
 
-.navbar-inverse, .btn {
-       background-color: rgb(170,177,228)!important;
-       border-color: rgba(0, 0, 0, 0.17)!important;
-}
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a, .btn {
-    color: black!important;
+.catalog-product > .info-wrapper > p {
+    margin: 0px 0 3px;
 }

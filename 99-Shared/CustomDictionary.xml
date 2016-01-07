@@ -8,6 +8,9 @@
       <Word>Bestellen</Word>
       <Word>Winkelen</Word>
       <Word>Bestellingen</Word>
+      <Word>Webwinkel</Word>
+      <Word>Catalogus</Word>
+      <Word>Beheer</Word>
     </Recognized>
     <Unrecognized>
     </Unrecognized>
@@ -27,7 +30,9 @@
       <Acronym>Pc</Acronym>
       <Acronym>DAL</Acronym>
       <Acronym>Mvc</Acronym>
-      <Acronym>BTW</Acronym>
+      <Acronym>FE</Acronym>
+      <Acronym>DTO</Acronym>
+
     </CasingExceptions> 
   </Acronyms>
 </Dictionary>
