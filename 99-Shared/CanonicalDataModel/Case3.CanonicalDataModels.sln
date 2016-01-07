@@ -53,6 +53,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commen", "Commen", "{1F8609
 	ProjectSection(SolutionItems) = preProject
 		Common\V1\FoutErnst.xsd = Common\V1\FoutErnst.xsd
 		Common\V1\FoutMelding.xsd = Common\V1\FoutMelding.xsd
+		Common\V1\FunctionalErrorList.xsd = Common\V1\FunctionalErrorList.xsd
 	EndProjectSection
 EndProject
 Global
