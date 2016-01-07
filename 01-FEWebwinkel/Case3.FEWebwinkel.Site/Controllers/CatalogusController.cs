@@ -28,13 +28,25 @@ namespace Case3.FEWebwinkel.Site.Controllers
             //List<Product> model = new List<Product>();
             //BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
             
-            try
+            };
+
+            var b = new CatalogusViewModel()
             {
+                Naam = "test",
+                ID = 1,
+                Afbeeldingslocatie = "test",
+                Leverancier = "yisdbf",
+                Prijs = 12.32M
                 
                  //model = bSCatalogusBeheerAgent.GetProducts(1, 20);
             }
             catch
             {
+                Naam = "test",
+                ID = 1,
+                Afbeeldingslocatie = "test",
+                Leverancier = "yisdbf",
+                Prijs = 12.32M
 
             }
             var model = _catalogusManager.GetProducts(1, 20);
