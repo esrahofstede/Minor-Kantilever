@@ -20,5 +20,8 @@ namespace Case3.PcSWinkelen.Contract
 
         [OperationContract]
         string SayHelloTest(string name);
+
+
+
     }
 }

@@ -78,7 +78,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>svcutil ^
- /dconly ^
+   /dconly ^
  /out:"$(ProjectDir)\DTO\PcSWinkelenTypes.cs" ^
  /namespace:"urn:case3-pcswinkelen:v1:schema,Case3.PcSWinkelen.Schema" ^
  /namespace:"urn:case3-pcswinkelen:v1:messages,Case3.PcSWinkelen.Messages" ^
