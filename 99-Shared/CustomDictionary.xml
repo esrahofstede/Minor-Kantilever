@@ -11,7 +11,14 @@
       <Word>Webwinkel</Word>
       <Word>Catalogus</Word>
       <Word>Beheer</Word>
-    </Recognized>
+      <Word>Afbeeldingslocatie</Word>
+      <Word>Webwinkel</Word>
+      <Word>Prijs</Word>
+      <Word>Leverancier</Word>
+      <Word>Voorraad</Word>
+      <Word>Mvc</Word>
+      <Word>Sms</Word>
+  </Recognized>
     <Unrecognized>
     </Unrecognized>
     <Deprecated>
@@ -27,11 +34,15 @@
   <Acronyms>
     <CasingExceptions>
       <Acronym>XML</Acronym>
+      <Acronym>Mvc</Acronym>
+      <Acronym>MVC</Acronym>
       <Acronym>Pc</Acronym>
       <Acronym>DAL</Acronym>
       <Acronym>Mvc</Acronym>
       <Acronym>FE</Acronym>
       <Acronym>DTO</Acronym>
+      <Acronym>ID</Acronym>
+      <Acronym>SMS</Acronym>
 
     </CasingExceptions> 
   </Acronyms>
