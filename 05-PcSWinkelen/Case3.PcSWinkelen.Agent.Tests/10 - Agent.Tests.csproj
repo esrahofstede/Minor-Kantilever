@@ -55,12 +55,15 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="BSCatalogusBeheerAgentTest.cs" />
+    <Compile Include="Mocks\CatalogusBeheerMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +75,10 @@
     <ProjectReference Include="..\Case3.PcSWinkelen.Agent\09 - Agent.csproj">
       <Project>{a0be951e-3160-4dcb-916b-86d8c348bd91}</Project>
       <Name>09 - Agent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.Schema\01 - Schema.csproj">
+      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
+      <Name>01 - Schema</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
