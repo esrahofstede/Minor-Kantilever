@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1" targetNamespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:include schemaLocation="UpdateActie.xsd" />
+	<xs:complexType name="UpdateProductVoorraad">
+		<xs:sequence>
+			<xs:element name="Actie" type="tns:UpdateActie"/>
+			<xs:element name="Aantal" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
