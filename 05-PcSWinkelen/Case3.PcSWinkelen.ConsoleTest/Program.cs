@@ -1,5 +1,9 @@
-﻿using Case3.PcSWinkelen.Agent.Agents;
+﻿using Case3.BTWConfigurationReader;
+using Case3.PcSWinkelen.Agent.Agents;
+using Case3.PcSWinkelen.Schema.Messages;
 using Case3.PcSWinkelen.Schema.Product;
+using Case3.PcSWinkelen.Schema.Voorraad;
+using Minor.ServiceBus.Agent.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;

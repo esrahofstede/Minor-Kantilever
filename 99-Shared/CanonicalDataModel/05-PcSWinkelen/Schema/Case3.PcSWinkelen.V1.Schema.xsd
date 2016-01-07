@@ -3,6 +3,21 @@
     elementFormDefault="qualified"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:k="urn:case3-pcswinkelen:v1:schema"
+    xmlns:product="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1"
 >
+  <xs:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1"
+              schemaLocation="..\..\BSCatalogusBeheer\V1\Product.xsd" />
 
+  <xs:complexType name="ProductVoorraad">
+    <xs:sequence>
+      <xs:element name="Product" type="product:Product" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Voorraad" type="xs:int" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="CatalogusCollection">
+    <xs:sequence>
+      <xs:element name="CatalogusItem" type="k:ProductVoorraad" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

@@ -55,5 +55,27 @@ namespace Case3.PcSWinkelen.Agent.Agents
             MsgFindProductsResult result = _agent.FindProducts(new MsgFindProductsRequest() { Page = page, PageSize = pageSize });
             return result.Products;
         }
+
+        public IEnumerable<Product> GetProductsWithVoorraad()
+        {
+
+            MsgFindProductsResult result = _agent.FindProducts(new MsgFindProductsRequest() { Page = 1, PageSize = 20 });
+
+            foreach(Product product in result.Products)
+            {
+                // Call VoorraadService
+            }
+            Parallel.ForEach<Product>(result.Products, (product) =>
+            {
+                
+            });
+
+            return result.Products;
+        }
+
+        public IEnumerable<Product> GetProductsWithVoorraad(int page, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
