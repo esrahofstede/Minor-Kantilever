@@ -18,7 +18,7 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
         {
             new Product() {
                 Id = 1,
-                AfbeeldingURL = "http://s.s-bol.com/imgbase0/imagebase/large/FC/4/7/8/6/9200000015506874.jpg",
+                AfbeeldingURL = "9200000015506874.jpg",
                 Beschrijving = "Mooie fietsbel",
                 LeverbaarTot = DateTime.Parse("2016-02-10 10:30:00"),
                 LeverbaarVanaf = DateTime.Parse("2016-01-06 16:00:00"),
@@ -29,18 +29,18 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
             },
             new Product() {
                 Id = 2,
-                AfbeeldingURL = "http://www.hippo-assen.nl/images/zadels.jpg",
+                AfbeeldingURL = "zadels.jpg",
                 Beschrijving = "Mooie zadel",
                 LeverbaarTot = DateTime.Parse("2016-02-10 10:30:00"),
                 LeverbaarVanaf = DateTime.Parse("2016-01-06 16:00:00"),
-                Prijs = 150.00M,
+                Prijs = 200.00M,
                 Naam = "Zadel",
                 LeverancierNaam = "Batavus",
                 LeveranciersProductId = "B001"
             },
             new Product() {
                 Id = 3,
-                AfbeeldingURL = "https://www.damfeestartikelen.nl/image/cache/data/product/main/toeter-600x600.jpg",
+                AfbeeldingURL = "toeter-600x600.jpg",
                 Beschrijving = "Mooie Toeter",
                 LeverbaarTot = DateTime.Parse("2016-02-10 10:30:00"),
                 LeverbaarVanaf = DateTime.Parse("2016-01-06 16:00:00"),
