@@ -8,14 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Messages")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1", ClrNamespace="Case3.PcSWinkelen.Schema.CatalogusMessages")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ClrNamespace="Case3.PcSWinkelen.Schema.ProductUpdate")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Product")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Categorie")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:common:fouten:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Fouten")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Leverancier")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1", ClrNamespace="Case3.PcSWinkelen.Schema.VoorraadMessages")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1", ClrNamespace="Case3.PcSWinkelen.Schema.VoorraadUpdate")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Voorraad")]
 
-namespace Case3.PcSWinkelen.Schema.Messages
+namespace Case3.PcSWinkelen.Schema.CatalogusMessages
 {
     using System.Runtime.Serialization;
     
@@ -244,9 +247,9 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Nullable<int> LeverancierField;
         
-        private Case3.PcSWinkelen.Schema.Messages.Sorteerveld SorteerveldField;
+        private Case3.PcSWinkelen.Schema.CatalogusMessages.Sorteerveld SorteerveldField;
         
-        private Case3.PcSWinkelen.Schema.Messages.Sorteerrichting SorteerrichtingField;
+        private Case3.PcSWinkelen.Schema.CatalogusMessages.Sorteerrichting SorteerrichtingField;
         
         private bool AlleenLeverbareProductenField;
         
@@ -345,7 +348,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
-        public Case3.PcSWinkelen.Schema.Messages.Sorteerveld Sorteerveld
+        public Case3.PcSWinkelen.Schema.CatalogusMessages.Sorteerveld Sorteerveld
         {
             get
             {
@@ -358,7 +361,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
-        public Case3.PcSWinkelen.Schema.Messages.Sorteerrichting Sorteerrichting
+        public Case3.PcSWinkelen.Schema.CatalogusMessages.Sorteerrichting Sorteerrichting
         {
             get
             {
@@ -1357,34 +1360,34 @@ public interface ICatalogusBeheer
 {
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/UpdateCatalogus", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/UpdateCatalogusResponse")]
-    Case3.PcSWinkelen.Schema.Messages.MsgUpdateCatalogusResult UpdateCatalogus(Case3.PcSWinkelen.Schema.Messages.MsgUpdateCatalogusRequest message);
+    Case3.PcSWinkelen.Schema.CatalogusMessages.MsgUpdateCatalogusResult UpdateCatalogus(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgUpdateCatalogusRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/UpdateCatalogus", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/UpdateCatalogusResponse")]
-    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgUpdateCatalogusResult> UpdateCatalogusAsync(Case3.PcSWinkelen.Schema.Messages.MsgUpdateCatalogusRequest message);
+    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.CatalogusMessages.MsgUpdateCatalogusResult> UpdateCatalogusAsync(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgUpdateCatalogusRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductById", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductByIdResponse")]
-    Case3.PcSWinkelen.Schema.Messages.MsgFindProductByIdResult FindProductById(Case3.PcSWinkelen.Schema.Messages.MsgFindProductByIdRequest message);
+    Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductByIdResult FindProductById(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductByIdRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductById", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductByIdResponse")]
-    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindProductByIdResult> FindProductByIdAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindProductByIdRequest message);
+    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductByIdResult> FindProductByIdAsync(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductByIdRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProducts", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductsResponse")]
-    Case3.PcSWinkelen.Schema.Messages.MsgFindProductsResult FindProducts(Case3.PcSWinkelen.Schema.Messages.MsgFindProductsRequest message);
+    Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductsResult FindProducts(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductsRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProducts", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindProductsResponse")]
-    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindProductsResult> FindProductsAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindProductsRequest message);
+    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductsResult> FindProductsAsync(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductsRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindLeveranciers", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindLeveranciersResponse")]
-    Case3.PcSWinkelen.Schema.Messages.MsgFindLeveranciersResult FindLeveranciers(Case3.PcSWinkelen.Schema.Messages.MsgFindLeveranciersRequest message);
+    Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindLeveranciersResult FindLeveranciers(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindLeveranciersRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindLeveranciers", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindLeveranciersResponse")]
-    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindLeveranciersResult> FindLeveranciersAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindLeveranciersRequest message);
+    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindLeveranciersResult> FindLeveranciersAsync(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindLeveranciersRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindCategorieen", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindCategorieenResponse")]
-    Case3.PcSWinkelen.Schema.Messages.MsgFindCategorieenResult FindCategorieen(Case3.PcSWinkelen.Schema.Messages.MsgFindCategorieenRequest message);
+    Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindCategorieenResult FindCategorieen(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindCategorieenRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindCategorieen", ReplyAction="urn:kantilever:bscatalogusbeheer:v1/ICatalogusBeheer/FindCategorieenResponse")]
-    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindCategorieenResult> FindCategorieenAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindCategorieenRequest message);
+    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindCategorieenResult> FindCategorieenAsync(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindCategorieenRequest message);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1421,53 +1424,474 @@ public partial class CatalogusBeheerClient : System.ServiceModel.ClientBase<ICat
     {
     }
     
-    public Case3.PcSWinkelen.Schema.Messages.MsgUpdateCatalogusResult UpdateCatalogus(Case3.PcSWinkelen.Schema.Messages.MsgUpdateCatalogusRequest message)
+    public Case3.PcSWinkelen.Schema.CatalogusMessages.MsgUpdateCatalogusResult UpdateCatalogus(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgUpdateCatalogusRequest message)
     {
         return base.Channel.UpdateCatalogus(message);
     }
     
-    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgUpdateCatalogusResult> UpdateCatalogusAsync(Case3.PcSWinkelen.Schema.Messages.MsgUpdateCatalogusRequest message)
+    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.CatalogusMessages.MsgUpdateCatalogusResult> UpdateCatalogusAsync(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgUpdateCatalogusRequest message)
     {
         return base.Channel.UpdateCatalogusAsync(message);
     }
     
-    public Case3.PcSWinkelen.Schema.Messages.MsgFindProductByIdResult FindProductById(Case3.PcSWinkelen.Schema.Messages.MsgFindProductByIdRequest message)
+    public Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductByIdResult FindProductById(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductByIdRequest message)
     {
         return base.Channel.FindProductById(message);
     }
     
-    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindProductByIdResult> FindProductByIdAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindProductByIdRequest message)
+    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductByIdResult> FindProductByIdAsync(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductByIdRequest message)
     {
         return base.Channel.FindProductByIdAsync(message);
     }
     
-    public Case3.PcSWinkelen.Schema.Messages.MsgFindProductsResult FindProducts(Case3.PcSWinkelen.Schema.Messages.MsgFindProductsRequest message)
+    public Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductsResult FindProducts(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductsRequest message)
     {
         return base.Channel.FindProducts(message);
     }
     
-    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindProductsResult> FindProductsAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindProductsRequest message)
+    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductsResult> FindProductsAsync(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindProductsRequest message)
     {
         return base.Channel.FindProductsAsync(message);
     }
     
-    public Case3.PcSWinkelen.Schema.Messages.MsgFindLeveranciersResult FindLeveranciers(Case3.PcSWinkelen.Schema.Messages.MsgFindLeveranciersRequest message)
+    public Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindLeveranciersResult FindLeveranciers(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindLeveranciersRequest message)
     {
         return base.Channel.FindLeveranciers(message);
     }
     
-    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindLeveranciersResult> FindLeveranciersAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindLeveranciersRequest message)
+    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindLeveranciersResult> FindLeveranciersAsync(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindLeveranciersRequest message)
     {
         return base.Channel.FindLeveranciersAsync(message);
     }
     
-    public Case3.PcSWinkelen.Schema.Messages.MsgFindCategorieenResult FindCategorieen(Case3.PcSWinkelen.Schema.Messages.MsgFindCategorieenRequest message)
+    public Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindCategorieenResult FindCategorieen(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindCategorieenRequest message)
     {
         return base.Channel.FindCategorieen(message);
     }
     
-    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindCategorieenResult> FindCategorieenAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindCategorieenRequest message)
+    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindCategorieenResult> FindCategorieenAsync(Case3.PcSWinkelen.Schema.CatalogusMessages.MsgFindCategorieenRequest message)
     {
         return base.Channel.FindCategorieenAsync(message);
+    }
+}
+
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ServiceModel.ServiceContractAttribute(Namespace="urn:kantilever:bsvoorraadbeheer:v1", ConfigurationName="IVoorraadBeheer")]
+public interface IVoorraadBeheer
+{
+    
+    [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraadResponse")]
+    Case3.PcSWinkelen.Schema.VoorraadMessages.MsgUpdateVoorraadResult UpdateVoorraad(Case3.PcSWinkelen.Schema.VoorraadMessages.MsgUpdateVoorraadRequest message);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraadResponse")]
+    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.VoorraadMessages.MsgUpdateVoorraadResult> UpdateVoorraadAsync(Case3.PcSWinkelen.Schema.VoorraadMessages.MsgUpdateVoorraadRequest message);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraadResponse")]
+    Case3.PcSWinkelen.Schema.VoorraadMessages.MsgFindVoorraadResult FindVoorraad(Case3.PcSWinkelen.Schema.VoorraadMessages.MsgFindVoorraadRequest message);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraadResponse")]
+    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.VoorraadMessages.MsgFindVoorraadResult> FindVoorraadAsync(Case3.PcSWinkelen.Schema.VoorraadMessages.MsgFindVoorraadRequest message);
+}
+
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public interface IVoorraadBeheerChannel : IVoorraadBeheer, System.ServiceModel.IClientChannel
+{
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class VoorraadBeheerClient : System.ServiceModel.ClientBase<IVoorraadBeheer>, IVoorraadBeheer
+{
+    
+    public VoorraadBeheerClient()
+    {
+    }
+    
+    public VoorraadBeheerClient(string endpointConfigurationName) : 
+            base(endpointConfigurationName)
+    {
+    }
+    
+    public VoorraadBeheerClient(string endpointConfigurationName, string remoteAddress) : 
+            base(endpointConfigurationName, remoteAddress)
+    {
+    }
+    
+    public VoorraadBeheerClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+            base(endpointConfigurationName, remoteAddress)
+    {
+    }
+    
+    public VoorraadBeheerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+            base(binding, remoteAddress)
+    {
+    }
+    
+    public Case3.PcSWinkelen.Schema.VoorraadMessages.MsgUpdateVoorraadResult UpdateVoorraad(Case3.PcSWinkelen.Schema.VoorraadMessages.MsgUpdateVoorraadRequest message)
+    {
+        return base.Channel.UpdateVoorraad(message);
+    }
+    
+    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.VoorraadMessages.MsgUpdateVoorraadResult> UpdateVoorraadAsync(Case3.PcSWinkelen.Schema.VoorraadMessages.MsgUpdateVoorraadRequest message)
+    {
+        return base.Channel.UpdateVoorraadAsync(message);
+    }
+    
+    public Case3.PcSWinkelen.Schema.VoorraadMessages.MsgFindVoorraadResult FindVoorraad(Case3.PcSWinkelen.Schema.VoorraadMessages.MsgFindVoorraadRequest message)
+    {
+        return base.Channel.FindVoorraad(message);
+    }
+    
+    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.VoorraadMessages.MsgFindVoorraadResult> FindVoorraadAsync(Case3.PcSWinkelen.Schema.VoorraadMessages.MsgFindVoorraadRequest message)
+    {
+        return base.Channel.FindVoorraadAsync(message);
+    }
+}
+namespace Case3.PcSWinkelen.Schema.VoorraadMessages
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MsgUpdateVoorraadRequest", Namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1")]
+    public partial class MsgUpdateVoorraadRequest : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.Schema.Product.ProductRef ProductField;
+        
+        private Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateProductVoorraad UpdateField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.Schema.Product.ProductRef Product
+        {
+            get
+            {
+                return this.ProductField;
+            }
+            set
+            {
+                this.ProductField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateProductVoorraad Update
+        {
+            get
+            {
+                return this.UpdateField;
+            }
+            set
+            {
+                this.UpdateField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MsgUpdateVoorraadResult", Namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1")]
+    public partial class MsgUpdateVoorraadResult : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraadField;
+        
+        private bool SuccesField;
+        
+        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraad
+        {
+            get
+            {
+                return this.ProductVoorraadField;
+            }
+            set
+            {
+                this.ProductVoorraadField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool Succes
+        {
+            get
+            {
+                return this.SuccesField;
+            }
+            set
+            {
+                this.SuccesField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MsgFindVoorraadRequest", Namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1")]
+    public partial class MsgFindVoorraadRequest : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.Schema.Product.ProductRef ProductField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.Schema.Product.ProductRef Product
+        {
+            get
+            {
+                return this.ProductField;
+            }
+            set
+            {
+                this.ProductField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MsgFindVoorraadResult", Namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1")]
+    public partial class MsgFindVoorraadResult : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraadField;
+        
+        private bool SuccesField;
+        
+        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraad
+        {
+            get
+            {
+                return this.ProductVoorraadField;
+            }
+            set
+            {
+                this.ProductVoorraadField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool Succes
+        {
+            get
+            {
+                return this.SuccesField;
+            }
+            set
+            {
+                this.SuccesField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        {
+            get
+            {
+                return this.FoutmeldingField;
+            }
+            set
+            {
+                this.FoutmeldingField = value;
+            }
+        }
+    }
+}
+namespace Case3.PcSWinkelen.Schema.VoorraadUpdate
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateProductVoorraad", Namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1")]
+    public partial class UpdateProductVoorraad : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateActie ActieField;
+        
+        private int AantalField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateActie Actie
+        {
+            get
+            {
+                return this.ActieField;
+            }
+            set
+            {
+                this.ActieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Aantal
+        {
+            get
+            {
+                return this.AantalField;
+            }
+            set
+            {
+                this.AantalField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateActie", Namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1")]
+    public enum UpdateActie : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Add = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Remove = 1,
+    }
+}
+namespace Case3.PcSWinkelen.Schema.Voorraad
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductVoorraad", Namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1")]
+    public partial class ProductVoorraad : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.Schema.Product.ProductRef ProductField;
+        
+        private int VoorraadField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.Schema.Product.ProductRef Product
+        {
+            get
+            {
+                return this.ProductField;
+            }
+            set
+            {
+                this.ProductField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Voorraad
+        {
+            get
+            {
+                return this.VoorraadField;
+            }
+            set
+            {
+                this.VoorraadField = value;
+            }
+        }
     }
 }
