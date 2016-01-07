@@ -64,12 +64,15 @@
   <ItemGroup>
     <Compile Include="BSCatalogusBeheerAgentTest.cs" />
     <Compile Include="Mocks\CatalogusBeheerMock.cs" />
+    <Compile Include="Mocks\VoorraadBeheerMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BSVoorraadBeheerAgentTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Case3.PcSWinkelen.Agent\09 - Agent.csproj">
