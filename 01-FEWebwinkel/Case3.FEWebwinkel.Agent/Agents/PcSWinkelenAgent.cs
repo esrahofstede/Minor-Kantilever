@@ -28,7 +28,6 @@ namespace Case3.FEWebwinkel.Agent
 
         public CatalogusCollection GetProducts(int page, int pageSize)
         {
-            
             FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize });
             return result.Products;
         }

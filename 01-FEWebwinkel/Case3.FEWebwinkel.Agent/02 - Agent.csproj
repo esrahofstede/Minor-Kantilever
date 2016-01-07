@@ -65,7 +65,6 @@
   <ItemGroup>
     <Compile Include="Agents\PcSWinkelenAgent.cs" />
     <Compile Include="Interfaces\IPcSWinkelenAgent.cs" />
-    <Compile Include="Mapper\DTOMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
