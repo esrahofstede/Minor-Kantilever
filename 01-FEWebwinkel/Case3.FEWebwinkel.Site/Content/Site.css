@@ -85,3 +85,30 @@ div.catalog-section {
 .catalog-product > .info-wrapper > p {
     margin: 0px 0 3px;
 }
+
+.banner {
+    width: 100%;
+    height: auto;
+}
+
+.banner > img {
+    width: 100%;
+    height: auto;
+}
+
+.navbar-brand {
+    font-family: 'Vladimir Script';
+    font-size: 40px;
+}
+
+.navbar-inverse, .btn {
+       background-color: rgb(170,177,228)!important;
+       border-color: rgba(0, 0, 0, 0.17)!important;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a, .btn {
+    color: black!important;
+}
+
+
+
+
