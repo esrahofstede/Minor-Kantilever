@@ -63,8 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agents\BSCatalogusBeheerAgent.cs" />
-    <Compile Include="Interfaces\IBSCatalogusBeheerAgent.cs" />
+    <Compile Include="Agents\PcSWinkelenAgent.cs" />
+    <Compile Include="Interfaces\IPcSWinkelenAgent.cs" />
     <Compile Include="Mapper\DTOMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
