@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:case3-pcswinkelen:v1:messages" elementFormDefault="qualified" targetNamespace="urn:case3-pcswinkelen:v1:messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="urn:case3-pcswinkelen:v1:schema" />
+  <xs:complexType name="FindCatalogusRequestMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NaamFilter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BeschrijvingFilter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MinimumPrijs" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MaximumPrijs" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Categorie" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Leverancier" nillable="true" type="xs:int" />
+      <xs:element name="AlleenLeverbareProducten" type="xs:boolean" />
+      <xs:element name="Page" type="xs:int" />
+      <xs:element name="PageSize" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FindCatalogusRequestMessage" nillable="true" type="tns:FindCatalogusRequestMessage" />
+  <xs:complexType name="FindCatalogusResponseMessage">
+    <xs:sequence>
+      <xs:element name="Products" nillable="true" xmlns:q1="urn:case3-pcswinkelen:v1:schema" type="q1:CatalogusCollection">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FindCatalogusResponseMessage" nillable="true" type="tns:FindCatalogusResponseMessage" />
+</xs:schema>

@@ -229,3 +229,4 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+05-PcSWinkelen/Case3.PcSWinkelen.Host/App_Data/Log.txt

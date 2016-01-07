@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Case3.PcSWinkelen.Contract;
+using Case3.PcSWinkelen.Messages;
 using log4net;
 
 namespace Case3.PcSWinkelen.Implementation
@@ -15,6 +16,11 @@ namespace Case3.PcSWinkelen.Implementation
         public PcSWinkelenServiceHandler()
         {
             log4net.Config.XmlConfigurator.Configure();
+        }
+
+        public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
+        {
+            return null;
         }
 
         public string SayHelloTest(string name)

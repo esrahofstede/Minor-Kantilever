@@ -27,6 +27,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PcSBestellen", "PcSBestelle
 		06-PcSBestellen\Schema\Case3.PcSBestellen.V1.Schema.xsd = 06-PcSBestellen\Schema\Case3.PcSBestellen.V1.Schema.xsd
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BSCatalogusbeheer", "BSCatalogusbeheer", "{C36245A3-26D1-400D-8CEF-81A8CE337619}"
+	ProjectSection(SolutionItems) = preProject
+		BSCatalogusBeheer\V1\Categorie.xsd = BSCatalogusBeheer\V1\Categorie.xsd
+		BSCatalogusBeheer\V1\Leverancier.xsd = BSCatalogusBeheer\V1\Leverancier.xsd
+		BSCatalogusBeheer\V1\MessagesBSCatalogusBeheer.xsd = BSCatalogusBeheer\V1\MessagesBSCatalogusBeheer.xsd
+		BSCatalogusBeheer\V1\Product.xsd = BSCatalogusBeheer\V1\Product.xsd
+		BSCatalogusBeheer\V1\ProductRef.xsd = BSCatalogusBeheer\V1\ProductRef.xsd
+		BSCatalogusBeheer\V1\ProductUpdate.xsd = BSCatalogusBeheer\V1\ProductUpdate.xsd
+		BSCatalogusBeheer\V1\ProductUpdateResultaat.xsd = BSCatalogusBeheer\V1\ProductUpdateResultaat.xsd
+		BSCatalogusBeheer\V1\Sorteerrichting.xsd = BSCatalogusBeheer\V1\Sorteerrichting.xsd
+		BSCatalogusBeheer\V1\Sorteerveld.xsd = BSCatalogusBeheer\V1\Sorteerveld.xsd
+		BSCatalogusBeheer\V1\UpdateActie.xsd = BSCatalogusBeheer\V1\UpdateActie.xsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BSVoorraadbeheer", "BSVoorraadbeheer", "{9BF9C585-3AC0-4462-B30B-037F1A3C3419}"
+	ProjectSection(SolutionItems) = preProject
+		BSVoorraadBeheer\V1\MessagesBSVoorraadBeheer.xsd = BSVoorraadBeheer\V1\MessagesBSVoorraadBeheer.xsd
+		BSVoorraadBeheer\V1\ProductVoorraad.xsd = BSVoorraadBeheer\V1\ProductVoorraad.xsd
+		BSVoorraadBeheer\V1\UpdateActie.xsd = BSVoorraadBeheer\V1\UpdateActie.xsd
+		BSVoorraadBeheer\V1\UpdateProductVoorraad.xsd = BSVoorraadBeheer\V1\UpdateProductVoorraad.xsd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
