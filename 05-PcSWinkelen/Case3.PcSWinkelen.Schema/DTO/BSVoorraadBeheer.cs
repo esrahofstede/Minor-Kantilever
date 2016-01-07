@@ -9,10 +9,8 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Messages")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Product")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1", ClrNamespace="Case3.PcSWinkelen.Schema.VoorraadUpdate")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Voorraad")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:common:fouten:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Fouten")]
 
 namespace Case3.PcSWinkelen.Schema.Messages
 {
@@ -238,62 +236,6 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
     }
 }
-namespace Case3.PcSWinkelen.Schema.Product
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductRef", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1")]
-    public partial class ProductRef : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int IdField;
-        
-        private string LeveranciersProductIdField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id
-        {
-            get
-            {
-                return this.IdField;
-            }
-            set
-            {
-                this.IdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LeveranciersProductId
-        {
-            get
-            {
-                return this.LeveranciersProductIdField;
-            }
-            set
-            {
-                this.LeveranciersProductIdField = value;
-            }
-        }
-    }
-}
 namespace Case3.PcSWinkelen.Schema.VoorraadUpdate
 {
     using System.Runtime.Serialization;
@@ -416,107 +358,6 @@ namespace Case3.PcSWinkelen.Schema.Voorraad
                 this.VoorraadField = value;
             }
         }
-    }
-}
-namespace Case3.PcSWinkelen.Schema.Fouten
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FoutMelding", Namespace="urn:schemas-www-kantilever-nl:common:fouten:v1")]
-    public partial class FoutMelding : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string BronField;
-        
-        private int NummerField;
-        
-        private string MeldingField;
-        
-        private Case3.PcSWinkelen.Schema.Fouten.FoutErnst NiveauField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public string Bron
-        {
-            get
-            {
-                return this.BronField;
-            }
-            set
-            {
-                this.BronField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int Nummer
-        {
-            get
-            {
-                return this.NummerField;
-            }
-            set
-            {
-                this.NummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
-        public string Melding
-        {
-            get
-            {
-                return this.MeldingField;
-            }
-            set
-            {
-                this.MeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutErnst Niveau
-        {
-            get
-            {
-                return this.NiveauField;
-            }
-            set
-            {
-                this.NiveauField = value;
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FoutErnst", Namespace="urn:schemas-www-kantilever-nl:common:fouten:v1")]
-    public enum FoutErnst : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Kritisch = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Waarschuwing = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Melding = 2,
     }
 }
 

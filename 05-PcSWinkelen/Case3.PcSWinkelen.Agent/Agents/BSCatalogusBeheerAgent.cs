@@ -1,6 +1,7 @@
-﻿using Case3.FEWebwinkel.Schema.Messages;
-using Case3.FEWebwinkel.Schema.Product;
+﻿
 using Case3.PcSWinkelen.Agent.Interfaces;
+using Case3.PcSWinkelen.Schema.Messages;
+using Case3.PcSWinkelen.Schema.Product;
 using Minor.ServiceBus.Agent.Implementation;
 using System;
 using System.Collections.Generic;
@@ -15,26 +16,43 @@ namespace Case3.PcSWinkelen.Agent.Agents
         private ServiceFactory<ICatalogusBeheer> _factory;
         private ICatalogusBeheer _agent;
 
+        /// <summary>
+        /// Instantiate a ServiceFactory with a reference to the described service
+        /// </summary>
         public BSCatalogusBeheerAgent()
         {
             _factory = new ServiceFactory<ICatalogusBeheer>("BSCatalogusBeheer");
             _agent = _factory.CreateAgent();
         }
 
+        /// <summary>
+        /// For testing purposes, possible to inject a mock class
+        /// </summary>
+        /// <param name="agent"></param>
         public BSCatalogusBeheerAgent(ICatalogusBeheer agent)
         {
             _agent = agent;
         }
 
-        public List<Product> GetProducts(int page, int pageSize)
-        {
-            MsgFindProductsResult result = _agent.FindProducts(new MsgFindProductsRequest() { Page = page, PageSize = pageSize });
-            return result.Products;
-        }
-
-        public List<Product> GetProducts()
+        /// <summary>
+        /// Get all products
+        /// </summary>
+        /// <returns>IEnumerable of Product entities</returns>
+        public IEnumerable<Product> GetProducts()
         {
             MsgFindProductsResult result = _agent.FindProducts(new MsgFindProductsRequest() { Page = 1, PageSize = 20 });
+            return result.Products;
+        }
+        
+        /// <summary>
+        /// Get products by page and page length
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <returns>IEnumerable of Product entities</returns>
+        public IEnumerable<Product> GetProducts(int page, int pageSize)
+        {
+            MsgFindProductsResult result = _agent.FindProducts(new MsgFindProductsRequest() { Page = page, PageSize = pageSize });
             return result.Products;
         }
     }

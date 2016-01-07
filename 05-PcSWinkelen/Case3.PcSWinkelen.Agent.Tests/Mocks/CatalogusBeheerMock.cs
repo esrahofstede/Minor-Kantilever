@@ -1,5 +1,6 @@
-﻿using Case3.FEWebwinkel.Schema.Messages;
-using Case3.FEWebwinkel.Schema.Product;
+﻿
+using Case3.PcSWinkelen.Schema.Messages;
+using Case3.PcSWinkelen.Schema.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
