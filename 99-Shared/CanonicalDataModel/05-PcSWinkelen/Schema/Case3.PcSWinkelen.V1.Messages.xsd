@@ -2,12 +2,31 @@
 <xs:schema 
   targetNamespace="urn:case3-pcswinkelen:v1:messages"
     elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:msg="urn:case3-pcswinkelen:v1:messages"
     xmlns:k="urn:case3-pcswinkelen:v1:schema"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
   <xs:import namespace="urn:case3-pcswinkelen:v1:schema"
              schemaLocation="Case3.PcSWinkelen.V1.Schema.xsd" />
 
+  <xs:complexType name="FindCatalogusRequestMessage">
+    <xs:sequence>
+      <xs:element name="NaamFilter" type="xs:string" nillable="true" minOccurs="0"/>
+      <xs:element name="BeschrijvingFilter" type="xs:string" nillable="true" minOccurs="0"/>
+      <xs:element name="MinimumPrijs" type="xs:decimal" nillable="true" minOccurs="0"/>
+      <xs:element name="MaximumPrijs" type="xs:decimal" nillable="true" minOccurs="0"/>
+      <xs:element name="Categorie" type="xs:int" nillable="true" minOccurs="0"/>
+      <xs:element name="Leverancier" type="xs:int" nillable="true" minOccurs="0"/>
+      <xs:element name="AlleenLeverbareProducten" type="xs:boolean"/>
+      <xs:element name="Page" type="xs:int"/>
+      <xs:element name="PageSize" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="FindCatalogusResponseMessage">
+    <xs:sequence>
+      <xs:element name="Products" type="k:CatalogusCollection"/>
+    </xs:sequence>
+  </xs:complexType>
   
 </xs:schema>
