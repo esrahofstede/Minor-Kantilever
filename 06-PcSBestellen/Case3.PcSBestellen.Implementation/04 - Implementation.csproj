@@ -69,6 +69,10 @@
       <Project>{3ac7389b-7507-4b69-93eb-181a1b917801}</Project>
       <Name>02 - Contract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01 - Schema.csproj">
+      <Project>{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}</Project>
+      <Name>01 - Schema</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">

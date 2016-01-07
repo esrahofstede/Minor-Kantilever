@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using case3common.v1.faults;
 
 namespace Case3.PcSBestellen.Contract
 {
@@ -11,6 +12,7 @@ namespace Case3.PcSBestellen.Contract
     [ServiceContract]
     public interface IPcSBestellenService
     {
+        [FaultContract(typeof(FunctionalErrorList))]
         [OperationContract]
         string SayHelloTest(string name);
     }

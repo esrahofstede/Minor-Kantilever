@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using case3common.v1.faults;
 using Case3.PcSBestellen.Contract;
 using log4net;
 
@@ -19,6 +20,8 @@ namespace Case3.PcSBestellen.Implementation
 
         public string SayHelloTest(string name)
         {
+            FunctionalErrorList list = new FunctionalErrorList();
+            list.Add(new FunctionalErrorDetail {Message = "test"});
             string greeting = "";
 
             try
@@ -28,6 +31,7 @@ namespace Case3.PcSBestellen.Implementation
             catch (Exception ex)
             {
                 _logger.Fatal(ex.Message);
+                
             }
             return greeting;
         }

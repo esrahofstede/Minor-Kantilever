@@ -76,6 +76,12 @@
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01 - Schema.csproj">
+      <Project>{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}</Project>
+      <Name>01 - Schema</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -80,7 +80,8 @@
    /out:$(ProjectDir)/DTO/BSKlantbeheerTypes.cs ^
    /n:"urn:case3-bdklantbeheer:v1:messages,Case3.BSKlantbeheer.V1.Messages" ^
    /n:"urn:case3-bdklantbeheer:v1:schema,Case3.BSKlantbeheer.V1.Schema" ^
-   "$(SolutionDir)..\99-Shared\CanonicalDataModel\03-BSKlantbeheer\Schema\*.xsd"
+   "$(SolutionDir)..\99-Shared\CanonicalDataModel\03-BSKlantbeheer\Schema\*.xsd" ^
+   "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\*.xsd"
 
 svcutil.exe ^
    /dconly ^

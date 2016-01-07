@@ -3,7 +3,10 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="urn:case3-common:v1:faults" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="urn:case3-bsklantbeheer:v1:schema" />
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:common:fouten:v1" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPcSBestellenService_SayHelloTest_InputMessage">
@@ -12,10 +15,14 @@
   <wsdl:message name="IPcSBestellenService_SayHelloTest_OutputMessage">
     <wsdl:part name="parameters" element="tns:SayHelloTestResponse" />
   </wsdl:message>
+  <wsdl:message name="IPcSBestellenService_SayHelloTest_FunctionalErrorListFault_FaultMessage">
+    <wsdl:part name="detail" xmlns:q1="urn:case3-common:v1:faults" element="q1:FunctionalErrorList" />
+  </wsdl:message>
   <wsdl:portType name="IPcSBestellenService">
     <wsdl:operation name="SayHelloTest">
       <wsdl:input wsaw:Action="http://tempuri.org/IPcSBestellenService/SayHelloTest" message="tns:IPcSBestellenService_SayHelloTest_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPcSBestellenService/SayHelloTestResponse" message="tns:IPcSBestellenService_SayHelloTest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPcSBestellenService/SayHelloTestFunctionalErrorListFault" name="FunctionalErrorListFault" message="tns:IPcSBestellenService_SayHelloTest_FunctionalErrorListFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DefaultBinding_IPcSBestellenService" type="tns:IPcSBestellenService">
@@ -28,6 +35,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="FunctionalErrorListFault">
+        <soap:fault name="FunctionalErrorListFault" use="literal" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
 </wsdl:definitions>
