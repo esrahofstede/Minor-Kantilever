@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Case3.FEWebwinkel.Schema.Product.Product>
+﻿@model IEnumerable<Case3.FEWebwinkel.Site.ViewModels.CatalogusViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -10,10 +10,10 @@
     @foreach (var item in Model)
     {
         <div class="catalog-product">
-            
+
             <div class="product-top">
-                <div class="img-wrapper" style="background-image:url(../Content/Product_img/julianax_r_02_yellow_small.gif)">
-                    
+                <div class="img-wrapper" style="background-image:url(@Html.DisplayFor(modelItem => item.Afbeeldingslocatie))">
+
                 </div>
                 <div class="info-wrapper">
                     <p>
@@ -21,7 +21,7 @@
                     </p>
                     <p>
 
-                        @Html.DisplayFor(modelItem => item.LeverancierNaam)
+                        @Html.DisplayFor(modelItem => item.Leverancier)
                     </p>
                     <p>
                         &#8364 @Html.DisplayFor(modelItem => item.Prijs)
@@ -35,7 +35,7 @@
             <div class="product-bottom">
                 <a href="http://asp.net" class="btn btn-primary">Aan winkelmand toevoegen</a>
             </div>
-            
+
         </div>
     }
 

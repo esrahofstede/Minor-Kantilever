@@ -8,6 +8,6 @@ namespace Case3.FEWebwinkel.Agent.Mapper
 {
     public class DTOMapper
     {
-        public 
+       
     }
 }

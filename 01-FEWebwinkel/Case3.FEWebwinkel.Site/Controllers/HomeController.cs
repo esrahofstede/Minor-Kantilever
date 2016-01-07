@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Minor.ServiceBus.Agent.Implementation;
-using System.Web.Mvc;
-using Case3.FEWebwinkel.Schema.Messages;
-using Case3.FEWebwinkel.Agent;
+﻿using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
