@@ -59,8 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\BSBestellingenbeheerTypes.cs" />
-    <Compile Include="DTO\BSKlantbeheerTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,23 +71,20 @@
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DTO\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>svcutil.exe ^
-   /dconly ^
-   /out:$(ProjectDir)/DTO/BSKlantbeheerTypes.cs ^
-   /n:"urn:case3-bdklantbeheer:v1:messages,Case3.BSKlantbeheer.V1.Messages" ^
-   /n:"urn:case3-bdklantbeheer:v1:schema,Case3.BSKlantbeheer.V1.Schema" ^
-   "$(SolutionDir)..\99-Shared\CanonicalDataModel\03-BSKlantbeheer\Schema\*.xsd"
-
-svcutil.exe ^
-   /dconly ^
-   /out:$(ProjectDir)/DTO/BSBestellingenbeheerTypes.cs ^
-   /n:"urn:case3-bdbestellingenbeheer:v1:messages,Case3.BSBestellingenbeheer.V1.Messages" ^
-   /n:"urn:case3-bdbestellingenbeheer:v1:schema,Case3.BSBestellingenbeheer.V1.Schema" ^
-   "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\*.xsd"
-
+    <PreBuildEvent>svcutil ^
+  /out:$(ProjectDir)DTO\BSCatalogusBeheer.cs ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1,Case3.FEWebwinkel.Schema.Messages" ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1,Case3.FEWebwinkel.Schema.ProductUpdate" ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.FEWebwinkel.Schema.Product" ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.FEWebwinkel.Schema.Categorie" ^
+ /n:"urn:schemas-www-kantilever-nl:common:fouten:v1,Case3.FEWebwinkel.Schema.Fouten" ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1,Case3.FEWebwinkel.Schema.Leverancier" ^
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\Kantilever.ServiceBus\Contract\BSCatalogusBeheer\V1\ICatalogusBeheer.V1.wsdl"
 </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
