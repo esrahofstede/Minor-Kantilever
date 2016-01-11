@@ -2,7 +2,7 @@
 using Case3.PcSWinkelen.Schema;
 using System.Collections.Generic;
 
-namespace Case3.FEWebwinkel.Site.Managers
+namespace Case3.FEWebwinkel.Site.Managers.Interfaces
 {
     /// <summary>
     /// The CatalogusManager interface

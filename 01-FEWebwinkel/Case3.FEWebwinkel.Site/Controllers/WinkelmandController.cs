@@ -11,6 +11,8 @@ namespace Case3.FEWebwinkel.Site.Controllers
 {
     public class WinkelmandController : Controller
     {
+
+
         // GET: Winkelmand
         public ActionResult Index()
         {
@@ -27,9 +29,11 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 Prijs = 14.95M,
             };
             var artikelLijst = new List<ArtikelViewModel> { artikel1, artikel2 };*/
-            
+
             //Get data from cookie which has been set in catalogus view
+
             string jsonStringArtikelList = Request.Cookies.Get("artikelen").Value;
+
             List<ArtikelViewModel> artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikelList);
 
             decimal TotaalExclBTW = 0M;

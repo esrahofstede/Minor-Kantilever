@@ -5,6 +5,7 @@ using Case3.FEWebwinkel.Agent;
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
+using Case3.FEWebwinkel.Site.Managers.Interfaces;
 
 namespace Case3.FEWebwinkel.Site.Managers
 {
