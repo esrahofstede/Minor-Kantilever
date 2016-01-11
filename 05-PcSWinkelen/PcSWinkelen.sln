@@ -23,8 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02 - Contract", "Case3.PcSW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03 - Host", "Case3.PcSWinkelen.Host\03 - Host.csproj", "{53C3C7B8-4E84-4A7F-BDD5-471B3B946289}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case3.PcSWinkelen.ConsoleTest", "Case3.PcSWinkelen.ConsoleTest\Case3.PcSWinkelen.ConsoleTest.csproj", "{553356A4-722A-4CBF-A9B5-FDDA66CDF9FC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Acceptatie|Any CPU = Acceptatie|Any CPU
@@ -92,12 +90,6 @@ Global
 		{53C3C7B8-4E84-4A7F-BDD5-471B3B946289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53C3C7B8-4E84-4A7F-BDD5-471B3B946289}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53C3C7B8-4E84-4A7F-BDD5-471B3B946289}.Release|Any CPU.Build.0 = Release|Any CPU
-		{553356A4-722A-4CBF-A9B5-FDDA66CDF9FC}.Acceptatie|Any CPU.ActiveCfg = Release|Any CPU
-		{553356A4-722A-4CBF-A9B5-FDDA66CDF9FC}.Acceptatie|Any CPU.Build.0 = Release|Any CPU
-		{553356A4-722A-4CBF-A9B5-FDDA66CDF9FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{553356A4-722A-4CBF-A9B5-FDDA66CDF9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{553356A4-722A-4CBF-A9B5-FDDA66CDF9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{553356A4-722A-4CBF-A9B5-FDDA66CDF9FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

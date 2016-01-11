@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Case3.PcSWinkelen.Contract;
-using Case3.PcSWinkelen.Messages;
 using log4net;
+using Case3.PcSWinkelen.Agent.Agents;
+using Case3.PcSWinkelen.Schema;
+using Case3.PcSWinkelen.Schema.Product;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -20,7 +22,20 @@ namespace Case3.PcSWinkelen.Implementation
 
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
-            return null;
+            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            CatalogusCollection catalogusCollection = new CatalogusCollection();
+            foreach(Product product in bSCatalogusBeheerAgent.GetProducts())
+            {
+                catalogusCollection.Add(new ProductVoorraad() { Product =  product, Voorraad = 1 });
+            }
+
+            FindCatalogusResponseMessage findCatalogusResponseMessage = new FindCatalogusResponseMessage()
+            {
+                Products = catalogusCollection
+            };
+
+
+            return Products;
         }
 
         public string SayHelloTest(string name)
