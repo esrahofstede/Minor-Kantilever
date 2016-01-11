@@ -1,25 +1,33 @@
-﻿using Case3.FEWebwinkel.Site.ViewModels;
-using System.Collections.Generic;
+﻿using Case3.FEWebwinkel.Site.Managers;
 using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
     public class CatalogusController : Controller
     {
-        // GET: Catalogus
+        private ICatalogusManager _catalogusManager;
+        /// <summary>
+        /// This constructor is the default constructor
+        /// </summary>
+        public CatalogusController()
+        {
+            _catalogusManager = new CatalogusManager();
+        }
+        /// <summary>
+        /// This constructor is for testing purposes
+        /// </summary>
+        /// <param name="manager">This should be a mock of CatalogusManager</param>
+        public CatalogusController(CatalogusManager manager)
+        {
+            _catalogusManager = manager;
+        }
+        
         public ActionResult Index()
         {
 
-            List<CatalogusViewModel> model = new List<CatalogusViewModel>();
-
-            var a = new CatalogusViewModel()
-            {
-                Naam = "test",
-                ID = 1,
-                Afbeeldingslocatie = "test",
-                Leverancier = "yisdbf",
-                Prijs = 12.32M
-
+            //List<Product> model = new List<Product>();
+            //BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            
             };
 
             var b = new CatalogusViewModel()
@@ -29,10 +37,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 Afbeeldingslocatie = "test",
                 Leverancier = "yisdbf",
                 Prijs = 12.32M
-
-            };
-
-            var c = new CatalogusViewModel()
+                
+                 //model = bSCatalogusBeheerAgent.GetProducts(1, 20);
+            }
+            catch
             {
                 Naam = "test",
                 ID = 1,
@@ -40,21 +48,8 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 Leverancier = "yisdbf",
                 Prijs = 12.32M
 
-            };
-
-            var d = new CatalogusViewModel()
-            {
-                Naam = "test",
-                ID = 1,
-                Afbeeldingslocatie = "test",
-                Leverancier = "yisdbf",
-                Prijs = 12.32M
-
-            };
-            model.Add(a);
-            model.Add(b);
-            model.Add(c);
-            model.Add(d);
+            }
+            var model = _catalogusManager.GetProducts(1, 20);
             return View(model);
         }
     }

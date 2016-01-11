@@ -12,22 +12,21 @@
         <div class="catalog-product">
 
             <div class="product-top">
-                <div class="img-wrapper" style="background-image:url(@Html.DisplayFor(modelItem => item.Afbeeldingslocatie))">
-
+                <div class="img-wrapper" style="background-image:url(@item.Afbeeldingslocatie)">
+                    
                 </div>
                 <div class="info-wrapper">
                     <p>
                         @Html.DisplayFor(modelItem => item.Naam)
                     </p>
                     <p>
-
                         @Html.DisplayFor(modelItem => item.Leverancier)
                     </p>
                     <p>
                         &#8364 @Html.DisplayFor(modelItem => item.Prijs)
                     </p>
                     <p>
-                        10 in voorraad
+                        @Html.DisplayFor(modelItem => item.Voorraad) in voorraad
                     </p>
                 </div>
             </div>

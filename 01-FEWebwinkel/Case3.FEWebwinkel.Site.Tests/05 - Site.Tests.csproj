@@ -46,6 +46,10 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -103,6 +107,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Case3.FEWebwinkel.Agent\02 - Agent.csproj">
+      <Project>{4ee01468-f2cf-4244-acdb-667440989277}</Project>
+      <Name>02 - Agent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.FEWebwinkel.Schema\01 - Schema.csproj">
       <Project>{2a4b79e8-2e92-4e56-90eb-bc9b66d6373e}</Project>
       <Name>01 - Schema</Name>
