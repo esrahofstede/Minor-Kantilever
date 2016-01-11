@@ -41,7 +41,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// <returns>View with products of the catalog</returns>
         public ActionResult Index()
         {
-
             //List<Product> model = new List<Product>();
             //BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
             
