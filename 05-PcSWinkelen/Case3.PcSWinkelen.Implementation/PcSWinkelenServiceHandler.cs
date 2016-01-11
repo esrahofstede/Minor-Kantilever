@@ -26,20 +26,21 @@ namespace Case3.PcSWinkelen.Implementation
         {
             Mapper.Initialize(cfg => cfg.CreateMap<CatalogusCategorie.Categorie, VoorraadCategorie.Categorie>());
             Mapper.Initialize(cfg => cfg.CreateMap<VoorraadCategorie.Categorie, CatalogusCategorie.Categorie>());
-            //Mapper.Initialize(cfg => cfg.CreateMap<CatalogusCategorie.CategorieCollection, VoorraadCategorie.CategorieCollection>());
             Mapper.Initialize(cfg => cfg.CreateMap<CatalogusProd.Product, VoorraadProd.Product>()
                 .ForMember(dest => dest.CategorieLijst, opt => opt.Ignore())
                 .ForMember(dest => dest.ExtensionData, opt => opt.Ignore()));
-            //Mapper.Initialize(cfg => cfg.CreateMap<CatalogusProd.Product, VoorraadProd.Product>());
+
 
             BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            BSVoorraadBeheerAgent bSVoorraadBeheerAgent = new BSVoorraadBeheerAgent();
             CatalogusCollection catalogusCollection = new CatalogusCollection();
 
             var producten = bSCatalogusBeheerAgent.GetProducts().ToList();
 
             foreach (CatalogusProd.Product product in producten)
             {
-                catalogusCollection.Add(new ProductVoorraad() { Product = Mapper.Map<VoorraadProd.Product>(product), Voorraad = 1 });
+                int voorraad = bSVoorraadBeheerAgent.GetProductVoorraad(product.Id,product.LeveranciersProductId);
+                catalogusCollection.Add(new ProductVoorraad() { Product = Mapper.Map<VoorraadProd.Product>(product), Voorraad = voorraad });
             }
 
             FindCatalogusResponseMessage findCatalogusResponseMessage = new FindCatalogusResponseMessage()
