@@ -9,7 +9,19 @@ namespace Case3.FEWebwinkel.Site.Managers
     /// </summary>
     public interface ICatalogusManager
     {
+        /// <summary>
+        /// This function returns a List with CatalogusViewModels
+        /// </summary>
+        /// <param name="page">Current pagenumber</param>
+        /// <param name="pageSize">Size of the page</param>
+        /// <returns>Returns a list with CatalogusViewModels</returns>
         List<CatalogusViewModel> GetProducts(int page, int pageSize);
-        List<CatalogusViewModel> ConvertFindCatalogusResponseMessageToCatalogusViewModelList(CatalogusCollection catalogusCollection);
+
+        /// <summary>
+        /// This function Convert a List with CatalogusViewModels based on the given CatalogusCollection
+        /// </summary>
+        /// <param name="catalogusCollection">The collection which has to be converted</param>
+        /// <returns>Returns a list with CatalogusViewModels<returns>
+        List<CatalogusViewModel> ConvertCatalogusCollectionToCatalogusViewModelList(CatalogusCollection catalogusCollection);
     }
 }

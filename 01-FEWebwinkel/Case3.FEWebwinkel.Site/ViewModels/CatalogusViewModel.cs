@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Case3.FEWebwinkel.Site.ViewModels
+﻿namespace Case3.FEWebwinkel.Site.ViewModels
 {
     public class CatalogusViewModel
     {
