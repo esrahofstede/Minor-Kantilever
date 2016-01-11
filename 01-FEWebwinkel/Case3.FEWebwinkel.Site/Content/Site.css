@@ -105,6 +105,30 @@ div.catalog-section {
     color: black!important;
 }
 
+.shopping-cart {
+  display:block;
+  float:right;
+  
+}
 
+h2.catalog-header {
+    display: inline-block;
+    margin-top:0px;
+}
 
+.catalog-heading {
+    position: relative;
+    padding:5px;
+}
+
+.shopping-cart > .glyphicon {
+    font-size: 35px;
+    color: rgb(170,177,228)!important;
+}
+
+.shopping-cart > .glyphicon:hover {
+    color: rgb(124, 129, 165)!important;
+}
+
+    
 
