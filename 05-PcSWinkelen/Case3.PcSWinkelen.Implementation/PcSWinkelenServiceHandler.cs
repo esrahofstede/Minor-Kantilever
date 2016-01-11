@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Activation;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using CatalogusProd = Case3.BSCatalogusBeheer.Schema.Prod;
 using VoorraadProd = Case3.BSVoorraadBeheer.Schema.Prod;
+using CatalogusCategorie = Case3.BSVoorraadBeheer.Schema.Cat;
+using VoorraadCategorie = Case3.BSCatalogusBeheer.Schema.Cat;
 using Case3.PcSWinkelen.Contract;
 using log4net;
 using Case3.PcSWinkelen.Agent.Agents;
@@ -18,18 +21,23 @@ namespace Case3.PcSWinkelen.Implementation
     {
         private static ILog _logger = LogManager.GetLogger(typeof(PcSWinkelenServiceHandler));
 
-        public PcSWinkelenServiceHandler()
-        {
-            log4net.Config.XmlConfigurator.Configure();
-            Mapper.Initialize(cfg => cfg.CreateMap<CatalogusProd.Product, VoorraadProd.Product>());
-            Mapper.Initialize(cfg => cfg.CreateMap<VoorraadProd.Product, CatalogusProd.Product>());
-        }
-
+        [AutomapServiceBehavior]
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
+            Mapper.Initialize(cfg => cfg.CreateMap<CatalogusCategorie.Categorie, VoorraadCategorie.Categorie>());
+            Mapper.Initialize(cfg => cfg.CreateMap<VoorraadCategorie.Categorie, CatalogusCategorie.Categorie>());
+            //Mapper.Initialize(cfg => cfg.CreateMap<CatalogusCategorie.CategorieCollection, VoorraadCategorie.CategorieCollection>());
+            Mapper.Initialize(cfg => cfg.CreateMap<CatalogusProd.Product, VoorraadProd.Product>()
+                .ForMember(dest => dest.CategorieLijst, opt => opt.Ignore())
+                .ForMember(dest => dest.ExtensionData, opt => opt.Ignore()));
+            //Mapper.Initialize(cfg => cfg.CreateMap<CatalogusProd.Product, VoorraadProd.Product>());
+
             BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
             CatalogusCollection catalogusCollection = new CatalogusCollection();
-            foreach(CatalogusProd.Product product in bSCatalogusBeheerAgent.GetProducts().ToList())
+
+            var producten = bSCatalogusBeheerAgent.GetProducts().ToList();
+
+            foreach (CatalogusProd.Product product in producten)
             {
                 catalogusCollection.Add(new ProductVoorraad() { Product = Mapper.Map<VoorraadProd.Product>(product), Voorraad = 1 });
             }
