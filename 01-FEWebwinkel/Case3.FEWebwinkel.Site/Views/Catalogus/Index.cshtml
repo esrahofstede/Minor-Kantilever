@@ -39,7 +39,7 @@
                                    @Html.Hidden("Prijs", item.Prijs)
                         </p>
                         <p>
-                            10 in voorraad
+                            @Html.DisplayFor(modelItem => item.Voorraad) in voorraad
                         </p>
                     </div>
                 </div>

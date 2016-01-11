@@ -5,6 +5,7 @@ using Case3.FEWebwinkel.Agent;
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
+using Case3.BTWConfigurationReader;
 
 namespace Case3.FEWebwinkel.Site.Managers
 {
@@ -14,7 +15,8 @@ namespace Case3.FEWebwinkel.Site.Managers
     public class CatalogusManager : ICatalogusManager
     {
         private IPcSWinkelenAgent _pcsWinkelenAgent;
-        //private BTWCalculator _btwCalculator;
+        private BTWCalculator _btwCalculator = new BTWCalculator();
+
         /// <summary>
         /// This constructor is the default constructor
         /// </summary>
@@ -59,9 +61,8 @@ namespace Case3.FEWebwinkel.Site.Managers
                 Afbeeldingslocatie = "../Content/Product_img/" + cat.Product.AfbeeldingURL,
                 Leverancier = cat.Product.LeverancierNaam,
                 Naam = cat.Product.Naam,
-                //Prijs = _btwCalculator.CalculatePriceInclusiveBTW(cat.Product.Prijs),
-                Prijs = cat.Product.Prijs,
-                Voorraad = cat.Voorraad,
+                Prijs = _btwCalculator.CalculatePriceInclusiveBTW(cat.Product.Prijs),
+                Voorraad = (cat.Voorraad > 10 ? 10 : cat.Voorraad),
             });
 
             return CatalogusViewModels.ToList();
