@@ -1,6 +1,4 @@
-﻿using Case3.BSCatalogusBeheer.Schema.Product;
-using Case3.PcSWinkelen.Schema;
-using System.Collections.Generic;
+﻿using Case3.PcSWinkelen.Schema;
 
 namespace Case3.FEWebwinkel.Agent.Interfaces
 {

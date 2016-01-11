@@ -1,12 +1,8 @@
-﻿using Case3.FEWebwinkel.Agent.Interfaces;
-using Case3.BSCatalogusBeheer.Schema.Product;
-using Case3.BSCatalogusBeheer.Schema.Categorie;
-using Case3.PcSWinkelen;
+﻿using Case3.BSCatalogusBeheer.Schema.Product;
+using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.PcSWinkelen.Messages;
 using Case3.PcSWinkelen.Schema;
 using Minor.ServiceBus.Agent.Implementation;
-using System.Collections.Generic;
-using System;
 
 namespace Case3.FEWebwinkel.Agent
 {
