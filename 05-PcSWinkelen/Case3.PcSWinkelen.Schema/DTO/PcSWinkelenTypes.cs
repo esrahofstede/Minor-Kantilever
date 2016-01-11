@@ -8,13 +8,124 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-common:v1:faults", ClrNamespace="case3common.v1.faults")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Categorie")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Leverancier")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ClrNamespace="Case3.PcSWinkelen.Schema.ProductUpdate")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Product")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ClrNamespace="Case3.PcSWinkelen.Schema.ProductUpdate")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:messages", ClrNamespace="Case3.PcSWinkelen.Schema.Messages")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:schema", ClrNamespace="Case3.PcSWinkelen.Schema")]
 
+namespace case3common.v1.faults
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FunctionalErrorDetail", Namespace="urn:case3-common:v1:faults")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Fouten.FoutErnst))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Fouten.FoutMelding))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.FunctionalErrorList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Categorie.Categorie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Categorie.CategorieCollection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Leverancier.Leverancier))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Leverancier.LeverancierCollection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.MsgUpdateCatalogusRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.MsgUpdateCatalogusResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.MsgFindProductByIdRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.MsgFindProductByIdResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.MsgFindProductsRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.MsgFindProductsResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.MsgFindLeveranciersRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.MsgFindLeveranciersResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.MsgFindCategorieenRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.MsgFindCategorieenResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Product.Product))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Product.ProductCollection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Product.ProductRef))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Product.ProductRefCollection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdateCollection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdateResultaat))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdateResultaatCollection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.Sorteerrichting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.Sorteerveld))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.ProductUpdate.UpdateActie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.FindCatalogusRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.Messages.FindCatalogusResponseMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.ProductVoorraad))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusCollection))]
+    public partial class FunctionalErrorDetail : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ErrorCodeField;
+        
+        private string MessageField;
+        
+        private object DataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ErrorCode
+        {
+            get
+            {
+                return this.ErrorCodeField;
+            }
+            set
+            {
+                this.ErrorCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string Message
+        {
+            get
+            {
+                return this.MessageField;
+            }
+            set
+            {
+                this.MessageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public object Data
+        {
+            get
+            {
+                return this.DataField;
+            }
+            set
+            {
+                this.DataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="FunctionalErrorList", Namespace="urn:case3-common:v1:faults", ItemName="FunctionalErrorDetail")]
+    public class FunctionalErrorList : System.Collections.Generic.List<case3common.v1.faults.FunctionalErrorDetail>
+    {
+    }
+}
 namespace Case3.PcSWinkelen.Schema.Categorie
 {
     using System.Runtime.Serialization;
@@ -39,6 +150,25 @@ namespace Case3.PcSWinkelen.Schema.Leverancier
     {
     }
 }
+namespace Case3.PcSWinkelen.Schema.Product
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ItemName="Product")]
+    public class ProductCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.Product.Product>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductRefCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ItemName="ProductRef")]
+    public class ProductRefCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.Product.ProductRef>
+    {
+    }
+}
 namespace Case3.PcSWinkelen.Schema.ProductUpdate
 {
     using System.Runtime.Serialization;
@@ -55,196 +185,6 @@ namespace Case3.PcSWinkelen.Schema.ProductUpdate
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductUpdateResultaatCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ItemName="ProductUpdateResultaat")]
     public class ProductUpdateResultaatCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdateResultaat>
-    {
-    }
-}
-namespace Case3.PcSWinkelen.Schema.Product
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1")]
-    public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private System.Nullable<int> IdField;
-        
-        private string AfbeeldingURLField;
-        
-        private string BeschrijvingField;
-        
-        private string LeverancierNaamField;
-        
-        private string LeveranciersProductIdField;
-        
-        private System.Nullable<System.DateTime> LeverbaarTotField;
-        
-        private System.Nullable<System.DateTime> LeverbaarVanafField;
-        
-        private string NaamField;
-        
-        private System.Nullable<decimal> PrijsField;
-        
-        private Case3.PcSWinkelen.Schema.Categorie.CategorieCollection CategorieLijstField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Id
-        {
-            get
-            {
-                return this.IdField;
-            }
-            set
-            {
-                this.IdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public string AfbeeldingURL
-        {
-            get
-            {
-                return this.AfbeeldingURLField;
-            }
-            set
-            {
-                this.AfbeeldingURLField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public string Beschrijving
-        {
-            get
-            {
-                return this.BeschrijvingField;
-            }
-            set
-            {
-                this.BeschrijvingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
-        public string LeverancierNaam
-        {
-            get
-            {
-                return this.LeverancierNaamField;
-            }
-            set
-            {
-                this.LeverancierNaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
-        public string LeveranciersProductId
-        {
-            get
-            {
-                return this.LeveranciersProductIdField;
-            }
-            set
-            {
-                this.LeveranciersProductIdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-        public System.Nullable<System.DateTime> LeverbaarTot
-        {
-            get
-            {
-                return this.LeverbaarTotField;
-            }
-            set
-            {
-                this.LeverbaarTotField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-        public System.Nullable<System.DateTime> LeverbaarVanaf
-        {
-            get
-            {
-                return this.LeverbaarVanafField;
-            }
-            set
-            {
-                this.LeverbaarVanafField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-        public string Naam
-        {
-            get
-            {
-                return this.NaamField;
-            }
-            set
-            {
-                this.NaamField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-        public System.Nullable<decimal> Prijs
-        {
-            get
-            {
-                return this.PrijsField;
-            }
-            set
-            {
-                this.PrijsField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-        public Case3.PcSWinkelen.Schema.Categorie.CategorieCollection CategorieLijst
-        {
-            get
-            {
-                return this.CategorieLijstField;
-            }
-            set
-            {
-                this.CategorieLijstField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ItemName="Product")]
-    public class ProductCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.Product.Product>
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductRefCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ItemName="ProductRef")]
-    public class ProductRefCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.Product.ProductRef>
     {
     }
 }
@@ -452,13 +392,6 @@ namespace Case3.PcSWinkelen.Schema
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CatalogusCollection", Namespace="urn:case3-pcswinkelen:v1:schema", ItemName="CatalogusItem")]
-    public class CatalogusCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductVoorraad>
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductVoorraad", Namespace="urn:case3-pcswinkelen:v1:schema")]
     public partial class ProductVoorraad : object, System.Runtime.Serialization.IExtensibleDataObject
     {
@@ -506,5 +439,12 @@ namespace Case3.PcSWinkelen.Schema
                 this.VoorraadField = value;
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CatalogusCollection", Namespace="urn:case3-pcswinkelen:v1:schema", ItemName="CatalogusItem")]
+    public class CatalogusCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductVoorraad>
+    {
     }
 }
