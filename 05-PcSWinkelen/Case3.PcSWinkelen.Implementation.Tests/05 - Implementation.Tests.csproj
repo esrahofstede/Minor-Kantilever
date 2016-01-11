@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -82,6 +83,10 @@
     <ProjectReference Include="..\Case3.PcSWinkelen.Implementation\04 - Implementation.csproj">
       <Project>{4b579cb9-6f8f-429a-bbbb-33d25a443324}</Project>
       <Name>04 - Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.Schema\01 - Schema.csproj">
+      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
+      <Name>01 - Schema</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

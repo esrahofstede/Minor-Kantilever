@@ -29,7 +29,7 @@ namespace Case3.PcSWinkelen.Implementation
         {
             BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
             CatalogusCollection catalogusCollection = new CatalogusCollection();
-            foreach(CatalogusProd.Product product in bSCatalogusBeheerAgent.GetProducts())
+            foreach(CatalogusProd.Product product in bSCatalogusBeheerAgent.GetProducts().ToList())
             {
                 catalogusCollection.Add(new ProductVoorraad() { Product = Mapper.Map<VoorraadProd.Product>(product), Voorraad = 1 });
             }
