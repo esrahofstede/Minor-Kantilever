@@ -5,15 +5,12 @@ using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Models;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
-<<<<<<< HEAD
+
 using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-=======
-
->>>>>>> 9e007329ddc85efc09dcd6326160dfa79e013387
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
@@ -61,7 +58,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
             return View(model2);
         }
 
-<<<<<<< HEAD
         /// <summary>
         /// Adds an Artikel to the Winkelmand
         /// </summary>
@@ -105,7 +101,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
             };
-            var model2 = _catalogusManager.ConvertFindCatalogusResponseMessageToCatalogusViewModelList(model);
+            var model2 = _catalogusManager.ConvertCatalogusCollectionToCatalogusViewModelList(model);
             return View(model2);
         }
 
@@ -136,8 +132,5 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 Prijs = catalogusArtikel.Prijs.GetValueOrDefault(),
             };
         }
-
-=======
->>>>>>> 9e007329ddc85efc09dcd6326160dfa79e013387
     }
 }
