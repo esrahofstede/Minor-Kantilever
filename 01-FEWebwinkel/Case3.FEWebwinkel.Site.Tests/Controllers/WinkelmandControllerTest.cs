@@ -4,6 +4,7 @@ using Case3.FEWebwinkel.Site.Controllers;
 using System.Web.Mvc;
 using Case3.FEWebwinkel.Site.Models;
 using System.Collections.Generic;
+using Case3.FEWebwinkel.Site.Managers.Interfaces;
 
 namespace Case3.FEWebwinkel.Site.Tests.Controllers
 {
@@ -35,5 +36,25 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             // Assert
             Assert.IsInstanceOfType(result.Model, typeof(List<WinkelmandViewModel>));
         }
+
+        [TestMethod]
+        public void WinkelmandControllerIndexActionHasViewsFromCookie()
+        {
+            // Arrange
+            //ICookieNator<WinkelmandViewModel> cookieNator = 
+            var controller = new WinkelmandController();
+
+
+
+
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+
+            // Assert
+            Assert.IsInstanceOfType(result.Model, typeof(List<WinkelmandViewModel>));
+        }
+
+
+
     }
 }

@@ -1,10 +1,8 @@
 ﻿using Case3.BTWConfigurationReader;
 using Case3.FEWebwinkel.Site.Managers;
+using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
@@ -12,7 +10,17 @@ namespace Case3.FEWebwinkel.Site.Controllers
 {
     public class WinkelmandController : Controller
     {
-        private BTWCalculator _btwCalculator = new BTWCalculator();
+	private BTWCalculator _btwCalculator = new BTWCalculator();
+        private ICookieNator<ArtikelViewModel> _cookieNator;
+        public WinkelmandController()
+        {
+
+        }
+        public WinkelmandController(ICookieNator<ArtikelViewModel> cookieNator)
+        {
+            _cookieNator = cookieNator;
+        }
+
         // GET: Winkelmand
         public ActionResult Index()
         {

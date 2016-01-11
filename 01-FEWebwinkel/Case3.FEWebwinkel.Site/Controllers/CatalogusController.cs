@@ -8,7 +8,6 @@ using Case3.PcSWinkelen.Schema;
 using System;
 using System.Collections.Generic;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
 namespace Case3.FEWebwinkel.Site.Controllers
