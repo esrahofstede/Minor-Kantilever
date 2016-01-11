@@ -61,6 +61,7 @@ namespace Case3.BTWConfigurationReader.Tests.IntegrationTests
         }
         #endregion
         #region -------[IntegrationTests for CalculatePriceInclBTW]-------
+        [TestMethod]
         public void BTWCalculatorIntegrationTestCalculatePriceInclBTW()
         {
             // Arrange
@@ -72,6 +73,7 @@ namespace Case3.BTWConfigurationReader.Tests.IntegrationTests
             // Assert
             Assert.AreEqual(121.00M, result);
         }
+        [TestMethod]
         public void BTWCalculatorIntegrationTestCalculatePriceInclBTWNullable()
         {
             // Arrange
@@ -83,6 +85,7 @@ namespace Case3.BTWConfigurationReader.Tests.IntegrationTests
             // Assert
             Assert.AreEqual(121.00M, result);
         }
+        [TestMethod]
         public void BTWCalculatorIntegrationTestCalculatePriceInclBTWNull()
         {
             // Arrange
