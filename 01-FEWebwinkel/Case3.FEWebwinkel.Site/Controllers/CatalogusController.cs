@@ -46,9 +46,9 @@ namespace Case3.FEWebwinkel.Site.Controllers
             //BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
             
             var model = new CatalogusCollection {
+                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 1,}, 
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
+                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 15,}, 
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
@@ -63,46 +63,27 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// </summary>
         /// <param name="artikel">The chosen product that you want to add to your winkelmand</param>
         [HttpPost]
-        public ActionResult Index(CatalogusViewModel Catalogusartikel)
+        public ActionResult Index(CatalogusViewModel Catalogusartikel, List<CatalogusViewModel> model3)
         {
-            //check if cookie exists
-            if (Request.Cookies["artikelen"] == null)
+            List<ArtikelViewModel> artikelLijst = null;
+
+            try //to get the list from an existing cookie and add the new artikel to the list
             {
-                //create new empty list and add the the artikel
-                var artikelLijst = new List<ArtikelViewModel>();
-                ArtikelViewModel artikel = CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
-
-                artikelLijst.Add(artikel);
-
-                CreateCookieWithArtikellijst(artikelLijst);
-                
-            }
-
-            else
-            {
-                //get the list from the old cookie and add the new artikel to the list
                 string jsonStringArtikellijst = Request.Cookies.Get("artikelen").Value;
-                var artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
-
-                ArtikelViewModel artikel = CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
-
-                artikelLijst.Add(artikel);
-
-                CreateCookieWithArtikellijst(artikelLijst);
+                artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
             }
+            catch (NullReferenceException ex) //Create a new list if cookie can't be found
+            {
+                artikelLijst = new List<ArtikelViewModel>();
+            }
+            //Add the new Artikel to the list
+            ArtikelViewModel artikel = CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
+            artikelLijst.Add(artikel);
 
+            //Set cookie for later usage
+            CreateCookieWithArtikellijst(artikelLijst);
 
-            var model = new CatalogusCollection {
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-            };
-            var model2 = _catalogusManager.ConvertCatalogusCollectionToCatalogusViewModelList(model);
-            return View(model2);
+            return RedirectToAction("Index");
         }
 
         ////////////////////////////////////////////////////////////////////
@@ -127,6 +108,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         {
             return new ArtikelViewModel
             {
+                ID = catalogusArtikel.ID,
                 ArtikelNaam = catalogusArtikel.Naam,
                 Aantal = 1,
                 Prijs = catalogusArtikel.Prijs.GetValueOrDefault(),

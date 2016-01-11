@@ -15,32 +15,34 @@
     @foreach (var item in Model)
     {
         <div class="catalog-product">
-            @using (Html.BeginForm("Index", "Catalogus", FormMethod.Post))
+            @using (Html.BeginForm())
             {
-                <div class="product-top">
-                    <div class="img-wrapper" style="background-image:url(../Content/Product_img/julianax_r_02_yellow_small.gif)">
+                @Html.AntiForgeryToken()
 
+                <div class="product-top">
+                    <div class="img-wrapper" style="background-image:url(@item.Afbeeldingslocatie)">
+                        @Html.Hidden("ID", item.ID)
+                        @Html.Hidden("Afbeeldingslocatie", item.Afbeeldingslocatie)
                     </div>
                     <div class="info-wrapper">
                         <p>
                             @Html.DisplayFor(modelItem => item.Naam)
-                            @Html.HiddenFor(modelItem => item.Naam)
+                            @Html.Hidden("Naam", item.Naam)
                         </p>
                         <p>
 
                             @Html.DisplayFor(modelItem => item.Leverancier)
-                            @Html.HiddenFor(modelItem => item.Leverancier)
+                            @Html.Hidden("Leverancier", item.Leverancier)
                         </p>
                         <p>
                             &#8364 @Html.DisplayFor(modelItem => item.Prijs)
-                                    @Html.HiddenFor(modelItem => item.Prijs)
+                                   @Html.Hidden("Prijs", item.Prijs)
                         </p>
                         <p>
                             10 in voorraad
                         </p>
                     </div>
                 </div>
-
 
                 <div class="product-bottom">
                     <input type="submit" name="AddToWinkelmandKnop" value="Aan winkelmand toevoegen" /> <!--<a href="http://asp.net" class="btn btn-primary">Aan winkelmand toevoegen</a>-->

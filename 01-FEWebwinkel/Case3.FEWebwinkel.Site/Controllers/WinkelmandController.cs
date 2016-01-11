@@ -1,4 +1,5 @@
-﻿using Case3.FEWebwinkel.Site.Models;
+﻿using Case3.BTWConfigurationReader;
+using Case3.FEWebwinkel.Site.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         // GET: Winkelmand
         public ActionResult Index()
         {
-            var artikel1 = new ArtikelViewModel
+            /*var artikel1 = new ArtikelViewModel
             {
                 ArtikelNaam = "Fietsbel",
                 Aantal = 2,
@@ -25,20 +26,32 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 Aantal = 1,
                 Prijs = 14.95M,
             };
-            var artikelLijst = new List<ArtikelViewModel> { artikel1, artikel2 };
+            var artikelLijst = new List<ArtikelViewModel> { artikel1, artikel2 };*/
             
+            //Get data from cookie which has been set in catalogus view
+            string jsonStringArtikelList = Request.Cookies.Get("artikelen").Value;
+            List<ArtikelViewModel> artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikelList);
+
+            decimal TotaalExclBTW = 0M;
+
+            if (artikelLijst.Count > 0)
+            {
+                foreach(ArtikelViewModel artikelViewModel in artikelLijst)
+                {
+                    TotaalExclBTW += artikelViewModel.Prijs * artikelViewModel.Aantal;
+                }
+            }
+
+            BTWCalculator bTWCalculator = new BTWCalculator();
+
             var model = new WinkelmandViewModel
             {
                 Artikelen = artikelLijst,
-                BTWPercentage = 21M,
-                TotaalInclBTW = 24.85M,
-                TotaalExclBTW = 20.54M,
-                TotaalBTW = 4.31M,
+                BTWPercentage = bTWCalculator.BTWPercentage,
+                TotaalInclBTW = bTWCalculator.CalculatePriceInclusiveBTW(TotaalExclBTW),
+                TotaalExclBTW = TotaalExclBTW,
+                TotaalBTW = bTWCalculator.CalculateBTWOfPrice(TotaalExclBTW),
             };
-
-            //Get data from cookie which has been set in catalogus view
-            string jsonStringKlant = Request.Cookies.Get("artikel").Value;
-            var artikelLijst2 = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringKlant);
 
             return View(model);
         }
