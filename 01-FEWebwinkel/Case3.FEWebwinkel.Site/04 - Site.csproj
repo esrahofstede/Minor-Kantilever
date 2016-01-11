@@ -187,11 +187,13 @@
     <Compile Include="Managers\CatalogusManager.cs" />
     <Compile Include="Managers\ICatalogusManager.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\ArtikelViewModel.cs" />
     <Compile Include="ViewModels\CatalogusViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\WinkelmandViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">

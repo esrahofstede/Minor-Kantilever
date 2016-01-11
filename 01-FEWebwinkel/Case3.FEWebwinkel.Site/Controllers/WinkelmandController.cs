@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
@@ -26,8 +27,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
             };
             var artikelLijst = new List<ArtikelViewModel> { artikel1, artikel2 };
             
-            //Request.Cookies["WinkelmandCookie"][""]
-
             var model = new WinkelmandViewModel
             {
                 Artikelen = artikelLijst,
@@ -36,6 +35,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 TotaalExclBTW = 20.54M,
                 TotaalBTW = 4.31M,
             };
+
+            //Get data from cookie which has been set in catalogus view
+            string jsonStringKlant = Request.Cookies.Get("artikel").Value;
+            var artikelLijst2 = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringKlant);
 
             return View(model);
         }
