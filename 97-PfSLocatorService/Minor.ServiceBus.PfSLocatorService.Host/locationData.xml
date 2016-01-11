@@ -1,6 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <locationData xmlns="urn:minor-servicebus-fileservicelocator:locationData">
   <serviceLocation>
+    <name>PcSBestellen</name>
+    <profile>Development</profile>
+    <metadataAddress>http://localhost:30230/PcSBestellen.svc/mex</metadataAddress>
+  </serviceLocation>
+  <serviceLocation>
+    <name>PcSBestellen</name>
+    <profile>Acceptatie</profile>
+    <metadataAddress>http://minorbldsrv/Goudgeel/Acceptatie/PcSBestellen/PcSBestellen.svc/mex</metadataAddress>
+  </serviceLocation>  
+   <serviceLocation>
+    <name>PcSWinkelen</name>
+    <profile>Development</profile>
+    <metadataAddress>http://localhost:30178/IPcSWinkelen.svc/mex</metadataAddress>
+  </serviceLocation>
+  <serviceLocation>
+    <name>PcSWinkelen</name>
+    <profile>Acceptatie</profile>
+    <metadataAddress>http://minorbldsrv/Goudgeel/Acceptatie/PcSWinkelen/IPcSWinkelen.svc/mex</metadataAddress>
+  </serviceLocation>  
+  <serviceLocation>
     <name>BSVoorraadBeheer</name>
     <profile>Development</profile>
     <metadataAddress>http://localhost:4001/Design_Time_Addresses/Kantilever/BSVoorraadBeheer/mex</metadataAddress>
