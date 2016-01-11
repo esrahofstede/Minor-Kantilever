@@ -33,14 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Case3.BTWConfigurationReader, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8d42a567b9955386, processorArchitecture=MSIL">
-      <HintPath>..\packages\GoudGeelBtwCalculator.1.0.0.1\lib\Case3.BTWConfigurationReader.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Minor.ServiceBus.Agent.Implementation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=73e451069382071b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Minor.Caespi.ServiceBus.Agent.1.0.0.3\lib\net452\Minor.ServiceBus.Agent.Implementation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,16 +49,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Case3.PcSWinkelen.Agent\09 - Agent.csproj">
-      <Project>{a0be951e-3160-4dcb-916b-86d8c348bd91}</Project>
-      <Name>09 - Agent</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSWinkelen.Schema\01 - Schema.csproj">
-      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
-      <Name>01 - Schema</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
