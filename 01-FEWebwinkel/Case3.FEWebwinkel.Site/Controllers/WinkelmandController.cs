@@ -1,4 +1,5 @@
 ﻿using Case3.BTWConfigurationReader;
+using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Models;
 using System;
 using System.Collections.Generic;
@@ -11,50 +12,41 @@ namespace Case3.FEWebwinkel.Site.Controllers
 {
     public class WinkelmandController : Controller
     {
-
-
+        private BTWCalculator _btwCalculator = new BTWCalculator();
         // GET: Winkelmand
         public ActionResult Index()
         {
-            /*var artikel1 = new ArtikelViewModel
+            decimal totaalInclBTW = 0M;
+            List<ArtikelViewModel> artikelLijst = null;
+
+            try //to get the list from an existing cookie
             {
-                ArtikelNaam = "Fietsbel",
-                Aantal = 2,
-                Prijs = 4.95M,
-            };
-            var artikel2 = new ArtikelViewModel
+                CookieNator<ArtikelViewModel> cookieNator = new CookieNator<ArtikelViewModel>(Request.Cookies);
+                artikelLijst = cookieNator.GetCookieValue("artikelen");
+            }
+            catch (NullReferenceException ex) //Create a new list if cookie can't be found
             {
-                ArtikelNaam = "Zadelpen",
-                Aantal = 1,
-                Prijs = 14.95M,
-            };
-            var artikelLijst = new List<ArtikelViewModel> { artikel1, artikel2 };*/
-
-            //Get data from cookie which has been set in catalogus view
-
-            string jsonStringArtikelList = Request.Cookies.Get("artikelen").Value;
-
-            List<ArtikelViewModel> artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikelList);
-
-            decimal TotaalExclBTW = 0M;
+                artikelLijst = new List<ArtikelViewModel>();
+            }
 
             if (artikelLijst.Count > 0)
             {
+                //totaalInclBTW = artikelLijst.Select(artikel => (artikel.Prijs * artikel.Aantal))
+                //                            .Sum();
                 foreach(ArtikelViewModel artikelViewModel in artikelLijst)
                 {
-                    TotaalExclBTW += artikelViewModel.Prijs * artikelViewModel.Aantal;
+                    totaalInclBTW += artikelViewModel.Prijs * artikelViewModel.Aantal;
                 }
             }
 
-            BTWCalculator bTWCalculator = new BTWCalculator();
 
             var model = new WinkelmandViewModel
             {
                 Artikelen = artikelLijst,
-                BTWPercentage = bTWCalculator.BTWPercentage,
-                TotaalInclBTW = bTWCalculator.CalculatePriceInclusiveBTW(TotaalExclBTW),
-                TotaalExclBTW = TotaalExclBTW,
-                TotaalBTW = bTWCalculator.CalculateBTWOfPrice(TotaalExclBTW),
+                BTWPercentage = _btwCalculator.BTWPercentage,
+                TotaalInclBTW = totaalInclBTW,
+                TotaalExclBTW = Math.Round(((totaalInclBTW * 100) / 121), 2),
+                TotaalBTW = _btwCalculator.CalculateBTWOfPrice(((totaalInclBTW * 100) / 121)),
             };
 
             return View(model);

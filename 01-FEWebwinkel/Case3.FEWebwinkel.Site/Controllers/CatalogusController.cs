@@ -1,18 +1,15 @@
-﻿using System.Web.Mvc;
-
-using Case3.BSCatalogusBeheer.Schema.Product;
+﻿using Case3.BSCatalogusBeheer.Schema.Product;
+using Case3.BTWConfigurationReader;
+using Case3.FEWebwinkel.Site.Managers;
+using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.Models;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
-
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using Case3.FEWebwinkel.Site.Managers.Interfaces;
-using Case3.FEWebwinkel.Site.Managers;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
@@ -22,6 +19,8 @@ namespace Case3.FEWebwinkel.Site.Controllers
     public class CatalogusController : Controller
     {
         private ICatalogusManager _catalogusManager;
+        private BTWCalculator _btwCalculator = new BTWCalculator();
+
         /// <summary>
         /// This constructor is the default constructor
         /// </summary>
