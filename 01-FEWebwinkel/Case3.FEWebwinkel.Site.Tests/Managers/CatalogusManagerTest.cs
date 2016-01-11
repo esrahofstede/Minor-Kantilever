@@ -12,7 +12,7 @@ using Case3.FEWebwinkel.Agent.Interfaces;
 namespace Case3.FEWebwinkel.Site.Tests.Managers
 {
     /// <summary>
-    /// Responsible for testing the BTWConfigReader Class
+    /// Responsible for testing the CatalogusManager Class
     /// </summary>
     [TestClass]
     public class CatalogusManagerTest
