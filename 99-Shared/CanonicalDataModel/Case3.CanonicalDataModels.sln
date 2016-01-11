@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BSKlantbeheer", "BSKlantbeheer", "{3E39BF98-E996-41DD-A9D3-18149FF0DA30}"
 	ProjectSection(SolutionItems) = preProject
@@ -47,6 +47,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BSVoorraadbeheer", "BSVoorr
 		BSVoorraadBeheer\V1\ProductVoorraad.xsd = BSVoorraadBeheer\V1\ProductVoorraad.xsd
 		BSVoorraadBeheer\V1\UpdateActie.xsd = BSVoorraadBeheer\V1\UpdateActie.xsd
 		BSVoorraadBeheer\V1\UpdateProductVoorraad.xsd = BSVoorraadBeheer\V1\UpdateProductVoorraad.xsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commen", "Commen", "{1F860908-5665-4275-A58C-3E08CC6CA1E6}"
+	ProjectSection(SolutionItems) = preProject
+		Common\V1\FoutErnst.xsd = Common\V1\FoutErnst.xsd
+		Common\V1\FoutMelding.xsd = Common\V1\FoutMelding.xsd
+		Common\V1\FunctionalErrorList.xsd = Common\V1\FunctionalErrorList.xsd
 	EndProjectSection
 EndProject
 Global
