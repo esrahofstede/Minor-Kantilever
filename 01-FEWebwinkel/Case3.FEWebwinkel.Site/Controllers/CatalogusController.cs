@@ -1,16 +1,25 @@
-﻿using Case3.BSCatalogusBeheer.Schema.Product;
+﻿using System.Web.Mvc;
+
+using Case3.BSCatalogusBeheer.Schema.Product;
 using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Models;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
+<<<<<<< HEAD
 using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+=======
+
+>>>>>>> 9e007329ddc85efc09dcd6326160dfa79e013387
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
+    /// <summary>
+    /// This class is responsible for all interactions with the Catalog
+    /// </summary>
     public class CatalogusController : Controller
     {
         private ICatalogusManager _catalogusManager;
@@ -29,7 +38,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
         {
             _catalogusManager = manager;
         }
-        
+        /// <summary>
+        /// This function returns the overview page of the catalog
+        /// </summary>
+        /// <returns>View with products of the catalog</returns>
         public ActionResult Index()
         {
 
@@ -45,10 +57,11 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
             };
-            var model2 = _catalogusManager.ConvertFindCatalogusResponseMessageToCatalogusViewModelList(model);
+            var model2 = _catalogusManager.ConvertCatalogusCollectionToCatalogusViewModelList(model);
             return View(model2);
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// Adds an Artikel to the Winkelmand
         /// </summary>
@@ -124,5 +137,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
             };
         }
 
+=======
+>>>>>>> 9e007329ddc85efc09dcd6326160dfa79e013387
     }
 }

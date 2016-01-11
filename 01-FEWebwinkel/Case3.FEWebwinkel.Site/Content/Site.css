@@ -104,6 +104,37 @@ div.catalog-section {
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a, .btn {
     color: black!important;
 }
+<<<<<<< HEAD
 .total {
     border-top: thin solid black !important;
 }
+=======
+
+.shopping-cart {
+  display:block;
+  float:right;
+  
+}
+
+h2.catalog-header {
+    display: inline-block;
+    margin-top:0px;
+}
+
+.catalog-heading {
+    position: relative;
+    padding:5px;
+}
+
+.shopping-cart > .glyphicon {
+    font-size: 35px;
+    color: rgb(170,177,228)!important;
+}
+
+.shopping-cart > .glyphicon:hover {
+    color: rgb(124, 129, 165)!important;
+}
+
+    
+
+>>>>>>> 9e007329ddc85efc09dcd6326160dfa79e013387

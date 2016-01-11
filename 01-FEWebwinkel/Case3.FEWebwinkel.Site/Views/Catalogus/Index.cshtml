@@ -4,7 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Catalogus</h2>
+<div class="catalog-heading">
+    <h2 class="catalog-header">Catalogus</h2>
+    <a class="shopping-cart" href="/Winkelmand" title="Naar winkelmandje"><i class="glyphicon glyphicon-align-center glyphicon-shopping-cart"></i></a>
+    
+</div>
+<div class="clearfix"></div>
 
 <div class="catalog-section">
     @foreach (var item in Model)
