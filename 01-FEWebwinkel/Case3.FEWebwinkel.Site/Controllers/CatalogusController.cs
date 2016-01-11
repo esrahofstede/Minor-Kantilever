@@ -8,6 +8,7 @@ using Case3.PcSWinkelen.Schema;
 using System;
 using System.Collections.Generic;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
 namespace Case3.FEWebwinkel.Site.Controllers
@@ -41,20 +42,9 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// <returns>View with products of the catalog</returns>
         public ActionResult Index()
         {
-            //List<Product> model = new List<Product>();
-            //BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
-            
-            var model = new CatalogusCollection {
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 1,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 15,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-            };
-            var model2 = _catalogusManager.ConvertCatalogusCollectionToCatalogusViewModelList(model);
-            return View(model2);
+            var model = _catalogusManager.GetProducts(1, 20);            
+
+            return View(model);
         }
 
         /// <summary>
