@@ -1,16 +1,18 @@
 ﻿using System.Web.Mvc;
 
 using Case3.BSCatalogusBeheer.Schema.Product;
-using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Models;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using Case3.FEWebwinkel.Site.Managers.Interfaces;
+using Case3.FEWebwinkel.Site.Managers;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
@@ -68,8 +70,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
 
             try //to get the list from an existing cookie and add the new artikel to the list
             {
-                string jsonStringArtikellijst = Request.Cookies.Get("artikelen").Value;
-                artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
+                CookieNator<ArtikelViewModel> cookieNator = new CookieNator<ArtikelViewModel>(Request.Cookies);
+                artikelLijst = cookieNator.GetCookieValue("artikelen");
+                //string jsonStringArtikellijst = Request.Cookies.Get("artikelen").Value;
+                //artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
             }
             catch (NullReferenceException ex) //Create a new list if cookie can't be found
             {
@@ -98,9 +102,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
             };
 
             HttpContext.Response.Cookies.Add(cookie);
-
-            
-
         }
 
         private ArtikelViewModel CreateArtikelViewModelFromCatalogusViewModel(CatalogusViewModel catalogusArtikel)

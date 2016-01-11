@@ -188,7 +188,9 @@
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Managers\CatalogusManager.cs" />
-    <Compile Include="Managers\ICatalogusManager.cs" />
+    <Compile Include="Managers\CookieNator.cs" />
+    <Compile Include="Managers\Interfaces\ICatalogusManager.cs" />
+    <Compile Include="Managers\Interfaces\ICookieNator.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\ArtikelViewModel.cs" />
     <Compile Include="ViewModels\CatalogusViewModel.cs" />
