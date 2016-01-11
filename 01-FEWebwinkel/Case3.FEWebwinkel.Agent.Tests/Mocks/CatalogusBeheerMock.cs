@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Case3.FEWebwinkel.Schema.Product;
+using Case3.BSCatalogusBeheer.Schema.Product;
 using System.Globalization;
 using Case3.FEWebwinkel.Schema.Messages;
 
@@ -98,7 +98,7 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
         {
             throw new NotImplementedException();
         }
-     
+
         public MsgUpdateCatalogusResult UpdateCatalogus(MsgUpdateCatalogusRequest message)
         {
             throw new NotImplementedException();

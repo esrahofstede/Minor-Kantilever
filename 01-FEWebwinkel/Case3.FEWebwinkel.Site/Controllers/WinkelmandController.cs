@@ -25,6 +25,8 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 Prijs = 14.95M,
             };
             var artikelLijst = new List<ArtikelViewModel> { artikel1, artikel2 };
+            
+            //Request.Cookies["WinkelmandCookie"][""]
 
             var model = new WinkelmandViewModel
             {
