@@ -7,9 +7,7 @@ using Case3.PcSWinkelen.Schema;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.Managers;
