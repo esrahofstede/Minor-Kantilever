@@ -9,8 +9,8 @@ using Case3.PcSWinkelen.Schema;
 using System;
 using System.Collections.Generic;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using Case3.FEWebwinkel.Site.Helpers;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
@@ -65,16 +65,17 @@ namespace Case3.FEWebwinkel.Site.Controllers
         [HttpPost]
         public ActionResult Index(CatalogusViewModel Catalogusartikel)
         {
+            CookieHelper helper = new CookieHelper();
             //check if cookie exists
             if (Request.Cookies["artikelen"] == null)
             {
                 //create new empty list and add the the artikel
                 var artikelLijst = new List<ArtikelViewModel>();
-                ArtikelViewModel artikel = CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
+                ArtikelViewModel artikel = helper.CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
 
                 artikelLijst.Add(artikel);
 
-                CreateCookieWithArtikellijst(artikelLijst);
+                helper.CreateCookieWithArtikellijst(artikelLijst);
                 
             }
 
@@ -84,11 +85,11 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 string jsonStringArtikellijst = Request.Cookies.Get("artikelen").Value;
                 var artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
 
-                ArtikelViewModel artikel = CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
+                ArtikelViewModel artikel = helper.CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
 
                 artikelLijst.Add(artikel);
 
-                CreateCookieWithArtikellijst(artikelLijst);
+                helper.CreateCookieWithArtikellijst(artikelLijst);
             }
 
 
@@ -103,34 +104,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
             };
             var model2 = _catalogusManager.ConvertCatalogusCollectionToCatalogusViewModelList(model);
             return View(model2);
-        }
-
-        ////////////////////////////////////////////////////////////////////
-        //Verplaats onderstaande methodes naar eventuele helper class
-
-        private void CreateCookieWithArtikellijst(List<ArtikelViewModel> artikelLijst)
-        {
-            //serialize artikelLijst and create cookie
-            string MyJsonObject = new JavaScriptSerializer().Serialize(artikelLijst);
-            var cookie = new HttpCookie("artikelen", MyJsonObject)
-            {
-                Expires = DateTime.Now.AddYears(1)
-            };
-
-            HttpContext.Response.Cookies.Add(cookie);
-
-            
-
-        }
-
-        private ArtikelViewModel CreateArtikelViewModelFromCatalogusViewModel(CatalogusViewModel catalogusArtikel)
-        {
-            return new ArtikelViewModel
-            {
-                ArtikelNaam = catalogusArtikel.Naam,
-                Aantal = 1,
-                Prijs = catalogusArtikel.Prijs.GetValueOrDefault(),
-            };
         }
     }
 }

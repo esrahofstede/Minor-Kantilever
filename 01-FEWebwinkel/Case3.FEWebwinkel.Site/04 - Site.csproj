@@ -188,6 +188,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\CookieHelper.cs" />
     <Compile Include="Managers\CatalogusManager.cs" />
     <Compile Include="Managers\ICatalogusManager.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
