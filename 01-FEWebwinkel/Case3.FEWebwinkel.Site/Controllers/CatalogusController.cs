@@ -29,7 +29,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
             //BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
             
             };
-
+            
             var b = new CatalogusViewModel()
             {
                 Naam = "test",
@@ -51,6 +51,22 @@ namespace Case3.FEWebwinkel.Site.Controllers
             }
             var model = _catalogusManager.GetProducts(1, 20);
             return View(model);
+        }
+
+        /// <summary>
+        /// Adds an Artikel to the Winkelmand
+        /// </summary>
+        /// <param name="artikel">The chosen product that you want to add to your winkelmand</param>
+        [HttpPost]
+        public void AddToWinkelmand(CatalogusViewModel artikel)
+        {
+            
+            HttpCookie cookie = new HttpCookie("WinkelmandCookie");
+            //cookie.Value= JsonConvert.SerializeObject(artikel);
+            cookie.Values.Add("Naam", artikel.Naam);
+            cookie.Values.Add("Leverancier", artikel.Leverancier);
+            cookie.Values.Add("Prijs", artikel.Prijs.ToString());
+            Response.Cookies.Add(cookie);
         }
     }
 }

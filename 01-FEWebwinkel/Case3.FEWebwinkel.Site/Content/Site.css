@@ -104,7 +104,6 @@ div.catalog-section {
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a, .btn {
     color: black!important;
 }
-
-
-
-
+.total {
+    border-top: thin solid black !important;
+}
