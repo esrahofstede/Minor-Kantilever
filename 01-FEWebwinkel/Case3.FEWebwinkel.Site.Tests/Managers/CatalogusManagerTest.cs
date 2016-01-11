@@ -55,6 +55,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         {
             // Arrange
             var collection = CreateCatalogusCollection();
+            //needed to prevent that CatalogusManager connects to PcSWinkelen
             var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
             var target = new CatalogusManager(agentMock.Object);
 

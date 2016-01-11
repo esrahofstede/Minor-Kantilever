@@ -50,5 +50,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
             var model2 = _catalogusManager.ConvertCatalogusCollectionToCatalogusViewModelList(model);
             return View(model2);
         }
+
     }
 }
