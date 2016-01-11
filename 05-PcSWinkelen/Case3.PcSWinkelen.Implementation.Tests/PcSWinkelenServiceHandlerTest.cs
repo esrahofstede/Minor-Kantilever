@@ -34,25 +34,25 @@ namespace Case3.PcSWinkelen.Implementation.Tests
         }
 
 
-        [TestMethod]
-        public void GetCatalogusListWithItems()
-        {
-            // Arrange
-            PcSWinkelenServiceHandler pcsWinkelenServiceHandler = new PcSWinkelenServiceHandler();
+        //[TestMethod]
+        //public void GetCatalogusListWithItems()
+        //{
+        //    // Arrange
+        //    PcSWinkelenServiceHandler pcsWinkelenServiceHandler = new PcSWinkelenServiceHandler();
 
-            // Act
-            FindCatalogusRequestMessage message = new FindCatalogusRequestMessage
-            {
-                Page = 1,
-                PageSize = 20
-            };
+        //    // Act
+        //    FindCatalogusRequestMessage message = new FindCatalogusRequestMessage
+        //    {
+        //        Page = 1,
+        //        PageSize = 20
+        //    };
 
-            pcsWinkelenServiceHandler.GetCatalogusItems(message);
+        //    pcsWinkelenServiceHandler.GetCatalogusItems(message);
 
-            // Assert
-            Assert.IsNotNull(pcsWinkelenServiceHandler);
-            Assert.IsInstanceOfType(pcsWinkelenServiceHandler, typeof(PcSWinkelenServiceHandler));
-        }
+        //    // Assert
+        //    Assert.IsNotNull(pcsWinkelenServiceHandler);
+        //    Assert.IsInstanceOfType(pcsWinkelenServiceHandler, typeof(PcSWinkelenServiceHandler));
+        //}
 
 
 
