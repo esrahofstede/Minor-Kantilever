@@ -104,6 +104,11 @@ div.catalog-section {
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a, .btn {
     color: black!important;
 }
+<<<<<<< HEAD
+.total {
+    border-top: thin solid black !important;
+}
+=======
 
 .shopping-cart {
   display:block;
@@ -132,3 +137,4 @@ h2.catalog-header {
 
     
 
+>>>>>>> 9e007329ddc85efc09dcd6326160dfa79e013387
