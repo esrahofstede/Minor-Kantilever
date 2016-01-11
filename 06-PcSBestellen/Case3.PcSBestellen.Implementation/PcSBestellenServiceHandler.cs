@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using case3common.v1.faults;
@@ -27,13 +28,18 @@ namespace Case3.PcSBestellen.Implementation
             try
             {
                 greeting = "Hello" + name + "! This is a test method.";
+                throw new Exception();
+
             }
             catch (Exception ex)
             {
                 _logger.Fatal(ex.Message);
-                
+                var faultreason = new FaultReason(new FaultReasonText("Custom Error"));
+                throw new FaultException<FunctionalErrorList>(list, faultreason);
+                //throw new FaultException("aasdf");
+
             }
-            return greeting;
+            //return greeting;
         }
     }
 }
