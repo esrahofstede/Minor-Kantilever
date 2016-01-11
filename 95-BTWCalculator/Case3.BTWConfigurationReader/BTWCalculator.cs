@@ -57,7 +57,8 @@ namespace Case3.BTWConfigurationReader
             }
             else
             {
-                return CalculatePriceInclusiveBTW(amountExclusiveBTW);
+
+                return CalculatePriceInclusiveBTW((decimal)amountExclusiveBTW);
             }
         }
         /// <summary>
@@ -69,6 +70,23 @@ namespace Case3.BTWConfigurationReader
         {
             decimal percentage = (_configReader.GetBTWPercentage() / 100);
             return Math.Round((price * percentage), 2);
+        }
+
+        /// <summary>
+        /// This function returns the BTW rounded to 2 decimals of the given price
+        /// </summary>
+        /// <param name="price">(decimal?) The price of which the BTW has to be calculated</param>
+        /// <returns>Returns the amount of BTW rounded to 2 decimals or 0 if price is null</returns>
+        public decimal CalculateBTWOfPrice(decimal? price)
+        {
+            if (price == null)
+            {
+                return 0M;
+            }
+            else
+            {
+                return CalculateBTWOfPrice((decimal)price);
+            }
         }
     }
 }

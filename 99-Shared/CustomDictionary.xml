@@ -11,6 +11,7 @@
       <Word>Webwinkel</Word>
       <Word>Catalogus</Word>
       <Word>Beheer</Word>
+      <Word>Incl</Word>
     </Recognized>
     <Unrecognized>
     </Unrecognized>
@@ -34,6 +35,7 @@
       <Acronym>BTW</Acronym>
       <Acronym>DTO</Acronym>
       <Acronym>BTWIs</Acronym>
+      <Acronym>Incl</Acronym>
     </CasingExceptions> 
   </Acronyms>
 </Dictionary>
