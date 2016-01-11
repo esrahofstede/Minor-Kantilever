@@ -52,3 +52,7 @@ textarea {
 .total {
     border-top: thin solid black !important;
 }
+
+.bestel-knop {
+    float:right;
+}
