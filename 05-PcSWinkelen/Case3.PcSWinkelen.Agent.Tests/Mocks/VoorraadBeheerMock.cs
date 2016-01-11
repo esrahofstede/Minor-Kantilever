@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Case3.PcSWinkelen.Schema.Messages;
-using Case3.PcSWinkelen.Schema.Product;
-using Case3.PcSWinkelen.Schema.Voorraad;
+using Case3.BSVoorraadBeheer.Schema.Messages;
+using Case3.BSVoorraadBeheer.Schema.Prod;
+using Case3.BSVoorraadBeheer.Schema.VoorBeh;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Mocks
 {

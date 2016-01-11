@@ -1,11 +1,10 @@
-﻿
-using Case3.PcSWinkelen.Schema.Messages;
-using Case3.PcSWinkelen.Schema.Product;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Case3.BSCatalogusBeheer.Schema.Messages;
+using Case3.BSCatalogusBeheer.Schema.Prod;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Mocks
 {

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using CatalogusProd = Case3.BSCatalogusBeheer.Schema.Prod;
+using VoorraadProd = Case3.BSVoorraadBeheer.Schema.Prod;
 using Case3.PcSWinkelen.Contract;
 using log4net;
 using Case3.PcSWinkelen.Agent.Agents;
+using Case3.PcSWinkelen.Messages;
 using Case3.PcSWinkelen.Schema;
-using Case3.PcSWinkelen.Schema.Product;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -18,15 +21,17 @@ namespace Case3.PcSWinkelen.Implementation
         public PcSWinkelenServiceHandler()
         {
             log4net.Config.XmlConfigurator.Configure();
+            Mapper.Initialize(cfg => cfg.CreateMap<CatalogusProd.Product, VoorraadProd.Product>());
+            Mapper.Initialize(cfg => cfg.CreateMap<VoorraadProd.Product, CatalogusProd.Product>());
         }
 
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
             BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
             CatalogusCollection catalogusCollection = new CatalogusCollection();
-            foreach(Product product in bSCatalogusBeheerAgent.GetProducts())
+            foreach(CatalogusProd.Product product in bSCatalogusBeheerAgent.GetProducts())
             {
-                catalogusCollection.Add(new ProductVoorraad() { Product =  product, Voorraad = 1 });
+                catalogusCollection.Add(new ProductVoorraad() { Product = Mapper.Map<VoorraadProd.Product>(product), Voorraad = 1 });
             }
 
             FindCatalogusResponseMessage findCatalogusResponseMessage = new FindCatalogusResponseMessage()
@@ -35,7 +40,7 @@ namespace Case3.PcSWinkelen.Implementation
             };
 
 
-            return Products;
+            return findCatalogusResponseMessage;
         }
 
         public string SayHelloTest(string name)

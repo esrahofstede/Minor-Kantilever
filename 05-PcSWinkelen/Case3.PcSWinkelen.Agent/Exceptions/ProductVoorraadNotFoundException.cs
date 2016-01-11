@@ -1,5 +1,5 @@
-﻿using Case3.PcSWinkelen.Schema.Fouten;
-using System;
+﻿using System;
+using Case3.BSVoorraadBeheer.Schema.Fou;
 
 
 namespace Case3.PcSWinkelen.Agent.Exceptions

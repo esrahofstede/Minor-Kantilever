@@ -1,7 +1,7 @@
-﻿using Case3.PcSWinkelen.Agent.Interfaces;
+﻿using Case3.BSVoorraadBeheer.Schema.Messages;
+using Case3.BSVoorraadBeheer.Schema.Prod;
+using Case3.PcSWinkelen.Agent.Interfaces;
 using Minor.ServiceBus.Agent.Implementation;
-using Case3.PcSWinkelen.Schema.Product;
-using Case3.PcSWinkelen.Schema.Messages;
 using Case3.PcSWinkelen.Agent.Exceptions;
 
 namespace Case3.PcSWinkelen.Agent.Agents

@@ -4,7 +4,7 @@ using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Tests.Mocks;
 using System.Collections.Generic;
 using System.Linq;
-using Case3.PcSWinkelen.Schema.Product;
+using Case3.BSCatalogusBeheer.Schema.Prod;
 
 namespace Case3.PcSWinkelen.Agent.Tests
 {

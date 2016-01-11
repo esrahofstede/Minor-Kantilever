@@ -8,11 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Messages")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1", ClrNamespace="Case3.PcSWinkelen.Schema.VoorraadUpdate")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Voorraad")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1", ClrNamespace="Case3.BSVoorraadBeheer.Schema.Messages")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSVoorraadBeheer.Schema.Prod")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1", ClrNamespace="Case3.BSVoorraadBeheer.Schema.VoorUpd")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1", ClrNamespace="Case3.BSVoorraadBeheer.Schema.VoorBeh")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:common:fouten:v1", ClrNamespace="Case3.BSVoorraadBeheer.Schema.Fou")]
 
-namespace Case3.PcSWinkelen.Schema.Messages
+namespace Case3.BSVoorraadBeheer.Schema.Messages
 {
     using System.Runtime.Serialization;
     
@@ -25,9 +27,9 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Product.ProductRef ProductField;
+        private Case3.BSVoorraadBeheer.Schema.Prod.ProductRef ProductField;
         
-        private Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateProductVoorraad UpdateField;
+        private Case3.BSVoorraadBeheer.Schema.VoorUpd.UpdateProductVoorraad UpdateField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -42,7 +44,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Product.ProductRef Product
+        public Case3.BSVoorraadBeheer.Schema.Prod.ProductRef Product
         {
             get
             {
@@ -55,7 +57,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateProductVoorraad Update
+        public Case3.BSVoorraadBeheer.Schema.VoorUpd.UpdateProductVoorraad Update
         {
             get
             {
@@ -76,11 +78,11 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraadField;
+        private Case3.BSVoorraadBeheer.Schema.VoorBeh.ProductVoorraad ProductVoorraadField;
         
         private bool SuccesField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        private Case3.BSVoorraadBeheer.Schema.Fou.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -95,7 +97,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraad
+        public Case3.BSVoorraadBeheer.Schema.VoorBeh.ProductVoorraad ProductVoorraad
         {
             get
             {
@@ -121,7 +123,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        public Case3.BSVoorraadBeheer.Schema.Fou.FoutMelding Foutmelding
         {
             get
             {
@@ -142,7 +144,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Product.ProductRef ProductField;
+        private Case3.BSVoorraadBeheer.Schema.Prod.ProductRef ProductField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -157,7 +159,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Product.ProductRef Product
+        public Case3.BSVoorraadBeheer.Schema.Prod.ProductRef Product
         {
             get
             {
@@ -178,11 +180,11 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraadField;
+        private Case3.BSVoorraadBeheer.Schema.VoorBeh.ProductVoorraad ProductVoorraadField;
         
         private bool SuccesField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        private Case3.BSVoorraadBeheer.Schema.Fou.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -197,7 +199,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraad
+        public Case3.BSVoorraadBeheer.Schema.VoorBeh.ProductVoorraad ProductVoorraad
         {
             get
             {
@@ -223,7 +225,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        public Case3.BSVoorraadBeheer.Schema.Fou.FoutMelding Foutmelding
         {
             get
             {
@@ -236,7 +238,63 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
     }
 }
-namespace Case3.PcSWinkelen.Schema.VoorraadUpdate
+namespace Case3.BSVoorraadBeheer.Schema.Prod
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductRef", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1")]
+    public partial class ProductRef : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int IdField;
+        
+        private string LeveranciersProductIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                this.IdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LeveranciersProductId
+        {
+            get
+            {
+                return this.LeveranciersProductIdField;
+            }
+            set
+            {
+                this.LeveranciersProductIdField = value;
+            }
+        }
+    }
+}
+namespace Case3.BSVoorraadBeheer.Schema.VoorUpd
 {
     using System.Runtime.Serialization;
     
@@ -249,7 +307,7 @@ namespace Case3.PcSWinkelen.Schema.VoorraadUpdate
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateActie ActieField;
+        private Case3.BSVoorraadBeheer.Schema.VoorUpd.UpdateActie ActieField;
         
         private int AantalField;
         
@@ -266,7 +324,7 @@ namespace Case3.PcSWinkelen.Schema.VoorraadUpdate
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateActie Actie
+        public Case3.BSVoorraadBeheer.Schema.VoorUpd.UpdateActie Actie
         {
             get
             {
@@ -304,7 +362,7 @@ namespace Case3.PcSWinkelen.Schema.VoorraadUpdate
         Remove = 1,
     }
 }
-namespace Case3.PcSWinkelen.Schema.Voorraad
+namespace Case3.BSVoorraadBeheer.Schema.VoorBeh
 {
     using System.Runtime.Serialization;
     
@@ -317,7 +375,7 @@ namespace Case3.PcSWinkelen.Schema.Voorraad
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Product.ProductRef ProductField;
+        private Case3.BSVoorraadBeheer.Schema.Prod.ProductRef ProductField;
         
         private int VoorraadField;
         
@@ -334,7 +392,7 @@ namespace Case3.PcSWinkelen.Schema.Voorraad
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Product.ProductRef Product
+        public Case3.BSVoorraadBeheer.Schema.Prod.ProductRef Product
         {
             get
             {
@@ -360,6 +418,107 @@ namespace Case3.PcSWinkelen.Schema.Voorraad
         }
     }
 }
+namespace Case3.BSVoorraadBeheer.Schema.Fou
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FoutMelding", Namespace="urn:schemas-www-kantilever-nl:common:fouten:v1")]
+    public partial class FoutMelding : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string BronField;
+        
+        private int NummerField;
+        
+        private string MeldingField;
+        
+        private Case3.BSVoorraadBeheer.Schema.Fou.FoutErnst NiveauField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string Bron
+        {
+            get
+            {
+                return this.BronField;
+            }
+            set
+            {
+                this.BronField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Nummer
+        {
+            get
+            {
+                return this.NummerField;
+            }
+            set
+            {
+                this.NummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public string Melding
+        {
+            get
+            {
+                return this.MeldingField;
+            }
+            set
+            {
+                this.MeldingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public Case3.BSVoorraadBeheer.Schema.Fou.FoutErnst Niveau
+        {
+            get
+            {
+                return this.NiveauField;
+            }
+            set
+            {
+                this.NiveauField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FoutErnst", Namespace="urn:schemas-www-kantilever-nl:common:fouten:v1")]
+    public enum FoutErnst : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Kritisch = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Waarschuwing = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Melding = 2,
+    }
+}
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -368,16 +527,16 @@ public interface IVoorraadBeheer
 {
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraadResponse")]
-    Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadResult UpdateVoorraad(Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadRequest message);
+    Case3.BSVoorraadBeheer.Schema.Messages.MsgUpdateVoorraadResult UpdateVoorraad(Case3.BSVoorraadBeheer.Schema.Messages.MsgUpdateVoorraadRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraadResponse")]
-    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadResult> UpdateVoorraadAsync(Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadRequest message);
+    System.Threading.Tasks.Task<Case3.BSVoorraadBeheer.Schema.Messages.MsgUpdateVoorraadResult> UpdateVoorraadAsync(Case3.BSVoorraadBeheer.Schema.Messages.MsgUpdateVoorraadRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraadResponse")]
-    Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadResult FindVoorraad(Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadRequest message);
+    Case3.BSVoorraadBeheer.Schema.Messages.MsgFindVoorraadResult FindVoorraad(Case3.BSVoorraadBeheer.Schema.Messages.MsgFindVoorraadRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraadResponse")]
-    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadResult> FindVoorraadAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadRequest message);
+    System.Threading.Tasks.Task<Case3.BSVoorraadBeheer.Schema.Messages.MsgFindVoorraadResult> FindVoorraadAsync(Case3.BSVoorraadBeheer.Schema.Messages.MsgFindVoorraadRequest message);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -414,22 +573,22 @@ public partial class VoorraadBeheerClient : System.ServiceModel.ClientBase<IVoor
     {
     }
     
-    public Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadResult UpdateVoorraad(Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadRequest message)
+    public Case3.BSVoorraadBeheer.Schema.Messages.MsgUpdateVoorraadResult UpdateVoorraad(Case3.BSVoorraadBeheer.Schema.Messages.MsgUpdateVoorraadRequest message)
     {
         return base.Channel.UpdateVoorraad(message);
     }
     
-    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadResult> UpdateVoorraadAsync(Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadRequest message)
+    public System.Threading.Tasks.Task<Case3.BSVoorraadBeheer.Schema.Messages.MsgUpdateVoorraadResult> UpdateVoorraadAsync(Case3.BSVoorraadBeheer.Schema.Messages.MsgUpdateVoorraadRequest message)
     {
         return base.Channel.UpdateVoorraadAsync(message);
     }
     
-    public Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadResult FindVoorraad(Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadRequest message)
+    public Case3.BSVoorraadBeheer.Schema.Messages.MsgFindVoorraadResult FindVoorraad(Case3.BSVoorraadBeheer.Schema.Messages.MsgFindVoorraadRequest message)
     {
         return base.Channel.FindVoorraad(message);
     }
     
-    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadResult> FindVoorraadAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadRequest message)
+    public System.Threading.Tasks.Task<Case3.BSVoorraadBeheer.Schema.Messages.MsgFindVoorraadResult> FindVoorraadAsync(Case3.BSVoorraadBeheer.Schema.Messages.MsgFindVoorraadRequest message)
     {
         return base.Channel.FindVoorraadAsync(message);
     }
