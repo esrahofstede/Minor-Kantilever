@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Case3.FEWebwinkel.Site.Models
+﻿namespace Case3.FEWebwinkel.Site.ViewModels
 {
     public class ArtikelViewModel
     {

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Case3.FEWebwinkel.Site.Models;
+﻿using System.Collections.Generic;
 
-namespace Case3.FEWebwinkel.Site.Models
+namespace Case3.FEWebwinkel.Site.ViewModels
 {
     public class WinkelmandViewModel
     {
