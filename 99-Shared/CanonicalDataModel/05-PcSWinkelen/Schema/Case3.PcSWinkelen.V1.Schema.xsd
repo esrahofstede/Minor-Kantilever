@@ -20,4 +20,12 @@
       <xs:element name="CatalogusItem" type="k:ProductVoorraad" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="WinkelmandjeItem">
+    <xs:sequence>
+      <xs:element name="ProductId" type="xs:int" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SessieId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
 </xs:schema>
