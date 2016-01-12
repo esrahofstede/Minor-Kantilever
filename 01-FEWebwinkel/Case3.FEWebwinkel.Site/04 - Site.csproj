@@ -46,6 +46,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Case3.BTWConfigurationReader, Version=1.0.0.2, Culture=neutral, PublicKeyToken=8d42a567b9955386, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoudGeelBtwCalculator.1.0.0.3\lib\Case3.BTWConfigurationReader.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -177,23 +181,29 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CatalogusController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\WinkelmandController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Managers\CatalogusManager.cs" />
+    <Compile Include="Managers\CookieNator.cs" />
+    <Compile Include="Managers\Interfaces\ICatalogusManager.cs" />
+    <Compile Include="Managers\Interfaces\ICookieNator.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\ArtikelViewModel.cs" />
     <Compile Include="ViewModels\CatalogusViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\WinkelmandViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\99-Shared\CustomDictionary.xml">
+    <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
-    </Content>
+    </CodeAnalysisDictionary>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Product_img\awc_jersey_male_small.gif" />
@@ -246,9 +256,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </Content>
@@ -278,9 +285,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -302,6 +306,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Catalogus\Index.cshtml" />
+    <Content Include="Views\Winkelmand\Index.cshtml" />
     <None Include="Web.Acceptatie.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -350,16 +355,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <PublishDatabaseSettings>
       <Objects>
-        <ObjectGroup Name="FEWebwinkelDB-Deployment" Order="1">
-          <Destination Path="Data Source=.\SQLEXPRESS%3bInitial Catalog=Goudgeel_FEWebwinkel_AcceptatieDB%3bIntegrated Security=True" />
-          <Object Type="DbFullSql">
-            <PreSource Path="Data Source=.\SQLEXPRESS%3bInitial Catalog=Goudgeel_FEWebwinkel_TestDB%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
-            <Source Path="obj\Acceptatie\AutoScripts\FEWebwinkelDB-Deployment_SchemaOnly.sql" Transacted="True" />
-          </Object>
-          <Object Type="DbFullSql">
-            <Source Path="..\..\99-Shared\GRANTscript.sql" Transacted="False" />
-          </Object>
-        </ObjectGroup>
       </Objects>
     </PublishDatabaseSettings>
   </PropertyGroup>

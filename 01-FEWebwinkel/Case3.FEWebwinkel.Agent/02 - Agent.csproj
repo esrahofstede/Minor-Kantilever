@@ -64,8 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agents\PcSWinkelenAgent.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interfaces\IPcSWinkelenAgent.cs" />
-    <Compile Include="Mapper\DTOMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,9 +76,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\99-Shared\CustomDictionary.xml">
+    <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
-    </Content>
+    </CodeAnalysisDictionary>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

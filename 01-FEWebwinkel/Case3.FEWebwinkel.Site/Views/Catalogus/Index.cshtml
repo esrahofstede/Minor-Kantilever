@@ -1,41 +1,53 @@
-﻿@model IEnumerable<Case3.FEWebwinkel.Schema.Product.Product>
+﻿@model IEnumerable<Case3.FEWebwinkel.Site.ViewModels.CatalogusViewModel>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Catalogus</h2>
+<div class="catalog-heading">
+    <h2 class="catalog-header">Catalogus</h2>
+    <a class="shopping-cart" href="/Winkelmand" title="Naar winkelmandje"><i class="glyphicon glyphicon-align-center glyphicon-shopping-cart"></i></a>
+    
+</div>
+<div class="clearfix"></div>
 
 <div class="catalog-section">
     @foreach (var item in Model)
     {
         <div class="catalog-product">
-            
-            <div class="product-top">
-                <div class="img-wrapper" style="background-image:url(../Content/Product_img/julianax_r_02_yellow_small.gif)">
-                    
-                </div>
-                <div class="info-wrapper">
-                    <p>
-                        @Html.DisplayFor(modelItem => item.Naam)
-                    </p>
-                    <p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-                        @Html.DisplayFor(modelItem => item.LeverancierNaam)
-                    </p>
-                    <p>
-                        &#8364 @Html.DisplayFor(modelItem => item.Prijs)
-                    </p>
-                    <p>
-                        10 in voorraad
-                    </p>
-                </div>
-            </div>
+                <div class="product-top">
+                    <div class="img-wrapper" style="background-image:url(@item.Afbeeldingslocatie)">
+                        @Html.Hidden("ID", item.ID)
+                        @Html.Hidden("Afbeeldingslocatie", item.Afbeeldingslocatie)
+                    </div>
+                    <div class="info-wrapper">
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Naam)
+                            @Html.Hidden("Naam", item.Naam)
+                        </p>
+                        <p>
 
-            <div class="product-bottom">
-                <a href="http://asp.net" class="btn btn-primary">Aan winkelmand toevoegen</a>
-            </div>
-            
+                            @Html.DisplayFor(modelItem => item.Leverancier)
+                            @Html.Hidden("Leverancier", item.Leverancier)
+                        </p>
+                        <p>
+                            &#8364 @Html.DisplayFor(modelItem => item.Prijs)
+                                   @Html.Hidden("Prijs", item.Prijs)
+                        </p>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Voorraad) in voorraad
+                        </p>
+                    </div>
+                </div>
+
+                <div class="product-bottom">
+                    <input type="submit" name="AddToWinkelmandKnop" value="Aan winkelmand toevoegen" /> <!--<a href="http://asp.net" class="btn btn-primary">Aan winkelmand toevoegen</a>-->
+                </div>
+            }
         </div>
     }
 

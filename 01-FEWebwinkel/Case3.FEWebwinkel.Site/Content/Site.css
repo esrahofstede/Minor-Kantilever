@@ -29,14 +29,10 @@ textarea {
 
 div.catalog-section {
     display:flex;
-    justify-content:space-between;
+    justify-content:flex-start;
     flex-wrap:wrap;
 }
-@media all and (max-width: 991px) {
-    div.catalog-section {
-        justify-content:space-around;
-    } 
-}
+
 .catalog-product {
     border:solid black 1px;
     margin-bottom: 15px;  
@@ -108,6 +104,37 @@ div.catalog-section {
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a, .btn {
     color: black!important;
 }
+
 .total {
     border-top: thin solid black !important;
 }
+
+
+.shopping-cart {
+  display:block;
+  float:right;
+}
+
+h2.catalog-header {
+    display: inline-block;
+    margin-top:0px;
+}
+
+.catalog-heading {
+    position: relative;
+    padding:5px;
+}
+
+.shopping-cart > .glyphicon {
+    font-size: 35px;
+    color: rgb(170,177,228)!important;
+}
+
+.shopping-cart > .glyphicon:hover {
+    color: rgb(124, 129, 165)!important;
+}
+
+.bestel-knop {
+    float:right;
+}
+
