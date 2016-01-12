@@ -20,6 +20,7 @@ namespace Case3.FEWebwinkel.Site.Models
         }
     }
 
+    [ExcludeFromCodeCoverage]
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
