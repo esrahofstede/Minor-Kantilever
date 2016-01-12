@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Case3.FEWebwinkel.Site.Controllers;
+using Case3.FEWebwinkel.Site.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Case3.FEWebwinkel.Site.Controllers;
 using System.Web.Mvc;
-using Case3.FEWebwinkel.Site.Models;
-using System.Collections.Generic;
-using Case3.FEWebwinkel.Site.Managers.Interfaces;
 
 namespace Case3.FEWebwinkel.Site.Tests.Controllers
 {

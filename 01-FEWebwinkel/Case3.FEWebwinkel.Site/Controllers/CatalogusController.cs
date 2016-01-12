@@ -1,6 +1,10 @@
 ﻿using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.Script.Serialization;
+using Case3.FEWebwinkel.Site.Helpers;
 using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
@@ -47,7 +51,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         {
             CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
             string userGuid;
-           
+
             try //to get the userGuid from an existing cookie
             {
                 userGuid = cookieNator.GetCookieValue("userGuid");
@@ -58,7 +62,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 //Set cookie for later usage
                 cookieNator.CreateCookieWithUserGuid(userGuid);
             }
-            
+
             // -----------------  TODO Call to PcSWinkelen to store Winkelmand  ----------------------------------
             // something like : _catalogusmanager.insertArtikelToWinkelmand(productID, userGuid);
             // -----------------  END TODO  -------------------------

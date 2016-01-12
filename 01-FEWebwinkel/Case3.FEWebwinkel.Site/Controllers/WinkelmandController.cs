@@ -1,12 +1,11 @@
 ﻿using Case3.BTWConfigurationReader;
 using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
-using Case3.FEWebwinkel.Site.Models;
+using Case3.FEWebwinkel.Site.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
