@@ -8,8 +8,8 @@ using Case3.PcSWinkelen.Schema;
 using System;
 using System.Collections.Generic;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using Case3.FEWebwinkel.Site.Helpers;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
@@ -53,6 +53,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         [HttpPost]
         public ActionResult Index(CatalogusViewModel Catalogusartikel)
         {
+            CookieHelper helper = new CookieHelper();
             List<ArtikelViewModel> artikelLijst = null;
 
             try //to get the list from an existing cookie and add the new artikel to the list
@@ -67,39 +68,13 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 artikelLijst = new List<ArtikelViewModel>();
             }
             //Add the new Artikel to the list
-            ArtikelViewModel artikel = CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
+            ArtikelViewModel artikel = helper.CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
             artikelLijst.Add(artikel);
 
             //Set cookie for later usage
-            CreateCookieWithArtikellijst(artikelLijst);
+            helper.CreateCookieWithArtikellijst(artikelLijst);
 
             return RedirectToAction("Index");
-        }
-
-        ////////////////////////////////////////////////////////////////////
-        //Verplaats onderstaande methodes naar eventuele helper class
-
-        private void CreateCookieWithArtikellijst(List<ArtikelViewModel> artikelLijst)
-        {
-            //serialize artikelLijst and create cookie
-            string MyJsonObject = new JavaScriptSerializer().Serialize(artikelLijst);
-            var cookie = new HttpCookie("artikelen", MyJsonObject)
-            {
-                Expires = DateTime.Now.AddYears(1)
-            };
-
-            HttpContext.Response.Cookies.Add(cookie);
-        }
-
-        private ArtikelViewModel CreateArtikelViewModelFromCatalogusViewModel(CatalogusViewModel catalogusArtikel)
-        {
-            return new ArtikelViewModel
-            {
-                ID = catalogusArtikel.ID,
-                ArtikelNaam = catalogusArtikel.Naam,
-                Aantal = 1,
-                Prijs = catalogusArtikel.Prijs.GetValueOrDefault(),
-            };
         }
     }
 }
