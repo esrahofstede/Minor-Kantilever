@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Tests.Mocks;
 using Case3.PcSWinkelen.Agent.Exceptions;
-using Case3.PcSWinkelen.Schema.Fouten;
+using Case3.PcSWinkelen.Schema.FoutenNS;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Agents
 {

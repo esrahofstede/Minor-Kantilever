@@ -1,8 +1,9 @@
-﻿using Case3.PcSWinkelen.Agent.Agents;
+﻿
+using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Exceptions;
 using Case3.PcSWinkelen.Agent.Interfaces;
-using Case3.PcSWinkelen.Schema.Messages;
-using Case3.PcSWinkelen.Schema.Product;
+using Case3.PcSWinkelen.Schema.ProductNS;
+using Case3.PcSWinkelen.SchemaNS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Case3.PcSWinkelen.Agent.Managers
 {
-    public class CatalogusManager
+    public class CatalogusManager : ICatalogusManager
     {
 
         private IBSVoorraadBeheerAgent _bSVoorraadBeheerAgent;
@@ -30,9 +31,11 @@ namespace Case3.PcSWinkelen.Agent.Managers
         }
 
         // TODO: return xsd list of products with voorraad
-        public List<Product> GetVoorraadWithProductsList(List<Product> products)
+        public IEnumerable<CatalogusProductItem> GetVoorraadWithProductsList(int page, int pageSize)
         {
-            IEnumerable<Product> result = _bSCatalogusBeheerAgent.GetProducts(1, 20);
+            List<Product> products = _bSCatalogusBeheerAgent.GetProducts(page, pageSize).ToList();
+
+            List<CatalogusProductItem> resultProductVoorraad = new List<CatalogusProductItem>();
 
             if (products != null && products.Count > 0)
             {
@@ -41,8 +44,14 @@ namespace Case3.PcSWinkelen.Agent.Managers
                 {
                     try
                     {
-                        _bSVoorraadBeheerAgent.GetProductVoorraad(product.Id, product.LeveranciersProductId);
-                        
+                        int voorraad = _bSVoorraadBeheerAgent.GetProductVoorraad(product.Id, product.LeveranciersProductId);
+
+                        resultProductVoorraad.Add(new CatalogusProductItem() {
+                            Product = product,
+                            Voorraad = voorraad
+                        });
+
+
                     }
                     catch (ProductVoorraadNotFoundException)
                     {
@@ -60,7 +69,7 @@ namespace Case3.PcSWinkelen.Agent.Managers
                 */
             }
 
-            return result.ToList();
+            return resultProductVoorraad.ToList();
         }
 
     }

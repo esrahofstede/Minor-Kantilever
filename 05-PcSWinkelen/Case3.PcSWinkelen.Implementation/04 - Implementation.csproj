@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PcSWinkelenServiceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,9 +69,21 @@
       <Project>{a0be951e-3160-4dcb-916b-86d8c348bd91}</Project>
       <Name>09 - Agent</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
+      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
+      <Name>01a-BSCatalogusbeheerSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSVoorraadbeheerSchema\01b-BSVoorraadbeheerSchema.csproj">
+      <Project>{495eeffc-6b29-42ba-bc94-fc745fc00abe}</Project>
+      <Name>01b-BSVoorraadbeheerSchema</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.Contract\02 - Contract.csproj">
       <Project>{c458b7ea-6bfb-4c2f-a3dc-485b452c0f0e}</Project>
       <Name>02 - Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj">
+      <Project>{2742240d-a070-44a7-8560-8c8ba25a1c7b}</Project>
+      <Name>01c-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

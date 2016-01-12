@@ -44,8 +44,8 @@ namespace Case3.PcSWinkelen.SchemaNS
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductVoorraad", Namespace="urn:case3-pcswinkelen:v1:schema")]
-    public partial class ProductVoorraad : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="CatalogusProductItem", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class CatalogusProductItem : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -96,7 +96,7 @@ namespace Case3.PcSWinkelen.SchemaNS
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CatalogusCollection", Namespace="urn:case3-pcswinkelen:v1:schema", ItemName="CatalogusItem")]
-    public class CatalogusCollection : System.Collections.Generic.List<Case3.PcSWinkelen.SchemaNS.ProductVoorraad>
+    public class CatalogusCollection : System.Collections.Generic.List<Case3.PcSWinkelen.SchemaNS.CatalogusProductItem>
     {
     }
 }

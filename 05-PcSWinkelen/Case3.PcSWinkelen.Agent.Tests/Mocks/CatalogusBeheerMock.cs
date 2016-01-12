@@ -1,10 +1,7 @@
-﻿
-using Case3.PcSWinkelen.Schema.Messages;
-using Case3.PcSWinkelen.Schema.Product;
+﻿using Case3.PcSWinkelen.Schema.Messages;
+using Case3.PcSWinkelen.Schema.ProductNS;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Mocks
@@ -83,7 +80,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
         public MsgFindProductsResult FindProducts(MsgFindProductsRequest message)
         {
 
-            ProductCollection productCollection = new ProductCollection();
+            Case3.PcSWinkelen.Schema.ProductNS.ProductCollection productCollection = new ProductCollection();
             productCollection.InsertRange(0, _products);
 
             return new MsgFindProductsResult()

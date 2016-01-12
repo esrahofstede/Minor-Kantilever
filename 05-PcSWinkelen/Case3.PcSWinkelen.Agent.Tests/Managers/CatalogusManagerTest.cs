@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Case3.PcSWinkelen.Agent.Managers;
-using Case3.PcSWinkelen.Agent.Tests.Mocks;
-using Case3.PcSWinkelen.Agent.Interfaces;
 using Moq;
 using System.Collections.Generic;
-using Case3.PcSWinkelen.Schema.Product;
+using Case3.PcSWinkelen.Schema.ProductNS;
+using Case3.PcSWinkelen.Agent.Managers;
+using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Agent.Exceptions;
-using Case3.PcSWinkelen.Schema.Fouten;
+using Case3.PcSWinkelen.Schema.FoutenNS;
+using Case3.PcSWinkelen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Managers
 {
@@ -89,12 +89,12 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
             CatalogusManager catalogusManager = new CatalogusManager(catalogusBeheerAgentMock.Object, voorraadBeheerAgentMock.Object);
 
             //Act
-            List<Product> newProducts = catalogusManager.GetVoorraadWithProductsList(_products);
+            IEnumerable<CatalogusProductItem> newProducts = catalogusManager.GetVoorraadWithProductsList(1, 20);
 
 
             //Assert
             Assert.IsNotNull(catalogusManager);
-            Assert.IsInstanceOfType(newProducts, typeof(List<Product>));
+            Assert.IsInstanceOfType(newProducts, typeof(IEnumerable<CatalogusProductItem>));
         }
 
         [TestMethod]
@@ -104,7 +104,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
             //Arrange
             Mock<IBSCatalogusBeheerAgent> catalogusBeheerAgentMock = new Mock<IBSCatalogusBeheerAgent>(MockBehavior.Strict);
             catalogusBeheerAgentMock.Setup(p => p.GetProducts()).Returns(_products);
-            catalogusBeheerAgentMock.Setup(p => p.GetProducts(1, 20)).Returns(_products);
+            catalogusBeheerAgentMock.Setup(p => p.GetProducts(1, 20)).Returns(new List<Product>() { new Product() { Id = 4, LeveranciersProductId = "A001" } });
 
             Mock<IBSVoorraadBeheerAgent> voorraadBeheerAgentMock = new Mock<IBSVoorraadBeheerAgent>(MockBehavior.Strict);
             voorraadBeheerAgentMock.Setup(p => p.GetProductVoorraad(4, "A001")).Throws(new ProductVoorraadNotFoundException("BSVoorraadBeheer", "Product niet gevonden.", 1, FoutErnst.Waarschuwing));
@@ -112,7 +112,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
             CatalogusManager catalogusManager = new CatalogusManager(catalogusBeheerAgentMock.Object, voorraadBeheerAgentMock.Object);
 
             //Act
-            List<Product> newProducts = catalogusManager.GetVoorraadWithProductsList(new List<Product>() { new Product() { Id = 4, LeveranciersProductId = "A001" } });
+            IEnumerable<CatalogusProductItem> newProducts = catalogusManager.GetVoorraadWithProductsList(1, 20);
 
             //Assert
                 //ExpectedException(typeof(ProductVoorraadNotFoundException))
