@@ -101,7 +101,6 @@
     <Compile Include="Helpers\CookieHelperTest.cs" />
     <Compile Include="Controllers\WinkelmandControllerTest.cs" />
     <Compile Include="Managers\CatalogusManagerTest.cs" />
-    <Compile Include="Mocks\CookieNatorMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -124,7 +123,9 @@
       <Name>04 - Site</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Mocks\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

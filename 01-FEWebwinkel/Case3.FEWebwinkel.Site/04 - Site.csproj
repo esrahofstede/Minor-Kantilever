@@ -187,7 +187,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Helpers\CookieHelper.cs" />
     <Compile Include="Managers\CatalogusManager.cs" />
     <Compile Include="Managers\CookieNator.cs" />
     <Compile Include="Managers\Interfaces\ICatalogusManager.cs" />
@@ -314,6 +313,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,15 +1,6 @@
-﻿using Case3.BSCatalogusBeheer.Schema.Product;
-using Case3.BTWConfigurationReader;
-using Case3.FEWebwinkel.Site.Managers;
+﻿using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
-using Case3.FEWebwinkel.Site.Models;
-using Case3.FEWebwinkel.Site.ViewModels;
-using Case3.PcSWinkelen.Schema;
 using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.Script.Serialization;
-using Case3.FEWebwinkel.Site.Helpers;
 using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
@@ -52,28 +43,25 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// </summary>
         /// <param name="artikel">The chosen product that you want to add to your winkelmand</param>
         [HttpPost]
-        public ActionResult Index(CatalogusViewModel Catalogusartikel)
+        public ActionResult Index(int ProductID)
         {
-            CookieHelper helper = new CookieHelper();
-            List<ArtikelViewModel> artikelLijst = null;
-
-            try //to get the list from an existing cookie and add the new artikel to the list
+            CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
+            string userGuid;
+           
+            try //to get the userGuid from an existing cookie
             {
-                CookieNator<ArtikelViewModel> cookieNator = new CookieNator<ArtikelViewModel>(Request.Cookies);
-                artikelLijst = cookieNator.GetCookieValue("artikelen");
-                //string jsonStringArtikellijst = Request.Cookies.Get("artikelen").Value;
-                //artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
+                userGuid = cookieNator.GetCookieValue("userGuid");
             }
-            catch (NullReferenceException) //Create a new list if cookie can't be found
+            catch (NullReferenceException) //Create a new userGuid if cookie can't be found
             {
-                artikelLijst = new List<ArtikelViewModel>();
+                userGuid = Guid.NewGuid().ToString();
+                //Set cookie for later usage
+                cookieNator.CreateCookieWithUserGuid(userGuid);
             }
-            //Add the new Artikel to the list
-            ArtikelViewModel artikel = helper.CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
-            artikelLijst.Add(artikel);
-
-            //Set cookie for later usage
-            helper.CreateCookieWithArtikellijst(artikelLijst);
+            
+            // -----------------  TODO Call to PcSWinkelen to store Winkelmand  ----------------------------------
+            // something like : _catalogusmanager.insertArtikelToWinkelmand(productID, userGuid);
+            // -----------------  END TODO  -------------------------
 
             return RedirectToAction("Index");
         }

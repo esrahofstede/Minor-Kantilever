@@ -17,20 +17,23 @@ namespace Case3.FEWebwinkel.Site.Managers
             _httpCookieCollection = httpCookieCollection;
         }
 
-        public List<T> GetCookieValue(string cookieName)
+        public string GetCookieValue(string cookieName)
         {
-            this.GetCookieString(cookieName);
-            return DeserializeCookieValueString();
+            return _httpCookieCollection.Get(cookieName).Value;
         }
 
-        private void GetCookieString(string cookieName)
+        /// <summary>
+        /// Creates a cookie the UserGuid with the Guid that is passed to this method
+        /// </summary>
+        /// <param name="userGuid">An user Guid</param>
+        public void CreateCookieWithUserGuid(string userGuid)
         {
-            _cookieValueString = _httpCookieCollection.Get("artikelen").Value;
-        }
 
-        private List<T> DeserializeCookieValueString()
-        {
-            return new JavaScriptSerializer().Deserialize<List<T>>(_cookieValueString);
+            var cookie = new HttpCookie("UserGuid", userGuid)
+            {
+                Expires = DateTime.Now.AddMonths(1),
+            };
+            HttpContext.Current.Response.Cookies.Add(cookie);
         }
 
     }

@@ -27,36 +27,41 @@ namespace Case3.FEWebwinkel.Site.Controllers
         public ActionResult Index()
         {
             decimal totaalExclBTW = 0M;
-            List<ArtikelViewModel> artikelLijst = null;
+            string userGuid;
+            CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
 
             try //to get the list from an existing cookie
             {
-                CookieNator<ArtikelViewModel> cookieNator = new CookieNator<ArtikelViewModel>(Request.Cookies);
-                artikelLijst = cookieNator.GetCookieValue("artikelen");
+                userGuid = cookieNator.GetCookieValue("UserGuid");
             }
             catch (NullReferenceException) //Create a new list if cookie can't be found
             {
-                artikelLijst = new List<ArtikelViewModel>();
+                userGuid = Guid.NewGuid().ToString();
             }
 
-            if (artikelLijst.Count > 0)
-            {
-                totaalExclBTW = artikelLijst.Select(artikel => (artikel.Prijs * artikel.Aantal))
-                                            .Sum();
-            }
+            // ------------- TODO ------------------
+            // artikellijst = Managers.getWinkelmand(userGuid);
+            //----------- END TODO -----------------
 
-            var totaalInclBTW = _btwCalculator.CalculatePriceInclusiveBTW(totaalExclBTW);
 
-            var model = new WinkelmandViewModel
-            {
-                Artikelen = artikelLijst,
-                BTWPercentage = _btwCalculator.BTWPercentage,
-                TotaalInclBTW = totaalInclBTW,
-                TotaalExclBTW = totaalExclBTW,
-                TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalInclBTW),
-            };
+            //if (userGuid.Count > 0)
+            //{
+            //    totaalExclBTW = artikelLijst.Select(artikel => (artikel.Prijs * artikel.Aantal))
+            //                                .Sum();
+            //}
 
-            return View(model);
+            //var totaalInclBTW = _btwCalculator.CalculatePriceInclusiveBTW(totaalExclBTW);
+
+            //var model = new WinkelmandViewModel
+            //{
+            //    Artikelen = artikelLijst,
+            //    BTWPercentage = _btwCalculator.BTWPercentage,
+            //    TotaalInclBTW = totaalInclBTW,
+            //    TotaalExclBTW = totaalExclBTW,
+            //    TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalInclBTW),
+            //};
+
+            return View();
         }
     }
 }
