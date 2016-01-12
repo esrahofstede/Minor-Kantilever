@@ -35,7 +35,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
             }
             catch (NullReferenceException) //Create a new list if cookie can't be found
             {
-                userGuid = Guid.NewGuid().ToString();
+               
             }
 
             // ------------- TODO ------------------

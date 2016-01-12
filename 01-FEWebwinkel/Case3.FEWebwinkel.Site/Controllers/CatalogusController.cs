@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Script.Serialization;
-using Case3.FEWebwinkel.Site.Helpers;
 using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
@@ -21,6 +20,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// </summary>
         public CatalogusController()
         {
+          
             _catalogusManager = new CatalogusManager();
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
             // something like : _catalogusmanager.insertArtikelToWinkelmand(productID, userGuid);
             // -----------------  END TODO  -------------------------
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { AddedToWinkelmand = true });
         }
     }
 }
