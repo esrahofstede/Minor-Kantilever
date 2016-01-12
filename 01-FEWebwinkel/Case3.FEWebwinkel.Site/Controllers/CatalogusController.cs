@@ -19,7 +19,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
     public class CatalogusController : Controller
     {
         private ICatalogusManager _catalogusManager;
-        private BTWCalculator _btwCalculator = new BTWCalculator();
 
         /// <summary>
         /// This constructor is the default constructor
@@ -52,7 +51,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// </summary>
         /// <param name="artikel">The chosen product that you want to add to your winkelmand</param>
         [HttpPost]
-        public ActionResult Index(CatalogusViewModel Catalogusartikel, List<CatalogusViewModel> model3)
+        public ActionResult Index(CatalogusViewModel Catalogusartikel)
         {
             List<ArtikelViewModel> artikelLijst = null;
 
