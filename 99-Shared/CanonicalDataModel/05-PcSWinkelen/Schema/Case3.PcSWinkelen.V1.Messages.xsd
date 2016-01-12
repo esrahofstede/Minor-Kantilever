@@ -28,5 +28,18 @@
       <xs:element name="Products" type="k:CatalogusCollection"/>
     </xs:sequence>
   </xs:complexType>
-  
+
+  <xs:complexType name="AddItemToWinkelmandjeRequestMessage">
+    <xs:sequence>
+      <xs:element name="WinkelmandjeItem" type="k:WinkelmandjeItem"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AddItemToWinkelmandjeResponseMessage">
+    <xs:sequence>
+      <xs:element name="Succeeded" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
 </xs:schema>

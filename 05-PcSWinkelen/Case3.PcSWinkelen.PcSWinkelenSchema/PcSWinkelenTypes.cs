@@ -99,6 +99,57 @@ namespace Case3.PcSWinkelen.SchemaNS
     public class CatalogusCollection : System.Collections.Generic.List<Case3.PcSWinkelen.SchemaNS.CatalogusProductItem>
     {
     }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandjeItem", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class WinkelmandjeItem : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ProductIdField;
+        
+        private string SessieIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ProductId
+        {
+            get
+            {
+                return this.ProductIdField;
+            }
+            set
+            {
+                this.ProductIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string SessieId
+        {
+            get
+            {
+                return this.SessieIdField;
+            }
+            set
+            {
+                this.SessieIdField = value;
+            }
+        }
+    }
 }
 namespace Case3.PcSWinkelen.MessagesNS
 {
@@ -293,6 +344,78 @@ namespace Case3.PcSWinkelen.MessagesNS
             set
             {
                 this.ProductsField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AddItemToWinkelmandjeRequestMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class AddItemToWinkelmandjeRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.SchemaNS.WinkelmandjeItem WinkelmandjeItemField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.SchemaNS.WinkelmandjeItem WinkelmandjeItem
+        {
+            get
+            {
+                return this.WinkelmandjeItemField;
+            }
+            set
+            {
+                this.WinkelmandjeItemField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AddItemToWinkelmandjeResponseMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class AddItemToWinkelmandjeResponseMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool SucceededField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool Succeeded
+        {
+            get
+            {
+                return this.SucceededField;
+            }
+            set
+            {
+                this.SucceededField = value;
             }
         }
     }
