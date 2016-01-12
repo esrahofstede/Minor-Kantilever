@@ -99,7 +99,9 @@
   <ItemGroup>
     <Compile Include="Controllers\CatalogusControllerTest.cs" />
     <Compile Include="Helpers\CookieHelperTest.cs" />
+    <Compile Include="Controllers\WinkelmandControllerTest.cs" />
     <Compile Include="Managers\CatalogusManagerTest.cs" />
+    <Compile Include="Mocks\CookieNatorMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

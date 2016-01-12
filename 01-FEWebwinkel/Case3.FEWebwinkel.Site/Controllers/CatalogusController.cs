@@ -1,11 +1,10 @@
-﻿using System.Web.Mvc;
-
-using Case3.BSCatalogusBeheer.Schema.Product;
+﻿using Case3.BSCatalogusBeheer.Schema.Product;
+using Case3.BTWConfigurationReader;
 using Case3.FEWebwinkel.Site.Managers;
+using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.Models;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
-
 using System;
 using System.Collections.Generic;
 using System.Web;
@@ -20,6 +19,8 @@ namespace Case3.FEWebwinkel.Site.Controllers
     public class CatalogusController : Controller
     {
         private ICatalogusManager _catalogusManager;
+        private BTWCalculator _btwCalculator = new BTWCalculator();
+
         /// <summary>
         /// This constructor is the default constructor
         /// </summary>
@@ -41,21 +42,9 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// <returns>View with products of the catalog</returns>
         public ActionResult Index()
         {
+            var model = _catalogusManager.GetProducts(1, 20);            
 
-            //List<Product> model = new List<Product>();
-            //BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
-            
-            var model = new CatalogusCollection {
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 1,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 15,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-            };
-            var model2 = _catalogusManager.ConvertCatalogusCollectionToCatalogusViewModelList(model);
-            return View(model2);
+            return View(model);
         }
 
         /// <summary>
@@ -70,8 +59,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
 
             try //to get the list from an existing cookie and add the new artikel to the list
             {
-                string jsonStringArtikellijst = Request.Cookies.Get("artikelen").Value;
-                artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
+                CookieNator<ArtikelViewModel> cookieNator = new CookieNator<ArtikelViewModel>(Request.Cookies);
+                artikelLijst = cookieNator.GetCookieValue("artikelen");
+                //string jsonStringArtikellijst = Request.Cookies.Get("artikelen").Value;
+                //artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
             }
             catch (NullReferenceException ex) //Create a new list if cookie can't be found
             {

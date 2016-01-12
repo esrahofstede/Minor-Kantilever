@@ -104,16 +104,15 @@ div.catalog-section {
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a, .btn {
     color: black!important;
 }
-<<<<<<< HEAD
+
 .total {
     border-top: thin solid black !important;
 }
-=======
+
 
 .shopping-cart {
   display:block;
   float:right;
-  
 }
 
 h2.catalog-header {
@@ -135,6 +134,7 @@ h2.catalog-header {
     color: rgb(124, 129, 165)!important;
 }
 
-    
+.bestel-knop {
+    float:right;
+}
 
->>>>>>> 9e007329ddc85efc09dcd6326160dfa79e013387
