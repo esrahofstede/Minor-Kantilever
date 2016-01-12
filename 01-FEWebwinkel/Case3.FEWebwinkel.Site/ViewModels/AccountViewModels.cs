@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Case3.FEWebwinkel.Site.ViewModels
 {
+    [ExcludeFromCodeCoverage]
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
@@ -10,11 +12,13 @@ namespace Case3.FEWebwinkel.Site.ViewModels
         public string Email { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class ExternalLoginListViewModel
     {
         public string ReturnUrl { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
@@ -23,6 +27,7 @@ namespace Case3.FEWebwinkel.Site.ViewModels
         public bool RememberMe { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class VerifyCodeViewModel
     {
         [Required]
@@ -39,6 +44,7 @@ namespace Case3.FEWebwinkel.Site.ViewModels
         public bool RememberMe { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class ForgotViewModel
     {
         [Required]
@@ -46,6 +52,7 @@ namespace Case3.FEWebwinkel.Site.ViewModels
         public string Email { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class LoginViewModel
     {
         [Required]
@@ -62,6 +69,7 @@ namespace Case3.FEWebwinkel.Site.ViewModels
         public bool RememberMe { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class RegisterViewModel
     {
         [Required]
@@ -81,6 +89,7 @@ namespace Case3.FEWebwinkel.Site.ViewModels
         public string ConfirmPassword { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class ResetPasswordViewModel
     {
         [Required]
@@ -102,6 +111,7 @@ namespace Case3.FEWebwinkel.Site.ViewModels
         public string Code { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class ForgotPasswordViewModel
     {
         [Required]

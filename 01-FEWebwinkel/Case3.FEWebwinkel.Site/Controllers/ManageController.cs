@@ -1,17 +1,17 @@
-﻿using System;
+﻿using Case3.FEWebwinkel.Site.ViewModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using Case3.FEWebwinkel.Site.Models;
-using Case3.FEWebwinkel.Site.ViewModels;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
     [Authorize]
+    [ExcludeFromCodeCoverage]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;

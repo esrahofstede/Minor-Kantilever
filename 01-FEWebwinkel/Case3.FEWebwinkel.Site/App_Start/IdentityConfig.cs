@@ -11,9 +11,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Case3.FEWebwinkel.Site.Models;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Case3.FEWebwinkel.Site
 {
+    [ExcludeFromCodeCoverage]
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
@@ -23,6 +25,7 @@ namespace Case3.FEWebwinkel.Site
         }
     }
 
+    [ExcludeFromCodeCoverage]
     public class SmsService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
@@ -32,6 +35,7 @@ namespace Case3.FEWebwinkel.Site
         }
     }
 
+    [ExcludeFromCodeCoverage]
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
@@ -88,6 +92,7 @@ namespace Case3.FEWebwinkel.Site
         }
     }
 
+    [ExcludeFromCodeCoverage]
     // Configure the application sign-in manager which is used in this application.
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
     {
