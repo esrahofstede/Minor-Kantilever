@@ -4,19 +4,19 @@ using System;
 
 namespace Case3.PcSWinkelen.Agent.Exceptions
 {
+    [Serializable]
     public class ProductVoorraadNotFoundException : Exception
     {
-        public override string Source { get; set; }
-        public override string Message { get; }
         public int Number { get; set; }
         public FoutErnst Serverity { get; set; }
 
-        public ProductVoorraadNotFoundException(string source, string message, int number, FoutErnst severity)
+
+        public ProductVoorraadNotFoundException(string source, string message, int number, FoutErnst severity) : base(message)
         {
             Source = source;
-            Message = message;
             Number = number;
             Serverity = severity;
         }
+
     }
 }

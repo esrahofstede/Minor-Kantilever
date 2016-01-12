@@ -23,18 +23,5 @@ namespace Case3.PcSWinkelen.Agent.Interfaces
         /// <returns>IEnumerable of Product entities</returns>
         IEnumerable<Product> GetProducts(int page, int pageSize);
 
-        /// <summary>
-        /// Get all products with Voorraad
-        /// </summary>
-        /// <returns>IEnumerable of Product entities</returns>
-        IEnumerable<Product> GetProductsWithVoorraad();
-
-        /// <summary>
-        /// Get products with Voorraad by page and page length
-        /// </summary>
-        /// <param name="page"></param>
-        /// <param name="pageSize"></param>
-        /// <returns>IEnumerable of Product entities</returns>
-        IEnumerable<Product> GetProductsWithVoorraad(int page, int pageSize);
     }
 }

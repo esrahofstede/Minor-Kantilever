@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Case3.PcSWinkelen.Schema.Product;
 
-namespace Case3.PcSWinkelen.Agent.Tests
+namespace Case3.PcSWinkelen.Agent.Tests.Agents
 {
     [TestClass]
     public class BSCatalogusBeheerAgentTest
@@ -25,6 +25,22 @@ namespace Case3.PcSWinkelen.Agent.Tests
 
             // Assert
             Assert.IsNotNull(bSCatalogusBeheerAgent);
+        }
+
+        /// <summary>
+        /// Check if return type is correct
+        /// </summary>
+        [TestMethod]
+        public void CreateInstanceAndCheckReturnType()
+        {
+            //Assert
+            BSCatalogusBeheerAgent agent = new BSCatalogusBeheerAgent();
+
+            //Act
+            var products = agent.GetProducts();
+
+            //Arrange
+            Assert.IsInstanceOfType(products, typeof(IEnumerable<Product>));
         }
 
         /// <summary>

@@ -3,8 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Tests.Mocks;
 using Case3.PcSWinkelen.Agent.Exceptions;
+using Case3.PcSWinkelen.Schema.Fouten;
 
-namespace Case3.PcSWinkelen.Agent.Tests
+namespace Case3.PcSWinkelen.Agent.Tests.Agents
 {
     [TestClass]
     public class BSVoorraadBeheerAgentTest
@@ -24,19 +25,25 @@ namespace Case3.PcSWinkelen.Agent.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ProductVoorraadNotFoundException))]
-        public void ProductNotExistsInVoorraadThrowsException()
+        public void ProductNotExistsInVoorraadThrowsExceptionAndCheckExceptionDetails()
         {
             //Assert
             BSVoorraadBeheerAgent agent = new BSVoorraadBeheerAgent();
 
             //Act
-            int voorraad = agent.GetProductVoorraad(87695687, "NOTEXISTS");
-
-            //Arrange
-            //Expect exception, the product does not exists in BSVoorraadBeheer
+            try
+            {
+                int voorraad = agent.GetProductVoorraad(87695687, "NOTEXISTS");
+            }
+            catch (ProductVoorraadNotFoundException exception)
+            {
+                //Arrange
+                Assert.AreEqual("Product niet gevonden.", exception.Message);
+                Assert.AreEqual(1, exception.Number);
+                Assert.AreEqual(FoutErnst.Waarschuwing, exception.Serverity);
+                Assert.AreEqual("BSVoorraadBeheer", exception.Source);
+            }
         }
-
 
         [TestMethod]
         [ExpectedException(typeof(ProductVoorraadNotFoundException))]

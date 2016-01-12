@@ -45,6 +45,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -62,17 +66,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BSCatalogusBeheerAgentTest.cs" />
+    <Compile Include="Agents\BSCatalogusBeheerAgentTest.cs" />
+    <Compile Include="Managers\CatalogusManagerTest.cs" />
     <Compile Include="Mocks\CatalogusBeheerMock.cs" />
     <Compile Include="Mocks\VoorraadBeheerMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BSVoorraadBeheerAgentTest.cs" />
+    <Compile Include="Agents\BSVoorraadBeheerAgentTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Case3.PcSWinkelen.Agent\09 - Agent.csproj">
@@ -84,6 +90,7 @@
       <Name>01 - Schema</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

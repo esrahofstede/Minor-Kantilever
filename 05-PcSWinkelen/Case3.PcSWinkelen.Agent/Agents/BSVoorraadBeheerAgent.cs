@@ -46,7 +46,7 @@ namespace Case3.PcSWinkelen.Agent.Agents
         /// <param name="productId"></param>
         /// <param name="leveranciersProductId"></param>
         /// <returns></returns>
-        private ProductRef CreateProductRef(int? productId, string leveranciersProductId)
+        private static ProductRef CreateProductRef(int? productId, string leveranciersProductId)
         {
             return new ProductRef()
             {

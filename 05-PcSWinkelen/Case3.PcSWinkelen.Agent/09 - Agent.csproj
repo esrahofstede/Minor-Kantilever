@@ -65,10 +65,11 @@
     <Compile Include="Agents\BSCatalogusBeheerAgent.cs" />
     <Compile Include="Agents\BSVoorraadBeheerAgent.cs" />
     <Compile Include="Exceptions\ProductVoorraadNotFoundException.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interfaces\IBSCatalogusBeheerAgent.cs" />
     <Compile Include="Interfaces\IBSVoorraadBeheerAgent.cs" />
+    <Compile Include="Managers\CatalogusManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestAgent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
