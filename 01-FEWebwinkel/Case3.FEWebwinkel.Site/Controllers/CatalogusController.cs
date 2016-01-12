@@ -46,13 +46,13 @@ namespace Case3.FEWebwinkel.Site.Controllers
             //BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
             
             var model = new CatalogusCollection {
+                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 1,}, 
+                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
+                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 15,}, 
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
                 new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,}, 
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
             };
             var model2 = _catalogusManager.ConvertCatalogusCollectionToCatalogusViewModelList(model);
             return View(model2);
@@ -66,44 +66,25 @@ namespace Case3.FEWebwinkel.Site.Controllers
         public ActionResult Index(CatalogusViewModel Catalogusartikel)
         {
             CookieHelper helper = new CookieHelper();
-            //check if cookie exists
-            if (Request.Cookies["artikelen"] == null)
+            List<ArtikelViewModel> artikelLijst = null;
+
+            try //to get the list from an existing cookie and add the new artikel to the list
             {
-                //create new empty list and add the the artikel
-                var artikelLijst = new List<ArtikelViewModel>();
-                ArtikelViewModel artikel = helper.CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
-
-                artikelLijst.Add(artikel);
-
-                helper.CreateCookieWithArtikellijst(artikelLijst);
-                
-            }
-
-            else
-            {
-                //get the list from the old cookie and add the new artikel to the list
                 string jsonStringArtikellijst = Request.Cookies.Get("artikelen").Value;
-                var artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
-
-                ArtikelViewModel artikel = helper.CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
-
-                artikelLijst.Add(artikel);
-
-                helper.CreateCookieWithArtikellijst(artikelLijst);
+                artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
             }
+            catch (NullReferenceException ex) //Create a new list if cookie can't be found
+            {
+                artikelLijst = new List<ArtikelViewModel>();
+            }
+            //Add the new Artikel to the list
+            ArtikelViewModel artikel = helper.CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
+            artikelLijst.Add(artikel);
 
+            //Set cookie for later usage
+            helper.CreateCookieWithArtikellijst(artikelLijst);
 
-            var model = new CatalogusCollection {
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-                new ProductVoorraad { Product = new Product{Id = 1, Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "tirepatch_kit_small.gif", LeverancierNaam = "Gazelle", }, Voorraad = 10,},
-            };
-            var model2 = _catalogusManager.ConvertCatalogusCollectionToCatalogusViewModelList(model);
-            return View(model2);
+            return RedirectToAction("Index");
         }
     }
 }

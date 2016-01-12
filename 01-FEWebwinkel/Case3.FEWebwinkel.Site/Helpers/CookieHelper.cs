@@ -10,16 +10,22 @@ namespace Case3.FEWebwinkel.Site.Helpers
 {
     public class CookieHelper
     {
-
+        /// <summary>
+        /// Creates an ArtikelViewModel with the data from a CatalogusViewModel
+        /// </summary>
+        /// <param name="catalogusArtikel">The CatalogusViewModel with the data you want to fill your ArtikelViewModel with</param>
+        /// <returns>An ArtikelViewModel object</returns>
         public ArtikelViewModel CreateArtikelViewModelFromCatalogusViewModel(CatalogusViewModel catalogusArtikel)
         {
             try
             {
                 return new ArtikelViewModel
                 {
+                    ID = catalogusArtikel.ID,
                     ArtikelNaam = catalogusArtikel.Naam,
                     Aantal = 1,
-                    Prijs = catalogusArtikel.Prijs.GetValueOrDefault(),
+                    Prijs = catalogusArtikel.Prijs.GetValueOrDefault()
+                    
                 };
             }
             catch (NullReferenceException ex)
@@ -28,6 +34,10 @@ namespace Case3.FEWebwinkel.Site.Helpers
             }
         }
 
+        /// <summary>
+        /// Creates a cookie with a list of ArtikelViewModels
+        /// </summary>
+        /// <param name="artikelLijst">A list of ArtikelViewModels</param>
         public void CreateCookieWithArtikellijst(List<ArtikelViewModel> artikelLijst)
         {
             string MyJsonObject = new JavaScriptSerializer().Serialize(artikelLijst);
@@ -35,8 +45,7 @@ namespace Case3.FEWebwinkel.Site.Helpers
             {
                 Expires = DateTime.Now.AddYears(1)
             };
-
-            //HttpContext.Response.Cookies.Add(cookie);
+            HttpContext.Current.Response.Cookies.Add(cookie);
         }
     }
 }

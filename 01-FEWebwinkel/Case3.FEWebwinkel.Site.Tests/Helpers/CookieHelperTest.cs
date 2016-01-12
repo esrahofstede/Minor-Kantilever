@@ -15,7 +15,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Helpers
     public class CookieHelperTest
     {
         [TestMethod]
-        public void CreateArtikelViewModelFromCatalogusViewModelReturnsCorrectType()
+        public void CreateArtikelViewModelFromCatalogusViewModelReturnsModelWithCorrectType()
         {
             // Arrange
             var helper = new CookieHelper();
@@ -32,46 +32,27 @@ namespace Case3.FEWebwinkel.Site.Tests.Helpers
             Assert.IsInstanceOfType(result, typeof(ArtikelViewModel));
         }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(NullReferenceException))]
-        //public void CreateArtikelViewModelFromCatalogusViewModelThrowsNullReferenceException()
-        //{
-        //    // Arrange
-        //    var helper = new CookieHelper();
-
-        //    // Act
-        //    var result = helper.CreateArtikelViewModelFromCatalogusViewModel(null);
-
-        //    // Assert
-           
-        //}
-
         [TestMethod]
         [ExpectedException(typeof(NullReferenceException))]
-        public void CreateArtikelViewModelFromCatalogusViewModelThrowsNullReferenceException()
+        public void CreateArtikelViewModelFromCatalogusViewModelThrowsExceptionWhenParameterIsNull()
         {
             // Arrange
             var helper = new CookieHelper();
-            var dummy = new CatalogusViewModel
-            {
-                Naam = null,
-                Prijs = null,
-            };
 
             // Act
-            var result = helper.CreateArtikelViewModelFromCatalogusViewModel(dummy);
+            var result = helper.CreateArtikelViewModelFromCatalogusViewModel(null);
 
             // Assert
-
         }
 
         [TestMethod]
-        public void CreateArtikelViewModelFromCatalogusViewModelReturnsCorrectData()
+        public void CreateArtikelViewModelFromCatalogusViewModelReturnsModelWithCorrectData()
         {
             // Arrange
             var helper = new CookieHelper();
             var dummy = new CatalogusViewModel
             {
+                ID = 1,
                 Naam = "fietsbel",
                 Prijs = 2.0m,
             };
@@ -80,10 +61,23 @@ namespace Case3.FEWebwinkel.Site.Tests.Helpers
             var result = helper.CreateArtikelViewModelFromCatalogusViewModel(dummy);
 
             // Assert
-            Assert.AreEqual(result.ArtikelNaam, "fietsbel");
-            Assert.AreEqual(result.Prijs, 2.0m);
-            Assert.AreEqual(result.Aantal, 1);
+            Assert.AreEqual(1, result.ID);
+            Assert.AreEqual("fietsbel", result.ArtikelNaam);
+            Assert.AreEqual(2.0m, result.Prijs);
+            Assert.AreEqual(1, result.Aantal);
+        }
 
+        [TestMethod]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void CreateCookieWithArtikellijstThrowsExceptionWhenParameterIsNull()
+        {
+            // Arrange
+            var helper = new CookieHelper();
+
+            // Act
+            helper.CreateCookieWithArtikellijst(null);
+
+            // Assert
         }
     }
 }
