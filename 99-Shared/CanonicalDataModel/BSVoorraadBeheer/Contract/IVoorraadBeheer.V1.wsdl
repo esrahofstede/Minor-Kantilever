@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<wsdl:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="urn:kantilever:bsvoorraadbeheer:v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="urn:kantilever:bsvoorraadbeheer:v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:kantilever:bsvoorraadbeheer:v1/Imports">
+      <xsd:import namespace="urn:kantilever:bsvoorraadbeheer:v1" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1" />
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" />
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1" />
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1" />
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:common:fouten:v1" />
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:kantilever:bsvoorraadbeheer:v1">
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1" />
+      <xsd:element name="UpdateVoorraad">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="message" nillable="true" xmlns:q1="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1" type="q1:MsgUpdateVoorraadRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateVoorraadResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="UpdateVoorraadResult" nillable="true" xmlns:q2="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1" type="q2:MsgUpdateVoorraadResult" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="FindVoorraad">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="message" nillable="true" xmlns:q3="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1" type="q3:MsgFindVoorraadRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="FindVoorraadResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="FindVoorraadResult" nillable="true" xmlns:q4="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1" type="q4:MsgFindVoorraadResult" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xsd:schema xmlns:tns="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1" elementFormDefault="qualified" targetNamespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1">
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" />
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1" />
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1" />
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:common:fouten:v1" />
+      <xsd:complexType name="MsgUpdateVoorraadRequest">
+        <xsd:sequence>
+          <xsd:element name="Product" nillable="true" xmlns:q5="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" type="q5:ProductRef">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Update" nillable="true" xmlns:q6="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1" type="q6:UpdateProductVoorraad">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="MsgUpdateVoorraadRequest" nillable="true" type="tns:MsgUpdateVoorraadRequest" />
+      <xsd:complexType name="MsgUpdateVoorraadResult">
+        <xsd:sequence>
+          <xsd:element name="ProductVoorraad" nillable="true" xmlns:q7="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1" type="q7:ProductVoorraad">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Succes" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Foutmelding" nillable="true" xmlns:q8="urn:schemas-www-kantilever-nl:common:fouten:v1" type="q8:FoutMelding">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="MsgUpdateVoorraadResult" nillable="true" type="tns:MsgUpdateVoorraadResult" />
+      <xsd:complexType name="MsgFindVoorraadRequest">
+        <xsd:sequence>
+          <xsd:element name="Product" nillable="true" xmlns:q9="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" type="q9:ProductRef">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="MsgFindVoorraadRequest" nillable="true" type="tns:MsgFindVoorraadRequest" />
+      <xsd:complexType name="MsgFindVoorraadResult">
+        <xsd:sequence>
+          <xsd:element name="ProductVoorraad" nillable="true" xmlns:q10="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1" type="q10:ProductVoorraad">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Succes" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="Foutmelding" nillable="true" xmlns:q11="urn:schemas-www-kantilever-nl:common:fouten:v1" type="q11:FoutMelding">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="MsgFindVoorraadResult" nillable="true" type="tns:MsgFindVoorraadResult" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" elementFormDefault="qualified" targetNamespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1">
+      <xsd:complexType name="ProductRef">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Id" type="xsd:int" />
+          <xsd:element minOccurs="0" name="LeveranciersProductId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ProductRef" nillable="true" type="tns:ProductRef" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1" elementFormDefault="qualified" targetNamespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1">
+      <xsd:complexType name="UpdateProductVoorraad">
+        <xsd:sequence>
+          <xsd:element name="Actie" type="tns:UpdateActie" />
+          <xsd:element name="Aantal" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="UpdateProductVoorraad" nillable="true" type="tns:UpdateProductVoorraad" />
+      <xsd:simpleType name="UpdateActie">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Add" />
+          <xsd:enumeration value="Remove" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="UpdateActie" nillable="true" type="tns:UpdateActie" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1" elementFormDefault="qualified" targetNamespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1">
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" />
+      <xsd:complexType name="ProductVoorraad">
+        <xsd:sequence>
+          <xsd:element name="Product" nillable="true" xmlns:q12="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" type="q12:ProductRef">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Voorraad" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ProductVoorraad" nillable="true" type="tns:ProductVoorraad" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="urn:schemas-www-kantilever-nl:common:fouten:v1" elementFormDefault="qualified" targetNamespace="urn:schemas-www-kantilever-nl:common:fouten:v1">
+      <xsd:complexType name="FoutMelding">
+        <xsd:sequence>
+          <xsd:element name="Bron" nillable="true" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Nummer" type="xsd:int" />
+          <xsd:element name="Melding" nillable="true" type="xsd:string">
+            <xsd:annotation>
+              <xsd:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xsd:appinfo>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="Niveau" type="tns:FoutErnst" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FoutMelding" nillable="true" type="tns:FoutMelding" />
+      <xsd:simpleType name="FoutErnst">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Kritisch" />
+          <xsd:enumeration value="Waarschuwing" />
+          <xsd:enumeration value="Melding" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="FoutErnst" nillable="true" type="tns:FoutErnst" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVoorraadBeheer_UpdateVoorraad_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVoorraad" />
+  </wsdl:message>
+  <wsdl:message name="IVoorraadBeheer_UpdateVoorraad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVoorraadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoorraadBeheer_FindVoorraad_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoorraad" />
+  </wsdl:message>
+  <wsdl:message name="IVoorraadBeheer_FindVoorraad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindVoorraadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVoorraadBeheer">
+    <wsdl:operation name="UpdateVoorraad">
+      <wsdl:input wsaw:Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraad" message="tns:IVoorraadBeheer_UpdateVoorraad_InputMessage" />
+      <wsdl:output wsaw:Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraadResponse" message="tns:IVoorraadBeheer_UpdateVoorraad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindVoorraad">
+      <wsdl:input wsaw:Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraad" message="tns:IVoorraadBeheer_FindVoorraad_InputMessage" />
+      <wsdl:output wsaw:Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraadResponse" message="tns:IVoorraadBeheer_FindVoorraad_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

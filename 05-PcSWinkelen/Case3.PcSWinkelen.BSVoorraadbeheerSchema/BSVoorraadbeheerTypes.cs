@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Messages")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1", ClrNamespace="Case3.PcSWinkelen.Schema.VoorraadUpdate")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Voorraad")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1", ClrNamespace="schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1", ClrNamespace="schemaswwwkantilevernl.bsvoorraadbeheer.voorraadupdate.v1")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1", ClrNamespace="schemaswwwkantilevernl.bsvoorraadbeheer.voorraad.v1")]
 
-namespace Case3.PcSWinkelen.Schema.Messages
+namespace schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1
 {
     using System.Runtime.Serialization;
     
@@ -25,9 +25,9 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Product.ProductRef ProductField;
+        private Case3.PcSWinkelen.Schema.ProductNS.ProductRef ProductField;
         
-        private Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateProductVoorraad UpdateField;
+        private schemaswwwkantilevernl.bsvoorraadbeheer.voorraadupdate.v1.UpdateProductVoorraad UpdateField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -42,7 +42,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Product.ProductRef Product
+        public Case3.PcSWinkelen.Schema.ProductNS.ProductRef Product
         {
             get
             {
@@ -55,7 +55,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateProductVoorraad Update
+        public schemaswwwkantilevernl.bsvoorraadbeheer.voorraadupdate.v1.UpdateProductVoorraad Update
         {
             get
             {
@@ -76,11 +76,11 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraadField;
+        private schemaswwwkantilevernl.bsvoorraadbeheer.voorraad.v1.ProductVoorraad ProductVoorraadField;
         
         private bool SuccesField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        private Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -95,7 +95,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraad
+        public schemaswwwkantilevernl.bsvoorraadbeheer.voorraad.v1.ProductVoorraad ProductVoorraad
         {
             get
             {
@@ -121,7 +121,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        public Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding Foutmelding
         {
             get
             {
@@ -142,7 +142,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Product.ProductRef ProductField;
+        private Case3.PcSWinkelen.Schema.ProductNS.ProductRef ProductField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -157,7 +157,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Product.ProductRef Product
+        public Case3.PcSWinkelen.Schema.ProductNS.ProductRef Product
         {
             get
             {
@@ -178,11 +178,11 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraadField;
+        private schemaswwwkantilevernl.bsvoorraadbeheer.voorraad.v1.ProductVoorraad ProductVoorraadField;
         
         private bool SuccesField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        private Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -197,7 +197,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Voorraad.ProductVoorraad ProductVoorraad
+        public schemaswwwkantilevernl.bsvoorraadbeheer.voorraad.v1.ProductVoorraad ProductVoorraad
         {
             get
             {
@@ -223,7 +223,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        public Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding Foutmelding
         {
             get
             {
@@ -236,7 +236,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
     }
 }
-namespace Case3.PcSWinkelen.Schema.VoorraadUpdate
+namespace schemaswwwkantilevernl.bsvoorraadbeheer.voorraadupdate.v1
 {
     using System.Runtime.Serialization;
     
@@ -249,7 +249,7 @@ namespace Case3.PcSWinkelen.Schema.VoorraadUpdate
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateActie ActieField;
+        private schemaswwwkantilevernl.bsvoorraadbeheer.voorraadupdate.v1.UpdateActie ActieField;
         
         private int AantalField;
         
@@ -266,7 +266,7 @@ namespace Case3.PcSWinkelen.Schema.VoorraadUpdate
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Case3.PcSWinkelen.Schema.VoorraadUpdate.UpdateActie Actie
+        public schemaswwwkantilevernl.bsvoorraadbeheer.voorraadupdate.v1.UpdateActie Actie
         {
             get
             {
@@ -304,7 +304,7 @@ namespace Case3.PcSWinkelen.Schema.VoorraadUpdate
         Remove = 1,
     }
 }
-namespace Case3.PcSWinkelen.Schema.Voorraad
+namespace schemaswwwkantilevernl.bsvoorraadbeheer.voorraad.v1
 {
     using System.Runtime.Serialization;
     
@@ -317,7 +317,7 @@ namespace Case3.PcSWinkelen.Schema.Voorraad
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Product.ProductRef ProductField;
+        private Case3.PcSWinkelen.Schema.ProductNS.ProductRef ProductField;
         
         private int VoorraadField;
         
@@ -334,7 +334,7 @@ namespace Case3.PcSWinkelen.Schema.Voorraad
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Product.ProductRef Product
+        public Case3.PcSWinkelen.Schema.ProductNS.ProductRef Product
         {
             get
             {
@@ -368,16 +368,16 @@ public interface IVoorraadBeheer
 {
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraadResponse")]
-    Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadResult UpdateVoorraad(Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadRequest message);
+    schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgUpdateVoorraadResult UpdateVoorraad(schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgUpdateVoorraadRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/UpdateVoorraadResponse")]
-    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadResult> UpdateVoorraadAsync(Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadRequest message);
+    System.Threading.Tasks.Task<schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgUpdateVoorraadResult> UpdateVoorraadAsync(schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgUpdateVoorraadRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraadResponse")]
-    Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadResult FindVoorraad(Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadRequest message);
+    schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgFindVoorraadResult FindVoorraad(schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgFindVoorraadRequest message);
     
     [System.ServiceModel.OperationContractAttribute(Action="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraad", ReplyAction="urn:kantilever:bsvoorraadbeheer:v1/IVoorraadBeheer/FindVoorraadResponse")]
-    System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadResult> FindVoorraadAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadRequest message);
+    System.Threading.Tasks.Task<schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgFindVoorraadResult> FindVoorraadAsync(schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgFindVoorraadRequest message);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -414,22 +414,22 @@ public partial class VoorraadBeheerClient : System.ServiceModel.ClientBase<IVoor
     {
     }
     
-    public Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadResult UpdateVoorraad(Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadRequest message)
+    public schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgUpdateVoorraadResult UpdateVoorraad(schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgUpdateVoorraadRequest message)
     {
         return base.Channel.UpdateVoorraad(message);
     }
     
-    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadResult> UpdateVoorraadAsync(Case3.PcSWinkelen.Schema.Messages.MsgUpdateVoorraadRequest message)
+    public System.Threading.Tasks.Task<schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgUpdateVoorraadResult> UpdateVoorraadAsync(schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgUpdateVoorraadRequest message)
     {
         return base.Channel.UpdateVoorraadAsync(message);
     }
     
-    public Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadResult FindVoorraad(Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadRequest message)
+    public schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgFindVoorraadResult FindVoorraad(schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgFindVoorraadRequest message)
     {
         return base.Channel.FindVoorraad(message);
     }
     
-    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadResult> FindVoorraadAsync(Case3.PcSWinkelen.Schema.Messages.MsgFindVoorraadRequest message)
+    public System.Threading.Tasks.Task<schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgFindVoorraadResult> FindVoorraadAsync(schemaswwwkantilevernl.bsvoorraadbeheer.messages.v1.MsgFindVoorraadRequest message)
     {
         return base.Channel.FindVoorraadAsync(message);
     }
