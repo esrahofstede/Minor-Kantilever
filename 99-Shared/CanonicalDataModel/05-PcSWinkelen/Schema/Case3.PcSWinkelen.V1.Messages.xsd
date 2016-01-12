@@ -8,7 +8,7 @@
 >
   <xs:import namespace="urn:case3-pcswinkelen:v1:schema"
              schemaLocation="Case3.PcSWinkelen.V1.Schema.xsd" />
-
+  
   <xs:complexType name="FindCatalogusRequestMessage">
     <xs:sequence>
       <xs:element name="NaamFilter" type="xs:string" nillable="true" minOccurs="0"/>

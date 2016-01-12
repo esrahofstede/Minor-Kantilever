@@ -6,7 +6,7 @@
            elementFormDefault="qualified" 
            attributeFormDefault="qualified">
 	<xs:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" 
-             schemaLocation="..\..\BSCatalogusBeheer\V1\ProductRef.xsd"/>
+             schemaLocation="..\..\BSCatalogusBeheer\Schema\ProductRef.xsd"/>
 	<xs:complexType name="ProductVoorraad">
 		<xs:sequence>
 			<xs:element name="Product" type="p:ProductRef" minOccurs="1" maxOccurs="1"/>

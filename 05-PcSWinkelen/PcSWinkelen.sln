@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01a-BSCatalogusbeheerSchema
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01b-BSVoorraadbeheerSchema", "Case3.PcSWinkelen.BSVoorraadbeheerSchema\01b-BSVoorraadbeheerSchema.csproj", "{495EEFFC-6B29-42BA-BC94-FC745FC00ABE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01c-PcSWinkelenSchema", "Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj", "{2742240D-A070-44A7-8560-8C8BA25A1C7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Acceptatie|Any CPU = Acceptatie|Any CPU
@@ -98,6 +100,12 @@ Global
 		{495EEFFC-6B29-42BA-BC94-FC745FC00ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{495EEFFC-6B29-42BA-BC94-FC745FC00ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{495EEFFC-6B29-42BA-BC94-FC745FC00ABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2742240D-A070-44A7-8560-8C8BA25A1C7B}.Acceptatie|Any CPU.ActiveCfg = Release|Any CPU
+		{2742240D-A070-44A7-8560-8C8BA25A1C7B}.Acceptatie|Any CPU.Build.0 = Release|Any CPU
+		{2742240D-A070-44A7-8560-8C8BA25A1C7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2742240D-A070-44A7-8560-8C8BA25A1C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2742240D-A070-44A7-8560-8C8BA25A1C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2742240D-A070-44A7-8560-8C8BA25A1C7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
