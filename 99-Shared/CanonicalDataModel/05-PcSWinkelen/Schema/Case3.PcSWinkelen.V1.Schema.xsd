@@ -6,7 +6,7 @@
     xmlns:product="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1"
 >
   <xs:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1"
-              schemaLocation="..\..\BSCatalogusBeheer\V1\Product.xsd" />
+              schemaLocation="..\..\BSCatalogusBeheer\Schema\Product.xsd" />
 
   <xs:complexType name="ProductVoorraad">
     <xs:sequence>

@@ -72,10 +72,6 @@
       <Project>{c458b7ea-6bfb-4c2f-a3dc-485b452c0f0e}</Project>
       <Name>02 - Contract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSWinkelen.Schema\01 - Schema.csproj">
-      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
-      <Name>01 - Schema</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">

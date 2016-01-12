@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B0325D0-D374-4EB1-ABE7-13A77C885F14}</ProjectGuid>
+    <ProjectGuid>{495EEFFC-6B29-42BA-BC94-FC745FC00ABE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Case3.PcSWinkelen.Schema</RootNamespace>
-    <AssemblyName>Case3.PcSWinkelen.Schema</AssemblyName>
+    <RootNamespace>Case3.PcSWinkelen.BSVoorraadbeheerSchema</RootNamespace>
+    <AssemblyName>Case3.PcSWinkelen.BSVoorraadbeheerSchema</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,8 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,43 +37,27 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\..\99-Shared\Case3Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Acceptatie|AnyCPU'">
-    <OutputPath>bin\Acceptatie\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Core">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Runtime.Serialization">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.ServiceModel">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Data">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\BSCatalogusBeheer.cs" />
-    <Compile Include="DTO\BSVoorraadBeheer.cs" />
+    <Compile Include="BSVoorraadbeheerTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
+      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
+      <Name>01a-BSCatalogusbeheerSchema</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
@@ -85,11 +69,26 @@
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>svcutil ^
+  /out:$(ProjectDir)BSVoorraadbeheerTypes.cs ^
+  /r:"$(SolutionDir)Case3.PcSWinkelen.BSCatalogusbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSCatalogusbeheer.Schema.dll" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1,Case3.PcSWinkelen.Schema.Messages" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1,Case3.PcSWinkelen.Schema.ProductUpdateNS" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.PcSWinkelen.Schema.ProductNS" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.PcSWinkelen.Schema.CategorieNS" ^
+  /n:"urn:schemas-www-kantilever-nl:common:fouten:v1,Case3.PcSWinkelen.Schema.FoutenNS" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1,Case3.PcSWinkelen.Schema.LeverancierNS" ^
+  /n:"urn:schemas-www-kantilever-nl:bsvoorraadbeheer:messages:v1,Case3.PcSWinkelen.Schema.VoorraadMessages" ^
+  /n:"urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraadupdate:v1,Case3.PcSWinkelen.Schema.VoorraadUpdateNS" ^
+  /n:"urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1,Case3.PcSWinkelen.Schema.VoorraadNS" ^
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSVoorraadbeheer\Contract\*.wsdl"
+
+REM /n"" ^
+REM /n"     NOG MEER NAMESPACES     " ^
+REM /n"" ^
+</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

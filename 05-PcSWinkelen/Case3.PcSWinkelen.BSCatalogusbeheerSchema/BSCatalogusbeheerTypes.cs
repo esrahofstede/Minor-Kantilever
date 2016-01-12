@@ -9,11 +9,11 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Messages")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ClrNamespace="Case3.PcSWinkelen.Schema.ProductUpdate")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Product")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Categorie")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:common:fouten:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Fouten")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1", ClrNamespace="Case3.PcSWinkelen.Schema.Leverancier")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ClrNamespace="Case3.PcSWinkelen.Schema.ProductUpdateNS")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.PcSWinkelen.Schema.ProductNS")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.PcSWinkelen.Schema.CategorieNS")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:common:fouten:v1", ClrNamespace="Case3.PcSWinkelen.Schema.FoutenNS")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1", ClrNamespace="Case3.PcSWinkelen.Schema.LeverancierNS")]
 
 namespace Case3.PcSWinkelen.Schema.Messages
 {
@@ -28,7 +28,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdateCollection ProductUpdateListField;
+        private Case3.PcSWinkelen.Schema.ProductUpdateNS.ProductUpdateCollection ProductUpdateListField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -43,7 +43,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdateCollection ProductUpdateList
+        public Case3.PcSWinkelen.Schema.ProductUpdateNS.ProductUpdateCollection ProductUpdateList
         {
             get
             {
@@ -64,11 +64,11 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdateResultaatCollection ResultatenField;
+        private Case3.PcSWinkelen.Schema.ProductUpdateNS.ProductUpdateResultaatCollection ResultatenField;
         
         private bool SuccesField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        private Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -83,7 +83,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdateResultaatCollection Resultaten
+        public Case3.PcSWinkelen.Schema.ProductUpdateNS.ProductUpdateResultaatCollection Resultaten
         {
             get
             {
@@ -109,7 +109,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        public Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding Foutmelding
         {
             get
             {
@@ -166,11 +166,11 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Product.Product ProductField;
+        private Case3.PcSWinkelen.Schema.ProductNS.Product ProductField;
         
         private bool SuccesField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        private Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -185,7 +185,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Case3.PcSWinkelen.Schema.Product.Product Product
+        public Case3.PcSWinkelen.Schema.ProductNS.Product Product
         {
             get
             {
@@ -211,7 +211,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        public Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding Foutmelding
         {
             get
             {
@@ -445,7 +445,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Product.ProductCollection ProductsField;
+        private Case3.PcSWinkelen.Schema.ProductNS.ProductCollection ProductsField;
         
         private int PageField;
         
@@ -455,7 +455,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private bool SuccesField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        private Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -470,7 +470,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.Product.ProductCollection Products
+        public Case3.PcSWinkelen.Schema.ProductNS.ProductCollection Products
         {
             get
             {
@@ -535,7 +535,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        public Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding Foutmelding
         {
             get
             {
@@ -592,11 +592,11 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Leverancier.LeverancierCollection LeveranciersField;
+        private Case3.PcSWinkelen.Schema.LeverancierNS.LeverancierCollection LeveranciersField;
         
         private bool SuccesField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        private Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -611,7 +611,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Case3.PcSWinkelen.Schema.Leverancier.LeverancierCollection Leveranciers
+        public Case3.PcSWinkelen.Schema.LeverancierNS.LeverancierCollection Leveranciers
         {
             get
             {
@@ -637,7 +637,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        public Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding Foutmelding
         {
             get
             {
@@ -679,11 +679,11 @@ namespace Case3.PcSWinkelen.Schema.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Categorie.CategorieCollection CategorieenField;
+        private Case3.PcSWinkelen.Schema.CategorieNS.CategorieCollection CategorieenField;
         
         private bool SuccesField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutmeldingField;
+        private Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding FoutmeldingField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -698,7 +698,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Case3.PcSWinkelen.Schema.Categorie.CategorieCollection Categorieen
+        public Case3.PcSWinkelen.Schema.CategorieNS.CategorieCollection Categorieen
         {
             get
             {
@@ -724,7 +724,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding Foutmelding
+        public Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding Foutmelding
         {
             get
             {
@@ -737,7 +737,7 @@ namespace Case3.PcSWinkelen.Schema.Messages
         }
     }
 }
-namespace Case3.PcSWinkelen.Schema.ProductUpdate
+namespace Case3.PcSWinkelen.Schema.ProductUpdateNS
 {
     using System.Runtime.Serialization;
     
@@ -745,7 +745,7 @@ namespace Case3.PcSWinkelen.Schema.ProductUpdate
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductUpdateCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ItemName="ProductUpdate")]
-    public class ProductUpdateCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdate>
+    public class ProductUpdateCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductUpdateNS.ProductUpdate>
     {
     }
     
@@ -757,9 +757,9 @@ namespace Case3.PcSWinkelen.Schema.ProductUpdate
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.ProductUpdate.UpdateActie UpdateActieField;
+        private Case3.PcSWinkelen.Schema.ProductUpdateNS.UpdateActie UpdateActieField;
         
-        private Case3.PcSWinkelen.Schema.Product.Product ProductField;
+        private Case3.PcSWinkelen.Schema.ProductNS.Product ProductField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -774,7 +774,7 @@ namespace Case3.PcSWinkelen.Schema.ProductUpdate
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Case3.PcSWinkelen.Schema.ProductUpdate.UpdateActie UpdateActie
+        public Case3.PcSWinkelen.Schema.ProductUpdateNS.UpdateActie UpdateActie
         {
             get
             {
@@ -787,7 +787,7 @@ namespace Case3.PcSWinkelen.Schema.ProductUpdate
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
-        public Case3.PcSWinkelen.Schema.Product.Product Product
+        public Case3.PcSWinkelen.Schema.ProductNS.Product Product
         {
             get
             {
@@ -818,7 +818,7 @@ namespace Case3.PcSWinkelen.Schema.ProductUpdate
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductUpdateResultaatCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1", ItemName="ProductUpdateResultaat")]
-    public class ProductUpdateResultaatCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductUpdate.ProductUpdateResultaat>
+    public class ProductUpdateResultaatCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductUpdateNS.ProductUpdateResultaat>
     {
     }
     
@@ -830,9 +830,9 @@ namespace Case3.PcSWinkelen.Schema.ProductUpdate
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.Product.ProductRef ProductRefField;
+        private Case3.PcSWinkelen.Schema.ProductNS.ProductRef ProductRefField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutMeldingField;
+        private Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding FoutMeldingField;
         
         private bool SuccessField;
         
@@ -849,7 +849,7 @@ namespace Case3.PcSWinkelen.Schema.ProductUpdate
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Case3.PcSWinkelen.Schema.Product.ProductRef ProductRef
+        public Case3.PcSWinkelen.Schema.ProductNS.ProductRef ProductRef
         {
             get
             {
@@ -862,7 +862,7 @@ namespace Case3.PcSWinkelen.Schema.ProductUpdate
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutMelding FoutMelding
+        public Case3.PcSWinkelen.Schema.FoutenNS.FoutMelding FoutMelding
         {
             get
             {
@@ -888,7 +888,7 @@ namespace Case3.PcSWinkelen.Schema.ProductUpdate
         }
     }
 }
-namespace Case3.PcSWinkelen.Schema.Product
+namespace Case3.PcSWinkelen.Schema.ProductNS
 {
     using System.Runtime.Serialization;
     
@@ -919,7 +919,7 @@ namespace Case3.PcSWinkelen.Schema.Product
         
         private System.Nullable<decimal> PrijsField;
         
-        private Case3.PcSWinkelen.Schema.Categorie.CategorieCollection CategorieLijstField;
+        private Case3.PcSWinkelen.Schema.CategorieNS.CategorieCollection CategorieLijstField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -1051,7 +1051,7 @@ namespace Case3.PcSWinkelen.Schema.Product
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-        public Case3.PcSWinkelen.Schema.Categorie.CategorieCollection CategorieLijst
+        public Case3.PcSWinkelen.Schema.CategorieNS.CategorieCollection CategorieLijst
         {
             get
             {
@@ -1118,11 +1118,11 @@ namespace Case3.PcSWinkelen.Schema.Product
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ItemName="Product")]
-    public class ProductCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.Product.Product>
+    public class ProductCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductNS.Product>
     {
     }
 }
-namespace Case3.PcSWinkelen.Schema.Categorie
+namespace Case3.PcSWinkelen.Schema.CategorieNS
 {
     using System.Runtime.Serialization;
     
@@ -1130,7 +1130,7 @@ namespace Case3.PcSWinkelen.Schema.Categorie
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CategorieCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ItemName="Categorie")]
-    public class CategorieCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.Categorie.Categorie>
+    public class CategorieCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.CategorieNS.Categorie>
     {
     }
     
@@ -1185,7 +1185,7 @@ namespace Case3.PcSWinkelen.Schema.Categorie
         }
     }
 }
-namespace Case3.PcSWinkelen.Schema.Fouten
+namespace Case3.PcSWinkelen.Schema.FoutenNS
 {
     using System.Runtime.Serialization;
     
@@ -1204,7 +1204,7 @@ namespace Case3.PcSWinkelen.Schema.Fouten
         
         private string MeldingField;
         
-        private Case3.PcSWinkelen.Schema.Fouten.FoutErnst NiveauField;
+        private Case3.PcSWinkelen.Schema.FoutenNS.FoutErnst NiveauField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -1258,7 +1258,7 @@ namespace Case3.PcSWinkelen.Schema.Fouten
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public Case3.PcSWinkelen.Schema.Fouten.FoutErnst Niveau
+        public Case3.PcSWinkelen.Schema.FoutenNS.FoutErnst Niveau
         {
             get
             {
@@ -1286,7 +1286,7 @@ namespace Case3.PcSWinkelen.Schema.Fouten
         Melding = 2,
     }
 }
-namespace Case3.PcSWinkelen.Schema.Leverancier
+namespace Case3.PcSWinkelen.Schema.LeverancierNS
 {
     using System.Runtime.Serialization;
     
@@ -1294,7 +1294,7 @@ namespace Case3.PcSWinkelen.Schema.Leverancier
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="LeverancierCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1", ItemName="Leverancier")]
-    public class LeverancierCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.Leverancier.Leverancier>
+    public class LeverancierCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.LeverancierNS.Leverancier>
     {
     }
     
