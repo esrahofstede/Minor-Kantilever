@@ -69,14 +69,14 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             Assert.AreEqual("Fietsbel", result[0].Naam);
             Assert.AreEqual("../Content/Product_img/fietsbel.gif", result[0].Afbeeldingslocatie);
             Assert.AreEqual("Gazelle", result[0].Leverancier);
-            Assert.AreEqual(4.95M, result[0].Prijs);
+            Assert.AreEqual(5.99M, result[0].Prijs);
             Assert.AreEqual(10, result[0].Voorraad);
             //Second Viewmodel
             Assert.AreEqual(2, result[1].ID);
             Assert.AreEqual("Zadelpen", result[1].Naam);
             Assert.AreEqual("../Content/Product_img/zadelpen.gif", result[1].Afbeeldingslocatie);
             Assert.AreEqual("Giant", result[1].Leverancier);
-            Assert.AreEqual(12.50M, result[1].Prijs);
+            Assert.AreEqual(15.12M, result[1].Prijs);
             Assert.AreEqual(10, result[1].Voorraad);
         }
         #endregion
@@ -100,14 +100,14 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             Assert.AreEqual("Fietsbel", result[0].Naam);
             Assert.AreEqual("../Content/Product_img/fietsbel.gif", result[0].Afbeeldingslocatie);
             Assert.AreEqual("Gazelle", result[0].Leverancier);
-            Assert.AreEqual(4.95M, result[0].Prijs);
+            Assert.AreEqual(5.99M, result[0].Prijs);
             Assert.AreEqual(10, result[0].Voorraad);
             //Second Viewmodel
             Assert.AreEqual(2, result[1].ID);
             Assert.AreEqual("Zadelpen", result[1].Naam);
             Assert.AreEqual("../Content/Product_img/zadelpen.gif", result[1].Afbeeldingslocatie);
             Assert.AreEqual("Giant", result[1].Leverancier);
-            Assert.AreEqual(12.50M, result[1].Prijs);
+            Assert.AreEqual(15.12M, result[1].Prijs);
             Assert.AreEqual(10, result[1].Voorraad);
         }
         #endregion
