@@ -33,7 +33,6 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             // Arrange
             var controller = new CatalogusController();
 
-
             // Act
             ViewResult result = controller.Index() as ViewResult;
 

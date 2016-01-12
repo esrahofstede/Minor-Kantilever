@@ -34,7 +34,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.IsInstanceOfType(result.Model, typeof(List<WinkelmandViewModel>));
+            Assert.IsInstanceOfType(result.Model, typeof(WinkelmandViewModel));
         }
 
         [TestMethod]
@@ -44,14 +44,11 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             //ICookieNator<WinkelmandViewModel> cookieNator = 
             var controller = new WinkelmandController();
 
-
-
-
             // Act
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.IsInstanceOfType(result.Model, typeof(List<WinkelmandViewModel>));
+            Assert.IsInstanceOfType(result.Model, typeof(WinkelmandViewModel));
         }
 
 

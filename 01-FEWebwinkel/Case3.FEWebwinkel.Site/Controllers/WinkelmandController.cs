@@ -4,6 +4,7 @@ using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
@@ -25,7 +26,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         // GET: Winkelmand
         public ActionResult Index()
         {
-            decimal totaalInclBTW = 0M;
+            decimal totaalExclBTW = 0M;
             List<ArtikelViewModel> artikelLijst = null;
 
             try //to get the list from an existing cookie
@@ -33,29 +34,26 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 CookieNator<ArtikelViewModel> cookieNator = new CookieNator<ArtikelViewModel>(Request.Cookies);
                 artikelLijst = cookieNator.GetCookieValue("artikelen");
             }
-            catch (NullReferenceException ex) //Create a new list if cookie can't be found
+            catch (NullReferenceException) //Create a new list if cookie can't be found
             {
                 artikelLijst = new List<ArtikelViewModel>();
             }
 
             if (artikelLijst.Count > 0)
             {
-                //totaalInclBTW = artikelLijst.Select(artikel => (artikel.Prijs * artikel.Aantal))
-                //                            .Sum();
-                foreach(ArtikelViewModel artikelViewModel in artikelLijst)
-                {
-                    totaalInclBTW += artikelViewModel.Prijs * artikelViewModel.Aantal;
-                }
+                totaalExclBTW = artikelLijst.Select(artikel => (artikel.Prijs * artikel.Aantal))
+                                            .Sum();
             }
 
+            var totaalInclBTW = _btwCalculator.CalculatePriceInclusiveBTW(totaalExclBTW);
 
             var model = new WinkelmandViewModel
             {
                 Artikelen = artikelLijst,
                 BTWPercentage = _btwCalculator.BTWPercentage,
                 TotaalInclBTW = totaalInclBTW,
-                TotaalExclBTW = Math.Round(((totaalInclBTW * 100) / 121), 2),
-                TotaalBTW = _btwCalculator.CalculateBTWOfPrice(((totaalInclBTW * 100) / 121)),
+                TotaalExclBTW = totaalExclBTW,
+                TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalInclBTW),
             };
 
             return View(model);

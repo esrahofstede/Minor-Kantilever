@@ -20,7 +20,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
     public class CatalogusController : Controller
     {
         private ICatalogusManager _catalogusManager;
-        private BTWCalculator _btwCalculator = new BTWCalculator();
 
         /// <summary>
         /// This constructor is the default constructor
@@ -65,7 +64,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 //string jsonStringArtikellijst = Request.Cookies.Get("artikelen").Value;
                 //artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
             }
-            catch (NullReferenceException ex) //Create a new list if cookie can't be found
+            catch (NullReferenceException) //Create a new list if cookie can't be found
             {
                 artikelLijst = new List<ArtikelViewModel>();
             }
