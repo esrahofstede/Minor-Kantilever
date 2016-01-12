@@ -18,6 +18,14 @@
       <Word>Voorraad</Word>
       <Word>Mvc</Word>
       <Word>Sms</Word>
+      <Word>Winkelmand</Word>
+      <Word>Nator</Word>
+      <Word>Artikel</Word>
+      <Word>Artikelen</Word>
+      <Word>Aantal</Word>
+      <Word>Excl</Word>
+      <Word>Incl</Word>
+      <Word>Totaal</Word>
   </Recognized>
     <Unrecognized>
     </Unrecognized>
@@ -43,7 +51,7 @@
       <Acronym>DTO</Acronym>
       <Acronym>ID</Acronym>
       <Acronym>SMS</Acronym>
-
+      <Acronym>BTW</Acronym>
     </CasingExceptions> 
   </Acronyms>
 </Dictionary>

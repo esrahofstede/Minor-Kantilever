@@ -26,8 +26,8 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// <summary>
         /// This constructor is for testing purposes
         /// </summary>
-        /// <param name="manager">This should be a mock of CatalogusManager</param>
-        public CatalogusController(CatalogusManager manager)
+        /// <param name="manager">This should be a mock of ICatalogusManager</param>
+        public CatalogusController(ICatalogusManager manager)
         {
             _catalogusManager = manager;
         }
@@ -47,7 +47,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// </summary>
         /// <param name="artikel">The chosen product that you want to add to your winkelmand</param>
         [HttpPost]
-        public ActionResult Index(int ProductID)
+        public ActionResult Index(int productID)
         {
             CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
             string userGuid;

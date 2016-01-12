@@ -11,7 +11,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
 {
     public class WinkelmandController : Controller
     {
-	private BTWCalculator _btwCalculator = new BTWCalculator();
+	    //private BTWCalculator _btwCalculator = new BTWCalculator();
         private ICookieNator<ArtikelViewModel> _cookieNator;
         public WinkelmandController()
         {
@@ -25,7 +25,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         // GET: Winkelmand
         public ActionResult Index()
         {
-            decimal totaalExclBTW = 0M;
+            //decimal totaalExclBTW = 0M;
             string userGuid;
             CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
 
