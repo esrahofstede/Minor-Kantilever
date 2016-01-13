@@ -46,9 +46,31 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             SessieID = GetDummyGuid
         };
 
+        internal static SchemaNS.WinkelmandItem GetDummyDTOWinkelmandItem = new SchemaNS.WinkelmandItem
+        {
+            SessieId = GetDummyGuid,
+            Product = GetDummyProduct,
+            Aantal = 2,
+        };
+
+
         internal static AddItemToWinkelmandRequestMessage GetDummyAddItemToWinkelmandRequestMessage = new AddItemToWinkelmandRequestMessage
         {
             WinkelmandItemRef = GetDummyWinkelmandItemRef
+        };
+
+        internal static GetWinkelmandRequestMessage GetDummyGetWinkelmandRequestMessage = new GetWinkelmandRequestMessage
+        {
+            SessieId = GetDummyGuid
+        };
+
+        internal static GetWinkelmandResponseMessage GetDummyGetWinkelmandResponseMessage = new GetWinkelmandResponseMessage
+        {
+            SessieId = GetDummyGuid,
+            WinkelmandCollection = new WinkelMandCollection
+            {
+                GetDummyDTOWinkelmandItem
+            }
         };
     }
 }

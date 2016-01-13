@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="AddProductToWinkelmandTest.cs" />
     <Compile Include="DummyData.cs" />
+    <Compile Include="GetWinkelmandTest.cs" />
     <Compile Include="WinkelMandDataMapperMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PcSWinkelenServiceHandlerTest.cs" />
