@@ -77,17 +77,7 @@
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
-    <Content Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Web.Acceptatie.config">
-      <DependentUpon>App.config</DependentUpon>
-    </None>
-    <None Include="Web.Debug.config">
-      <DependentUpon>App.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>App.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Case3.PcSWinkelen.Contract\02 - Contract.csproj">

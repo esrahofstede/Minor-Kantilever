@@ -60,7 +60,9 @@ namespace Case3.PcSWinkelen.Implementation
         public AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request)
         {
             WinkelmandItem item = new WinkelmandItem();
-            _winkelmandDataMapper.AddWinkelmandItem(null);
+
+            _winkelmandDataMapper.AddWinkelmandItem(new DAL.Entities.WinkelmandItem());
+
             return new AddItemToWinkelmandResponseMessage {Succeeded = true};
         }
 

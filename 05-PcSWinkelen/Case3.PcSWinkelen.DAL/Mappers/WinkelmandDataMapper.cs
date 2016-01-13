@@ -12,12 +12,12 @@ namespace Case3.PcSWinkelen.DAL.Mappers
     {
         public IEnumerable<WinkelmandItem> FindAllBy(Expression<Func<WinkelmandItem, bool>> isAny)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public void AddWinkelmandItem(WinkelmandItem item)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
