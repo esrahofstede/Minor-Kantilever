@@ -32,16 +32,22 @@ namespace Case3.FEWebwinkel.Site.Managers
         {
             _pcsWinkelenAgent = agent;
         }
+
+
         public List<ArtikelViewModel> GetWinkelmand(string SessieId)
         {
-            throw new NotImplementedException();
+            var winkelmand = _pcsWinkelenAgent.GetWinkelmand(SessieId);
+
+            var ViewModels = ConvertWinkelmandCollectionToArtikelViewModelList(winkelmand);
+
+            return ViewModels;
         }
 
         /// <summary>
-        /// 
+        /// This function Converts a List with ArtikelViewModels based on the given WinkelMandCollection
         /// </summary>
-        /// <param name="WinkelmandCollection"></param>
-        /// <returns></returns>
+        /// <param name="WinkelmandCollection">The collection which has to be converted</param>
+        /// <returns>Returns a list with ArtikelViewModels</returns>
         public List<ArtikelViewModel> ConvertWinkelmandCollectionToArtikelViewModelList(WinkelMandCollection WinkelmandCollection)
         {
             var ArtikelViewModels = WinkelmandCollection.Select(wm => new ArtikelViewModel

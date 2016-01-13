@@ -73,5 +73,17 @@ namespace Case3.FEWebwinkel.Agent
             FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = 1, PageSize = 20 });
             return result.Products;
         }
+
+        public WinkelMandCollection GetWinkelmand(string SessionId)
+        {
+            var winkelmandCollection = new WinkelMandCollection
+            {
+                             new WinkelmandjeItem { Product = new Product { Id = 1,Naam = "Fietsbel",Prijs = 4.95M,AfbeeldingURL = "fietsbel.gif",LeverancierNaam = "Gazelle",},Aantal = 2,},
+                             new WinkelmandjeItem { Product = new Product { Id = 2,Naam = "Zadelpen",Prijs = 12.50M,AfbeeldingURL = "zadelpen.gif",LeverancierNaam = "Giant",},Aantal = 1,},
+            };
+            return winkelmandCollection;
+            //GetWinkelmandResponseMessage result = _agent.GetWinkelmand(new GetWinkelmandRequestMessage() { SessieId = SessionId });
+            //return result.WinkelmandCollection;
+        }
     }
 }
