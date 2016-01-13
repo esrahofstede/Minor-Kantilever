@@ -350,8 +350,8 @@ namespace Case3.PcSWinkelen.MessagesNS
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AddItemToWinkelmandjeRequestMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
-    public partial class AddItemToWinkelmandjeRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="AddItemToWinkelmandRequestMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class AddItemToWinkelmandRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -386,8 +386,8 @@ namespace Case3.PcSWinkelen.MessagesNS
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AddItemToWinkelmandjeResponseMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
-    public partial class AddItemToWinkelmandjeResponseMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="AddItemToWinkelmandResponseMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class AddItemToWinkelmandResponseMessage : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -416,6 +416,78 @@ namespace Case3.PcSWinkelen.MessagesNS
             set
             {
                 this.SucceededField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetWinkelmandRequestMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class GetWinkelmandRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string SessieIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string SessieId
+        {
+            get
+            {
+                return this.SessieIdField;
+            }
+            set
+            {
+                this.SessieIdField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetWinkelmandResponseMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class GetWinkelmandResponseMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.Schema.ProductNS.ProductCollection ProductsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.Schema.ProductNS.ProductCollection Products
+        {
+            get
+            {
+                return this.ProductsField;
+            }
+            set
+            {
+                this.ProductsField = value;
             }
         }
     }

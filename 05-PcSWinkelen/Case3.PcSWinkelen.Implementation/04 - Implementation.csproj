@@ -53,6 +53,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PcSWinkelenServiceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,9 +70,17 @@
       <Project>{a0be951e-3160-4dcb-916b-86d8c348bd91}</Project>
       <Name>09 - Agent</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
+      <Project>{1B0325D0-D374-4EB1-ABE7-13A77C885F14}</Project>
+      <Name>01a-BSCatalogusbeheerSchema</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.Contract\02 - Contract.csproj">
       <Project>{c458b7ea-6bfb-4c2f-a3dc-485b452c0f0e}</Project>
       <Name>02 - Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj">
+      <Project>{2742240D-A070-44A7-8560-8C8BA25A1C7B}</Project>
+      <Name>01c-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

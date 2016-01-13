@@ -5,9 +5,12 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:msg="urn:case3-pcswinkelen:v1:messages"
     xmlns:k="urn:case3-pcswinkelen:v1:schema"
+    xmlns:product="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1"
 >
   <xs:import namespace="urn:case3-pcswinkelen:v1:schema"
              schemaLocation="Case3.PcSWinkelen.V1.Schema.xsd" />
+  <xs:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1"
+            schemaLocation="..\..\BSCatalogusBeheer\Schema\Product.xsd" />
   
   <xs:complexType name="FindCatalogusRequestMessage">
     <xs:sequence>
@@ -29,15 +32,28 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="AddItemToWinkelmandjeRequestMessage">
+  <xs:complexType name="AddItemToWinkelmandRequestMessage">
     <xs:sequence>
       <xs:element name="WinkelmandjeItem" type="k:WinkelmandjeItem"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="AddItemToWinkelmandjeResponseMessage">
+  <xs:complexType name="AddItemToWinkelmandResponseMessage">
     <xs:sequence>
       <xs:element name="Succeeded" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="GetWinkelmandRequestMessage">
+    <xs:sequence>
+      <xs:element name="SessieId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetWinkelmandResponseMessage">
+    <xs:sequence>
+      <xs:element name="Products" type="product:ProductCollection"/>
     </xs:sequence>
   </xs:complexType>
 
