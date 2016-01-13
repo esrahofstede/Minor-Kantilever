@@ -196,14 +196,5 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00"), secondProduct.LeverbaarVanaf);
             Assert.AreEqual(200.00M, secondProduct.Prijs);
         }
-
-        // Arrange
-
-        // Act
-
-        // Assert
-
-
-
     }
 }

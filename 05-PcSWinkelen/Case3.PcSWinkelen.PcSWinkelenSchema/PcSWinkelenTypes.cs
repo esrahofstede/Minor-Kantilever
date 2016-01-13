@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.PcSWinkelen.Schema.CategorieNS")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.PcSWinkelen.Schema.ProductNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:schema", ClrNamespace="Case3.PcSWinkelen.SchemaNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:messages", ClrNamespace="Case3.PcSWinkelen.MessagesNS")]
 
@@ -22,18 +21,6 @@ namespace Case3.PcSWinkelen.Schema.CategorieNS
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CategorieCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ItemName="Categorie")]
     public class CategorieCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.CategorieNS.Categorie>
-    {
-    }
-}
-namespace Case3.PcSWinkelen.Schema.ProductNS
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ItemName="Product")]
-    public class ProductCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductNS.Product>
     {
     }
 }

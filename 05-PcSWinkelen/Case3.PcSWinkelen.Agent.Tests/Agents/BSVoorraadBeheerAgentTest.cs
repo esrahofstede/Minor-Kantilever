@@ -1,5 +1,4 @@
-﻿
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Tests.Mocks;
 using Case3.PcSWinkelen.Agent.Exceptions;
@@ -10,6 +9,9 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
     [TestClass]
     public class BSVoorraadBeheerAgentTest
     {
+        /// <summary>
+        /// Checks Voorraad for a specific product
+        /// </summary>
         [TestMethod]
         public void VerifyVoorraadIs28ForProduct1()
         {
@@ -24,6 +26,9 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             Assert.AreEqual(28, voorraad);
         }
 
+        /// <summary>
+        /// Test which must throw an exception, the exception must be the right one
+        /// </summary>
         [TestMethod]
         public void ProductNotExistsInVoorraadThrowsExceptionAndCheckExceptionDetails()
         {
@@ -45,6 +50,9 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             }
         }
 
+        /// <summary>
+        /// Test which must throw an exception because productId is null
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ProductVoorraadNotFoundException))]
         public void GetProductVoorraadWithNullableProductId()

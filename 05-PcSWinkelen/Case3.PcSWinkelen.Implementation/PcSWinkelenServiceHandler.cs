@@ -9,12 +9,11 @@ namespace Case3.PcSWinkelen.Implementation
 {
     public class PcSWinkelenServiceHandler : IPcSWinkelenService
     {
-        
-        public PcSWinkelenServiceHandler()
-        {
-
-        }
-        
+        /// <summary>
+        /// Get list of Products with the Voorraad included
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
 

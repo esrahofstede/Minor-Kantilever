@@ -77,10 +77,15 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns a MsgFindProductsResult which includes a fake list of products
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public MsgFindProductsResult FindProducts(MsgFindProductsRequest message)
         {
 
-            Case3.PcSWinkelen.Schema.ProductNS.ProductCollection productCollection = new ProductCollection();
+            ProductCollection productCollection = new ProductCollection();
             productCollection.InsertRange(0, _products);
 
             return new MsgFindProductsResult()

@@ -1,5 +1,4 @@
-﻿
-using Case3.PcSWinkelen.Agent.Exceptions;
+﻿using Case3.PcSWinkelen.Agent.Exceptions;
 using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using Case3.PcSWinkelen.Schema.VoorraadMessages;
@@ -12,12 +11,19 @@ namespace Case3.PcSWinkelen.Agent.Agents
         private ServiceFactory<IVoorraadBeheer> _factory;
         private IVoorraadBeheer _agent;
 
+        /// <summary>
+        /// Instantiate a ServiceFactory with a reference to the described service
+        /// </summary>
         public BSVoorraadBeheerAgent()
         {
             _factory = new ServiceFactory<IVoorraadBeheer>("BSVoorraadBeheer");
             _agent = _factory.CreateAgent();
         }
 
+        /// <summary>
+        /// For testing purposes, possible to inject a mock class
+        /// </summary>
+        /// <param name="agent"></param>
         public BSVoorraadBeheerAgent(IVoorraadBeheer agent)
         {
             _agent = agent;
@@ -42,7 +48,7 @@ namespace Case3.PcSWinkelen.Agent.Agents
             }
         }
         /// <summary>
-        /// 
+        /// Creates a ProductRef which is required within the MsgFindVoorraadRequest class
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="leveranciersProductId"></param>

@@ -22,6 +22,7 @@
       <Word>Voorraad</Word>
       <Word>Serverity</Word>
       <Word>Mvc</Word>
+      
       <Word>Sms</Word>
   </Recognized>
     <Unrecognized>
@@ -30,6 +31,10 @@
       <Term PreferredAlternate=""></Term>
     </Deprecated>
     <Compound>
+      <Term>CatalogusBeheer</Term>
+      <Term>VoorraadBeheer</Term>
+      <Term>catalogusBeheer</Term>
+      <Term>voorraadBeheer</Term>
       <Term CompoundAlternate=""></Term>
     </Compound>
     <DiscreteExceptions>
