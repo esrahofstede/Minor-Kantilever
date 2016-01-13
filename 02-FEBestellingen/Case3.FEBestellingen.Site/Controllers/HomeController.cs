@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace Case3.FEBestellingen.Site.Controllers
 {
+    [ExcludeFromCodeCoverage]
     public class HomeController : Controller
     {
         public ActionResult Index()

@@ -20,6 +20,12 @@
       <Word>Voorraad</Word>
       <Word>Mvc</Word>
       <Word>Sms</Word>
+      <Word>Artikel</Word>
+      <Word>Bestelling</Word>
+      <Word>Leveranciersnaam</Word>
+      <Word>Leverancierscode</Word>
+      <Word>Aantal</Word>
+      <Word>Artikelen</Word>
       <Word>Bestellingen</Word>
   </Recognized>
     <Unrecognized>
