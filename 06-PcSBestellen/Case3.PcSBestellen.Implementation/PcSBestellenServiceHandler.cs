@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Case3.PcSBestellen.Contract;
+using Case3.PcSBestellen.V1.Messages;
 using log4net;
 
 namespace Case3.PcSBestellen.Implementation
@@ -17,6 +18,11 @@ namespace Case3.PcSBestellen.Implementation
             log4net.Config.XmlConfigurator.Configure();
         }
 
+        public FindNextBestellingResultMessage FindNextBestelling(FindNextBestellingRequestMessage requestMessage)
+        {
+            throw new NotImplementedException();
+        }
+
         public string SayHelloTest(string name)
         {
             string greeting = "";
@@ -25,7 +31,7 @@ namespace Case3.PcSBestellen.Implementation
             {
                 greeting = "Hello" + name + "! This is a test method.";
             }
-            catch (Exception ex)
+            catch (Exception ex) //TODO nog een duidelijkere exception opvangen
             {
                 _logger.Fatal(ex.Message);
             }

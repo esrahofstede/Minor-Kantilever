@@ -76,6 +76,12 @@
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01 - Schema.csproj">
+      <Project>{0ceb091a-9056-4bd0-87d2-864bf8fdf5c4}</Project>
+      <Name>01 - Schema</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -94,7 +100,7 @@
   </ProjectExtensions>
   <PropertyGroup>
     <PostBuildEvent>svcutil ^
-  /d:"$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSBestellen\Contract" ^
+  /d:"$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Contract" ^
   .\Case3.PcSBestellen.Contract.dll</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
