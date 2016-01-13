@@ -187,5 +187,79 @@ namespace Case3.BTWConfigurationReader.Tests
             Assert.AreEqual(0M, result);
         }
         #endregion
+        #region -------[Tests for CalculatePriceExclBTW]-------
+        [TestMethod]
+        public void CalculatePriceExclBTWIsDecimal()
+        {
+            // Arrange
+            //Setting up a mock of BTWConfigReader
+            var mock = new Mock<BTWConfigReader>(MockBehavior.Strict);
+            mock.Setup(b => b.GetBTWPercentage()).Returns(21M);
+
+            var target = new BTWCalculator(mock.Object);
+            // Act
+            var result = target.CalculatePriceExclBTW(100.00M);
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(decimal));
+        }
+        [TestMethod]
+        public void CalculatePriceExclBTW121()
+        {
+            // Arrange
+            //Setting up a mock of BTWConfigReader
+            var mock = new Mock<BTWConfigReader>(MockBehavior.Strict);
+            mock.Setup(b => b.GetBTWPercentage()).Returns(21M);
+
+            var target = new BTWCalculator(mock.Object);
+            // Act
+            var result = target.CalculatePriceExclBTW(121.00M);
+            // Assert
+            Assert.AreEqual(100.00M, result);
+        }
+        [TestMethod]
+        public void CalculatePriceExclBTWOfRealPrice()
+        {
+            // Arrange
+            //Setting up a mock of BTWConfigReader
+            var mock = new Mock<BTWConfigReader>(MockBehavior.Strict);
+            mock.Setup(b => b.GetBTWPercentage()).Returns(21M);
+
+            var target = new BTWCalculator(mock.Object);
+            // Act
+            var result = target.CalculatePriceExclBTW(5.99M);
+            // Assert
+            Assert.AreEqual(4.95M, result);
+        }
+        [TestMethod]
+        public void CalculatePriceExclBTWAcceptsNullableDecimal()
+        {
+            // Arrange
+            //Setting up a mock of BTWConfigReader
+            var mock = new Mock<BTWConfigReader>(MockBehavior.Strict);
+            mock.Setup(b => b.GetBTWPercentage()).Returns(21M);
+
+            var target = new BTWCalculator(mock.Object);
+            decimal? dec = 121.00M;
+            // Act
+            var result = target.CalculatePriceExclBTW(dec);
+            // Assert
+            Assert.AreEqual(100.00M, result);
+        }
+        [TestMethod]
+        public void CalculatePriceExclBTWNullableDecimal()
+        {
+            // Arrange
+            //Setting up a mock of BTWConfigReader
+            var mock = new Mock<BTWConfigReader>(MockBehavior.Strict);
+            mock.Setup(b => b.GetBTWPercentage()).Returns(21M);
+
+            var target = new BTWCalculator(mock.Object);
+            decimal? dec = null;
+            // Act
+            var result = target.CalculatePriceExclBTW(dec);
+            // Assert
+            Assert.AreEqual(0M, result);
+        }
+        #endregion
     }
 }

@@ -88,5 +88,31 @@ namespace Case3.BTWConfigurationReader
                 return CalculateBTWOfPrice((decimal)price);
             }
         }
+	    /// <summary>
+        /// This function returns the price exclusive price of the given price inclusive BTW
+        /// </summary>
+        /// <param name="priceInclBTW">The price inclusive BTW of which the price exclusive BTW has to be calculated</param>
+        /// <returns>Returns the price exclusive BTW rounded to 2 decimals</returns>
+        public decimal CalculatePriceExclBTW(decimal priceInclBTW)
+        {
+            decimal percentage = 100M + _configReader.GetBTWPercentage();
+            return Math.Round(((priceInclBTW * 100) / percentage), 2);
+        }
+        /// <summary>
+        /// This function returns the price exclusive price of the given price inclusive BTW
+        /// </summary>
+        /// <param name="priceInclBTW">(decimal?) The price inclusive BTW of which the price exclusive BTW has to be calculated</param>
+        /// <returns>Returns the price exclusive BTW rounded to 2 decimals or 0 if priceInclBTW is null</returns>
+        public decimal CalculatePriceExclBTW(decimal? priceInclBTW)
+        {
+            if (priceInclBTW == null)
+            {
+                return 0M;
+            }
+            else
+            {
+                return CalculatePriceExclBTW((decimal)priceInclBTW);
+            }
+        }
     }
 }
