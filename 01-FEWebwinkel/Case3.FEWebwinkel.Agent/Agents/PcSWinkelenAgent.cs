@@ -3,12 +3,14 @@ using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.PcSWinkelen.Messages;
 using Case3.PcSWinkelen.Schema;
 using Minor.ServiceBus.Agent.Implementation;
+using System;
+using System.ServiceModel;
 
 namespace Case3.FEWebwinkel.Agent
 {
     public class PcSWinkelenAgent : IPcSWinkelenAgent
     {
-        //private ServiceFactory<IPcSWinkelenService> _factory;
+        private ServiceFactory<IPcSWinkelenService> _factory;
         private IPcSWinkelenService _agent;
 
         /// <summary>
@@ -16,8 +18,8 @@ namespace Case3.FEWebwinkel.Agent
         /// </summary>
         public PcSWinkelenAgent()
         {
-            //_factory = new ServiceFactory<IPcSWinkelenService>("PcSWinkelen");
-            //_agent = _factory.CreateAgent();
+            _factory = new ServiceFactory<IPcSWinkelenService>("PcSWinkelen");
+            _agent = _factory.CreateAgent();
         }
 
         /// <summary>
@@ -37,31 +39,8 @@ namespace Case3.FEWebwinkel.Agent
         /// <returns></returns>
         public CatalogusCollection GetProducts(int page, int pageSize)
         {
-            //FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize });
-            var catalogusCollection = new CatalogusCollection
-            {
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 1,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-                new ProductVoorraad {Product = new Product{Id = 1,Naam = "Fietsbel", Prijs = 4.95M, AfbeeldingURL = "awc_jersey_male_small.gif",LeverancierNaam = "Gazelle",}, Voorraad = 10,},
-            };
-            //return result.Products;
-            return catalogusCollection;
+            FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize });
+            return result.Products;
         }
 
         /// <summary>
@@ -70,8 +49,27 @@ namespace Case3.FEWebwinkel.Agent
         /// <returns>The Complete CatalogusCollection</returns>
         public CatalogusCollection GetProducts()
         {
-            FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = 1, PageSize = 20 });
-            return result.Products;
+            int pageSize = 50, page = 1;
+            CatalogusCollection result = new CatalogusCollection();
+
+            try
+            {
+                var products = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize }).Products;
+                result.AddRange(products);
+
+                while (products.Count > 1 && products.Count == pageSize)
+                {
+                    page++;
+                    products = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize }).Products;
+                    result.AddRange(products);
+                }
+            }
+            catch(FaultException)
+            {
+
+
+            }            
+            return result;
         }
 
         public WinkelMandCollection GetWinkelmand(string SessionId)

@@ -34,7 +34,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// <returns>View with products of the catalog</returns>
         public ActionResult Index()
         {
-            var model = _catalogusManager.GetProducts(1, 20);            
+            var model = _catalogusManager.FindAllProducts();            
 
             return View(model);
         }
@@ -47,7 +47,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
         //[ExcludeFromCodeCoverage]
         public ActionResult Index(int articleID)
         {
-            
             string userGuid;
             CookieNator<Guid> cookieNator;
             try //to get the userGuid from an existing cookie
