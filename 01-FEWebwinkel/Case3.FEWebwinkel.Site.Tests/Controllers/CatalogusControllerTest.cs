@@ -43,12 +43,12 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
         }
         #endregion
         [TestMethod]
-        public void CursusControllerIndexActionReturnsViewResult()
+        public void CatalogControllerIndexActionReturnsViewResult()
         {
             // Arrange
             var catalogusList = CreateCatalogusViewModelList();
             var mock = new Mock<ICatalogusManager>(MockBehavior.Strict);
-            mock.Setup(c => c.GetProducts(1, 20)).Returns(catalogusList);
+            mock.Setup(c => c.GetProducts()).Returns(catalogusList);
 
             var controller = new CatalogusController(mock.Object);
 
@@ -59,12 +59,12 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
         [TestMethod]
-        public void CursusControllerIndexActionHasCorrectModel()
+        public void CatalogControllerIndexActionHasCorrectModel()
         {
             // Arrange
             var catalogusList = CreateCatalogusViewModelList();
             var mock = new Mock<ICatalogusManager>(MockBehavior.Strict);
-            mock.Setup(c => c.GetProducts(1, 20)).Returns(catalogusList);
+            mock.Setup(c => c.GetProducts()).Returns(catalogusList);
 
             var controller = new CatalogusController(mock.Object);
 

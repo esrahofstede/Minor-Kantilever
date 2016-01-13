@@ -15,7 +15,7 @@ namespace Case3.FEWebwinkel.Site.Managers
     /// </summary>
     public class CatalogusManager : ICatalogusManager
     {
-        private IPcSWinkelenAgent _pcsWinkelenAgent;
+        private Agent.Interfaces.IPcSWinkelenAgent _pcsWinkelenAgent;
         private BTWCalculator _btwCalculator = new BTWCalculator();
 
         /// <summary>
@@ -35,17 +35,15 @@ namespace Case3.FEWebwinkel.Site.Managers
         }
 
         /// <summary>
-        /// This function returns a List with CatalogusViewModels
+        /// This function returns a List with CatalogusViewModels for all products
         /// </summary>
         /// <param name="page">Current pagenumber</param>
         /// <param name="pageSize">Size of the page</param>
         /// <returns>Returns a list with CatalogusViewModels</returns>
-        public List<CatalogusViewModel> GetProducts(int page, int pageSize)
+        public IEnumerable<CatalogusViewModel> GetProducts()
         {
-            var products = _pcsWinkelenAgent.GetProducts(page, pageSize);
-
+            var products = _pcsWinkelenAgent.GetProducts();
             var viewmodels = ConvertCatalogusCollectionToCatalogusViewModelList(products);
-
             return viewmodels;
         }
 
@@ -65,7 +63,6 @@ namespace Case3.FEWebwinkel.Site.Managers
                 Prijs = _btwCalculator.CalculatePriceInclusiveBTW(cat.Product.Prijs),
                 Voorraad = (cat.Voorraad > 10 ? 10 : cat.Voorraad),
             });
-
             return CatalogusViewModels.ToList();
         }
     }

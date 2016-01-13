@@ -29,6 +29,10 @@ namespace Case3.PcSWinkelen.Implementation
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
 
+            CatalogusManager catalogusManager = new CatalogusManager();
+
+            IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
+            
             CatalogusCollection catalogusCollection = new CatalogusCollection();
 
             if (request != null)
@@ -36,17 +40,17 @@ namespace Case3.PcSWinkelen.Implementation
 
                 try
                 {
-                    CatalogusManager catalogusManager = new CatalogusManager();
+                CatalogusManager catalogusManager = new CatalogusManager();
 
-                    IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
-                    foreach (CatalogusProductItem productVoorraad in productVoorraadList)
+                IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
+                foreach (CatalogusProductItem productVoorraad in productVoorraadList)
+                {
+                    catalogusCollection.Add(new CatalogusProductItem()
                     {
-                        catalogusCollection.Add(new CatalogusProductItem()
-                        {
-                            Product = productVoorraad.Product,
-                            Voorraad = productVoorraad.Voorraad
-                        });
-                    }
+                        Product = productVoorraad.Product,
+                        Voorraad = productVoorraad.Voorraad
+                    });
+                }
                 }
                 catch
                 {
