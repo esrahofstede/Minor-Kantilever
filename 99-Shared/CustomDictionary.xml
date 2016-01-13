@@ -24,13 +24,17 @@
       <Word>Webwinkel</Word>
       <Word>Winkelen</Word>
       <Word>Winkelmand</Word>
-    </Recognized>
+  </Recognized>
     <Unrecognized>
     </Unrecognized>
     <Deprecated>
       <Term PreferredAlternate=""></Term>
     </Deprecated>
     <Compound>
+      <Term>CatalogusBeheer</Term>
+      <Term>VoorraadBeheer</Term>
+      <Term>catalogusBeheer</Term>
+      <Term>voorraadBeheer</Term>
       <Term CompoundAlternate=""></Term>
     </Compound>
     <DiscreteExceptions>

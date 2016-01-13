@@ -11,6 +11,11 @@ namespace Case3.PcSWinkelen.Implementation
 {
     public class PcSWinkelenServiceHandler : IPcSWinkelenService
     {
+        /// <summary>
+        /// Get list of Products with the Voorraad included
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         private static ILog _logger = LogManager.GetLogger(typeof(PcSWinkelenServiceHandler));
 
         public PcSWinkelenServiceHandler()

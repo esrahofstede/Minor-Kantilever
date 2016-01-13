@@ -66,7 +66,7 @@
     <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
-    <Content Include="IPcSWinkelen.svc" />
+    <Content Include="PcSWinkelen.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

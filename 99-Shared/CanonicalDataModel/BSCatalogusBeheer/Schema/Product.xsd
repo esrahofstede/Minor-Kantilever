@@ -22,6 +22,6 @@
 			<xs:element name="CategorieLijst" type="cat:CategorieCollection" nillable="true" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-
+	
 	
 </xs:schema>

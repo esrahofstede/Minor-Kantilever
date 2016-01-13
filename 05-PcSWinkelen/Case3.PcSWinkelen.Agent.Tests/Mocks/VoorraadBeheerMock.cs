@@ -11,6 +11,11 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
 {
     public class VoorraadBeheerMock : IVoorraadBeheer
     {
+        /// <summary>
+        /// Mock which returns a result with a fake product
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public MsgFindVoorraadResult FindVoorraad(MsgFindVoorraadRequest message)
         {
             ProductRef product = new ProductRef()
