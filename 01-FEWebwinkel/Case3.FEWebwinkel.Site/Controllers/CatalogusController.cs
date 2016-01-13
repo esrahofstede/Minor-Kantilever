@@ -1,6 +1,7 @@
 ﻿using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
@@ -44,19 +45,22 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// </summary>
         /// <param name="articleID">The ID of the chosen article</param>
         [HttpPost]
+        //[ExcludeFromCodeCoverage]
         public ActionResult Index(int articleID)
         {
-            CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
+            
             string userGuid;
-
+            CookieNator<Guid> cookieNator;
             try //to get the userGuid from an existing cookie
             {
+                cookieNator = new CookieNator<Guid>(Request.Cookies);
                 userGuid = cookieNator.GetCookieValue("UserGuid");
             }
             catch (NullReferenceException) //Create a new userGuid if cookie can't be found
             {
                 userGuid = Guid.NewGuid().ToString();
                 //Set cookie for later usage
+                cookieNator = new CookieNator<Guid>(Request.Cookies);
                 cookieNator.CreateCookieWithUserGuid(userGuid);
             }
 

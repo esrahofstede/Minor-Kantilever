@@ -1,5 +1,6 @@
 ﻿using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
+using Case3.FEWebwinkel.Site.ViewModels;
 using System;
 using System.Web.Mvc;
 
@@ -8,33 +9,24 @@ namespace Case3.FEWebwinkel.Site.Controllers
     public class WinkelmandController : Controller
     {
 	    //private BTWCalculator _btwCalculator = new BTWCalculator();
-        private ICookieNator<Guid> _cookieNator;
 
         /// <summary>
         /// This is the default constructor
         /// </summary>
-        public WinkelmandController()
-        {
-            _cookieNator = new CookieNator<Guid>(Request.Cookies);
-        }
-        /// <summary>
-        /// This is the constructor for testing purposes
-        /// </summary>
-        /// <param name="cookieNator">This should be a mock of ICookieNator</param>
-        public WinkelmandController(ICookieNator<Guid> cookieNator)
-        {
-            _cookieNator = cookieNator;
-        }
+       
 
         // GET: Winkelmand
         public ActionResult Index()
         {
             //decimal totaalExclBTW = 0M;
             string userGuid;
+            
+
 
             try //to get the list from an existing cookie
             {
-                userGuid = _cookieNator.GetCookieValue("UserGuid");
+                CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
+                userGuid = cookieNator.GetCookieValue("UserGuid");
             }
             catch (NullReferenceException) //Create a new list if cookie can't be found
             {
@@ -63,7 +55,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
             //    TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalInclBTW),
             //};
 
-            return View();
+            return View(new WinkelmandViewModel());
         }
     }
 }
