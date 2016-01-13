@@ -12,6 +12,7 @@
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:schema", ClrNamespace="Case3.PcSWinkelen.Schema")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.Product")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.Categorie")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-common:v1:faults", ClrNamespace="case3common.v1.faults")]
 
 namespace Case3.PcSWinkelen.Messages
 {
@@ -780,6 +781,99 @@ namespace Case3.BSCatalogusBeheer.Schema.Categorie
         }
     }
 }
+namespace case3common.v1.faults
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="FunctionalErrorList", Namespace="urn:case3-common:v1:faults", ItemName="FunctionalErrorDetail")]
+    public class FunctionalErrorList : System.Collections.Generic.List<case3common.v1.faults.FunctionalErrorDetail>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FunctionalErrorDetail", Namespace="urn:case3-common:v1:faults")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.FunctionalErrorList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusCollection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusProductItem))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandjeItemRef))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelMandCollection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandjeItem))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Categorie.CategorieCollection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Categorie.Categorie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Product.Product))]
+    public partial class FunctionalErrorDetail : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ErrorCodeField;
+        
+        private string MessageField;
+        
+        private object DataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ErrorCode
+        {
+            get
+            {
+                return this.ErrorCodeField;
+            }
+            set
+            {
+                this.ErrorCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string Message
+        {
+            get
+            {
+                return this.MessageField;
+            }
+            set
+            {
+                this.MessageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public object Data
+        {
+            get
+            {
+                return this.DataField;
+            }
+            set
+            {
+                this.DataField = value;
+            }
+        }
+    }
+}
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -788,6 +882,7 @@ public interface IPcSWinkelenService
 {
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(case3common.v1.faults.FunctionalErrorList), Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsFunctionalErrorListFault", Name="FunctionalErrorList", Namespace="urn:case3-common:v1:faults")]
     Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage GetCatalogusItems(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage request);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse")]
@@ -804,12 +899,6 @@ public interface IPcSWinkelenService
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse")]
     System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage> GetWinkelmandAsync(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/SayHelloTest", ReplyAction="http://tempuri.org/IPcSWinkelenService/SayHelloTestResponse")]
-    string SayHelloTest(string name);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/SayHelloTest", ReplyAction="http://tempuri.org/IPcSWinkelenService/SayHelloTestResponse")]
-    System.Threading.Tasks.Task<string> SayHelloTestAsync(string name);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -874,15 +963,5 @@ public partial class PcSWinkelenServiceClient : System.ServiceModel.ClientBase<I
     public System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage> GetWinkelmandAsync(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request)
     {
         return base.Channel.GetWinkelmandAsync(request);
-    }
-    
-    public string SayHelloTest(string name)
-    {
-        return base.Channel.SayHelloTest(name);
-    }
-    
-    public System.Threading.Tasks.Task<string> SayHelloTestAsync(string name)
-    {
-        return base.Channel.SayHelloTestAsync(name);
     }
 }

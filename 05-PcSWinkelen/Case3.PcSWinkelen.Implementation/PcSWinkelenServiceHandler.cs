@@ -28,10 +28,6 @@ namespace Case3.PcSWinkelen.Implementation
         
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
-
-            CatalogusManager catalogusManager = new CatalogusManager();
-
-            IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
             
             CatalogusCollection catalogusCollection = new CatalogusCollection();
 
@@ -40,28 +36,32 @@ namespace Case3.PcSWinkelen.Implementation
 
                 try
                 {
-                CatalogusManager catalogusManager = new CatalogusManager();
+                    CatalogusManager catalogusManager = new CatalogusManager();
 
-                IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
-                foreach (CatalogusProductItem productVoorraad in productVoorraadList)
-                {
-                    catalogusCollection.Add(new CatalogusProductItem()
+                    IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
+
+                    foreach (CatalogusProductItem productVoorraad in productVoorraadList)
                     {
-                        Product = productVoorraad.Product,
-                        Voorraad = productVoorraad.Voorraad
-                    });
-                }
+                        catalogusCollection.Add(new CatalogusProductItem()
+                        {
+                            Product = productVoorraad.Product,
+                            Voorraad = productVoorraad.Voorraad
+                        });
+                    }
                 }
                 catch
                 {
-                    throw new FaultException<FunctionalErrorList>(new FunctionalErrorList()
+
+                    throw new FaultException("Er is een fout opgetreden in het ophalen van de catalogus");
+
+                    /*throw new FaultException<FunctionalErrorList>(new FunctionalErrorList()
                     {
                         new FunctionalErrorDetail()
                         {
                             Message = "Er is een fout opgetreden in het ophalen van de catalogus",
-                            ErrorCode = 1001
+                            ErrorCode = 1001,
                         }
-                    });
+                    }, "Error");*/
                 }
                 
             }
