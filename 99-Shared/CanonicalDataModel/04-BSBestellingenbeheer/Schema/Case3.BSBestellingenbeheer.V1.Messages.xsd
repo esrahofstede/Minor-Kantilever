@@ -9,5 +9,12 @@
   <xs:import namespace="urn:case3-bsbestellingenbeheer:v1:schema"
              schemaLocation="Case3.BSBestellingenbeheer.V1.Schema.xsd" />
 
-  
+  <xs:complexType name="FindFirstBestellingRequestMessage">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="FindFirstBestellingResultMessage">
+    <xs:sequence>
+      <xs:element name="BestellingOpdracht" type="k:Bestelling"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>
