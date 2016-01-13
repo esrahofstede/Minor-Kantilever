@@ -1,10 +1,6 @@
-﻿using Case3.BTWConfigurationReader;
-using Case3.FEWebwinkel.Site.Managers;
+﻿using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
-using Case3.FEWebwinkel.Site.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
@@ -12,12 +8,20 @@ namespace Case3.FEWebwinkel.Site.Controllers
     public class WinkelmandController : Controller
     {
 	    //private BTWCalculator _btwCalculator = new BTWCalculator();
-        private ICookieNator<ArtikelViewModel> _cookieNator;
+        private ICookieNator<Guid> _cookieNator;
+
+        /// <summary>
+        /// This is the default constructor
+        /// </summary>
         public WinkelmandController()
         {
-
+            _cookieNator = new CookieNator<Guid>(Request.Cookies);
         }
-        public WinkelmandController(ICookieNator<ArtikelViewModel> cookieNator)
+        /// <summary>
+        /// This is the constructor for testing purposes
+        /// </summary>
+        /// <param name="cookieNator">This should be a mock of ICookieNator</param>
+        public WinkelmandController(ICookieNator<Guid> cookieNator)
         {
             _cookieNator = cookieNator;
         }
@@ -27,11 +31,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
         {
             //decimal totaalExclBTW = 0M;
             string userGuid;
-            CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
 
             try //to get the list from an existing cookie
             {
-                userGuid = cookieNator.GetCookieValue("UserGuid");
+                userGuid = _cookieNator.GetCookieValue("UserGuid");
             }
             catch (NullReferenceException) //Create a new list if cookie can't be found
             {

@@ -1,9 +1,6 @@
 ﻿using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.Script.Serialization;
 using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
@@ -45,16 +42,16 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// <summary>
         /// Adds an Artikel to the Winkelmand
         /// </summary>
-        /// <param name="artikel">The chosen product that you want to add to your winkelmand</param>
+        /// <param name="articleID">The ID of the chosen article</param>
         [HttpPost]
-        public ActionResult Index(int productID)
+        public ActionResult Index(int articleID)
         {
             CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
             string userGuid;
 
             try //to get the userGuid from an existing cookie
             {
-                userGuid = cookieNator.GetCookieValue("userGuid");
+                userGuid = cookieNator.GetCookieValue("UserGuid");
             }
             catch (NullReferenceException) //Create a new userGuid if cookie can't be found
             {
