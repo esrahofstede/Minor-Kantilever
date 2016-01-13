@@ -3,5 +3,8 @@
   <IncludeAll Action="Warning" />
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1014" Action="None" />
+    <Rule Id="CA1020" Action="None" />
+    <Rule Id="CA1032" Action="None" />
+    <Rule Id="CA2240" Action="None" />
   </Rules>
 </RuleSet>
