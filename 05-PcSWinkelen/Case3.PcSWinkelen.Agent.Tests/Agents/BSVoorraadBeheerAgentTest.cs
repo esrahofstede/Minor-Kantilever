@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Tests.Mocks;
+using Case3.PcSWinkelen.Schema.FoutenNS;
 using Case3.PcSWinkelen.Agent.Exceptions;
-using Case3.PcSWinkelen.Schema.Fouten;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Agents
 {

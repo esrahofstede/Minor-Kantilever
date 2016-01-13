@@ -1,6 +1,5 @@
-﻿using Case3.PcSWinkelen.Schema.Fouten;
+﻿using Case3.PcSWinkelen.Schema.FoutenNS;
 using System;
-
 
 namespace Case3.PcSWinkelen.Agent.Exceptions
 {

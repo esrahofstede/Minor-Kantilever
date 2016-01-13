@@ -2,13 +2,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
+
+using System.Linq;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using Case3.PcSWinkelen.Agent.Managers;
 using Case3.PcSWinkelen.Agent.Interfaces;
+using Case3.PcSWinkelen.SchemaNS;
 using Case3.PcSWinkelen.Agent.Exceptions;
 using Case3.PcSWinkelen.Schema.FoutenNS;
-using Case3.PcSWinkelen.SchemaNS;
-using System.Linq;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Managers
 {
