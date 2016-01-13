@@ -41,7 +41,7 @@ namespace Case3.PcSWinkelen.DAL.Tests
         }
 
         [TestMethod]
-        public void GetOnderhoudsOpdrachtFromDatabaseTest()
+        public void GetAllWinkelmandItemsFromDatabaseTest()
         {
             // Arrange
             var target = new WinkelmandDataMapper();
@@ -51,6 +51,23 @@ namespace Case3.PcSWinkelen.DAL.Tests
 
             // Assert
             Assert.AreEqual(2, result.Count());
+        }
+
+        [TestMethod]
+        public void GetAllWinkelmandItemsBySessieFromDatabaseTest()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                // Arrange
+                var target = new WinkelmandDataMapper();
+
+                // Act
+                target.Insert(DummyData.GetDummyWinkelmandItem);
+                IEnumerable<WinkelmandItem> result = target.FindAllBy(w => w.SessieID == DummyData.GetDummyWinkelmandItem.SessieID);
+
+                // Assert
+                Assert.AreEqual(1, result.Count());
+            }
         }
     }
 }

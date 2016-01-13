@@ -5,6 +5,7 @@ using Case3.PcSWinkelen.SchemaNS;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.DAL.Mappers;
@@ -121,28 +122,18 @@ namespace Case3.PcSWinkelen.Implementation
 
         public GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request)
         {
+            var response = new GetWinkelmandResponseMessage();
+            response.WinkelmandCollection = new WinkelMandCollection();
+            response.SessieId = request.SessieId;
 
-            return new GetWinkelmandResponseMessage
+            var winkelmandItems = _winkelmandDataMapper.FindAllBy(w => w.SessieID == request.SessieId).ToList();
+            foreach (var winkelmandItem in winkelmandItems)
             {
-                WinkelmandCollection = DummyData.Winkelmand,
-                SessieId = Guid.NewGuid().ToString()
-            };
-        }
-
-        [ExcludeFromCodeCoverage]
-        public string SayHelloTest(string name)
-        {
-            string greeting = "";
-
-            try
-            {
-                greeting = "Hello" + name + "! This is a test method.";
+                response.WinkelmandCollection.Add(_winkelmandItemDTOMapper.MapEntityToDTO(winkelmandItem));
             }
-            catch (AggregateException ex)
-            {
-                _logger.Fatal(ex.Message);
-            }
-            return greeting;
+
+
+            return response;
         }
 
     }

@@ -13,7 +13,10 @@ namespace Case3.PcSWinkelen.DAL.Mappers
     {
         public IEnumerable<WinkelmandItem> FindAllBy(Expression<Func<WinkelmandItem, bool>> isAny)
         {
-            return null;
+            using (var context = new WinkelmandContext())
+            {
+                return context.WinkelmandItems.Where(isAny).ToList();
+            }
         }
 
         public void Insert(WinkelmandItem item)
