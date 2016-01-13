@@ -12,6 +12,9 @@ using Case3.PcSWinkelen.DAL.Mappers;
 using Case3.PcSWinkelen.Implementation.Mappers;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
+using Case3.PcSWinkelen.Agent.Exceptions;
+using System.ServiceModel;
+using case3common.v1.faults;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Implementation
@@ -47,17 +50,22 @@ namespace Case3.PcSWinkelen.Implementation
             _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
             log4net.Config.XmlConfigurator.Configure();
         }
-
+        
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
 
-            CatalogusManager catalogusManager = new CatalogusManager();
-
-            IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(1, 20);
-            
             CatalogusCollection catalogusCollection = new CatalogusCollection();
 
-            foreach(CatalogusProductItem productVoorraad in productVoorraadList)
+            if (request != null)
+            {
+
+                try
+                {
+            CatalogusManager catalogusManager = new CatalogusManager();
+
+                    IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
+            
+                    foreach (CatalogusProductItem productVoorraad in productVoorraadList)
             {
                 catalogusCollection.Add(new CatalogusProductItem()
                 {
@@ -65,12 +73,28 @@ namespace Case3.PcSWinkelen.Implementation
                     Voorraad = productVoorraad.Voorraad
                 });
             }
+                }
+                catch
+                {
+
+                    throw new FaultException("Er is een fout opgetreden in het ophalen van de catalogus");
+
+                    /*throw new FaultException<FunctionalErrorList>(new FunctionalErrorList()
+                    {
+                        new FunctionalErrorDetail()
+                        {
+                            Message = "Er is een fout opgetreden in het ophalen van de catalogus",
+                            ErrorCode = 1001,
+                        }
+                    }, "Error");*/
+                }
+                
+            }
 
             FindCatalogusResponseMessage findCatalogusResponseMessage = new FindCatalogusResponseMessage()
             {
                 Products = catalogusCollection
             };
-                        
             return findCatalogusResponseMessage;
         }
 

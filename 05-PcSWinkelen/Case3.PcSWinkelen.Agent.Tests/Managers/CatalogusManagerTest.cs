@@ -93,7 +93,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ProductVoorraadNotFoundException))]
+        //[ExpectedException(typeof(ProductVoorraadNotFoundException))]
         public void CreateCatalogusManagerMockInstanceThrowException()
         {
             //Arrange
@@ -110,6 +110,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
             IEnumerable<CatalogusProductItem> newProducts = catalogusManager.GetVoorraadWithProductsList(1, 20);
 
             //Assert
+            Assert.AreEqual(-1, newProducts.First().Voorraad);
                 //ExpectedException(typeof(ProductVoorraadNotFoundException))
         }
 

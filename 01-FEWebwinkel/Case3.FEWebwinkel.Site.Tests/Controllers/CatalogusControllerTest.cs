@@ -7,6 +7,7 @@ using Case3.FEWebwinkel.Site.Controllers;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Moq;
+using System;
 
 namespace Case3.FEWebwinkel.Site.Tests.Controllers
 {
@@ -43,12 +44,12 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
         }
         #endregion
         [TestMethod]
-        public void CursusControllerIndexActionReturnsViewResult()
+        public void CatalogControllerIndexActionReturnsViewResult()
         {
             // Arrange
             var catalogusList = CreateCatalogusViewModelList();
             var mock = new Mock<ICatalogusManager>(MockBehavior.Strict);
-            mock.Setup(c => c.GetProducts(1, 20)).Returns(catalogusList);
+            mock.Setup(c => c.FindAllProducts()).Returns(catalogusList);
 
             var controller = new CatalogusController(mock.Object);
 
@@ -59,12 +60,12 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
         [TestMethod]
-        public void CursusControllerIndexActionHasCorrectModel()
+        public void CatalogControllerIndexActionHasCorrectModel()
         {
             // Arrange
             var catalogusList = CreateCatalogusViewModelList();
             var mock = new Mock<ICatalogusManager>(MockBehavior.Strict);
-            mock.Setup(c => c.GetProducts(1, 20)).Returns(catalogusList);
+            mock.Setup(c => c.FindAllProducts()).Returns(catalogusList);
 
             var controller = new CatalogusController(mock.Object);
 
@@ -88,5 +89,26 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             Assert.AreEqual("Giant", modelInView[1].Leverancier);
             Assert.AreEqual(30, modelInView[1].Voorraad);
         }
+
+        [TestMethod]
+        public void IntegrationCatalogusControllerReturnsListOfCatalogusViewModels()
+        {
+            //Arrange
+            CatalogusController controller = new CatalogusController();
+
+            try
+            {
+                //Act
+                var result = controller.Index() as ViewResult;
+
+                //Arrange
+                Assert.IsInstanceOfType(result.Model, typeof(IEnumerable<CatalogusViewModel>));
+            } catch (Exception) //WCF EXCEPTION!!!!!
+            {
+                Assert.Fail();
+            }
+            
+        }
     }
+    
 }
