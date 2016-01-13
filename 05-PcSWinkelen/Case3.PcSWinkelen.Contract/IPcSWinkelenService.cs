@@ -20,8 +20,7 @@ namespace Case3.PcSWinkelen.Contract
         [OperationContract]
         GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request);
         
-        [OperationContract]
-        string SayHelloTest(string name);
+
         
     }
 }
