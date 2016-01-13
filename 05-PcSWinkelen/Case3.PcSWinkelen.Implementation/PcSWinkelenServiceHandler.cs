@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
 using Case3.PcSWinkelen.Agent.Exceptions;
+using System.ServiceModel;
+using case3common.v1.faults;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -31,15 +33,30 @@ namespace Case3.PcSWinkelen.Implementation
 
             if (request != null)
             {
-                CatalogusManager catalogusManager = new CatalogusManager();
 
-                IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
-                foreach (CatalogusProductItem productVoorraad in productVoorraadList)
+                try
                 {
-                    catalogusCollection.Add(new CatalogusProductItem()
+                    CatalogusManager catalogusManager = new CatalogusManager();
+
+                    IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
+                    foreach (CatalogusProductItem productVoorraad in productVoorraadList)
                     {
-                        Product = productVoorraad.Product,
-                        Voorraad = productVoorraad.Voorraad
+                        catalogusCollection.Add(new CatalogusProductItem()
+                        {
+                            Product = productVoorraad.Product,
+                            Voorraad = productVoorraad.Voorraad
+                        });
+                    }
+                }
+                catch
+                {
+                    throw new FaultException<FunctionalErrorList>(new FunctionalErrorList()
+                    {
+                        new FunctionalErrorDetail()
+                        {
+                            Message = "Er is een fout opgetreden in het ophalen van de catalogus",
+                            ErrorCode = 1001
+                        }
                     });
                 }
                 
