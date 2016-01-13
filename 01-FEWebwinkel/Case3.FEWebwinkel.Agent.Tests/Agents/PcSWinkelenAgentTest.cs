@@ -33,7 +33,6 @@ namespace Case3.FEWebwinkel.Agent.Tests.Agents
 
             //Arrange
             Assert.AreEqual(80, result.Count);
-
         }
     }
 }

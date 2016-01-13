@@ -15,7 +15,7 @@ namespace Case3.FEWebwinkel.Site.Managers.Interfaces
         /// <param name="page">Current pagenumber</param>
         /// <param name="pageSize">Size of the page</param>
         /// <returns>Returns a list with CatalogusViewModels</returns>
-        IEnumerable<CatalogusViewModel> GetProducts();
+        IEnumerable<CatalogusViewModel> FindAllProducts();
 
         /// <summary>
         /// This function Convert a List with CatalogusViewModels based on the given CatalogusCollection

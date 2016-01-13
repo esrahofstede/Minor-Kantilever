@@ -34,7 +34,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// <returns>View with products of the catalog</returns>
         public ActionResult Index()
         {
-            var model = _catalogusManager.GetProducts();            
+            var model = _catalogusManager.FindAllProducts();            
 
             return View(model);
         }

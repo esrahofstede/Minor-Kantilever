@@ -91,7 +91,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             var target = new CatalogusManager(agentMock.Object);
 
             // Act
-            var result = target.GetProducts();
+            var result = target.FindAllProducts();
 
             // Assert
             Assert.AreEqual(2, result.Count());

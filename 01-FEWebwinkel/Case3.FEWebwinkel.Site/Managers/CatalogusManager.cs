@@ -40,7 +40,7 @@ namespace Case3.FEWebwinkel.Site.Managers
         /// <param name="page">Current pagenumber</param>
         /// <param name="pageSize">Size of the page</param>
         /// <returns>Returns a list with CatalogusViewModels</returns>
-        public IEnumerable<CatalogusViewModel> GetProducts()
+        public IEnumerable<CatalogusViewModel> FindAllProducts()
         {
             var products = _pcsWinkelenAgent.GetProducts();
             var viewmodels = ConvertCatalogusCollectionToCatalogusViewModelList(products);

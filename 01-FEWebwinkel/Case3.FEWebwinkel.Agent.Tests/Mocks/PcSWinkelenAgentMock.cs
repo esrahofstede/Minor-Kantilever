@@ -71,6 +71,7 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
             CatalogusCollection collection = new CatalogusCollection();
+
             if (request.PageSize != _collection2.Count)
             {
                 return new FindCatalogusResponseMessage() { Products = _collection1 };
@@ -78,7 +79,6 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
             {
                 return new FindCatalogusResponseMessage() { Products = _collection2 };
             }
-            
         }
 
         public Task<FindCatalogusResponseMessage> GetCatalogusItemsAsync(FindCatalogusRequestMessage request)

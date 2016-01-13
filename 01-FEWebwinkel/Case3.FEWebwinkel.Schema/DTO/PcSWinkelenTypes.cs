@@ -804,12 +804,6 @@ public interface IPcSWinkelenService
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse")]
     System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage> GetWinkelmandAsync(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/SayHelloTest", ReplyAction="http://tempuri.org/IPcSWinkelenService/SayHelloTestResponse")]
-    string SayHelloTest(string name);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/SayHelloTest", ReplyAction="http://tempuri.org/IPcSWinkelenService/SayHelloTestResponse")]
-    System.Threading.Tasks.Task<string> SayHelloTestAsync(string name);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -874,15 +868,5 @@ public partial class PcSWinkelenServiceClient : System.ServiceModel.ClientBase<I
     public System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage> GetWinkelmandAsync(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request)
     {
         return base.Channel.GetWinkelmandAsync(request);
-    }
-    
-    public string SayHelloTest(string name)
-    {
-        return base.Channel.SayHelloTest(name);
-    }
-    
-    public System.Threading.Tasks.Task<string> SayHelloTestAsync(string name)
-    {
-        return base.Channel.SayHelloTestAsync(name);
     }
 }
