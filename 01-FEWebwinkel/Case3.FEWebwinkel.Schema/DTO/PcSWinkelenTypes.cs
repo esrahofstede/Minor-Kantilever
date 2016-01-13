@@ -219,7 +219,7 @@ namespace Case3.PcSWinkelen.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.WinkelmandjeItemRef WinkelmandjeItemRefField;
+        private Case3.PcSWinkelen.Schema.WinkelmandItemRef WinkelmandItemRefField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -234,15 +234,15 @@ namespace Case3.PcSWinkelen.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.WinkelmandjeItemRef WinkelmandjeItemRef
+        public Case3.PcSWinkelen.Schema.WinkelmandItemRef WinkelmandItemRef
         {
             get
             {
-                return this.WinkelmandjeItemRefField;
+                return this.WinkelmandItemRefField;
             }
             set
             {
-                this.WinkelmandjeItemRefField = value;
+                this.WinkelmandItemRefField = value;
             }
         }
     }
@@ -435,13 +435,15 @@ namespace Case3.PcSWinkelen.Schema
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandjeItemRef", Namespace="urn:case3-pcswinkelen:v1:schema")]
-    public partial class WinkelmandjeItemRef : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandItemRef", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class WinkelmandItemRef : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         private int ProductIdField;
+        
+        private int AantalField;
         
         private string SessieIdField;
         
@@ -470,7 +472,20 @@ namespace Case3.PcSWinkelen.Schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Aantal
+        {
+            get
+            {
+                return this.AantalField;
+            }
+            set
+            {
+                this.AantalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
         public string SessieId
         {
             get
@@ -486,15 +501,15 @@ namespace Case3.PcSWinkelen.Schema
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="WinkelMandCollection", Namespace="urn:case3-pcswinkelen:v1:schema", ItemName="WinkelmandjeItem")]
-    public class WinkelMandCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.WinkelmandjeItem>
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="WinkelMandCollection", Namespace="urn:case3-pcswinkelen:v1:schema", ItemName="WinkelmandItem")]
+    public class WinkelMandCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.WinkelmandItem>
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandjeItem", Namespace="urn:case3-pcswinkelen:v1:schema")]
-    public partial class WinkelmandjeItem : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandItem", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class WinkelmandItem : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -502,6 +517,8 @@ namespace Case3.PcSWinkelen.Schema
         private Case3.BSCatalogusBeheer.Schema.Product.Product ProductField;
         
         private int AantalField;
+        
+        private string SessieIdField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -538,6 +555,19 @@ namespace Case3.PcSWinkelen.Schema
             set
             {
                 this.AantalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string SessieId
+        {
+            get
+            {
+                return this.SessieIdField;
+            }
+            set
+            {
+                this.SessieIdField = value;
             }
         }
     }
@@ -805,9 +835,9 @@ namespace case3common.v1.faults
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusCollection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusProductItem))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandjeItemRef))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandItemRef))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelMandCollection))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandjeItem))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandItem))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Categorie.CategorieCollection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Categorie.Categorie))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Product.Product))]

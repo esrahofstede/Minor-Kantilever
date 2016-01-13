@@ -7,15 +7,13 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Interfaces;
-using Case3.PcSWinkelen.Entities;
 using Case3.PcSWinkelen.DAL.Mappers;
 using Case3.PcSWinkelen.Implementation.Mappers;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
-using Case3.PcSWinkelen.Agent.Exceptions;
 using System.ServiceModel;
-using case3common.v1.faults;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
+using case3common.v1.faults;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -61,10 +59,8 @@ namespace Case3.PcSWinkelen.Implementation
 
                 try
                 {
-            CatalogusManager catalogusManager = new CatalogusManager();
-
+                    CatalogusManager catalogusManager = new CatalogusManager();
                     IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
-            
                     foreach (CatalogusProductItem productVoorraad in productVoorraadList)
             {
                 catalogusCollection.Add(new CatalogusProductItem()

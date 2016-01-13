@@ -22,7 +22,8 @@ namespace Case3.FEWebwinkel.Agent
             try
             {
                 _agent = _factory.CreateAgent();
-            } catch (Exception)
+            }
+            catch (Exception)
             {
             }
         }
@@ -69,11 +70,10 @@ namespace Case3.FEWebwinkel.Agent
                     result.AddRange(products);
                 }
             }
-            catch(FaultException)
+            catch (FaultException)
             {
 
-
-            }            
+            }
             return result;
         }
 
@@ -81,8 +81,8 @@ namespace Case3.FEWebwinkel.Agent
         {
             var winkelmandCollection = new WinkelMandCollection
             {
-                             new WinkelmandjeItem { Product = new Product { Id = 1,Naam = "Fietsbel",Prijs = 4.95M,AfbeeldingURL = "fietsbel.gif",LeverancierNaam = "Gazelle",},Aantal = 2,},
-                             new WinkelmandjeItem { Product = new Product { Id = 2,Naam = "Zadelpen",Prijs = 12.50M,AfbeeldingURL = "zadelpen.gif",LeverancierNaam = "Giant",},Aantal = 1,},
+                new WinkelmandItem { Product = new Product { Id = 1,Naam = "Fietsbel",Prijs = 4.95M,AfbeeldingURL = "fietsbel.gif",LeverancierNaam = "Gazelle",},Aantal = 2,},
+                new WinkelmandItem { Product = new Product { Id = 2,Naam = "Zadelpen",Prijs = 12.50M,AfbeeldingURL = "zadelpen.gif",LeverancierNaam = "Giant",},Aantal = 1,},
             };
             return winkelmandCollection;
             //GetWinkelmandResponseMessage result = _agent.GetWinkelmand(new GetWinkelmandRequestMessage() { SessieId = SessionId });
