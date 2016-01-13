@@ -1,9 +1,6 @@
 ﻿using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.Script.Serialization;
 
 namespace Case3.FEWebwinkel.Site.Managers
 {
@@ -39,7 +36,7 @@ namespace Case3.FEWebwinkel.Site.Managers
 
             var cookie = new HttpCookie("UserGuid", userGuid)
             {
-                Expires = DateTime.Now.AddMonths(1),
+                Expires = DateTime.Now.AddMonths(1), //Cookie expires after one month, in other words: the cart has been emptied 
             };
             HttpContext.Current.Response.Cookies.Add(cookie);
         }

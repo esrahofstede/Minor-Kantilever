@@ -21,21 +21,17 @@
 
                 <div class="product-top">
                     <div class="img-wrapper" style="background-image:url(@item.Afbeeldingslocatie)">
-                        @Html.Hidden("ProductID", item.ID)
+                        @Html.Hidden("articleID", item.ID)
                     </div>
                     <div class="info-wrapper">
                         <p>
                             @Html.DisplayFor(modelItem => item.Naam)
-                            
                         </p>
                         <p>
-
                             @Html.DisplayFor(modelItem => item.Leverancier)
-                           
                         </p>
                         <p>
                             &#8364 @Html.DisplayFor(modelItem => item.Prijs)
-                                  
                         </p>
                         <p>
                             @Html.DisplayFor(modelItem => item.Voorraad) in voorraad
