@@ -97,6 +97,8 @@ namespace Case3.PcSWinkelen.SchemaNS
         
         private int ProductIdField;
         
+        private int AantalField;
+        
         private string SessieIdField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -124,7 +126,20 @@ namespace Case3.PcSWinkelen.SchemaNS
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Aantal
+        {
+            get
+            {
+                return this.AantalField;
+            }
+            set
+            {
+                this.AantalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
         public string SessieId
         {
             get
@@ -149,6 +164,8 @@ namespace Case3.PcSWinkelen.SchemaNS
         private Case3.PcSWinkelen.Schema.ProductNS.Product ProductField;
         
         private int AantalField;
+        
+        private string SessieIdField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -185,6 +202,19 @@ namespace Case3.PcSWinkelen.SchemaNS
             set
             {
                 this.AantalField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string SessieId
+        {
+            get
+            {
+                return this.SessieIdField;
+            }
+            set
+            {
+                this.SessieIdField = value;
             }
         }
     }

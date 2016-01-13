@@ -4,9 +4,15 @@ using Case3.PcSWinkelen.MessagesNS;
 using Case3.PcSWinkelen.SchemaNS;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using Case3.PcSWinkelen.Agent.Agents;
+using Case3.PcSWinkelen.Agent.Interfaces;
+using Case3.PcSWinkelen.Entities;
 using Case3.PcSWinkelen.DAL.Mappers;
+using Case3.PcSWinkelen.Implementation.Mappers;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
+using DTOSchema = Case3.PcSWinkelen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -20,14 +26,25 @@ namespace Case3.PcSWinkelen.Implementation
         private static ILog _logger = LogManager.GetLogger(typeof(PcSWinkelenServiceHandler));
 
         private IWinkelmandDataMapper _winkelmandDataMapper;
+        private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
+        private IWinkelmandItemDTOMapper _winkelmandItemDTOMapper;
 
-        public PcSWinkelenServiceHandler(IWinkelmandDataMapper dataMapper)
+        public PcSWinkelenServiceHandler(
+            IWinkelmandDataMapper dataMapper, 
+            IBSCatalogusBeheerAgent catalogusBeheerAgent,
+            IWinkelmandItemDTOMapper DTOMapper)
         {
+            _winkelmandItemDTOMapper = DTOMapper;
             _winkelmandDataMapper = dataMapper;
+            _catalogusBeheerAgent = catalogusBeheerAgent;
         }
 
+        [ExcludeFromCodeCoverage]
         public PcSWinkelenServiceHandler()
         {
+            _winkelmandDataMapper = new WinkelmandDataMapper();
+            _winkelmandItemDTOMapper = new WinkelmandItemDTOMapper();
+            _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
             log4net.Config.XmlConfigurator.Configure();
         }
 
@@ -57,17 +74,34 @@ namespace Case3.PcSWinkelen.Implementation
             return findCatalogusResponseMessage;
         }
 
+        /// <summary>
+        /// Voegt een winkelmand item toe aan de database.
+        /// Haal het volledige product op uit de catalogus
+        /// Als het item al bestaat wordt niet het aantal opgehoogd, maar een nieuwe toegevoegd.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request)
         {
-            WinkelmandItem item = new WinkelmandItem();
+            Product product = _catalogusBeheerAgent.GetProductById(request.WinkelmandItemRef.ProductId);
 
-            _winkelmandDataMapper.AddWinkelmandItem(new DAL.Entities.WinkelmandItem());
+            var winkelmandItem = new DTOSchema.WinkelmandItem
+            {
+                Product = product,
+                Aantal = request.WinkelmandItemRef.Aantal,
+                SessieId = request.WinkelmandItemRef.SessieId
+            };
+
+            var itemToInsert = _winkelmandItemDTOMapper.MapDTOToEntity(winkelmandItem);
+
+            _winkelmandDataMapper.Insert(itemToInsert);
 
             return new AddItemToWinkelmandResponseMessage {Succeeded = true};
         }
 
         public GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request)
         {
+
             return new GetWinkelmandResponseMessage
             {
                 WinkelmandCollection = DummyData.Winkelmand,
@@ -75,6 +109,7 @@ namespace Case3.PcSWinkelen.Implementation
             };
         }
 
+        [ExcludeFromCodeCoverage]
         public string SayHelloTest(string name)
         {
             string greeting = "";

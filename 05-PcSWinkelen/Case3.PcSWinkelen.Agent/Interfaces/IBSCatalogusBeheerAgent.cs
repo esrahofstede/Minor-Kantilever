@@ -23,5 +23,11 @@ namespace Case3.PcSWinkelen.Agent.Interfaces
         /// <returns>IEnumerable of Product entities</returns>
         IEnumerable<Product> GetProducts(int page, int pageSize);
 
+        /// <summary>
+        /// Get product by its id
+        /// </summary>
+        /// <param name="id">The id of the product</param>
+        /// <returns></returns>
+        Product GetProductById(int id);
     }
 }

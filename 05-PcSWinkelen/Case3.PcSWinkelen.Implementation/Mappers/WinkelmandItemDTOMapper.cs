@@ -3,21 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Case3.PcSWinkelen.Entities;
+using Case3.PcSWinkelen.Schema.ProductNS;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
-using Entities = Case3.PcSWinkelen.DAL.Entities;
 
 namespace Case3.PcSWinkelen.Implementation.Mappers
 {
-    public static class WinkelmandItemDTOMapper
+    public class WinkelmandItemDTOMapper : IWinkelmandItemDTOMapper
     {
-        public static Entities.WinkelmandItem MapDTOToEntity(DTOSchema.WinkelmandItem item)
+        public WinkelmandItem MapDTOToEntity(DTOSchema.WinkelmandItem item)
         {
-            return new Entities.WinkelmandItem();
+            if (item.Product.Prijs != null)
+                return new WinkelmandItem
+                {
+                    ProductID = item.Product.Id,
+                    Aantal = item.Aantal,
+                    SessieID = item.SessieId,
+                    LeverancierNaam = item.Product.LeverancierNaam,
+                    Naam = item.Product.Naam,
+                    Prijs = item.Product.Prijs.Value,
+                    LeveranciersProductId = item.Product.LeveranciersProductId
+                };
+            return null;
         }
 
-        public static DTOSchema.WinkelmandItem MapEntityToDTO(Entities.WinkelmandItem item)
+        public DTOSchema.WinkelmandItem MapEntityToDTO(Entities.WinkelmandItem item)
         {
-            return new DTOSchema.WinkelmandItem();
+            return new DTOSchema.WinkelmandItem
+            {
+                Aantal = item.Aantal,
+                Product = new Product
+                {
+                    Id = item.ProductID,
+                    LeveranciersProductId = item.LeveranciersProductId,
+                    LeverancierNaam = item.LeverancierNaam,
+                    Prijs = item.Prijs,
+                    Naam = item.Naam
+                },
+                SessieId = item.SessieID
+            };
         }
     }
 }

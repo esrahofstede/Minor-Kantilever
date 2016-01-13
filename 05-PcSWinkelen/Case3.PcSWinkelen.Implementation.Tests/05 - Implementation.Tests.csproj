@@ -50,6 +50,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Case3.PcSWinkelen.Agent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8d42a567b9955386, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Case3.PcSWinkelen.Host\Bin\Case3.PcSWinkelen.Agent.dll</HintPath>
+    </Reference>
     <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
@@ -71,15 +75,22 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AddProductToWinkelmandTest.cs" />
+    <Compile Include="DummyData.cs" />
+    <Compile Include="WinkelMandDataMapperMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
+      <Project>{1B0325D0-D374-4EB1-ABE7-13A77C885F14}</Project>
+      <Name>01a-BSCatalogusbeheerSchema</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.Contract\02 - Contract.csproj">
       <Project>{C458B7EA-6BFB-4C2F-A3DC-485B452C0F0E}</Project>
       <Name>02 - Contract</Name>
@@ -87,6 +98,10 @@
     <ProjectReference Include="..\Case3.PcSWinkelen.DAL\06 - DAL.csproj">
       <Project>{9f9925b2-b276-40ed-a8a9-658d701fa877}</Project>
       <Name>06 - DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.Entities\08 - Entities.csproj">
+      <Project>{949FB4D2-FEB9-44EC-93BA-359C1BBCD860}</Project>
+      <Name>08 - Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.Implementation\04 - Implementation.csproj">
       <Project>{4b579cb9-6f8f-429a-bbbb-33d25a443324}</Project>

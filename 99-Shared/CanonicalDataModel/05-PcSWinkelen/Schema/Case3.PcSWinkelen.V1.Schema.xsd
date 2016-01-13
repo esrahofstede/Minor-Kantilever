@@ -24,6 +24,7 @@
   <xs:complexType name="WinkelmandItemRef">
     <xs:sequence>
       <xs:element name="ProductId" type="xs:int" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Aantal" type="xs:int" minOccurs="1" maxOccurs="1"/>
       <xs:element name="SessieId" type="xs:string" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
@@ -32,6 +33,7 @@
     <xs:sequence>
       <xs:element name="Product" type="product:Product" minOccurs="1" maxOccurs="1"/>
       <xs:element name="Aantal" type="xs:int" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SessieId" type="xs:string" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 

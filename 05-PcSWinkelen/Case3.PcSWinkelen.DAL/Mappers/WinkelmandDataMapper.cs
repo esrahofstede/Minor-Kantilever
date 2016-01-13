@@ -4,7 +4,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Case3.PcSWinkelen.DAL.Entities;
+using Case3.PcSWinkelen.DAL.Contexts;
+using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.DAL.Mappers
 {
@@ -15,9 +16,21 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             return null;
         }
 
-        public void AddWinkelmandItem(WinkelmandItem item)
+        public void Insert(WinkelmandItem item)
         {
-            
+            using (var context = new WinkelmandContext())
+            {
+                context.WinkelmandItems.Add(item);
+                context.SaveChanges();
+            }
+        }
+
+        public IEnumerable<WinkelmandItem> FindAll()
+        {
+            using (var context = new WinkelmandContext())
+            {
+                return context.WinkelmandItems.ToList();
+            }
         }
     }
 }

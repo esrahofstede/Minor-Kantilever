@@ -23,6 +23,7 @@
   <xs:complexType name="WinkelmandItemRef">
     <xs:sequence>
       <xs:element name="ProductId" type="xs:int" />
+      <xs:element name="Aantal" type="xs:int" />
       <xs:element name="SessieId" nillable="true" type="xs:string">
         <xs:annotation>
           <xs:appinfo>
@@ -49,6 +50,7 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="Aantal" type="xs:int" />
+      <xs:element minOccurs="0" name="SessieId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WinkelmandItem" nillable="true" type="tns:WinkelmandItem" />

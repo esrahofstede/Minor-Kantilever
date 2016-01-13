@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using Case3.PcSWinkelen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Implementation
 {
+    [ExcludeFromCodeCoverage]
     static class DummyData
     {
         public static WinkelMandCollection Winkelmand = new WinkelMandCollection
