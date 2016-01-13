@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using Case3.PcSBestellen.V1.Messages;
 using System.ServiceModel;
-using System.Text;
 
 namespace Case3.PcSBestellen.Contract
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract]
+    [ServiceContract(Namespace = "Case3.GoudGeel.PcSBestellen")]
     public interface IPcSBestellenService
     {
         [OperationContract]
-        string SayHelloTest(string name);
+        FindNextBestellingResultMessage FindNextBestelling(FindNextBestellingRequestMessage requestMessage);
     }
    
 }

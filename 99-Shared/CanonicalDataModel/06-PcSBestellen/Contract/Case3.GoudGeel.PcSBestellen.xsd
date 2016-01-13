@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="Case3.GoudGeel.PcSBestellen" elementFormDefault="qualified" targetNamespace="Case3.GoudGeel.PcSBestellen" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="urn:case3-pcsbestellen:v1:messages" />
+  <xs:element name="FindNextBestelling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestMessage" nillable="true" xmlns:q1="urn:case3-pcsbestellen:v1:messages" type="q1:FindNextBestellingRequestMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindNextBestellingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FindNextBestellingResult" nillable="true" xmlns:q2="urn:case3-pcsbestellen:v1:messages" type="q2:FindNextBestellingResultMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
