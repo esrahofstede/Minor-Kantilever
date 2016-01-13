@@ -20,8 +20,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
         {
             //decimal totaalExclBTW = 0M;
             string userGuid;
-            
-
 
             try //to get the list from an existing cookie
             {
@@ -36,7 +34,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
             // ------------- TODO ------------------
             // artikellijst = Managers.getWinkelmand(userGuid);
             //----------- END TODO -----------------
-
+            s
 
             //if (userGuid.Count > 0)
             //{
