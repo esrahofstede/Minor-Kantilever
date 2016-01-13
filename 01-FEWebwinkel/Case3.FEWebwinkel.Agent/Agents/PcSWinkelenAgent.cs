@@ -19,7 +19,12 @@ namespace Case3.FEWebwinkel.Agent
         public PcSWinkelenAgent()
         {
             _factory = new ServiceFactory<IPcSWinkelenService>("PcSWinkelen");
-            _agent = _factory.CreateAgent();
+            try
+            {
+                _agent = _factory.CreateAgent();
+            } catch (Exception)
+            {
+            }
         }
 
         /// <summary>
