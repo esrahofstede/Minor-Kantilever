@@ -44,6 +44,12 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\99-Shared\Case3Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
@@ -68,6 +74,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Agents\BSCatalogusbeheerAgentTest.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Managers\CatalogusManagerTest.cs" />
     <Compile Include="Mocks\CatalogusbeheerMock.cs" />
     <Compile Include="Mocks\VoorraadbeheerMock.cs" />
@@ -99,7 +106,11 @@
       <Name>01c-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
+      <Link>CustomDictionary.xml</Link>
+    </CodeAnalysisDictionary>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
