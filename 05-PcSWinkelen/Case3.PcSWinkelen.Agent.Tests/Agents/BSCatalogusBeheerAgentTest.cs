@@ -5,6 +5,7 @@ using Case3.PcSWinkelen.Agent.Tests.Mocks;
 using System.Collections.Generic;
 using System.Linq;
 using Case3.PcSWinkelen.Schema.ProductNS;
+using System.Globalization;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Agents
 {
@@ -97,8 +98,8 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             Assert.AreEqual("Gazelle", firstProduct.LeverancierNaam);
             Assert.AreEqual("9200000015506874.jpg", firstProduct.AfbeeldingURL);
             Assert.AreEqual("Mooie fietsbel", firstProduct.Beschrijving);
-            Assert.AreEqual(DateTime.Parse("2016-02-10 10:30:00"), firstProduct.LeverbaarTot);
-            Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00"), firstProduct.LeverbaarVanaf);
+            Assert.AreEqual(DateTime.Parse("2016-02-10 10:30:00", CultureInfo.InvariantCulture), firstProduct.LeverbaarTot);
+            Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00", CultureInfo.InvariantCulture), firstProduct.LeverbaarVanaf);
             Assert.AreEqual(150.00M, firstProduct.Prijs);
         }
 
@@ -123,8 +124,8 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             Assert.AreEqual("Batavus", secondProduct.LeverancierNaam);
             Assert.AreEqual("zadels.jpg", secondProduct.AfbeeldingURL);
             Assert.AreEqual("Mooie zadel", secondProduct.Beschrijving);
-            Assert.AreEqual(DateTime.Parse("2016-02-10 10:30:00"), secondProduct.LeverbaarTot);
-            Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00"), secondProduct.LeverbaarVanaf);
+            Assert.AreEqual(DateTime.Parse("2016-02-10 10:30:00", CultureInfo.InvariantCulture), secondProduct.LeverbaarTot);
+            Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00", CultureInfo.InvariantCulture), secondProduct.LeverbaarVanaf);
             Assert.AreEqual(200.00M, secondProduct.Prijs);
         }
 
@@ -166,8 +167,8 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             Assert.AreEqual("Gazelle", firstProduct.LeverancierNaam);
             Assert.AreEqual("9200000015506874.jpg", firstProduct.AfbeeldingURL);
             Assert.AreEqual("Mooie fietsbel", firstProduct.Beschrijving);
-            Assert.AreEqual(DateTime.Parse("2016-02-10 10:30:00"), firstProduct.LeverbaarTot);
-            Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00"), firstProduct.LeverbaarVanaf);
+            Assert.AreEqual(DateTime.Parse("2016-02-10 10:30:00", CultureInfo.InvariantCulture), firstProduct.LeverbaarTot);
+            Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00", CultureInfo.InvariantCulture), firstProduct.LeverbaarVanaf);
             Assert.AreEqual(150.00M, firstProduct.Prijs);
         }
 
@@ -192,8 +193,8 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             Assert.AreEqual("Batavus", secondProduct.LeverancierNaam);
             Assert.AreEqual("zadels.jpg", secondProduct.AfbeeldingURL);
             Assert.AreEqual("Mooie zadel", secondProduct.Beschrijving);
-            Assert.AreEqual(DateTime.Parse("2016-02-10 10:30:00"), secondProduct.LeverbaarTot);
-            Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00"), secondProduct.LeverbaarVanaf);
+            Assert.AreEqual(DateTime.Parse("2016-02-10 10:30:00", CultureInfo.InvariantCulture), secondProduct.LeverbaarTot);
+            Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00", CultureInfo.InvariantCulture), secondProduct.LeverbaarVanaf);
             Assert.AreEqual(200.00M, secondProduct.Prijs);
         }
     }
