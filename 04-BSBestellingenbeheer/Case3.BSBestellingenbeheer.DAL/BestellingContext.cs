@@ -19,4 +19,4 @@ namespace Case3.BSBestellingenbeheer.DAL
         public DbSet<Artikel> Artikellen { get; set; }
     }
 }
-}
+

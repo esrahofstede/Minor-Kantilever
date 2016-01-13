@@ -2,10 +2,17 @@
 {
     public class Artikel
     {
+        private long _id;
         private string _naam;
         private string _leverancierscode;
         private string _leverancier;
         private int _aantal;
+
+        public long ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
 
         public string Naam
         {
