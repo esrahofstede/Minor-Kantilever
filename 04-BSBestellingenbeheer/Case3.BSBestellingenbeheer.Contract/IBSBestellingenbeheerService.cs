@@ -3,7 +3,7 @@ using System.ServiceModel;
 
 namespace Case3.BSBestellingenbeheer.Contract
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "Case3.GoudGeel.BsBestellingenbeheer")]
     public interface IBSBestellingenbeheerService
     {
         [OperationContract]

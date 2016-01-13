@@ -66,6 +66,10 @@
       <Project>{a654623f-7a0b-4abf-8e6e-a08ef24fdaba}</Project>
       <Name>02 - Contract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Case3.BSBestellingenbeheer.Schema\01 - Schema.csproj">
+      <Project>{e43c8d0e-0321-4c18-8ad2-ff35c09d35c1}</Project>
+      <Name>01 - Schema</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
