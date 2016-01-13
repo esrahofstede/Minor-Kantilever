@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="Case3.GoudGeel.BsBestellingenbeheer" elementFormDefault="qualified" targetNamespace="Case3.GoudGeel.BsBestellingenbeheer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="urn:case3-bsbestellingenbeheer:v1:messages" />
+  <xs:element name="FindFirstBestelling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestMessage" nillable="true" xmlns:q1="urn:case3-bsbestellingenbeheer:v1:messages" type="q1:FindFirstBestellingRequestMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindFirstBestellingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FindFirstBestellingResult" nillable="true" xmlns:q2="urn:case3-bsbestellingenbeheer:v1:messages" type="q2:FindFirstBestellingResultMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

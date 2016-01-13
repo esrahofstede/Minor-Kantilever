@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\GeneratedTypes.cs" />
+    <Compile Include="DTO\BSBestellingenTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,12 +65,16 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>svcutil.exe ^
-   /dconly ^
-   /out:$(ProjectDir)/DTO/GeneratedTypes.cs ^
-   /n:"urn:case3-bdbestellingenbeheer:v1:messages,Case3.BSBestellingenbeheer.V1.Messages" ^
-   /n:"urn:case3-bdbestellingenbeheer:v1:schema,Case3.BSBestellingenbeheer.V1.Schema" ^
-   "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\*.xsd"</PreBuildEvent>
+    <PreBuildEvent>svcutil.exe /dataContractOnly ^
+ /out:$(ProjectDir)DTO\BSBestellingenTypes.cs ^
+ /n:"urn:case3-bsbestellingenbeheer:v1:messages,Case3.BSBestellingenbeheer.V1.Messages" ^
+ /n:"urn:case3-bsbestellingenbeheer:v1:schema,Case3.BSBestellingenbeheer.V1.Schema" ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.BSCatalogusBeheer.Schema.ProductNS" ^
+ /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.BSCatalogusBeheer.Schema.CategorieNS" ^
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\V1\Product.xsd" ^
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\V1\Categorie.xsd" ^
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Schema.xsd" ^
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Messages.xsd"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -8,20 +8,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:messages", ClrNamespace="Case3.BSBestellingenbeheer.V1.Messages")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="Case3.BSBestellingenbeheer.V1.Schemap")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.ProductNS")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.CategorieNS")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:messages", ClrNamespace="Case3.PcSBestellen.V1.Messages")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="Case3.BSBestellingenbeheer.V1.SchemaNSPcS")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.ProductNSPcS")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.CategorieNSPcS")]
 
-namespace Case3.BSBestellingenbeheer.V1.Messages
+namespace Case3.PcSBestellen.V1.Messages
 {
     using System.Runtime.Serialization;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FindFirstBestellingRequestMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
-    public partial class FindFirstBestellingRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="FindNextBestellingRequestMessage", Namespace="urn:case3-pcsbestellen:v1:messages")]
+    public partial class FindNextBestellingRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -41,13 +41,13 @@ namespace Case3.BSBestellingenbeheer.V1.Messages
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FindFirstBestellingResultMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
-    public partial class FindFirstBestellingResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="FindNextBestellingResultMessage", Namespace="urn:case3-pcsbestellen:v1:messages")]
+    public partial class FindNextBestellingResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.BSBestellingenbeheer.V1.Schemap.Bestelling BestellingOpdrachtField;
+        private Case3.BSBestellingenbeheer.V1.SchemaNSPcS.Bestelling BestellingSummaryField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -62,20 +62,20 @@ namespace Case3.BSBestellingenbeheer.V1.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.BSBestellingenbeheer.V1.Schemap.Bestelling BestellingOpdracht
+        public Case3.BSBestellingenbeheer.V1.SchemaNSPcS.Bestelling BestellingSummary
         {
             get
             {
-                return this.BestellingOpdrachtField;
+                return this.BestellingSummaryField;
             }
             set
             {
-                this.BestellingOpdrachtField = value;
+                this.BestellingSummaryField = value;
             }
         }
     }
 }
-namespace Case3.BSBestellingenbeheer.V1.Schemap
+namespace Case3.BSBestellingenbeheer.V1.SchemaNSPcS
 {
     using System.Runtime.Serialization;
     
@@ -88,7 +88,7 @@ namespace Case3.BSBestellingenbeheer.V1.Schemap
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.BSBestellingenbeheer.V1.Schemap.Artikelen ArtikelenField;
+        private Case3.BSBestellingenbeheer.V1.SchemaNSPcS.Artikelen ArtikelenField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -103,7 +103,7 @@ namespace Case3.BSBestellingenbeheer.V1.Schemap
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.BSBestellingenbeheer.V1.Schemap.Artikelen Artikelen
+        public Case3.BSBestellingenbeheer.V1.SchemaNSPcS.Artikelen Artikelen
         {
             get
             {
@@ -119,7 +119,7 @@ namespace Case3.BSBestellingenbeheer.V1.Schemap
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Artikelen", Namespace="urn:case3-bsbestellingenbeheer:v1:schema", ItemName="ArtikelItem")]
-    public class Artikelen : System.Collections.Generic.List<Case3.BSBestellingenbeheer.V1.Schemap.BestelItem>
+    public class Artikelen : System.Collections.Generic.List<Case3.BSBestellingenbeheer.V1.SchemaNSPcS.BestelItem>
     {
     }
     
@@ -131,7 +131,7 @@ namespace Case3.BSBestellingenbeheer.V1.Schemap
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.BSCatalogusBeheer.Schema.ProductNS.Product ProductField;
+        private Case3.BSCatalogusBeheer.Schema.ProductNSPcS.Product ProductField;
         
         private int AantalField;
         
@@ -148,7 +148,7 @@ namespace Case3.BSBestellingenbeheer.V1.Schemap
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.BSCatalogusBeheer.Schema.ProductNS.Product Product
+        public Case3.BSCatalogusBeheer.Schema.ProductNSPcS.Product Product
         {
             get
             {
@@ -174,7 +174,7 @@ namespace Case3.BSBestellingenbeheer.V1.Schemap
         }
     }
 }
-namespace Case3.BSCatalogusBeheer.Schema.ProductNS
+namespace Case3.BSCatalogusBeheer.Schema.ProductNSPcS
 {
     using System.Runtime.Serialization;
     
@@ -205,7 +205,7 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNS
         
         private System.Nullable<decimal> PrijsField;
         
-        private Case3.BSCatalogusBeheer.Schema.CategorieNS.CategorieCollection CategorieLijstField;
+        private Case3.BSCatalogusBeheer.Schema.CategorieNSPcS.CategorieCollection CategorieLijstField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -337,7 +337,7 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNS
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-        public Case3.BSCatalogusBeheer.Schema.CategorieNS.CategorieCollection CategorieLijst
+        public Case3.BSCatalogusBeheer.Schema.CategorieNSPcS.CategorieCollection CategorieLijst
         {
             get
             {
@@ -350,7 +350,7 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNS
         }
     }
 }
-namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
+namespace Case3.BSCatalogusBeheer.Schema.CategorieNSPcS
 {
     using System.Runtime.Serialization;
     
@@ -358,7 +358,7 @@ namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CategorieCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ItemName="Categorie")]
-    public class CategorieCollection : System.Collections.Generic.List<Case3.BSCatalogusBeheer.Schema.CategorieNS.Categorie>
+    public class CategorieCollection : System.Collections.Generic.List<Case3.BSCatalogusBeheer.Schema.CategorieNSPcS.Categorie>
     {
     }
     
@@ -416,62 +416,58 @@ namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ServiceModel.ServiceContractAttribute(Namespace="Case3.GoudGeel.BsBestellingenbeheer", ConfigurationName="IBSBestellingenbeheerService")]
-public interface IBSBestellingenbeheerService
+[System.ServiceModel.ServiceContractAttribute(Namespace="Case3.GoudGeel.PcSBestellen", ConfigurationName="IPcSBestellenService")]
+public interface IPcSBestellenService
 {
     
-    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
-        "ing", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
-        "ingResponse")]
-    Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingResultMessage FindFirstBestelling(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingRequestMessage requestMessage);
+    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/FindNextBestelling", ReplyAction="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/FindNextBestellingResponse")]
+    Case3.PcSBestellen.V1.Messages.FindNextBestellingResultMessage FindNextBestelling(Case3.PcSBestellen.V1.Messages.FindNextBestellingRequestMessage requestMessage);
     
-    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
-        "ing", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
-        "ingResponse")]
-    System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingResultMessage> FindFirstBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingRequestMessage requestMessage);
+    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/FindNextBestelling", ReplyAction="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/FindNextBestellingResponse")]
+    System.Threading.Tasks.Task<Case3.PcSBestellen.V1.Messages.FindNextBestellingResultMessage> FindNextBestellingAsync(Case3.PcSBestellen.V1.Messages.FindNextBestellingRequestMessage requestMessage);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public interface IBSBestellingenbeheerServiceChannel : IBSBestellingenbeheerService, System.ServiceModel.IClientChannel
+public interface IPcSBestellenServiceChannel : IPcSBestellenService, System.ServiceModel.IClientChannel
 {
 }
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class BSBestellingenbeheerServiceClient : System.ServiceModel.ClientBase<IBSBestellingenbeheerService>, IBSBestellingenbeheerService
+public partial class PcSBestellenServiceClient : System.ServiceModel.ClientBase<IPcSBestellenService>, IPcSBestellenService
 {
     
-    public BSBestellingenbeheerServiceClient()
+    public PcSBestellenServiceClient()
     {
     }
     
-    public BSBestellingenbeheerServiceClient(string endpointConfigurationName) : 
+    public PcSBestellenServiceClient(string endpointConfigurationName) : 
             base(endpointConfigurationName)
     {
     }
     
-    public BSBestellingenbeheerServiceClient(string endpointConfigurationName, string remoteAddress) : 
+    public PcSBestellenServiceClient(string endpointConfigurationName, string remoteAddress) : 
             base(endpointConfigurationName, remoteAddress)
     {
     }
     
-    public BSBestellingenbeheerServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+    public PcSBestellenServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
             base(endpointConfigurationName, remoteAddress)
     {
     }
     
-    public BSBestellingenbeheerServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+    public PcSBestellenServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
             base(binding, remoteAddress)
     {
     }
     
-    public Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingResultMessage FindFirstBestelling(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingRequestMessage requestMessage)
+    public Case3.PcSBestellen.V1.Messages.FindNextBestellingResultMessage FindNextBestelling(Case3.PcSBestellen.V1.Messages.FindNextBestellingRequestMessage requestMessage)
     {
-        return base.Channel.FindFirstBestelling(requestMessage);
+        return base.Channel.FindNextBestelling(requestMessage);
     }
     
-    public System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingResultMessage> FindFirstBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingRequestMessage requestMessage)
+    public System.Threading.Tasks.Task<Case3.PcSBestellen.V1.Messages.FindNextBestellingResultMessage> FindNextBestellingAsync(Case3.PcSBestellen.V1.Messages.FindNextBestellingRequestMessage requestMessage)
     {
-        return base.Channel.FindFirstBestellingAsync(requestMessage);
+        return base.Channel.FindNextBestellingAsync(requestMessage);
     }
 }
