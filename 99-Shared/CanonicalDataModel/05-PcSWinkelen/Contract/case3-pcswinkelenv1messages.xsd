@@ -27,4 +27,53 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FindCatalogusResponseMessage" nillable="true" type="tns:FindCatalogusResponseMessage" />
+  <xs:complexType name="AddItemToWinkelmandRequestMessage">
+    <xs:sequence>
+      <xs:element name="WinkelmandjeItemRef" nillable="true" xmlns:q2="urn:case3-pcswinkelen:v1:schema" type="q2:WinkelmandjeItemRef">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddItemToWinkelmandRequestMessage" nillable="true" type="tns:AddItemToWinkelmandRequestMessage" />
+  <xs:complexType name="AddItemToWinkelmandResponseMessage">
+    <xs:sequence>
+      <xs:element name="Succeeded" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddItemToWinkelmandResponseMessage" nillable="true" type="tns:AddItemToWinkelmandResponseMessage" />
+  <xs:complexType name="GetWinkelmandRequestMessage">
+    <xs:sequence>
+      <xs:element name="SessieId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetWinkelmandRequestMessage" nillable="true" type="tns:GetWinkelmandRequestMessage" />
+  <xs:complexType name="GetWinkelmandResponseMessage">
+    <xs:sequence>
+      <xs:element name="WinkelmandCollection" nillable="true" xmlns:q3="urn:case3-pcswinkelen:v1:schema" type="q3:WinkelMandCollection">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SessieId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetWinkelmandResponseMessage" nillable="true" type="tns:GetWinkelmandResponseMessage" />
 </xs:schema>

@@ -6,9 +6,9 @@
     xmlns:product="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1"
 >
   <xs:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1"
-              schemaLocation="..\..\BSCatalogusBeheer\V1\Product.xsd" />
+              schemaLocation="..\..\BSCatalogusBeheer\Schema\Product.xsd" />
 
-  <xs:complexType name="ProductVoorraad">
+  <xs:complexType name="CatalogusProductItem">
     <xs:sequence>
       <xs:element name="Product" type="product:Product" minOccurs="1" maxOccurs="1"/>
       <xs:element name="Voorraad" type="xs:int" minOccurs="1" maxOccurs="1"/>
@@ -17,7 +17,28 @@
   
   <xs:complexType name="CatalogusCollection">
     <xs:sequence>
-      <xs:element name="CatalogusItem" type="k:ProductVoorraad" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="CatalogusItem" type="k:CatalogusProductItem" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="WinkelmandjeItemRef">
+    <xs:sequence>
+      <xs:element name="ProductId" type="xs:int" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SessieId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WinkelmandjeItem">
+    <xs:sequence>
+      <xs:element name="Product" type="product:Product" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Aantal" type="xs:int" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WinkelMandCollection">
+    <xs:sequence>
+      <xs:element name="WinkelmandjeItem" type="k:WinkelmandjeItem" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
 </xs:schema>
