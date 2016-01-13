@@ -53,6 +53,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonTypes.cs" />
     <Compile Include="PcSWinkelenTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,7 +110,7 @@
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Schema.xsd" ^
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Messages.xsd"
 
-
+svcutil /dataContractOnly /out:$(ProjectDir)CommonTypes.cs "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\FunctionalErrorList.xsd"
 
 REM /n"" ^
 REM /n"     NOG MEER NAMESPACES     " ^

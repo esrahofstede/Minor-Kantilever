@@ -4,6 +4,7 @@ using Case3.PcSWinkelen.Messages;
 using Case3.PcSWinkelen.Schema;
 using Minor.ServiceBus.Agent.Implementation;
 using System;
+using System.ServiceModel;
 
 namespace Case3.FEWebwinkel.Agent
 {
@@ -51,15 +52,23 @@ namespace Case3.FEWebwinkel.Agent
             int pageSize = 50, page = 1;
             CatalogusCollection result = new CatalogusCollection();
 
-            var products = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize }).Products;
-            result.AddRange(products);
-
-            while (products.Count > 1 && products.Count == pageSize)
+            try
             {
-                page++;
-                products = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize }).Products;
+                var products = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize }).Products;
                 result.AddRange(products);
+
+                while (products.Count > 1 && products.Count == pageSize)
+                {
+                    page++;
+                    products = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize }).Products;
+                    result.AddRange(products);
+                }
             }
+            catch(FaultException)
+            {
+
+
+            }            
             return result;
         }
     }
