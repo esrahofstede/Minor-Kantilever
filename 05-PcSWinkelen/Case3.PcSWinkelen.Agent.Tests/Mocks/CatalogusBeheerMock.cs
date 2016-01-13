@@ -3,6 +3,7 @@ using Case3.PcSWinkelen.Schema.Messages;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
 {
     public class CatalogusBeheerMock : ICatalogusBeheer
     {
-        public bool ResponseSuccess = true;
+        private bool ResponseSuccess = true;
 
         private List<Product> _products = new List<Product>()
         {
@@ -19,8 +20,8 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
                 Id = 1,
                 AfbeeldingURL = "9200000015506874.jpg",
                 Beschrijving = "Mooie fietsbel",
-                LeverbaarTot = DateTime.Parse("2016-02-10 10:30:00"),
-                LeverbaarVanaf = DateTime.Parse("2016-01-06 16:00:00"),
+                LeverbaarTot = DateTime.Parse("2016-02-10 10:30:00", CultureInfo.InvariantCulture),
+                LeverbaarVanaf = DateTime.Parse("2016-01-06 16:00:00", CultureInfo.InvariantCulture),
                 Prijs = 150.00M,
                 Naam = "Fietsbel",
                 LeverancierNaam = "Gazelle",
@@ -30,8 +31,8 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
                 Id = 2,
                 AfbeeldingURL = "zadels.jpg",
                 Beschrijving = "Mooie zadel",
-                LeverbaarTot = DateTime.Parse("2016-02-10 10:30:00"),
-                LeverbaarVanaf = DateTime.Parse("2016-01-06 16:00:00"),
+                LeverbaarTot = DateTime.Parse("2016-02-10 10:30:00", CultureInfo.InvariantCulture),
+                LeverbaarVanaf = DateTime.Parse("2016-01-06 16:00:00", CultureInfo.InvariantCulture),
                 Prijs = 200.00M,
                 Naam = "Zadel",
                 LeverancierNaam = "Batavus",
@@ -41,8 +42,8 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
                 Id = 3,
                 AfbeeldingURL = "toeter-600x600.jpg",
                 Beschrijving = "Mooie Toeter",
-                LeverbaarTot = DateTime.Parse("2016-02-10 10:30:00"),
-                LeverbaarVanaf = DateTime.Parse("2016-01-06 16:00:00"),
+                LeverbaarTot = DateTime.Parse("2016-02-10 10:30:00", CultureInfo.InvariantCulture),
+                LeverbaarVanaf = DateTime.Parse("2016-01-06 16:00:00", CultureInfo.InvariantCulture),
                 Prijs = 150.00M,
                 Naam = "Toeter",
                 LeverancierNaam = "Sparta",
