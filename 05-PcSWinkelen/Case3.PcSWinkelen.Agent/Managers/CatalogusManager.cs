@@ -50,18 +50,21 @@ namespace Case3.PcSWinkelen.Agent.Managers
             {
                 foreach (Product product in products)
                 {
+                    int voorraad = 0;
                     try
                     {
-                        int voorraad = _bSVoorraadBeheerAgent.GetProductVoorraad(product.Id, product.LeveranciersProductId);
-                        resultProductVoorraad.Add(new CatalogusProductItem() {
-                            Product = product,
-                            Voorraad = voorraad
-                        });
+                        voorraad = _bSVoorraadBeheerAgent.GetProductVoorraad(product.Id, product.LeveranciersProductId);
                     }
                     catch (ProductVoorraadNotFoundException)
                     {
-                        throw;
+                        voorraad = -1;
                     }
+               
+                    resultProductVoorraad.Add(new CatalogusProductItem()
+                    {
+                        Product = product,
+                        Voorraad = voorraad
+                    });
                 }
             }
 

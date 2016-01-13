@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
+using Case3.PcSWinkelen.Agent.Exceptions;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -26,26 +27,28 @@ namespace Case3.PcSWinkelen.Implementation
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
 
-            CatalogusManager catalogusManager = new CatalogusManager();
-
-            IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(1, 20);
-            
             CatalogusCollection catalogusCollection = new CatalogusCollection();
 
-            foreach(CatalogusProductItem productVoorraad in productVoorraadList)
+            if (request != null)
             {
-                catalogusCollection.Add(new CatalogusProductItem()
+                CatalogusManager catalogusManager = new CatalogusManager();
+
+                IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
+                foreach (CatalogusProductItem productVoorraad in productVoorraadList)
                 {
-                    Product = productVoorraad.Product,
-                    Voorraad = productVoorraad.Voorraad
-                });
+                    catalogusCollection.Add(new CatalogusProductItem()
+                    {
+                        Product = productVoorraad.Product,
+                        Voorraad = productVoorraad.Voorraad
+                    });
+                }
+                
             }
 
             FindCatalogusResponseMessage findCatalogusResponseMessage = new FindCatalogusResponseMessage()
             {
                 Products = catalogusCollection
             };
-                        
             return findCatalogusResponseMessage;
         }
 
@@ -62,21 +65,6 @@ namespace Case3.PcSWinkelen.Implementation
                 WinkelmandCollection = DummyData.Winkelmand,
                 SessieId = Guid.NewGuid().ToString()
             };
-        }
-
-        public string SayHelloTest(string name)
-        {
-            string greeting = "";
-
-            try
-            {
-                greeting = "Hello" + name + "! This is a test method.";
-            }
-            catch (AggregateException ex)
-            {
-                _logger.Fatal(ex.Message);
-            }
-            return greeting;
         }
 
     }
