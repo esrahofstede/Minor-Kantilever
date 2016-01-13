@@ -49,7 +49,7 @@ namespace Case3.PcSWinkelen.Implementation
                         });
                     }
                 }
-                catch
+                catch (Exception)
                 {
 
                     throw new FaultException("Er is een fout opgetreden in het ophalen van de catalogus");
