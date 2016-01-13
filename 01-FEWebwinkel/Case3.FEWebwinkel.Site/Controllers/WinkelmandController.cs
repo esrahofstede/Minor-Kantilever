@@ -34,7 +34,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
             // ------------- TODO ------------------
             // artikellijst = Managers.getWinkelmand(userGuid);
             //----------- END TODO -----------------
-            s
+            
 
             //if (userGuid.Count > 0)
             //{

@@ -28,7 +28,7 @@ namespace Case3.PcSWinkelen.Implementation
 
             CatalogusManager catalogusManager = new CatalogusManager();
 
-            IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(1, 20);
+            IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
             
             CatalogusCollection catalogusCollection = new CatalogusCollection();
 

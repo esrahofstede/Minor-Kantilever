@@ -209,6 +209,165 @@ namespace Case3.PcSWinkelen.Messages
             }
         }
     }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AddItemToWinkelmandRequestMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class AddItemToWinkelmandRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.Schema.WinkelmandjeItemRef WinkelmandjeItemRefField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.Schema.WinkelmandjeItemRef WinkelmandjeItemRef
+        {
+            get
+            {
+                return this.WinkelmandjeItemRefField;
+            }
+            set
+            {
+                this.WinkelmandjeItemRefField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AddItemToWinkelmandResponseMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class AddItemToWinkelmandResponseMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool SucceededField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool Succeeded
+        {
+            get
+            {
+                return this.SucceededField;
+            }
+            set
+            {
+                this.SucceededField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetWinkelmandRequestMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class GetWinkelmandRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string SessieIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string SessieId
+        {
+            get
+            {
+                return this.SessieIdField;
+            }
+            set
+            {
+                this.SessieIdField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetWinkelmandResponseMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class GetWinkelmandResponseMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.Schema.WinkelMandCollection WinkelmandCollectionField;
+        
+        private string SessieIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.Schema.WinkelMandCollection WinkelmandCollection
+        {
+            get
+            {
+                return this.WinkelmandCollectionField;
+            }
+            set
+            {
+                this.WinkelmandCollectionField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string SessieId
+        {
+            get
+            {
+                return this.SessieIdField;
+            }
+            set
+            {
+                this.SessieIdField = value;
+            }
+        }
+    }
 }
 namespace Case3.PcSWinkelen.Schema
 {
@@ -218,14 +377,14 @@ namespace Case3.PcSWinkelen.Schema
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CatalogusCollection", Namespace="urn:case3-pcswinkelen:v1:schema", ItemName="CatalogusItem")]
-    public class CatalogusCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductVoorraad>
+    public class CatalogusCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.CatalogusProductItem>
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductVoorraad", Namespace="urn:case3-pcswinkelen:v1:schema")]
-    public partial class ProductVoorraad : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="CatalogusProductItem", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class CatalogusProductItem : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -269,6 +428,115 @@ namespace Case3.PcSWinkelen.Schema
             set
             {
                 this.VoorraadField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandjeItemRef", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class WinkelmandjeItemRef : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ProductIdField;
+        
+        private string SessieIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ProductId
+        {
+            get
+            {
+                return this.ProductIdField;
+            }
+            set
+            {
+                this.ProductIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string SessieId
+        {
+            get
+            {
+                return this.SessieIdField;
+            }
+            set
+            {
+                this.SessieIdField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="WinkelMandCollection", Namespace="urn:case3-pcswinkelen:v1:schema", ItemName="WinkelmandjeItem")]
+    public class WinkelMandCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.WinkelmandjeItem>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandjeItem", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class WinkelmandjeItem : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.BSCatalogusBeheer.Schema.Product.Product ProductField;
+        
+        private int AantalField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.BSCatalogusBeheer.Schema.Product.Product Product
+        {
+            get
+            {
+                return this.ProductField;
+            }
+            set
+            {
+                this.ProductField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Aantal
+        {
+            get
+            {
+                return this.AantalField;
+            }
+            set
+            {
+                this.AantalField = value;
             }
         }
     }
@@ -525,6 +793,18 @@ public interface IPcSWinkelenService
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse")]
     System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage> GetCatalogusItemsAsync(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage request);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmandResponse")]
+    Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage AddProductToWinkelmand(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage request);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmandResponse")]
+    System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage> AddProductToWinkelmandAsync(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage request);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse")]
+    Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage GetWinkelmand(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse")]
+    System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage> GetWinkelmandAsync(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request);
+    
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/SayHelloTest", ReplyAction="http://tempuri.org/IPcSWinkelenService/SayHelloTestResponse")]
     string SayHelloTest(string name);
     
@@ -574,6 +854,26 @@ public partial class PcSWinkelenServiceClient : System.ServiceModel.ClientBase<I
     public System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage> GetCatalogusItemsAsync(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage request)
     {
         return base.Channel.GetCatalogusItemsAsync(request);
+    }
+    
+    public Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage AddProductToWinkelmand(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage request)
+    {
+        return base.Channel.AddProductToWinkelmand(request);
+    }
+    
+    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage> AddProductToWinkelmandAsync(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage request)
+    {
+        return base.Channel.AddProductToWinkelmandAsync(request);
+    }
+    
+    public Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage GetWinkelmand(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request)
+    {
+        return base.Channel.GetWinkelmand(request);
+    }
+    
+    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage> GetWinkelmandAsync(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request)
+    {
+        return base.Channel.GetWinkelmandAsync(request);
     }
     
     public string SayHelloTest(string name)
