@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using Case3.BSBestellingenbeheer.V1.Messages;
 using System.ServiceModel;
-using System.Text;
 
 namespace Case3.BSBestellingenbeheer.Contract
 {
@@ -11,6 +7,6 @@ namespace Case3.BSBestellingenbeheer.Contract
     public interface IBSBestellingenbeheerService
     {
         [OperationContract]
-        string SayHelloTest(string name);
+        FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage);
     }
 }

@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\BSBestellingenTypes.cs" />
-    <Compile Include="DTO\GeneratedTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,7 +73,8 @@
  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.BSCatalogusBeheer.Schema.CategorieNS" ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\V1\Product.xsd" ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\V1\Categorie.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Schema.xsd"</PreBuildEvent>
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Schema.xsd" ^
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Messages.xsd"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
