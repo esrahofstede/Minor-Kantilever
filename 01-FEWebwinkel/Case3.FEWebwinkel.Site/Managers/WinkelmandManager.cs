@@ -33,13 +33,15 @@ namespace Case3.FEWebwinkel.Site.Managers
             _pcsWinkelenAgent = agent;
         }
 
-
+        /// <summary>
+        /// This function gets a list of all products from the Winkelmand
+        /// </summary>
+        /// <param name="SessieId">The id to find the correct winkelmand</param>
+        /// <returns>Returns a list of ArtikelViewModels</returns>
         public List<ArtikelViewModel> GetWinkelmand(string SessieId)
         {
             var winkelmand = _pcsWinkelenAgent.GetWinkelmand(SessieId);
-
             var ViewModels = ConvertWinkelmandCollectionToArtikelViewModelList(winkelmand);
-
             return ViewModels;
         }
 

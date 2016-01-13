@@ -11,16 +11,28 @@ namespace Case3.FEWebwinkel.Site.Controllers
     public class WinkelmandController : Controller
     {
 	    private BTWCalculator _btwCalculator = new BTWCalculator();
+        private IWinkelmandManager _winkelmandManager;
 
         /// <summary>
-        /// This is the default constructor
+        /// This constructor is the default constructor
         /// </summary>
-       
+        public WinkelmandController()
+        {
+            _winkelmandManager = new WinkelmandManager();
+        }
+        /// <summary>
+        /// This constructor is for testing purposes
+        /// </summary>
+        /// <param name="manager">This should be a mock of ICatalogusManager</param>
+        public WinkelmandController(IWinkelmandManager manager)
+        {
+            _winkelmandManager = manager;
+        }
+
 
         // GET: Winkelmand
         public ActionResult Index()
         {
-            //decimal totaalExclBTW = 0M;
             string userGuid;
             decimal totaalExclBTW = 0M;
             decimal totaalInclBTW = 0M;
@@ -36,23 +48,14 @@ namespace Case3.FEWebwinkel.Site.Controllers
             {
                 userGuid = Guid.NewGuid().ToString();
             }
-
-            // ------------- TODO ------------------
-            // artikellijst = Managers.getWinkelmand(userGuid);
-            //----------- END TODO -----------------
-            var manager = new WinkelmandManager();
-            var artikellijst = manager.GetWinkelmand(userGuid);
-
-            //if (userGuid.Count > 0)
-            //{
-            //    totaalExclBTW = artikelLijst.Select(artikel => (artikel.Prijs * artikel.Aantal))
-            //                                .Sum();
-            //}
+            
+            var artikellijst = _winkelmandManager.GetWinkelmand(userGuid);
             if (userGuid.Length > 0)
             {
                 totaalInclBTW = artikellijst.Select(artikel => (artikel.Prijs * artikel.Aantal)).Sum();
-                //totaalExclBTW = 
-                
+                //need up to date version of btwCalculator for this, uncomment this when ready:
+                //totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
+
             }
 
             var model = new WinkelmandViewModel
@@ -61,21 +64,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 BTWPercentage = _btwCalculator.BTWPercentage,
                 TotaalInclBTW = totaalInclBTW,
                 TotaalExclBTW = totaalExclBTW,
-                TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalInclBTW),
+                TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW),
             };
 
-            //var totaalInclBTW = _btwCalculator.CalculatePriceInclusiveBTW(totaalExclBTW);
-
-            //var model = new WinkelmandViewModel
-            //{
-            //    Artikelen = artikelLijst,
-            //    BTWPercentage = _btwCalculator.BTWPercentage,
-            //    TotaalInclBTW = totaalInclBTW,
-            //    TotaalExclBTW = totaalExclBTW,
-            //    TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalInclBTW),
-            //};
-
-            return View(model);// new WinkelmandViewModel());
+            return View(model);
         }
     }
 }
