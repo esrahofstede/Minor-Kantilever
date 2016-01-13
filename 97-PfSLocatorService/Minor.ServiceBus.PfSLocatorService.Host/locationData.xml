@@ -13,12 +13,12 @@
    <serviceLocation>
     <name>PcSWinkelen</name>
     <profile>Development</profile>
-    <metadataAddress>http://localhost:30178/IPcSWinkelen.svc/mex</metadataAddress>
+    <metadataAddress>http://localhost:30178/PcSWinkelen.svc/mex</metadataAddress>
   </serviceLocation>
   <serviceLocation>
     <name>PcSWinkelen</name>
     <profile>Acceptatie</profile>
-    <metadataAddress>http://minorbldsrv/Goudgeel/Acceptatie/PcSWinkelen/IPcSWinkelen.svc/mex</metadataAddress>
+    <metadataAddress>http://minorbldsrv/Goudgeel/Acceptatie/PcSWinkelen/PcSWinkelen.svc/mex</metadataAddress>
   </serviceLocation>  
   <serviceLocation>
     <name>BSVoorraadBeheer</name>
