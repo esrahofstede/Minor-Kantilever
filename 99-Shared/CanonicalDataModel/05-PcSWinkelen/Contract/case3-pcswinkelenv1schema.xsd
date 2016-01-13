@@ -20,7 +20,7 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CatalogusProductItem" nillable="true" type="tns:CatalogusProductItem" />
-  <xs:complexType name="WinkelmandjeItemRef">
+  <xs:complexType name="WinkelmandItemRef">
     <xs:sequence>
       <xs:element name="ProductId" type="xs:int" />
       <xs:element name="SessieId" nillable="true" type="xs:string">
@@ -32,14 +32,14 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="WinkelmandjeItemRef" nillable="true" type="tns:WinkelmandjeItemRef" />
+  <xs:element name="WinkelmandItemRef" nillable="true" type="tns:WinkelmandItemRef" />
   <xs:complexType name="WinkelMandCollection">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="WinkelmandjeItem" nillable="true" type="tns:WinkelmandjeItem" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WinkelmandItem" nillable="true" type="tns:WinkelmandItem" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WinkelMandCollection" nillable="true" type="tns:WinkelMandCollection" />
-  <xs:complexType name="WinkelmandjeItem">
+  <xs:complexType name="WinkelmandItem">
     <xs:sequence>
       <xs:element name="Product" nillable="true" xmlns:q2="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" type="q2:Product">
         <xs:annotation>
@@ -51,5 +51,5 @@
       <xs:element name="Aantal" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="WinkelmandjeItem" nillable="true" type="tns:WinkelmandjeItem" />
+  <xs:element name="WinkelmandItem" nillable="true" type="tns:WinkelmandItem" />
 </xs:schema>

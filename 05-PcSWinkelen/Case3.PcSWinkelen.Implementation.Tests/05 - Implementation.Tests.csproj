@@ -50,7 +50,12 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -65,17 +70,41 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AddProductToWinkelmandTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
+    <Content Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Web.Acceptatie.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Case3.PcSWinkelen.Contract\02 - Contract.csproj">
+      <Project>{C458B7EA-6BFB-4C2F-A3DC-485B452C0F0E}</Project>
+      <Name>02 - Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.DAL\06 - DAL.csproj">
+      <Project>{9f9925b2-b276-40ed-a8a9-658d701fa877}</Project>
+      <Name>06 - DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.Implementation\04 - Implementation.csproj">
       <Project>{4b579cb9-6f8f-429a-bbbb-33d25a443324}</Project>
       <Name>04 - Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj">
+      <Project>{2742240D-A070-44A7-8560-8C8BA25A1C7B}</Project>
+      <Name>01c-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

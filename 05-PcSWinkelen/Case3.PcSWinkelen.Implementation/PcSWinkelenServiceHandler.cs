@@ -4,6 +4,7 @@ using Case3.PcSWinkelen.MessagesNS;
 using Case3.PcSWinkelen.SchemaNS;
 using System;
 using System.Collections.Generic;
+using Case3.PcSWinkelen.DAL.Mappers;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
 
@@ -18,11 +19,18 @@ namespace Case3.PcSWinkelen.Implementation
         /// <returns></returns>
         private static ILog _logger = LogManager.GetLogger(typeof(PcSWinkelenServiceHandler));
 
+        private IWinkelmandDataMapper _winkelmandDataMapper;
+
+        public PcSWinkelenServiceHandler(IWinkelmandDataMapper dataMapper)
+        {
+            _winkelmandDataMapper = dataMapper;
+        }
+
         public PcSWinkelenServiceHandler()
         {
             log4net.Config.XmlConfigurator.Configure();
         }
-        
+
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
 
@@ -51,7 +59,8 @@ namespace Case3.PcSWinkelen.Implementation
 
         public AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request)
         {
-
+            WinkelmandItem item = new WinkelmandItem();
+            _winkelmandDataMapper.AddWinkelmandItem(null);
             return new AddItemToWinkelmandResponseMessage {Succeeded = true};
         }
 
