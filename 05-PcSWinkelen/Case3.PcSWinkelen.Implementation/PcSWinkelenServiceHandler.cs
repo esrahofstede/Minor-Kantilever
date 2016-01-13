@@ -46,6 +46,7 @@ namespace Case3.PcSWinkelen.Implementation
 
         public AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request)
         {
+
             return new AddItemToWinkelmandResponseMessage {Succeeded = true};
         }
 
