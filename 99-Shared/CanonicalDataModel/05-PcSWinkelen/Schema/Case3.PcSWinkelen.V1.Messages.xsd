@@ -32,9 +32,11 @@
     </xs:sequence>
   </xs:complexType>
 
+  
+  
   <xs:complexType name="AddItemToWinkelmandRequestMessage">
     <xs:sequence>
-      <xs:element name="WinkelmandjeItem" type="k:WinkelmandjeItem"/>
+      <xs:element name="WinkelmandjeItemRef" type="k:WinkelmandjeItemRef"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -53,7 +55,8 @@
 
   <xs:complexType name="GetWinkelmandResponseMessage">
     <xs:sequence>
-      <xs:element name="Products" type="product:ProductCollection"/>
+      <xs:element name="WinkelmandCollection" type="k:WinkelMandCollection"/>
+      <xs:element name="SessieId" type="xs:string" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 

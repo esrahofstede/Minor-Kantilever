@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.PcSWinkelen.Schema.CategorieNS")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.PcSWinkelen.Schema.ProductNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:schema", ClrNamespace="Case3.PcSWinkelen.SchemaNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:messages", ClrNamespace="Case3.PcSWinkelen.MessagesNS")]
 
@@ -25,18 +24,6 @@ namespace Case3.PcSWinkelen.Schema.CategorieNS
     {
     }
 }
-namespace Case3.PcSWinkelen.Schema.ProductNS
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ItemName="Product")]
-    public class ProductCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.ProductNS.Product>
-    {
-    }
-}
 namespace Case3.PcSWinkelen.SchemaNS
 {
     using System.Runtime.Serialization;
@@ -44,8 +31,8 @@ namespace Case3.PcSWinkelen.SchemaNS
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductVoorraad", Namespace="urn:case3-pcswinkelen:v1:schema")]
-    public partial class ProductVoorraad : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="CatalogusProductItem", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class CatalogusProductItem : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -96,14 +83,14 @@ namespace Case3.PcSWinkelen.SchemaNS
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CatalogusCollection", Namespace="urn:case3-pcswinkelen:v1:schema", ItemName="CatalogusItem")]
-    public class CatalogusCollection : System.Collections.Generic.List<Case3.PcSWinkelen.SchemaNS.ProductVoorraad>
+    public class CatalogusCollection : System.Collections.Generic.List<Case3.PcSWinkelen.SchemaNS.CatalogusProductItem>
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandjeItem", Namespace="urn:case3-pcswinkelen:v1:schema")]
-    public partial class WinkelmandjeItem : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandjeItemRef", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class WinkelmandjeItemRef : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -149,6 +136,64 @@ namespace Case3.PcSWinkelen.SchemaNS
                 this.SessieIdField = value;
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandjeItem", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class WinkelmandjeItem : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSWinkelen.Schema.ProductNS.Product ProductField;
+        
+        private int AantalField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSWinkelen.Schema.ProductNS.Product Product
+        {
+            get
+            {
+                return this.ProductField;
+            }
+            set
+            {
+                this.ProductField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Aantal
+        {
+            get
+            {
+                return this.AantalField;
+            }
+            set
+            {
+                this.AantalField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="WinkelMandCollection", Namespace="urn:case3-pcswinkelen:v1:schema", ItemName="WinkelmandjeItem")]
+    public class WinkelMandCollection : System.Collections.Generic.List<Case3.PcSWinkelen.SchemaNS.WinkelmandjeItem>
+    {
     }
 }
 namespace Case3.PcSWinkelen.MessagesNS
@@ -356,7 +401,7 @@ namespace Case3.PcSWinkelen.MessagesNS
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.SchemaNS.WinkelmandjeItem WinkelmandjeItemField;
+        private Case3.PcSWinkelen.SchemaNS.WinkelmandjeItemRef WinkelmandjeItemRefField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -371,15 +416,15 @@ namespace Case3.PcSWinkelen.MessagesNS
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.SchemaNS.WinkelmandjeItem WinkelmandjeItem
+        public Case3.PcSWinkelen.SchemaNS.WinkelmandjeItemRef WinkelmandjeItemRef
         {
             get
             {
-                return this.WinkelmandjeItemField;
+                return this.WinkelmandjeItemRefField;
             }
             set
             {
-                this.WinkelmandjeItemField = value;
+                this.WinkelmandjeItemRefField = value;
             }
         }
     }
@@ -464,7 +509,9 @@ namespace Case3.PcSWinkelen.MessagesNS
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSWinkelen.Schema.ProductNS.ProductCollection ProductsField;
+        private Case3.PcSWinkelen.SchemaNS.WinkelMandCollection WinkelmandCollectionField;
+        
+        private string SessieIdField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -479,15 +526,28 @@ namespace Case3.PcSWinkelen.MessagesNS
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSWinkelen.Schema.ProductNS.ProductCollection Products
+        public Case3.PcSWinkelen.SchemaNS.WinkelMandCollection WinkelmandCollection
         {
             get
             {
-                return this.ProductsField;
+                return this.WinkelmandCollectionField;
             }
             set
             {
-                this.ProductsField = value;
+                this.WinkelmandCollectionField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string SessieId
+        {
+            get
+            {
+                return this.SessieIdField;
+            }
+            set
+            {
+                this.SessieIdField = value;
             }
         }
     }

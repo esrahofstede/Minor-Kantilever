@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Case3.PcSWinkelen.Agent.Managers;
 using Case3.PcSWinkelen.Contract;
 using Case3.PcSWinkelen.MessagesNS;
+using Case3.PcSWinkelen.SchemaNS;
+using System;
+using System.Collections.Generic;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
 
@@ -18,24 +17,44 @@ namespace Case3.PcSWinkelen.Implementation
         {
             log4net.Config.XmlConfigurator.Configure();
         }
-
+        
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
-            throw new NotImplementedException();
+
+            CatalogusManager catalogusManager = new CatalogusManager();
+
+            IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(1, 20);
+            
+            CatalogusCollection catalogusCollection = new CatalogusCollection();
+
+            foreach(CatalogusProductItem productVoorraad in productVoorraadList)
+            {
+                catalogusCollection.Add(new CatalogusProductItem()
+                {
+                    Product = productVoorraad.Product,
+                    Voorraad = productVoorraad.Voorraad
+                });
+            }
+
+            FindCatalogusResponseMessage findCatalogusResponseMessage = new FindCatalogusResponseMessage()
+            {
+                Products = catalogusCollection
+            };
+                        
+            return findCatalogusResponseMessage;
         }
 
         public AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request)
         {
-            throw new NotImplementedException();
+            return new AddItemToWinkelmandResponseMessage {Succeeded = true};
         }
 
         public GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request)
         {
-            var products = new ProductCollection();
-            products.Add(new Product());
             return new GetWinkelmandResponseMessage
             {
-                Products = products
+                WinkelmandCollection = DummyData.Winkelmand,
+                SessieId = Guid.NewGuid().ToString()
             };
         }
 
@@ -47,11 +66,12 @@ namespace Case3.PcSWinkelen.Implementation
             {
                 greeting = "Hello" + name + "! This is a test method.";
             }
-            catch (Exception ex)
+            catch (AggregateException ex)
             {
                 _logger.Fatal(ex.Message);
             }
             return greeting;
         }
+
     }
 }
