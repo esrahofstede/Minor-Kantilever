@@ -197,5 +197,30 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00", CultureInfo.InvariantCulture), secondProduct.LeverbaarVanaf);
             Assert.AreEqual(200.00M, secondProduct.Prijs);
         }
+
+        /// <summary>
+        /// Retrieve product by its id 
+        /// </summary>
+        [TestMethod]
+        public void FindProductbyIdProductIsCorrectProduct()
+        {
+            // Arrange
+            BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent(new CatalogusBeheerMock());
+
+            // Act
+            Product product = bSCatalogusBeheerAgent.GetProductById(2);
+
+            // Assert
+            Assert.IsNotNull(product);
+            Assert.AreEqual(2, product.Id);
+            Assert.AreEqual("Zadel", product.Naam);
+            Assert.AreEqual("B001", product.LeveranciersProductId);
+            Assert.AreEqual("Batavus", product.LeverancierNaam);
+            Assert.AreEqual("zadels.jpg", product.AfbeeldingURL);
+            Assert.AreEqual("Mooie zadel", product.Beschrijving);
+            Assert.AreEqual(DateTime.Parse("2016-02-10 10:30:00", CultureInfo.InvariantCulture), product.LeverbaarTot);
+            Assert.AreEqual(DateTime.Parse("2016-01-06 16:00:00", CultureInfo.InvariantCulture), product.LeverbaarVanaf);
+            Assert.AreEqual(200.00M, product.Prijs);
+        }
     }
 }

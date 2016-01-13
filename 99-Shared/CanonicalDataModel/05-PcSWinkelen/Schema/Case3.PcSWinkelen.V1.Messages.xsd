@@ -36,7 +36,7 @@
   
   <xs:complexType name="AddItemToWinkelmandRequestMessage">
     <xs:sequence>
-      <xs:element name="WinkelmandjeItemRef" type="k:WinkelmandjeItemRef"/>
+      <xs:element name="WinkelmandItemRef" type="k:WinkelmandItemRef"/>
     </xs:sequence>
   </xs:complexType>
 

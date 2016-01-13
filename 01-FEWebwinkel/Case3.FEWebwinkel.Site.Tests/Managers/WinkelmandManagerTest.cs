@@ -88,5 +88,47 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             Assert.AreEqual(15.12M, result[1].Prijs);
             Assert.AreEqual(1, result[1].Aantal);
         }
+
+        [TestMethod]
+        public void ManagerGetsWinkelmandWithCorrectType()
+        {
+            // Arrange
+            var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
+            agentMock.Setup(a => a.GetWinkelmand("afsf"))
+                     .Returns(CreateWinkelmandCollection());
+            var target = new WinkelmandManager(agentMock.Object);
+
+            // Act
+            var result = target.GetWinkelmand("afsf");
+
+            // Assert
+            Assert.AreEqual(typeof(List<ArtikelViewModel>), result.GetType());
+        }
+
+        [TestMethod]
+        public void ManagerGetsWinkelmandWithCorrectData()
+        {
+            // Arrange
+            var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
+            agentMock.Setup(a => a.GetWinkelmand("afsf"))
+                     .Returns(CreateWinkelmandCollection());
+            var target = new WinkelmandManager(agentMock.Object);
+
+            // Act
+            var result = target.GetWinkelmand("afsf");
+
+            // Assert
+            Assert.AreEqual(2, result.Count);
+            //First Viewmodel
+            Assert.AreEqual(1, result[0].ID);
+            Assert.AreEqual("Fietsbel", result[0].ArtikelNaam);
+            Assert.AreEqual(5.99M, result[0].Prijs);
+            Assert.AreEqual(2, result[0].Aantal);
+            //Second Viewmodel
+            Assert.AreEqual(2, result[1].ID);
+            Assert.AreEqual("Zadelpen", result[1].ArtikelNaam);
+            Assert.AreEqual(15.12M, result[1].Prijs);
+            Assert.AreEqual(1, result[1].Aantal);
+        }
     }
 }
