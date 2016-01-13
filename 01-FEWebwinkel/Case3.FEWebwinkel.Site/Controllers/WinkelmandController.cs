@@ -31,11 +31,11 @@ namespace Case3.FEWebwinkel.Site.Controllers
                
             }
 
+            var manager = new WinkelmandManager();
             // ------------- TODO ------------------
             // artikellijst = Managers.getWinkelmand(userGuid);
             //----------- END TODO -----------------
-            s
-
+            //var artikellijst = manager.GetWinkelmand(userGuid);
             //if (userGuid.Count > 0)
             //{
             //    totaalExclBTW = artikelLijst.Select(artikel => (artikel.Prijs * artikel.Aantal))

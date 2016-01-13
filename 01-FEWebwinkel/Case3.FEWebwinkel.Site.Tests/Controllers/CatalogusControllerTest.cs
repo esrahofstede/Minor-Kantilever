@@ -43,7 +43,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
         }
         #endregion
         [TestMethod]
-        public void CursusControllerIndexActionReturnsViewResult()
+        public void CatalogControllerIndexActionReturnsViewResult()
         {
             // Arrange
             var catalogusList = CreateCatalogusViewModelList();
@@ -59,7 +59,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
         [TestMethod]
-        public void CursusControllerIndexActionHasCorrectModel()
+        public void CatalogControllerIndexActionHasCorrectModel()
         {
             // Arrange
             var catalogusList = CreateCatalogusViewModelList();

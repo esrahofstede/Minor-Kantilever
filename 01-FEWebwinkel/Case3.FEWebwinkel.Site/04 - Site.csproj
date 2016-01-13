@@ -191,6 +191,8 @@
     <Compile Include="Managers\CookieNator.cs" />
     <Compile Include="Managers\Interfaces\ICatalogusManager.cs" />
     <Compile Include="Managers\Interfaces\ICookieNator.cs" />
+    <Compile Include="Managers\Interfaces\IWinkelmandManager.cs" />
+    <Compile Include="Managers\WinkelmandManager.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\ArtikelViewModel.cs" />
     <Compile Include="ViewModels\CatalogusViewModel.cs" />

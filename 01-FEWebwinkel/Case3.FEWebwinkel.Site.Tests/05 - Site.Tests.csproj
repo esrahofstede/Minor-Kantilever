@@ -101,6 +101,7 @@
     <Compile Include="Helpers\CookieHelperTest.cs" />
     <Compile Include="Controllers\WinkelmandControllerTest.cs" />
     <Compile Include="Managers\CatalogusManagerTest.cs" />
+    <Compile Include="Managers\WinkelmandManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
