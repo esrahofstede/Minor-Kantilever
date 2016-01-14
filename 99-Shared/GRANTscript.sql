@@ -57,6 +57,15 @@ GO
 USE [master]
 GO
 
+USE [Goudgeel_PcSWinkelenDB]
+GO
+if not exists(select * from sys.database_principals where name = 'IIS APPPOOL\DefaultAppPool')
+CREATE USER [IIS APPPOOL\DefaultAppPool] FOR LOGIN [IIS APPPOOL\DefaultAppPool]
+GO
+
+ALTER ROLE [db_owner] ADD MEMBER [IIS APPPOOL\DefaultAppPool]
+GO
+
 USE [Goudgeel_PcSWinkelenDB_Acceptatie]
 GO
 if not exists(select * from sys.database_principals where name = 'IIS APPPOOL\DefaultAppPool')
