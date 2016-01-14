@@ -139,7 +139,6 @@
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Schema.xsd" ^
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Messages.xsd"
 
-if not $(ConfigurationName) == DebugWithoutBuild ^
 svcutil /dataContractOnly /out:$(ProjectDir)CommonTypes.cs "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\FunctionalErrorList.xsd"
 
 REM /n"" ^
