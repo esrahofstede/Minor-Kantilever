@@ -12,6 +12,7 @@ namespace Case3.PcSWinkelen.Implementation
     [ExcludeFromCodeCoverage]
     static class DummyData
     {
+        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         public static WinkelMandCollection Winkelmand = new WinkelMandCollection
             {
                 new WinkelmandItem
