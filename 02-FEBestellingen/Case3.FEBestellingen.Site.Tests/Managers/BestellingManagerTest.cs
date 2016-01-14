@@ -59,7 +59,7 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
 
             var bestellingManager = new BestellingManager(mock.Object);
             // Act
-            var result = bestellingManager.ConvertBestellingtoBestellingViewModel(bestelling);
+            var result = bestellingManager.ConvertBestellingToBestellingViewModel(bestelling);
             // Assert
             Assert.IsInstanceOfType(result, typeof(BestellingViewModel));
         }
@@ -72,7 +72,7 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
 
             var bestellingManager = new BestellingManager(mock.Object);
             // Act
-            var result = bestellingManager.ConvertBestellingtoBestellingViewModel(bestelling);
+            var result = bestellingManager.ConvertBestellingToBestellingViewModel(bestelling);
             var artikelen = result.Artikelen;
 
             // Assert

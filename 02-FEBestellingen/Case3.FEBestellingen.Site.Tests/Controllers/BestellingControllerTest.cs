@@ -1,12 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Case3.FEBestellingen.Site.Controllers;
-using System.Web.Mvc;
-using Case3.FEBestellingen.Site.ViewModels;
+﻿using Case3.FEBestellingen.Site.Controllers;
 using Case3.FEBestellingen.Site.Managers.Interfaces;
-using Moq;
+using Case3.FEBestellingen.Site.ViewModels;
 using Case3.PcSBestellen.V1.Messages;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System;
 using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace Case3.FEBestellingen.Site.Tests.Controllers
 {
@@ -87,6 +87,28 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
             Assert.AreEqual("GI12345ZP", bestellingViewModel.Artikelen[1].Leverancierscode);
             Assert.AreEqual(2, bestellingViewModel.Artikelen[1].Aantal);
         }
+        #endregion
+        #region -------[IntegrationTests]-------
+
+        /*[TestMethod]
+        public void IntegrationBestellingController()
+        {
+            // Arrange
+            var controller = new BestellingController();
+
+            try
+            {
+                // Act
+                var result = controller.Index();
+
+                // Assert
+                Assert.IsInstanceOfType(result, typeof(ViewResult));
+            }
+            catch (Exception)
+            {
+                Assert.Fail("De service kon niet gevonden worden");
+            }
+        }*/
         #endregion
     }
 }

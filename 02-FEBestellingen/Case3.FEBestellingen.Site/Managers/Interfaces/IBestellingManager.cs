@@ -20,6 +20,6 @@ namespace Case3.FEBestellingen.Site.Managers.Interfaces
         /// </summary>
         /// <param name="bestelling">The Bestelling which has to be converted</param>
         /// <returns>Returns a BestellingViewModel<returns>
-        BestellingViewModel ConvertBestellingtoBestellingViewModel(Bestelling bestelling);
+        BestellingViewModel ConvertBestellingToBestellingViewModel(Bestelling bestelling);
     }
 }

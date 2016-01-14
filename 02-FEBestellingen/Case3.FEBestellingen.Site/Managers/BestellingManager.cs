@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Case3.BSBestellingenbeheer.V1.SchemaNSPcS;
+using Case3.FEBestellingen.Agent.Agents;
+using Case3.FEBestellingen.Agent.Interfaces;
 using Case3.FEBestellingen.Site.Managers.Interfaces;
 using Case3.FEBestellingen.Site.ViewModels;
-using Case3.FEBestellingen.Agent.Interfaces;
-using Case3.FEBestellingen.Agent.Agents;
-using Case3.BSBestellingenbeheer.V1.SchemaNSPcS;
-using System.Linq;
 using Case3.PcSBestellen.V1.Messages;
+using System.Linq;
 
 namespace Case3.FEBestellingen.Site.Managers
 {
@@ -41,7 +40,7 @@ namespace Case3.FEBestellingen.Site.Managers
             //Get Bestelling from PcSBestellen
             Bestelling bestelling = _pcsBestellenAgent.FindNextBestelling(requestMessage);
             //Convert the Bestelling to a BestellingViewModel
-            BestellingViewModel bestellingViewModel = ConvertBestellingtoBestellingViewModel(bestelling);
+            BestellingViewModel bestellingViewModel = ConvertBestellingToBestellingViewModel(bestelling);
 
             return bestellingViewModel;
         }
@@ -51,7 +50,7 @@ namespace Case3.FEBestellingen.Site.Managers
         /// </summary>
         /// <param name="bestelling">The Bestelling which has to be converted</param>
         /// <returns>Returns a BestellingViewModel<returns>
-        public BestellingViewModel ConvertBestellingtoBestellingViewModel(Bestelling bestelling)
+        public BestellingViewModel ConvertBestellingToBestellingViewModel(Bestelling bestelling)
         {
             //Create Artikelen based on the Bestelling
             var artikelen = bestelling.Artikelen.Select(art => new ArtikelViewModel
