@@ -7,6 +7,7 @@ using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
+using System;
 
 namespace Case3.FEWebwinkel.Site.Managers
 {
@@ -64,6 +65,11 @@ namespace Case3.FEWebwinkel.Site.Managers
                 Voorraad = (cat.Voorraad > 10 ? 10 : cat.Voorraad),
             });
             return CatalogusViewModels.ToList();
+        }
+
+        public bool InsertArtikelToWinkelmand(int productID, string userGuid)
+        {
+            return _pcsWinkelenAgent.AddProductToWinkelmand(productID, userGuid);
         }
     }
 }
