@@ -12,5 +12,6 @@ namespace Case3.PcSWinkelen.DAL.Mappers
     {
         IEnumerable<WinkelmandItem> FindAllBy(Expression<Func<WinkelmandItem, bool>> isAny);
         void Insert(WinkelmandItem item);
+        void Update(WinkelmandItem item);
     }
 }

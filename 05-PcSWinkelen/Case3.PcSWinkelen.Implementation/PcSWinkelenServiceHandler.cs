@@ -16,6 +16,7 @@ using log4net;
 using System.ServiceModel;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
 using case3common.v1.faults;
+using System.Linq.Expressions;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -127,8 +128,20 @@ namespace Case3.PcSWinkelen.Implementation
             };
 
             var itemToInsert = _winkelmandItemDTOMapper.MapDTOToEntity(winkelmandItem);
+            //var duplicates = _winkelmandDataMapper.FindAllBy(i => i.ID == itemToInsert.ID 
+            //                                                && i.SessieID == itemToInsert.SessieID)
+            //                                                .ToList();
+            //if (duplicates.Count > 0) //item is already in Winkelmand
+            //{
+            //    //update
+            //    itemToInsert.Aantal++;
+            //    _winkelmandDataMapper.Update(itemToInsert);
 
+            //}
+            //else
+            //{
             _winkelmandDataMapper.Insert(itemToInsert);
+            //}
 
             return new AddItemToWinkelmandResponseMessage {Succeeded = true};
         }
