@@ -5,7 +5,7 @@
     xmlns:tns="urn:case3-common:v1:faults"
 >
 
-  <xs:complexType name="FunctionalErrorDetail">
+  <xs:complexType name="ErrorDetail">
     <xs:sequence>
       <xs:element name="ErrorCode" type="xs:int" />
       <xs:element name="Message" type="xs:string" />
@@ -13,9 +13,9 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="FunctionalErrorList">
+  <xs:complexType name="ErrorLijst">
     <xs:sequence>
-      <xs:element name="FunctionalErrorDetail" type="tns:FunctionalErrorDetail" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ErrorDetail" type="tns:ErrorDetail" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   

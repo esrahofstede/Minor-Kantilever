@@ -137,10 +137,11 @@
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Product.xsd" ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Categorie.xsd" ^
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Schema.xsd" ^
-  "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Messages.xsd"
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Messages.xsd" ^
+"$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\ErrorLijst.xsd"
 
-if not $(ConfigurationName) == DebugWithoutBuild ^
-svcutil /dataContractOnly /out:$(ProjectDir)CommonTypes.cs "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\ErrorList.xsd"
+REM if not $(ConfigurationName) == DebugWithoutBuild ^
+REM svcutil /dataContractOnly /out:$(ProjectDir)CommonTypes.cs "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\ErrorLijst.xsd"
 
 REM /n"" ^
 REM /n"     NOG MEER NAMESPACES     " ^

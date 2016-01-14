@@ -26,7 +26,7 @@ namespace Case3.PcSWinkelen.Implementation
         private static ILog _logger = LogManager.GetLogger(typeof(PcSWinkelenServiceHandler));
 
         [DataMember]
-        private ErrorList _list = new ErrorList();
+        private ErrorLijst _list = new ErrorLijst();
 
         private IWinkelmandDataMapper _winkelmandDataMapper;
         private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
@@ -80,7 +80,7 @@ namespace Case3.PcSWinkelen.Implementation
             }
             if (_list.Count > 0)
             {
-                throw new FaultException<ErrorList>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
+                throw new FaultException<ErrorLijst>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
             }
             log4net.Config.XmlConfigurator.Configure();
         }
@@ -128,7 +128,7 @@ namespace Case3.PcSWinkelen.Implementation
                 }
                 if (_list.Count > 0)
                 {
-                    throw new FaultException<ErrorList>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
+                    throw new FaultException<ErrorLijst>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
                 }
             }
 

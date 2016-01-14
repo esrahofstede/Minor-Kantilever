@@ -122,11 +122,11 @@
       <Name>09 - Agent</Name>
     </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
-      <Project>{1B0325D0-D374-4EB1-ABE7-13A77C885F14}</Project>
+      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
       <Name>01a-BSCatalogusbeheerSchema</Name>
     </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.Contract\02 - Contract.csproj">
-      <Project>{C458B7EA-6BFB-4C2F-A3DC-485B452C0F0E}</Project>
+      <Project>{c458b7ea-6bfb-4c2f-a3dc-485b452c0f0e}</Project>
       <Name>02 - Contract</Name>
     </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.DAL\06 - DAL.csproj">
@@ -134,7 +134,7 @@
       <Name>06 - DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.Entities\08 - Entities.csproj">
-      <Project>{949FB4D2-FEB9-44EC-93BA-359C1BBCD860}</Project>
+      <Project>{949fb4d2-feb9-44ec-93ba-359c1bbcd860}</Project>
       <Name>08 - Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.Implementation\04 - Implementation.csproj">
@@ -142,7 +142,7 @@
       <Name>04 - Implementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj">
-      <Project>{2742240D-A070-44A7-8560-8C8BA25A1C7B}</Project>
+      <Project>{2742240d-a070-44a7-8560-8c8ba25a1c7b}</Project>
       <Name>01c-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>

@@ -17,8 +17,8 @@
   <wsdl:message name="IPcSWinkelenService_GetCatalogusItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCatalogusItemsResponse" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_GetCatalogusItems_ErrorListFault_FaultMessage">
-    <wsdl:part name="detail" xmlns:q1="urn:case3-common:v1:faults" element="q1:ErrorList" />
+  <wsdl:message name="IPcSWinkelenService_GetCatalogusItems_ErrorLijstFault_FaultMessage">
+    <wsdl:part name="detail" xmlns:q1="urn:case3-common:v1:faults" element="q1:ErrorLijst" />
   </wsdl:message>
   <wsdl:message name="IPcSWinkelenService_AddProductToWinkelmand_InputMessage">
     <wsdl:part name="parameters" element="tns:AddProductToWinkelmand" />
@@ -36,7 +36,7 @@
     <wsdl:operation name="GetCatalogusItems">
       <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems" message="tns:IPcSWinkelenService_GetCatalogusItems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse" message="tns:IPcSWinkelenService_GetCatalogusItems_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsErrorListFault" name="ErrorListFault" message="tns:IPcSWinkelenService_GetCatalogusItems_ErrorListFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsErrorLijstFault" name="ErrorLijstFault" message="tns:IPcSWinkelenService_GetCatalogusItems_ErrorLijstFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddProductToWinkelmand">
       <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand" message="tns:IPcSWinkelenService_AddProductToWinkelmand_InputMessage" />
@@ -57,8 +57,8 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="ErrorListFault">
-        <soap:fault name="ErrorListFault" use="literal" />
+      <wsdl:fault name="ErrorLijstFault">
+        <soap:fault name="ErrorLijstFault" use="literal" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="AddProductToWinkelmand">

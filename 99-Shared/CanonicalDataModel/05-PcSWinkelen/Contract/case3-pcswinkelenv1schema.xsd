@@ -34,12 +34,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WinkelmandItemRef" nillable="true" type="tns:WinkelmandItemRef" />
-  <xs:complexType name="WinkelMandCollection">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="WinkelmandItem" nillable="true" type="tns:WinkelmandItem" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="WinkelMandCollection" nillable="true" type="tns:WinkelMandCollection" />
   <xs:complexType name="WinkelmandItem">
     <xs:sequence>
       <xs:element name="Product" nillable="true" xmlns:q2="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" type="q2:Product">
@@ -54,4 +48,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WinkelmandItem" nillable="true" type="tns:WinkelmandItem" />
+  <xs:complexType name="WinkelMandCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WinkelmandItem" nillable="true" type="tns:WinkelmandItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WinkelMandCollection" nillable="true" type="tns:WinkelMandCollection" />
 </xs:schema>

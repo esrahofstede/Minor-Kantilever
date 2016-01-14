@@ -52,7 +52,7 @@ namespace Case3.FEWebwinkel.Agent
                 FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize });
                 return result.Products;
             }
-            catch (FaultException<ErrorList> ex)
+            catch (FaultException<ErrorLijst> ex)
             {
                 var x = ex;
             }
@@ -84,7 +84,7 @@ namespace Case3.FEWebwinkel.Agent
                     result.AddRange(products);
                 }
             }
-            catch(FaultException<ErrorList> ex)
+            catch(FaultException<ErrorLijst> ex)
             {
                 var x = ex;
             }

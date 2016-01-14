@@ -13,7 +13,6 @@
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.Product")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.Categorie")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-common:v1:faults", ClrNamespace="case3common.v1.faults")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:common:fouten:v1", ClrNamespace="schemaswwwkantilevernl.common.fouten.v1")]
 
 namespace Case3.PcSWinkelen.Messages
 {
@@ -819,17 +818,15 @@ namespace case3common.v1.faults
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ErrorList", Namespace="urn:case3-common:v1:faults", ItemName="ErrorDetail")]
-    public class ErrorList : System.Collections.Generic.List<case3common.v1.faults.ErrorDetail>
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ErrorLijst", Namespace="urn:case3-common:v1:faults", ItemName="ErrorDetail")]
+    public class ErrorLijst : System.Collections.Generic.List<case3common.v1.faults.ErrorDetail>
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ErrorDetail", Namespace="urn:case3-common:v1:faults")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.ErrorList))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.FunctionalErrorDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.FunctionalErrorList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.ErrorLijst))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage))]
@@ -839,22 +836,11 @@ namespace case3common.v1.faults
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusCollection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusProductItem))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandItemRef))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelMandCollection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandItem))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelMandCollection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Categorie.CategorieCollection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Categorie.Categorie))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Product.Product))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(schemaswwwkantilevernl.common.fouten.v1.FoutErnst))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(schemaswwwkantilevernl.common.fouten.v1.FoutMelding))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultException<case3common.v1.faults.FunctionalErrorList>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultException))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.CommunicationException))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultExceptionFaultCodeData))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultExceptionFaultCodeData[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultExceptionFaultReasonData))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultExceptionFaultReasonData[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.SystemException))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Exception))]
     public partial class ErrorDetail : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
@@ -917,315 +903,6 @@ namespace case3common.v1.faults
             }
         }
     }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FunctionalErrorDetail", Namespace="urn:case3-common:v1:faults")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.ErrorList))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.ErrorDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.FunctionalErrorList))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusCollection))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusProductItem))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandItemRef))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelMandCollection))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandItem))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Categorie.CategorieCollection))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Categorie.Categorie))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Product.Product))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(schemaswwwkantilevernl.common.fouten.v1.FoutErnst))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(schemaswwwkantilevernl.common.fouten.v1.FoutMelding))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultException<case3common.v1.faults.FunctionalErrorList>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultException))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.CommunicationException))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultExceptionFaultCodeData))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultExceptionFaultCodeData[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultExceptionFaultReasonData))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.ServiceModel.FaultExceptionFaultReasonData[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.SystemException))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Exception))]
-    public partial class FunctionalErrorDetail : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int ErrorCodeField;
-        
-        private string MessageField;
-        
-        private object DataField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int ErrorCode
-        {
-            get
-            {
-                return this.ErrorCodeField;
-            }
-            set
-            {
-                this.ErrorCodeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public string Message
-        {
-            get
-            {
-                return this.MessageField;
-            }
-            set
-            {
-                this.MessageField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
-        public object Data
-        {
-            get
-            {
-                return this.DataField;
-            }
-            set
-            {
-                this.DataField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="FunctionalErrorList", Namespace="urn:case3-common:v1:faults", ItemName="FunctionalErrorDetail")]
-    public class FunctionalErrorList : System.Collections.Generic.List<case3common.v1.faults.FunctionalErrorDetail>
-    {
-    }
-}
-namespace schemaswwwkantilevernl.common.fouten.v1
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FoutErnst", Namespace="urn:schemas-www-kantilever-nl:common:fouten:v1")]
-    public enum FoutErnst : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Kritisch = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Waarschuwing = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Melding = 2,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FoutMelding", Namespace="urn:schemas-www-kantilever-nl:common:fouten:v1")]
-    public partial class FoutMelding : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string BronField;
-        
-        private int NummerField;
-        
-        private string MeldingField;
-        
-        private schemaswwwkantilevernl.common.fouten.v1.FoutErnst NiveauField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public string Bron
-        {
-            get
-            {
-                return this.BronField;
-            }
-            set
-            {
-                this.BronField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int Nummer
-        {
-            get
-            {
-                return this.NummerField;
-            }
-            set
-            {
-                this.NummerField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
-        public string Melding
-        {
-            get
-            {
-                return this.MeldingField;
-            }
-            set
-            {
-                this.MeldingField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public schemaswwwkantilevernl.common.fouten.v1.FoutErnst Niveau
-        {
-            get
-            {
-                return this.NiveauField;
-            }
-            set
-            {
-                this.NiveauField = value;
-            }
-        }
-    }
-}
-namespace System.ServiceModel
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FaultException.FaultCodeData", Namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel")]
-    public partial class FaultExceptionFaultCodeData : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string nameField;
-        
-        private string nsField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string name
-        {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                this.nameField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string ns
-        {
-            get
-            {
-                return this.nsField;
-            }
-            set
-            {
-                this.nsField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FaultException.FaultReasonData", Namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel")]
-    public partial class FaultExceptionFaultReasonData : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string textField;
-        
-        private string xmlLangField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string text
-        {
-            get
-            {
-                return this.textField;
-            }
-            set
-            {
-                this.textField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string xmlLang
-        {
-            get
-            {
-                return this.xmlLangField;
-            }
-            set
-            {
-                this.xmlLangField = value;
-            }
-        }
-    }
 }
 
 
@@ -1235,7 +912,7 @@ public interface IPcSWinkelenService
 {
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(case3common.v1.faults.ErrorList), Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsErrorListFault", Name="ErrorList", Namespace="urn:case3-common:v1:faults")]
+    [System.ServiceModel.FaultContractAttribute(typeof(case3common.v1.faults.ErrorLijst), Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsErrorLijstFault", Name="ErrorLijst", Namespace="urn:case3-common:v1:faults")]
     Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage GetCatalogusItems(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage request);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse")]
