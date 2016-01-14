@@ -1,5 +1,4 @@
-﻿using Case3.FEWebwinkel.Agent.Interfaces;
-using System;
+﻿using System;
 
 using Case3.PcSWinkelen.Schema;
 using Case3.BSCatalogusBeheer.Schema.Product;
@@ -10,9 +9,11 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
 {
     public class PcSWinkelenAgentMock : IPcSWinkelenService
     {
-        private CatalogusCollection _collection1;
+        private CatalogusCollection largeCollectionPart1;
+        private CatalogusCollection largeCollectionPart2;
+        private int count;
 
-        private CatalogusCollection _collection2 = new CatalogusCollection
+        private CatalogusCollection _smallCollection = new CatalogusCollection
             {
                 new CatalogusProductItem {
                     Product = new Product
@@ -40,14 +41,32 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
 
         public PcSWinkelenAgentMock()
         {
-            _collection1 = new CatalogusCollection();
-            for (int i = 0; i < 80; i++)
+            count = 0;
+            largeCollectionPart1 = new CatalogusCollection();
+            for (int i = 0; i < 50; i++)
             {
-                _collection1.Add(new CatalogusProductItem
+                largeCollectionPart1.Add(new CatalogusProductItem
                 {
                     Product = new Product
                     {
                         Id = i,
+                        Naam = "Zadelpen",
+                        Prijs = 12.50M,
+                        AfbeeldingURL = "zadelpen.gif",
+                        LeverancierNaam = "Giant",
+                    },
+                    Voorraad = 10,
+                });
+            }
+
+            largeCollectionPart2 = new CatalogusCollection();
+            for (int i = 0; i < 30; i++)
+            {
+                largeCollectionPart2.Add(new CatalogusProductItem
+                {
+                    Product = new Product
+                    {
+                        Id = i+50,
                         Naam = "Zadelpen",
                         Prijs = 12.50M,
                         AfbeeldingURL = "zadelpen.gif",
@@ -72,12 +91,21 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
         {
             CatalogusCollection collection = new CatalogusCollection();
 
-            if (request.PageSize != _collection2.Count)
+            if (request.PageSize != _smallCollection.Count)
             {
-                return new FindCatalogusResponseMessage() { Products = _collection1 };
-            } else
+                count++;
+                if (count == 1)
+                {
+                    return new FindCatalogusResponseMessage() { Products = largeCollectionPart1 };
+                }
+                else
+                {
+                    return new FindCatalogusResponseMessage() { Products = largeCollectionPart2 };
+                }
+            }
+            else
             {
-                return new FindCatalogusResponseMessage() { Products = _collection2 };
+                return new FindCatalogusResponseMessage() { Products = _smallCollection };
             }
         }
 

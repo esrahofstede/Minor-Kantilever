@@ -56,5 +56,17 @@ namespace Case3.PcSWinkelen.Agent.Agents
             return result.Products;
         }
 
+
+        /// <summary>
+        /// Get product by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Product GetProductById(int id)
+        {
+            MsgFindProductByIdResult result = _agent.FindProductById(new MsgFindProductByIdRequest {Id = id});
+            return result.Product;
+        }
+
     }
 }

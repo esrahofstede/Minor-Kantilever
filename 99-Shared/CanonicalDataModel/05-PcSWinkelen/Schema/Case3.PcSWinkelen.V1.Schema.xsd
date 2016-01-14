@@ -21,23 +21,25 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="WinkelmandjeItemRef">
+  <xs:complexType name="WinkelmandItemRef">
     <xs:sequence>
       <xs:element name="ProductId" type="xs:int" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Aantal" type="xs:int" minOccurs="1" maxOccurs="1"/>
       <xs:element name="SessieId" type="xs:string" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="WinkelmandjeItem">
+  <xs:complexType name="WinkelmandItem">
     <xs:sequence>
       <xs:element name="Product" type="product:Product" minOccurs="1" maxOccurs="1"/>
       <xs:element name="Aantal" type="xs:int" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SessieId" type="xs:string" minOccurs="0" nillable="true"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="WinkelMandCollection">
     <xs:sequence>
-      <xs:element name="WinkelmandjeItem" type="k:WinkelmandjeItem" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="WinkelmandItem" type="k:WinkelmandItem" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 

@@ -19,7 +19,13 @@ namespace Case3.FEWebwinkel.Agent
         public PcSWinkelenAgent()
         {
             _factory = new ServiceFactory<IPcSWinkelenService>("PcSWinkelen");
+            try
+            {
             _agent = _factory.CreateAgent();
+        }
+            catch (Exception)
+            {
+            }
         }
 
         /// <summary>
@@ -64,9 +70,8 @@ namespace Case3.FEWebwinkel.Agent
                     result.AddRange(products);
                 }
             }
-            catch(FaultException)
+            catch (FaultException)
             {
-
 
             }            
             return result;

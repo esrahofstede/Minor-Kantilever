@@ -73,7 +73,10 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
 
         public MsgFindProductByIdResult FindProductById(MsgFindProductByIdRequest message)
         {
-            throw new NotImplementedException();
+            return new MsgFindProductByIdResult
+            {
+                Product = _products[1]
+            };
         }
 
         public Task<MsgFindProductByIdResult> FindProductByIdAsync(MsgFindProductByIdRequest message)

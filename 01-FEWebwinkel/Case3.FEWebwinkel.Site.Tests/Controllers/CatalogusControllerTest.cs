@@ -105,7 +105,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
                 Assert.IsInstanceOfType(result.Model, typeof(IEnumerable<CatalogusViewModel>));
             } catch (Exception) //WCF EXCEPTION!!!!!
             {
-                Assert.Fail();
+                Assert.Fail("Kan geen verbinding maken met de service.");
             }
             
         }

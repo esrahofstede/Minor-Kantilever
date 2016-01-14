@@ -18,7 +18,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         {
             var collection = new WinkelMandCollection
             {
-                new WinkelmandjeItem {
+                new WinkelmandItem {
                     
                     Product = new Product
                     {
@@ -30,7 +30,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
                     },
                     Aantal = 2,
                 },
-                new WinkelmandjeItem
+                new WinkelmandItem
                 {
                     Product = new Product
                     {

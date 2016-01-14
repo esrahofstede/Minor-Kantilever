@@ -29,7 +29,7 @@
   <xs:element name="FindCatalogusResponseMessage" nillable="true" type="tns:FindCatalogusResponseMessage" />
   <xs:complexType name="AddItemToWinkelmandRequestMessage">
     <xs:sequence>
-      <xs:element name="WinkelmandjeItemRef" nillable="true" xmlns:q2="urn:case3-pcswinkelen:v1:schema" type="q2:WinkelmandjeItemRef">
+      <xs:element name="WinkelmandItemRef" nillable="true" xmlns:q2="urn:case3-pcswinkelen:v1:schema" type="q2:WinkelmandItemRef">
         <xs:annotation>
           <xs:appinfo>
             <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
