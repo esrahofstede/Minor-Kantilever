@@ -77,9 +77,13 @@
     </CodeAnalysisDictionary>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01 - Schema.csproj">
+    <ProjectReference Include="..\Case3.PcSBestellen.PcSBestellenSchema\01b - PcSBestellenSchema.csproj">
+      <Project>{22c02c22-9975-4d18-89c7-dc424663e0af}</Project>
+      <Name>01b - PcSBestellenSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01a - Schema.csproj">
       <Project>{0ceb091a-9056-4bd0-87d2-864bf8fdf5c4}</Project>
-      <Name>01 - Schema</Name>
+      <Name>01a - Schema</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

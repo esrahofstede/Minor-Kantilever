@@ -91,9 +91,9 @@
       <Project>{91ac1292-b089-46ea-8cca-0919b6ce637a}</Project>
       <Name>09 - Agent</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01 - Schema.csproj">
+    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01a - Schema.csproj">
       <Project>{0ceb091a-9056-4bd0-87d2-864bf8fdf5c4}</Project>
-      <Name>01 - Schema</Name>
+      <Name>01a - Schema</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01 - Schema", "Case3.PcSBestellen.Schema\01 - Schema.csproj", "{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01a - Schema", "Case3.PcSBestellen.Schema\01a - Schema.csproj", "{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04 - Implementation", "Case3.PcSBestellen.Implementation\04 - Implementation.csproj", "{3520EB86-5DD7-424F-A046-219231FE7C83}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03 - Host", "Case3.PcSWinkelen.Host\03 - Host.csproj", "{7A4D967C-5151-41A2-AF0E-62DC54DB712B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10 - Agent.Tests", "Case3.PcSBestellen.Agent.Tests\10 - Agent.Tests.csproj", "{05F97430-6546-481D-8492-F52B76239D0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01b - PcSBestellenSchema", "Case3.PcSBestellen.PcSBestellenSchema\01b - PcSBestellenSchema.csproj", "{22C02C22-9975-4D18-89C7-DC424663E0AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,6 +92,12 @@ Global
 		{05F97430-6546-481D-8492-F52B76239D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05F97430-6546-481D-8492-F52B76239D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05F97430-6546-481D-8492-F52B76239D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Acceptatie|Any CPU.ActiveCfg = Release|Any CPU
+		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Acceptatie|Any CPU.Build.0 = Release|Any CPU
+		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

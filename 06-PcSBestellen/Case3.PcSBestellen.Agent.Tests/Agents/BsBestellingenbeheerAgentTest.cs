@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Case3.PcSBestellen.Agent.Agents;
 using Case3.PcSBestellen.Agent.Tests.Mocks;
 using Case3.BSBestellingenbeheer.V1.Messages;
-using Case3.BSBestellingenbeheer.V1.Schemap;
+using Case3.BSBestellingenbeheer.V1.Schema;
 
 namespace Case3.PcSBestellen.Agent.Tests.Agents
 {

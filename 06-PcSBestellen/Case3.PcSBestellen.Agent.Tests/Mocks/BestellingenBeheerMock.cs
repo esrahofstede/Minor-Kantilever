@@ -3,9 +3,9 @@
 using System.Threading.Tasks;
 using Case3.BSBestellingenbeheer.V1.Messages;
 using System.Collections.Generic;
-using Case3.BSBestellingenbeheer.V1.Schemap;
 using Case3.BSCatalogusBeheer.Schema.ProductNS;
 using System.Globalization;
+using Case3.BSBestellingenbeheer.V1.Schema;
 
 namespace Case3.PcSBestellen.Agent.Tests.Mocks
 {
