@@ -75,6 +75,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DummyData.cs" />
+    <Compile Include="FunctionalException.cs" />
     <Compile Include="Mappers\IWinkelmandItemDTOMapper.cs" />
     <Compile Include="Mappers\WinkelmandItemDTOMapper.cs" />
     <Compile Include="PcSWinkelenServiceHandler.cs" />
@@ -129,6 +131,9 @@
     <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

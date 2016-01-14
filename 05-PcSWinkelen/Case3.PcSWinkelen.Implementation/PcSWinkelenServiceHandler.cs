@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Interfaces;
@@ -14,8 +15,10 @@ using Case3.PcSWinkelen.Implementation.Mappers;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
 using System.ServiceModel;
+using System.Web.Hosting;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
 using case3common.v1.faults;
+using System.Runtime.Serialization;
 using System.Linq.Expressions;
 
 namespace Case3.PcSWinkelen.Implementation
@@ -26,6 +29,9 @@ namespace Case3.PcSWinkelen.Implementation
         /// The logger for logging exceptions
         /// </summary>
         private static ILog _logger = LogManager.GetLogger(typeof(PcSWinkelenServiceHandler));
+
+        [DataMember]
+        private ErrorList _list = new ErrorList();
 
         private IWinkelmandDataMapper _winkelmandDataMapper;
         private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
@@ -45,6 +51,7 @@ namespace Case3.PcSWinkelen.Implementation
             _winkelmandItemDTOMapper = DTOMapper;
             _winkelmandDataMapper = dataMapper;
             _catalogusBeheerAgent = catalogusBeheerAgent;
+            log4net.Config.XmlConfigurator.Configure();
         }
 
         //[ExcludeFromCodeCoverage]
@@ -55,7 +62,32 @@ namespace Case3.PcSWinkelen.Implementation
         {
             _winkelmandDataMapper = new WinkelmandDataMapper();
             _winkelmandItemDTOMapper = new WinkelmandItemDTOMapper();
+            try
+            {
             _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            }
+            catch (TechnicalException ex)
+            {
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = ex.Message,
+                    Data = "test" as object
+                });
+            }
+            catch (Exception ex)
+            {
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = ex.Message,
+                    Data = "test" as object
+                });
+            }
+            if (_list.Count > 0)
+            {
+                throw new FaultException<ErrorList>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
+            }
             log4net.Config.XmlConfigurator.Configure();
         }
 
@@ -66,12 +98,9 @@ namespace Case3.PcSWinkelen.Implementation
         /// <returns></returns>
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
-
             CatalogusCollection catalogusCollection = new CatalogusCollection();
-
             if (request != null)
             {
-
                 try
                 {
                     CatalogusManager catalogusManager = new CatalogusManager();
@@ -85,21 +114,28 @@ namespace Case3.PcSWinkelen.Implementation
                 });
             }
                 }
-                catch (Exception)
+                catch (TechnicalException ex)
                 {
-
-                    throw new FaultException("Er is een fout opgetreden in het ophalen van de catalogus");
-
-                    /*throw new FaultException<FunctionalErrorList>(new FunctionalErrorList()
-                    {
-                        new FunctionalErrorDetail()
-                        {
-                            Message = "Er is een fout opgetreden in het ophalen van de catalogus",
-                            ErrorCode = 1001,
-                        }
-                    }, "Error");*/
+                    _list.Add(new ErrorDetail()
+                {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                        Data = ex.Data
+                    });
                 }
-                
+                catch (Exception ex)
+                    {
+                    _list.Add(new ErrorDetail()
+                        {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                        Data = ex.Data
+                    });
+                        }
+                if (_list.Count > 0)
+                {
+                    throw new FaultException<ErrorList>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
+                }
             }
 
             FindCatalogusResponseMessage findCatalogusResponseMessage = new FindCatalogusResponseMessage()
@@ -118,7 +154,17 @@ namespace Case3.PcSWinkelen.Implementation
         /// <returns></returns>
         public AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request)
         {
-            Product product = _catalogusBeheerAgent.GetProductById(request.WinkelmandItemRef.ProductId);
+            Product product;
+            try
+            {
+                product = _catalogusBeheerAgent.GetProductById(request.WinkelmandItemRef.ProductId);
+            }
+            catch (CommunicationException ex)
+            {
+                _logger.Fatal("somthing went wrong", ex);
+                throw new FaultException("Ophalen product ging niet");
+            }
+
 
             var winkelmandItem = new DTOSchema.WinkelmandItem
             {
@@ -140,10 +186,17 @@ namespace Case3.PcSWinkelen.Implementation
             //}
             //else
             //{
+            try
+            {
             _winkelmandDataMapper.Insert(itemToInsert);
-            //}
+            }
+            catch (Exception ex)
+            {
+                _logger.Fatal("Database fout", ex);
+                throw new FaultException(ex.InnerException.Message);
+            }
 
-            return new AddItemToWinkelmandResponseMessage {Succeeded = true};
+            return new AddItemToWinkelmandResponseMessage { Succeeded = true };
         }
 
         /// <summary>

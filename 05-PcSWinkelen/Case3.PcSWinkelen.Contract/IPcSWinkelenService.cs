@@ -13,7 +13,7 @@ namespace Case3.PcSWinkelen.Contract
         /// <param name="request"></param>
         /// <returns></returns>
         [OperationContract]
-        [FaultContract(typeof(FunctionalErrorList))]
+        [FaultContract(typeof(ErrorList))]
         FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request);
 
         [OperationContract]

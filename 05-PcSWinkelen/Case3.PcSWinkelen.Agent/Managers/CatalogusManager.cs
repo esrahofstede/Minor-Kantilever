@@ -3,6 +3,8 @@ using Case3.PcSWinkelen.Agent.Exceptions;
 using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using Case3.PcSWinkelen.SchemaNS;
+using case3common.v1.faults;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,7 +12,6 @@ namespace Case3.PcSWinkelen.Agent.Managers
 {
     public class CatalogusManager : ICatalogusManager
     {
-
         private IBSVoorraadBeheerAgent _bSVoorraadBeheerAgent;
         private IBSCatalogusBeheerAgent _bSCatalogusBeheerAgent;
 
@@ -19,8 +20,18 @@ namespace Case3.PcSWinkelen.Agent.Managers
         /// </summary>
         public CatalogusManager()
         {
-            _bSVoorraadBeheerAgent = new BSVoorraadBeheerAgent();
-            _bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            try {
+                _bSVoorraadBeheerAgent = new BSVoorraadBeheerAgent();
+                _bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            }
+            catch (TechnicalException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>

@@ -3,6 +3,7 @@ using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using Case3.PcSWinkelen.Schema.VoorraadMessages;
 using Minor.ServiceBus.Agent.Implementation;
+using System;
 
 namespace Case3.PcSWinkelen.Agent.Agents
 {
@@ -17,7 +18,18 @@ namespace Case3.PcSWinkelen.Agent.Agents
         public BSVoorraadBeheerAgent()
         {
             _factory = new ServiceFactory<IVoorraadBeheer>("BSVoorraadBeheer");
-            _agent = _factory.CreateAgent();
+            try
+            {
+                _agent = _factory.CreateAgent();
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new TechnicalException("BSVoorraadBeheer kan niet bereikt worden." ,ex.InnerException);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>

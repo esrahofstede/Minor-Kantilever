@@ -74,6 +74,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Agents\BSCatalogusBeheerAgent.cs" />
     <Compile Include="Agents\BSVoorraadBeheerAgent.cs" />
+    <Compile Include="Agents\TechnicalException.cs" />
     <Compile Include="Exceptions\ProductVoorraadNotFoundException.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interfaces\IBSCatalogusBeheerAgent.cs" />

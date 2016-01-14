@@ -17,9 +17,9 @@ namespace case3common.v1.faults
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FunctionalErrorDetail", Namespace="urn:case3-common:v1:faults")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.FunctionalErrorList))]
-    public partial class FunctionalErrorDetail : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="ErrorDetail", Namespace="urn:case3-common:v1:faults")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.ErrorList))]
+    public partial class ErrorDetail : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -84,8 +84,8 @@ namespace case3common.v1.faults
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="FunctionalErrorList", Namespace="urn:case3-common:v1:faults", ItemName="FunctionalErrorDetail")]
-    public class FunctionalErrorList : System.Collections.Generic.List<case3common.v1.faults.FunctionalErrorDetail>
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ErrorList", Namespace="urn:case3-common:v1:faults", ItemName="ErrorDetail")]
+    public class ErrorList : System.Collections.Generic.List<case3common.v1.faults.ErrorDetail>
     {
     }
 }

@@ -2,6 +2,7 @@
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.PcSWinkelen.Messages;
 using Case3.PcSWinkelen.Schema;
+using case3common.v1.faults;
 using Minor.ServiceBus.Agent.Implementation;
 using System;
 using System.ServiceModel;
@@ -21,10 +22,11 @@ namespace Case3.FEWebwinkel.Agent
             _factory = new ServiceFactory<IPcSWinkelenService>("PcSWinkelen");
             try
             {
-            _agent = _factory.CreateAgent();
-        }
-            catch (Exception)
+                _agent = _factory.CreateAgent();
+            }
+            catch (Exception ex)
             {
+                //PcSWinkelen not found
             }
         }
 
@@ -45,8 +47,20 @@ namespace Case3.FEWebwinkel.Agent
         /// <returns></returns>
         public CatalogusCollection GetProducts(int page, int pageSize)
         {
-            FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize });
-            return result.Products;
+            try
+            {
+                FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize });
+                return result.Products;
+            }
+            catch (FaultException<ErrorList> ex)
+            {
+                var x = ex;
+            }
+            catch (Exception e)
+            {
+                var x = e;
+            }
+            return null;
         }
 
         /// <summary>
@@ -70,10 +84,18 @@ namespace Case3.FEWebwinkel.Agent
                     result.AddRange(products);
                 }
             }
-            catch (FaultException)
+            catch(FaultException<ErrorList> ex)
             {
-
-            }            
+                var x = ex;
+            }
+            catch (FaultException ex)
+            {
+                var x = ex;
+            }
+            catch (Exception e)
+            {
+                var x = e;
+            }
             return result;
         }
 
