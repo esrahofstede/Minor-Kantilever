@@ -1,5 +1,4 @@
-﻿using Case3.BSBestellingenbeheer.V1.Messages;
-using Case3.PcSBestellen.Contract;
+﻿using Case3.PcSBestellen.Contract;
 using Case3.PcSBestellen.Implementation.Managers;
 using Case3.PcSBestellen.Implementation.Managers.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
@@ -34,6 +33,11 @@ namespace Case3.PcSBestellen.Implementation
         }
 
         
+        /// <summary>
+        /// This function returns a FindNextBestellingResultMessage
+        /// </summary>
+        /// <param name="requestMessage">The Request Message</param>
+        /// <returns>Returns a FindNextBestellingResultMessage</returns>
         public FindNextBestellingResultMessage FindNextBestelling(FindNextBestellingRequestMessage requestMessage)
         {
             FindNextBestellingResultMessage resultMessage = _bestellingenManager.FindNextBestelling(requestMessage);
