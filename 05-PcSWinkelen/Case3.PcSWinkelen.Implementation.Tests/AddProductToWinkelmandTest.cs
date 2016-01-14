@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-using Case3.PcSWinkelen.Agent.Interfaces;
+﻿using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Contract;
 using Case3.PcSWinkelen.DAL.Mappers;
 using Case3.PcSWinkelen.Implementation.Mappers;
