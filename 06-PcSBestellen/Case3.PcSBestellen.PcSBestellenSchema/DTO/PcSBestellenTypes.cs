@@ -10,8 +10,8 @@
 
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.CategorieNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.ProductNS")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="Case3.BSBestellingenbeheer.V1.Schema")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:messages", ClrNamespace="Case3.PcSBestellen.V1.Messages")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:schema", ClrNamespace="Case3.PcSBestellen.V1.Schema")]
 
 namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
 {
@@ -34,18 +34,6 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNS
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ItemName="Product")]
     public class ProductCollection : System.Collections.Generic.List<Case3.BSCatalogusBeheer.Schema.ProductNS.Product>
-    {
-    }
-}
-namespace Case3.BSBestellingenbeheer.V1.Schema
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Artikelen", Namespace="urn:case3-bsbestellingenbeheer:v1:schema", ItemName="ArtikelItem")]
-    public class Artikelen : System.Collections.Generic.List<Case3.BSBestellingenbeheer.V1.Schema.BestelItem>
     {
     }
 }
@@ -83,7 +71,7 @@ namespace Case3.PcSBestellen.V1.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.BSBestellingenbeheer.V1.Schema.Bestelling BestellingOpdrachtField;
+        private Case3.PcSBestellen.V1.Schema.BestellingPcS BestellingOpdrachtField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -98,7 +86,7 @@ namespace Case3.PcSBestellen.V1.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.BSBestellingenbeheer.V1.Schema.Bestelling BestellingOpdracht
+        public Case3.PcSBestellen.V1.Schema.BestellingPcS BestellingOpdracht
         {
             get
             {
@@ -107,6 +95,105 @@ namespace Case3.PcSBestellen.V1.Messages
             set
             {
                 this.BestellingOpdrachtField = value;
+            }
+        }
+    }
+}
+namespace Case3.PcSBestellen.V1.Schema
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BestellingPcS", Namespace="urn:case3-pcsbestellen:v1:schema")]
+    public partial class BestellingPcS : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.PcSBestellen.V1.Schema.ArtikelenPcS ArtikelenPcSField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.PcSBestellen.V1.Schema.ArtikelenPcS ArtikelenPcS
+        {
+            get
+            {
+                return this.ArtikelenPcSField;
+            }
+            set
+            {
+                this.ArtikelenPcSField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArtikelenPcS", Namespace="urn:case3-pcsbestellen:v1:schema", ItemName="ArtikelItemPcS")]
+    public class ArtikelenPcS : System.Collections.Generic.List<Case3.PcSBestellen.V1.Schema.BestelItemPcS>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BestelItemPcS", Namespace="urn:case3-pcsbestellen:v1:schema")]
+    public partial class BestelItemPcS : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.BSCatalogusBeheer.Schema.ProductNS.Product ProductField;
+        
+        private int AantalField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.BSCatalogusBeheer.Schema.ProductNS.Product Product
+        {
+            get
+            {
+                return this.ProductField;
+            }
+            set
+            {
+                this.ProductField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Aantal
+        {
+            get
+            {
+                return this.AantalField;
+            }
+            set
+            {
+                this.AantalField = value;
             }
         }
     }

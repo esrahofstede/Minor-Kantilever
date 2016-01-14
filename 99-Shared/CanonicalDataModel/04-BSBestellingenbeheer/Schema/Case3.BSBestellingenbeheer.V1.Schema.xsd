@@ -23,7 +23,7 @@
 
   <xs:complexType name="Artikelen">
     <xs:sequence>
-      <xs:element name="ArtikelItem" type="k:BestelItem" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ArtikelItem" type="k:BestelItem" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
-  </xs:complexType>
+  </xs:complexType> 
 </xs:schema>

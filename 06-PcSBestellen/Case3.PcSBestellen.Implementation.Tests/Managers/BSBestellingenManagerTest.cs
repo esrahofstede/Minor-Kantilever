@@ -22,7 +22,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
             {
                 BestellingOpdracht = new Bestelling
                 {
-                    Artikelen = null,// TODO nog aanvullen met gegevens en deze Asserten
+                    Artikelen = new Artikelen(),// TODO nog aanvullen met gegevens en deze Asserten
                 }
             };
         }
