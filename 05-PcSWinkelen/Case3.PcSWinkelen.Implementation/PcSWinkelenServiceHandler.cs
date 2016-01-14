@@ -32,7 +32,7 @@ namespace Case3.PcSWinkelen.Implementation
         private IWinkelmandItemDTOMapper _winkelmandItemDTOMapper;
 
         public PcSWinkelenServiceHandler(
-            IWinkelmandDataMapper dataMapper, 
+            IWinkelmandDataMapper dataMapper,
             IBSCatalogusBeheerAgent catalogusBeheerAgent,
             IWinkelmandItemDTOMapper DTOMapper)
         {
@@ -49,43 +49,40 @@ namespace Case3.PcSWinkelen.Implementation
             _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
             log4net.Config.XmlConfigurator.Configure();
         }
-        
+
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
-
             CatalogusCollection catalogusCollection = new CatalogusCollection();
-
             if (request != null)
             {
-
                 try
                 {
                     CatalogusManager catalogusManager = new CatalogusManager();
                     IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
                     foreach (CatalogusProductItem productVoorraad in productVoorraadList)
-            {
-                catalogusCollection.Add(new CatalogusProductItem()
+                    {
+                        catalogusCollection.Add(new CatalogusProductItem()
+                        {
+                            Product = productVoorraad.Product,
+                            Voorraad = productVoorraad.Voorraad
+                        });
+                    }
+                }
+                catch (FunctionalException ex)
                 {
-                    Product = productVoorraad.Product,
-                    Voorraad = productVoorraad.Voorraad
-                });
-            }
+                    throw new FaultException<FunctionalErrorList>(ex.Errors);
                 }
                 catch (Exception)
                 {
-
-                    throw new FaultException("Er is een fout opgetreden in het ophalen van de catalogus");
-
-                    /*throw new FaultException<FunctionalErrorList>(new FunctionalErrorList()
+                    throw new FaultException<FunctionalErrorList>(new FunctionalErrorList()
                     {
                         new FunctionalErrorDetail()
                         {
-                            Message = "Er is een fout opgetreden in het ophalen van de catalogus",
+                            Message = "Er is een fout opgetreden in het ophalen van de catalogus.",
                             ErrorCode = 1001,
                         }
-                    }, "Error");*/
+                    }, "Error");
                 }
-                
             }
 
             FindCatalogusResponseMessage findCatalogusResponseMessage = new FindCatalogusResponseMessage()
@@ -117,7 +114,7 @@ namespace Case3.PcSWinkelen.Implementation
 
             _winkelmandDataMapper.Insert(itemToInsert);
 
-            return new AddItemToWinkelmandResponseMessage {Succeeded = true};
+            return new AddItemToWinkelmandResponseMessage { Succeeded = true };
         }
 
         public GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request)
@@ -131,8 +128,6 @@ namespace Case3.PcSWinkelen.Implementation
             {
                 response.WinkelmandCollection.Add(_winkelmandItemDTOMapper.MapEntityToDTO(winkelmandItem));
             }
-
-
             return response;
         }
 

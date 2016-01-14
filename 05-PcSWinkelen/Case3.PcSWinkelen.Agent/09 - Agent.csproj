@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Agents\BSCatalogusBeheerAgent.cs" />
     <Compile Include="Agents\BSVoorraadBeheerAgent.cs" />
+    <Compile Include="Agents\TechnicalException.cs" />
     <Compile Include="Exceptions\ProductVoorraadNotFoundException.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interfaces\IBSCatalogusBeheerAgent.cs" />

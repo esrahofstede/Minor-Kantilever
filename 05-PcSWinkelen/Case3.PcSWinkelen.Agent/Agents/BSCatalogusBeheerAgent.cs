@@ -22,7 +22,18 @@ namespace Case3.PcSWinkelen.Agent.Agents
         public BSCatalogusBeheerAgent()
         {
             _factory = new ServiceFactory<ICatalogusBeheer>("BSCatalogusBeheer");
-            _agent = _factory.CreateAgent();
+            try
+            {
+                _agent = _factory.CreateAgent();
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new TechnicalException(ex.Message, ex.InnerException);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>

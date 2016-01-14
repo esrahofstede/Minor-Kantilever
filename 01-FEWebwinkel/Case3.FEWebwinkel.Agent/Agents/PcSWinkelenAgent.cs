@@ -2,6 +2,7 @@
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.PcSWinkelen.Messages;
 using Case3.PcSWinkelen.Schema;
+using case3common.v1.faults;
 using Minor.ServiceBus.Agent.Implementation;
 using System;
 using System.ServiceModel;
@@ -23,8 +24,9 @@ namespace Case3.FEWebwinkel.Agent
             {
                 _agent = _factory.CreateAgent();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                throw new FaultException(ex.Message);
             }
         }
 
