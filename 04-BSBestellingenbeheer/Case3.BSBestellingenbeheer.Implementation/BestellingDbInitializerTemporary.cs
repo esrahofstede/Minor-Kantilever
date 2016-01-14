@@ -3,13 +3,14 @@ using Case3.BSBestellingenbeheer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Case3.BSBestellingenbeheer.Implementation
 {
-  
+    [ExcludeFromCodeCoverageAttribute]
     internal class BestellingDbInitializerTemporary : DropCreateDatabaseIfModelChanges<BestellingContext>
     {
         protected override void Seed(BestellingContext context)

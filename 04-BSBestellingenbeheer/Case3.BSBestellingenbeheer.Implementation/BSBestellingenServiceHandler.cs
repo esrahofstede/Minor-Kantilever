@@ -14,6 +14,9 @@ namespace Case3.BSBestellingenbeheer.Implementation
     {
         private IBestellingManager _bestellingManager;
 
+        /// <summary>
+        /// Creates instance and fills database for the first time
+        /// </summary>
         public BSBestellingenServiceHandler()
         {
 
@@ -26,11 +29,21 @@ namespace Case3.BSBestellingenbeheer.Implementation
             _bestellingManager = new BestellingManager();
         }
 
+        /// <summary>
+        /// Creates instance of class but with mock possible
+        /// </summary>
+        /// <param name="bestellingManager"></param>
         public BSBestellingenServiceHandler(IBestellingManager bestellingManager)
         {
             _bestellingManager = bestellingManager;
         }
 
+
+        /// <summary>
+        /// Get firstbestelling from bestellingmanager
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <returns></returns>
         public FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage)
         {
             return new FindFirstBestellingResultMessage()

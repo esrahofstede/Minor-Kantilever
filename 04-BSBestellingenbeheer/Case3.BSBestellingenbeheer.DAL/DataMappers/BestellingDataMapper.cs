@@ -11,14 +11,6 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
 {
     public class BestellingDataMapper
     {
-        public void Insert(Bestelling bestelling)
-        {
-            using (var context = new BestellingContext())
-            {
-                context.Bestellingen.Add(bestelling);
-                context.SaveChanges();
-            }
-        }
 
         public Bestelling GetBestellingToPack(BestellingContext context)
         {
