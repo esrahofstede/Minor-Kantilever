@@ -54,7 +54,15 @@ namespace Case3.PcSWinkelen.Implementation
         {
             _winkelmandDataMapper = new WinkelmandDataMapper();
             _winkelmandItemDTOMapper = new WinkelmandItemDTOMapper();
-            _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            try
+            {
+                _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            } 
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            
             log4net.Config.XmlConfigurator.Configure();
         }
         
