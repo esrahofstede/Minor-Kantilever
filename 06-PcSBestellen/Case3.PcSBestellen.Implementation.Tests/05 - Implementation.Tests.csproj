@@ -52,6 +52,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -62,17 +66,39 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Managers\BSBestellingenManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Case3.PcSBestellen.Agent\09 - Agent.csproj">
+      <Project>{91ac1292-b089-46ea-8cca-0919b6ce637a}</Project>
+      <Name>09 - Agent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSBestellen.Implementation\04 - Implementation.csproj">
+      <Project>{3520eb86-5dd7-424f-a046-219231fe7c83}</Project>
+      <Name>04 - Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSBestellen.PcSBestellenSchema\01b - PcSBestellenSchema.csproj">
+      <Project>{22c02c22-9975-4d18-89c7-dc424663e0af}</Project>
+      <Name>01b - PcSBestellenSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01a - Schema.csproj">
+      <Project>{0ceb091a-9056-4bd0-87d2-864bf8fdf5c4}</Project>
+      <Name>01a - Schema</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

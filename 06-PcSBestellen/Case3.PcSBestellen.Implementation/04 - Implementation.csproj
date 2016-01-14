@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Managers\BSBestellingenManager.cs" />
+    <Compile Include="Managers\Interfaces\IBSBestellingenManager.cs" />
     <Compile Include="PcSBestellenServiceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

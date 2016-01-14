@@ -1,33 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.PcSBestellen.Contract;
-using log4net;
-using Case3.PcSBestellen.Agent.Agents;
+using Case3.PcSBestellen.Implementation.Managers;
+using Case3.PcSBestellen.Implementation.Managers.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
-using Case3.BSBestellingenbeheer.V1.Messages;
+using log4net;
 
 namespace Case3.PcSBestellen.Implementation
 {
+    /// <summary>
+    /// Responsible for connecting to the BSBestellingen using the Agent and Converting it's values using the manager
+    /// </summary>
     public class PcSBestellenServiceHandler : IPcSBestellenService
     {
         private static ILog _logger = LogManager.GetLogger(typeof(PcSBestellenServiceHandler));
-
+        private IBSBestellingenManager _bestellingenManager;
+        
+        /// <summary>
+        /// This is the default constructor
+        /// </summary>
         public PcSBestellenServiceHandler()
         {
             log4net.Config.XmlConfigurator.Configure();
+            _bestellingenManager = new BSBestellingenManager();
         }
 
+        /// <summary>
+        /// This constructor is for testing purposes
+        /// </summary>
+        /// <param name="manager">This should be a mock of IBSBestellingenManager</param>
+        public PcSBestellenServiceHandler(IBSBestellingenManager manager)
+        {
+            _bestellingenManager = manager;
+        }
+
+        
         public FindNextBestellingResultMessage FindNextBestelling(FindNextBestellingRequestMessage requestMessage)
         {
-            BsBestellingenbeheerAgent bsBestellingenBeheerAgent = new BsBestellingenbeheerAgent();
-            FindFirstBestellingResultMessage findNextBestellingResultMessage = bsBestellingenBeheerAgent.FindFirstBestelling(new FindFirstBestellingRequestMessage());
-            return new FindNextBestellingResultMessage()
-            {
-                BestellingOpdracht = findNextBestellingResultMessage.BestellingOpdracht,
-            };
+            FindNextBestellingResultMessage resultMessage = _bestellingenManager.FindNextBestelling(requestMessage);
+
+            return resultMessage;
         }
 
     }
