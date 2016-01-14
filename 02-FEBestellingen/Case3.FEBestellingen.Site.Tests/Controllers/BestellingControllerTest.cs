@@ -27,7 +27,7 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
                     {
                         Naam = "Fietsbel",
                         Leveranciersnaam = "Gazelle",
-                        Leverancierscode = "GZ12345FB",
+                        Leverancierscode = "GA12345FB",
                         Aantal = 1
                     },
                     new ArtikelViewModel
@@ -79,7 +79,7 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
             //First item
             Assert.AreEqual("Fietsbel", bestellingViewModel.Artikelen[0].Naam);
             Assert.AreEqual("Gazelle", bestellingViewModel.Artikelen[0].Leveranciersnaam);
-            Assert.AreEqual("GZ12345FB", bestellingViewModel.Artikelen[0].Leverancierscode);
+            Assert.AreEqual("GA12345FB", bestellingViewModel.Artikelen[0].Leverancierscode);
             Assert.AreEqual(1, bestellingViewModel.Artikelen[0].Aantal);
             //Second item
             Assert.AreEqual("Zadelpen", bestellingViewModel.Artikelen[1].Naam);

@@ -5,6 +5,7 @@ using Case3.PcSBestellen.V1.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -22,7 +23,7 @@ namespace Case3.FEBestellingen.Site.Controllers
         /// </summary>
         public BestellingController()
         {
-            _bestellingManager = new BestellingManager();
+            //_bestellingManager = new BestellingManager();
         }
         /// <summary>
         /// This constructor is for testing purposes
@@ -36,11 +37,33 @@ namespace Case3.FEBestellingen.Site.Controllers
         /// This function returns an overview page of a Bestelling
         /// </summary>
         /// <returns>View with products of the Bestelling</returns>
+        [Authorize(Roles = "Magazijnmedewerkers")]
         public ActionResult Index()
         {
             //dummy data, delete this when real data is available
-            var requestMessage = new FindNextBestellingRequestMessage();
-            var model = _bestellingManager.FindNextBestelling(requestMessage);
+            //var requestMessage = new FindNextBestellingRequestMessage();
+            //var model = _bestellingManager.FindNextBestelling(requestMessage);
+
+            var model = new BestellingViewModel
+            {
+                Artikelen = new List<ArtikelViewModel>
+                {
+                    new ArtikelViewModel
+                    {
+                        Naam = "Fietsbel",
+                        Leveranciersnaam = "Gazelle",
+                        Leverancierscode = "GA12345FB",
+                        Aantal = 1,                        
+                    },
+                    new ArtikelViewModel
+                    {
+                        Naam = "Zadelpen",
+                        Leveranciersnaam = "Giant",
+                        Leverancierscode = "GI12345ZP",
+                        Aantal = 2,
+                    }
+                }
+            };
             return View(model);
         }
 
