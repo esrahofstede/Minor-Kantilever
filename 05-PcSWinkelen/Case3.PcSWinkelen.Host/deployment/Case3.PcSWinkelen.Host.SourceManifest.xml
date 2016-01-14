@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <DbFullSql path="C:\GIT\Goudgeel\99-Shared\DropTablesIfExist.sql" Transacted="False" />
   <DbFullSql path="C:\GIT\Goudgeel\99-Shared\GRANTscript.sql" Transacted="False" />
+  <DbFullSql path="C:\GIT\Goudgeel\99-Shared\DropTablesIfExist.sql" Transacted="False" />
   <IisApp path="C:\GIT\Goudgeel\05-PcSWinkelen\Case3.PcSWinkelen.Host\obj\Acceptatie\Package\PackageTmp" />
   <setAcl path="C:\GIT\Goudgeel\05-PcSWinkelen\Case3.PcSWinkelen.Host\obj\Acceptatie\Package\PackageTmp" setAclResourceType="Directory" />
   <setAcl path="C:\GIT\Goudgeel\05-PcSWinkelen\Case3.PcSWinkelen.Host\obj\Acceptatie\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />

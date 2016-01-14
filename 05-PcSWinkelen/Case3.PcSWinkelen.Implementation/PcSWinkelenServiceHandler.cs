@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Interfaces;
@@ -14,6 +15,7 @@ using Case3.PcSWinkelen.Implementation.Mappers;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
 using System.ServiceModel;
+using System.Web.Hosting;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
 using case3common.v1.faults;
 
@@ -44,6 +46,7 @@ namespace Case3.PcSWinkelen.Implementation
             _winkelmandItemDTOMapper = DTOMapper;
             _winkelmandDataMapper = dataMapper;
             _catalogusBeheerAgent = catalogusBeheerAgent;
+            log4net.Config.XmlConfigurator.Configure();
         }
 
         //[ExcludeFromCodeCoverage]
@@ -117,7 +120,17 @@ namespace Case3.PcSWinkelen.Implementation
         /// <returns></returns>
         public AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request)
         {
-            Product product = _catalogusBeheerAgent.GetProductById(request.WinkelmandItemRef.ProductId);
+            Product product;
+            try
+            {
+                product = _catalogusBeheerAgent.GetProductById(request.WinkelmandItemRef.ProductId);
+            }
+            catch (CommunicationException ex)
+            {
+                _logger.Fatal("somthing went wrong", ex);
+                throw new FaultException("Ophalen product ging niet");
+            }
+
 
             var winkelmandItem = new DTOSchema.WinkelmandItem
             {
@@ -128,7 +141,15 @@ namespace Case3.PcSWinkelen.Implementation
 
             var itemToInsert = _winkelmandItemDTOMapper.MapDTOToEntity(winkelmandItem);
 
+            try
+            {
             _winkelmandDataMapper.Insert(itemToInsert);
+            }
+            catch (Exception ex)
+            {
+                _logger.Fatal("Database fout", ex);
+                throw new FaultException(ex.InnerException.Message);
+            }
 
             return new AddItemToWinkelmandResponseMessage {Succeeded = true};
         }
