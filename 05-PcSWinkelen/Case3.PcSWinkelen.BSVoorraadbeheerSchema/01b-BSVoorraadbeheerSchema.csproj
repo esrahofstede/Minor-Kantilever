@@ -100,8 +100,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>if not $(ConfigurationName) == DebugWithoutBuild ^
-svcutil ^
+    <PreBuildEvent>svcutil ^
   /out:$(ProjectDir)BSVoorraadbeheerTypes.cs ^
   /r:"$(SolutionDir)Case3.PcSWinkelen.BSCatalogusbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSCatalogusbeheer.Schema.dll" ^
   /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1,Case3.PcSWinkelen.Schema.Messages" ^
