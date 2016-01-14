@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Artikel.cs" />
     <Compile Include="Bestelling.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

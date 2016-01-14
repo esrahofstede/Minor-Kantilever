@@ -14,6 +14,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
         {
 
             List<Artikel> lijst = new List<Artikel>();
+            List<Artikel> lijst2 = new List<Artikel>();
 
             Artikel artikel1 = new Artikel()
             {
@@ -57,22 +58,27 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             lijst.Add(artikel3);
             lijst.Add(artikel4);
 
+            lijst2.Add(artikel1);
+            lijst2.Add(artikel2);
+            lijst2.Add(artikel3);
+            lijst2.Add(artikel4);
+
             Bestelling a = new Bestelling()
             {
                 ID = 1,
-                BestelDatum = new DateTime(),
-                Artikellen = lijst,
+                BestelDatum = DateTime.Now,
+                Artikelen = lijst,
             };
 
             Bestelling b = new Bestelling()
             {
                 ID = 2,
-                BestelDatum = new DateTime(),
-                Artikellen = lijst,
+                BestelDatum = DateTime.Now.AddDays(1),
+                Artikelen = lijst2,
             };
 
             context.Bestellingen.AddRange(new Bestelling[] { a, b });
-            context.Artikellen.AddRange(new Artikel[] { artikel1, artikel2, artikel3, artikel4 });
+            context.Artikelen.AddRange(new Artikel[] { artikel1, artikel2, artikel3, artikel4 });
 
             base.Seed(context);
         }

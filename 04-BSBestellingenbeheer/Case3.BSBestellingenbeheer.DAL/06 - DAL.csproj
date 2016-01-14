@@ -61,6 +61,9 @@
     <Compile Include="BestellingContext.cs" />
     <Compile Include="BestellingDataMapper.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Mappings\ArtikelMapping.cs" />
+    <Compile Include="Mappings\BestellingMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

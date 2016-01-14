@@ -17,9 +17,15 @@
       <Word>Webwinkel</Word>
       <Word>Prijs</Word>
       <Word>Leverancier</Word>
+      <Word>Leverancierscode</Word>
       <Word>Voorraad</Word>
       <Word>Mvc</Word>
       <Word>Sms</Word>
+      <Word>Artikel</Word>
+      <Word>Artikelen</Word>
+      <Word>Bestel</Word>
+      <Word>Bestelling</Word>
+      <Word>Aantal</Word>
   </Recognized>
     <Unrecognized>
     </Unrecognized>

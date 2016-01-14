@@ -21,7 +21,7 @@ namespace Case3.BSBestellingenbeheer.DAL
 
         public Bestelling GetBestellingToPack(BestellingContext context)
         {
-            return context.Bestellingen.First();
+            return context.Bestellingen.OrderBy(b => b.BestelDatum).FirstOrDefault();
         }
     }
 }

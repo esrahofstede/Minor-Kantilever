@@ -10,7 +10,7 @@ namespace Case3.BSBestellingenbeheer.Entities
     {
         private long _id;
         private DateTime _bestelDatum;
-        private List<Artikel> _artikellen;
+        private List<Artikel> _artikelen;
 
         public long ID
         {
@@ -25,10 +25,10 @@ namespace Case3.BSBestellingenbeheer.Entities
         }
 
 
-        public List<Artikel> Artikellen
+        public virtual List<Artikel> Artikelen
         {
-            get { return _artikellen; }
-            set { _artikellen = value; }
+            get { return _artikelen; }
+            set { _artikelen = value; }
         }
 
 
