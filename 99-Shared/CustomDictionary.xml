@@ -27,6 +27,7 @@
       <Word>Aantal</Word>
       <Word>Artikelen</Word>
       <Word>Bestellingen</Word>
+      <Word>Bs</Word>
   </Recognized>
     <Unrecognized>
     </Unrecognized>
@@ -55,6 +56,7 @@
       <Acronym>Incl</Acronym>
       <Acronym>ID</Acronym>
       <Acronym>SMS</Acronym>
+      <Acronym>Bs</Acronym>
     </CasingExceptions> 
   </Acronyms>
 </Dictionary>

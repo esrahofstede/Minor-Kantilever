@@ -7,7 +7,7 @@
   <xs:element name="FindNextBestellingRequestMessage" nillable="true" type="tns:FindNextBestellingRequestMessage" />
   <xs:complexType name="FindNextBestellingResultMessage">
     <xs:sequence>
-      <xs:element name="BestellingSummary" nillable="true" xmlns:q1="urn:case3-bsbestellingenbeheer:v1:schema" type="q1:Bestelling">
+      <xs:element name="BestellingOpdracht" nillable="true" xmlns:q1="urn:case3-bsbestellingenbeheer:v1:schema" type="q1:Bestelling">
         <xs:annotation>
           <xs:appinfo>
             <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
