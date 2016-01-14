@@ -31,6 +31,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
 
 
         // GET: Winkelmand
+        /// <summary>
+        /// This function returns a view of the user's Winkelmand
+        /// </summary>
+        /// <returns>Returns a view with the data of a WinkelmandViewModel</returns>
         public ActionResult Index()
         {
             string userGuid;
