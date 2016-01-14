@@ -20,5 +20,10 @@ namespace Case3.FEWebwinkel.Site.Tests.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public bool InsertArtikelToWinkelmand(int productID, string userGuid)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

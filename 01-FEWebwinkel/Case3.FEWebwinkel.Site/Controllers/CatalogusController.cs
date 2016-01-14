@@ -61,12 +61,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 cookieNator = new CookieNator<Guid>(Request.Cookies);
                 cookieNator.CreateCookieWithUserGuid(userGuid);
             }
+            
+            bool succeeded =_catalogusManager.InsertArtikelToWinkelmand(articleID, userGuid);
 
-            // -----------------  TODO Call to PcSWinkelen to store Winkelmand  ----------------------------------
-            // something like : _catalogusmanager.insertArtikelToWinkelmand(productID, userGuid);
-            // -----------------  END TODO  -------------------------
-
-            return RedirectToAction("Index", new { AddedToWinkelmand = true });
+            return RedirectToAction("Index", new { AddedToWinkelmand = succeeded });
         }
     }
 }

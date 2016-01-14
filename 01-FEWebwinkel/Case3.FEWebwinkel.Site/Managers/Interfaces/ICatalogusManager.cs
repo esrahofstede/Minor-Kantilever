@@ -23,5 +23,7 @@ namespace Case3.FEWebwinkel.Site.Managers.Interfaces
         /// <param name="catalogusCollection">The collection which has to be converted</param>
         /// <returns>Returns a list with CatalogusViewModels<returns>
         List<CatalogusViewModel> ConvertCatalogusCollectionToCatalogusViewModelList(CatalogusCollection catalogusCollection);
+
+        bool InsertArtikelToWinkelmand(int productID, string userGuid);
     }
 }

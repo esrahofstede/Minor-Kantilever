@@ -13,7 +13,7 @@ namespace Case3.PcSWinkelen.Implementation.Mappers
     {
         public WinkelmandItem MapDTOToEntity(DTOSchema.WinkelmandItem item)
         {
-            if (item.Product.Prijs != null)
+            if (item?.Product.Prijs != null)
                 return new WinkelmandItem
                 {
                     ProductID = item.Product.Id,
@@ -29,6 +29,10 @@ namespace Case3.PcSWinkelen.Implementation.Mappers
 
         public DTOSchema.WinkelmandItem MapEntityToDTO(Entities.WinkelmandItem item)
         {
+            if (item == null)
+            {
+                return null;
+            }
             return new DTOSchema.WinkelmandItem
             {
                 Aantal = item.Aantal,

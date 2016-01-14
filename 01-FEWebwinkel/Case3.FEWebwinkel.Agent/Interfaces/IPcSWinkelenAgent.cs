@@ -7,5 +7,7 @@ namespace Case3.FEWebwinkel.Agent.Interfaces
         CatalogusCollection GetProducts();
         CatalogusCollection GetProducts(int page, int pageSize);
         WinkelMandCollection GetWinkelmand(string sessionId);
+
+        bool AddProductToWinkelmand(int productId, string sessionId);
     }
 }

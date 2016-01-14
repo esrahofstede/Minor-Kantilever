@@ -12,6 +12,33 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
         private CatalogusCollection largeCollectionPart1;
         private CatalogusCollection largeCollectionPart2;
         private int count;
+        private WinkelMandCollection _winkelmandCollection = new WinkelMandCollection
+        {
+                new WinkelmandItem {
+
+                    Product = new Product
+                    {
+                        Id = 1,
+                        Naam = "Fietsbel",
+                        Prijs = 4.95M,
+                        AfbeeldingURL = "fietsbel.gif",
+                        LeverancierNaam = "Gazelle",
+                    },
+                    Aantal = 2,
+                },
+                new WinkelmandItem
+                {
+                    Product = new Product
+                    {
+                        Id = 2,
+                        Naam = "Zadelpen",
+                        Prijs = 12.50M,
+                        AfbeeldingURL = "zadelpen.gif",
+                        LeverancierNaam = "Giant",
+                    },
+                    Aantal = 1,
+                },
+        };
 
         private CatalogusCollection _smallCollection = new CatalogusCollection
             {
@@ -79,7 +106,14 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
 
         public AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request)
         {
-            throw new NotImplementedException();
+            bool result;
+            if (request.WinkelmandItemRef.SessieId == null)
+            {
+                result = false;
+            }
+            else { result = true; }
+
+            return new AddItemToWinkelmandResponseMessage { Succeeded = result };
         }
 
         public Task<AddItemToWinkelmandResponseMessage> AddProductToWinkelmandAsync(AddItemToWinkelmandRequestMessage request)
@@ -116,7 +150,7 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
 
         public GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request)
         {
-            throw new NotImplementedException();
+            return new GetWinkelmandResponseMessage { SessieId = "test", WinkelmandCollection = _winkelmandCollection };
         }
 
         public Task<GetWinkelmandResponseMessage> GetWinkelmandAsync(GetWinkelmandRequestMessage request)
