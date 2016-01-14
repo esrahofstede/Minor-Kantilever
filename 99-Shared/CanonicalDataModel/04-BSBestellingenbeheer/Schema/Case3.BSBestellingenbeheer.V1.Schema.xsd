@@ -10,7 +10,7 @@
   
   <xs:complexType name="Bestelling">
     <xs:sequence>
-      <xs:element name="Artikelen" type="k:Artikelen" />
+      <xs:element name="Artikelen" nillable="true" type="k:Artikelen" />
     </xs:sequence>
   </xs:complexType>
 

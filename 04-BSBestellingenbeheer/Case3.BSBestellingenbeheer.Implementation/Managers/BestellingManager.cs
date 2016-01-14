@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Case3.BSBestellingenbeheer.V1.Schema;
-using Case3.BSBestellingenbeheer.DAL;
+using Case3.BSBestellingenbeheer.DAL.DataMappers;
 using Case3.BSCatalogusBeheer.Schema.ProductNS;
+using Case3.BSBestellingenbeheer.DAL.Context;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Managers
 {
@@ -15,7 +16,10 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
         public Bestelling FindFirstBestelling()
         {
 
-            Bestelling bestelling = new Bestelling();
+            Bestelling bestelling = new Bestelling()
+            {
+                Artikelen = new Artikelen()
+            };
 
             BestellingDataMapper bestellingDataMappper = new BestellingDataMapper();
 
@@ -24,24 +28,24 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
             using (var context = new BestellingContext())
             {
                 bestellingEntity = bestellingDataMappper.GetBestellingToPack(context);
-            }
             
-            if (bestellingEntity != null)
-            {
-                if(bestellingEntity.Artikelen.Count > 0)
+                if (bestellingEntity != null)
                 {
-                    foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
+                    if(bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
                     {
-                        bestelling.Artikelen.Add(new BestelItem()
+                        foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
                         {
-                            Product = new Product ()
+                            bestelling.Artikelen.Add(new BestelItem()
                             {
-                                Naam = artikel.Naam,
-                                LeverancierNaam = artikel.Leverancier,
-                                LeveranciersProductId = artikel.Leverancierscode,
-                            },
-                            Aantal = artikel.Aantal
-                        });
+                                Product = new Product ()
+                                {
+                                    Naam = artikel.Naam,
+                                    LeverancierNaam = artikel.Leverancier,
+                                    LeveranciersProductId = artikel.Leverancierscode,
+                                },
+                                Aantal = artikel.Aantal
+                            });
+                        }
                     }
                 }
             }

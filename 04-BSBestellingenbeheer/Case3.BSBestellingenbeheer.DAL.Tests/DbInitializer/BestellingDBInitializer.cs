@@ -1,4 +1,5 @@
-﻿using Case3.BSBestellingenbeheer.Entities;
+﻿using Case3.BSBestellingenbeheer.DAL.Context;
+using Case3.BSBestellingenbeheer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,7 +15,6 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
         {
 
             List<Artikel> lijst = new List<Artikel>();
-            List<Artikel> lijst2 = new List<Artikel>();
 
             Artikel artikel1 = new Artikel()
             {
@@ -58,17 +58,57 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             lijst.Add(artikel3);
             lijst.Add(artikel4);
 
-            lijst2.Add(artikel1);
-            lijst2.Add(artikel2);
-            lijst2.Add(artikel3);
-            lijst2.Add(artikel4);
-
             Bestelling a = new Bestelling()
             {
                 ID = 1,
                 BestelDatum = DateTime.Now,
                 Artikelen = lijst,
             };
+            
+
+            List<Artikel> lijst2 = new List<Artikel>();
+
+            Artikel artikel21 = new Artikel()
+            {
+                ID = 21,
+                Naam = "fietsbel",
+                Leverancier = "gazelle",
+                Leverancierscode = "03g54hbronlsfads",
+                Aantal = 3
+            };
+
+            Artikel artikel22 = new Artikel()
+            {
+                ID = 22,
+                Naam = "remschijf",
+                Leverancier = "gazelle",
+                Leverancierscode = "oiaernglggafds234",
+                Aantal = 3
+            };
+
+            Artikel artikel23 = new Artikel()
+            {
+                ID = 23,
+                Naam = "kantilever",
+                Leverancier = "gazelle",
+                Leverancierscode = "kvbaf9345245sda",
+                Aantal = 3
+            };
+
+
+            Artikel artikel24 = new Artikel()
+            {
+                ID = 24,
+                Naam = "zadel",
+                Leverancier = "gazelle",
+                Leverancierscode = "vbsdaijgbreq6542",
+                Aantal = 3
+            };
+
+            lijst2.Add(artikel21);
+            lijst2.Add(artikel22);
+            lijst2.Add(artikel23);
+            lijst2.Add(artikel24);
 
             Bestelling b = new Bestelling()
             {
@@ -76,10 +116,8 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 BestelDatum = DateTime.Now.AddDays(1),
                 Artikelen = lijst2,
             };
-
             context.Bestellingen.AddRange(new Bestelling[] { a, b });
-            context.Artikelen.AddRange(new Artikel[] { artikel1, artikel2, artikel3, artikel4 });
-
+            context.Artikelen.AddRange(new Artikel[] { artikel1, artikel2, artikel3, artikel4, artikel21, artikel22, artikel23, artikel24 });
             base.Seed(context);
         }
     }

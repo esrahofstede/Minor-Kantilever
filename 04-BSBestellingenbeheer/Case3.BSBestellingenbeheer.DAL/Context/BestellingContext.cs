@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using Case3.BSBestellingenbeheer.DAL.Mappings;
 
-namespace Case3.BSBestellingenbeheer.DAL
+namespace Case3.BSBestellingenbeheer.DAL.Context
 {
     public class BestellingContext : DbContext
     {
