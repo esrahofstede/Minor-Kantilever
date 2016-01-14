@@ -1,4 +1,7 @@
-﻿using Case3.FEBestellingen.Site.ViewModels;
+﻿using Case3.FEBestellingen.Site.Managers;
+using Case3.FEBestellingen.Site.Managers.Interfaces;
+using Case3.FEBestellingen.Site.ViewModels;
+using Case3.PcSBestellen.V1.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +15,23 @@ namespace Case3.FEBestellingen.Site.Controllers
     /// </summary>
     public class BestellingController : Controller
     {
+        private IBestellingManager _bestellingManager;
+
+        /// <summary>
+        /// This is the default constructor
+        /// </summary>
+        public BestellingController()
+        {
+            _bestellingManager = new BestellingManager();
+        }
+        /// <summary>
+        /// This constructor is for testing purposes
+        /// </summary>
+        /// <param name="agent">This should be a mock of IPcSWinkelenAgent</param>
+        public BestellingController(IBestellingManager manager)
+        {
+            _bestellingManager = manager;
+        }
         /// <summary>
         /// This function returns an overview page of a Bestelling
         /// </summary>
@@ -19,11 +39,8 @@ namespace Case3.FEBestellingen.Site.Controllers
         public ActionResult Index()
         {
             //dummy data, delete this when real data is available
-            var artikel1 = new ArtikelViewModel { Naam = "fietsbel", Leveranciersnaam = "Gazelle", Leverancierscode = "012489", Aantal = 2 };
-            var artikel2 = new ArtikelViewModel { Naam = "zadelpen", Leveranciersnaam = "Gazelle", Leverancierscode = "424521", Aantal = 1 };
-            List<ArtikelViewModel> artikelen = new List<ArtikelViewModel>() { artikel1, artikel2 };
-            var model = new BestellingViewModel { Artikelen = artikelen };
-
+            var requestMessage = new FindNextBestellingRequestMessage();
+            var model = _bestellingManager.FindNextBestelling(requestMessage);
             return View(model);
         }
 

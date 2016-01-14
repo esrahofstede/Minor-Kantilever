@@ -37,6 +37,10 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -85,8 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BestellingControllerTest.cs" />
+    <Compile Include="Managers\BestellingManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -95,6 +99,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Case3.FEBestellingen.Agent\02 - Agent.csproj">
+      <Project>{e95f5000-f949-4805-aa6c-b0140c16336b}</Project>
+      <Name>02 - Agent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.FEBestellingen.Schema\01 - Schema.csproj">
+      <Project>{94088eea-b48b-4902-8529-6135c7a69f93}</Project>
+      <Name>01 - Schema</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.FEBestellingen.Site\04 - Site.csproj">
       <Project>{59D3EA00-7ABC-4F52-9065-A4445A593B70}</Project>
       <Name>04 - Site</Name>
