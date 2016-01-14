@@ -111,5 +111,22 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             Assert.AreEqual(10, result.ElementAt(1).Voorraad);
         }
         #endregion
+        #region -------[Tests for InsertArtikelToWinkelmand]-------
+        [TestMethod]
+        public void ManagerInsertsWinkelmand()
+        {
+            // Arrange
+            var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
+            agentMock.Setup(a => a.AddProductToWinkelmand(1, "test"))
+                     .Returns(true);
+            var target = new CatalogusManager(agentMock.Object);
+
+            // Act
+            var result = target.InsertArtikelToWinkelmand(1, "test");
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+        #endregion
     }
 }

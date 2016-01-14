@@ -79,14 +79,25 @@ namespace Case3.FEWebwinkel.Agent
 
         public WinkelMandCollection GetWinkelmand(string sessionId)
         {
-            //var winkelmandCollection = new WinkelMandCollection
-            //{
-            //                 new WinkelmandjeItem { Product = new Product { Id = 1,Naam = "Fietsbel",Prijs = 4.95M,AfbeeldingURL = "fietsbel.gif",LeverancierNaam = "Gazelle",},Aantal = 2,},
-            //                 new WinkelmandjeItem { Product = new Product { Id = 2,Naam = "Zadelpen",Prijs = 12.50M,AfbeeldingURL = "zadelpen.gif",LeverancierNaam = "Giant",},Aantal = 1,},
-            //};
-            //return winkelmandCollection;
             GetWinkelmandResponseMessage result = _agent.GetWinkelmand(new GetWinkelmandRequestMessage() { SessieId = sessionId });
             return result.WinkelmandCollection;
+        }
+
+
+        public bool AddProductToWinkelmand(int productId, string sessionId)
+        {
+            AddItemToWinkelmandResponseMessage result = _agent.AddProductToWinkelmand(
+                new AddItemToWinkelmandRequestMessage()
+                {
+                    WinkelmandItemRef =
+                    new WinkelmandItemRef
+                    {
+                        ProductId = productId,
+                        SessieId = sessionId,
+                        Aantal = 1
+                    },
+                });
+            return result.Succeeded;
         }
     }
 }
