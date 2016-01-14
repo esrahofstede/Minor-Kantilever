@@ -52,6 +52,16 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithoutBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugWithoutBuild\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -104,8 +114,30 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>if not $(ConfigurationName) == DebugWithoutBuild ^
+ svcutil ^
+ /dataContractOnly ^
+  /out:$(ProjectDir)PcSWinkelenTypes.cs ^
+  /r:"$(SolutionDir)Case3.PcSWinkelen.BSCatalogusbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSCatalogusbeheer.Schema.dll" ^
+  /r:"$(SolutionDir)Case3.PcSWinkelen.BSVoorraadbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSVoorraadbeheerSchema.dll" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1,Case3.PcSWinkelen.Schema.Messages" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1,Case3.PcSWinkelen.Schema.ProductUpdateNS" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.PcSWinkelen.Schema.CategorieNS" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.PcSWinkelen.Schema.ProductNS" ^
+  /n:"urn:case3-pcswinkelen:v1:schema,Case3.PcSWinkelen.SchemaNS" ^
+  /n:"urn:case3-pcswinkelen:v1:messages,Case3.PcSWinkelen.MessagesNS" ^
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Product.xsd" ^
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Categorie.xsd" ^
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Schema.xsd" ^
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Messages.xsd"
+
+if not $(ConfigurationName) == DebugWithoutBuild ^
+svcutil /dataContractOnly /out:$(ProjectDir)CommonTypes.cs "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\FunctionalErrorList.xsd"
+
+REM /n"" ^
+REM /n"     NOG MEER NAMESPACES     " ^
+REM /n"" ^
+</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
