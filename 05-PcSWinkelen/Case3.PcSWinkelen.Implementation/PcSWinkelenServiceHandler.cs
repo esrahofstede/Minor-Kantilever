@@ -18,6 +18,7 @@ using System.ServiceModel;
 using System.Web.Hosting;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
 using case3common.v1.faults;
+using System.Runtime.Serialization;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -27,6 +28,9 @@ namespace Case3.PcSWinkelen.Implementation
         /// The logger for logging exceptions
         /// </summary>
         private static ILog _logger = LogManager.GetLogger(typeof(PcSWinkelenServiceHandler));
+
+        [DataMember]
+        private ErrorList _list = new ErrorList();
 
         private IWinkelmandDataMapper _winkelmandDataMapper;
         private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
@@ -57,7 +61,32 @@ namespace Case3.PcSWinkelen.Implementation
         {
             _winkelmandDataMapper = new WinkelmandDataMapper();
             _winkelmandItemDTOMapper = new WinkelmandItemDTOMapper();
+            try
+            {
             _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
+            }
+            catch (TechnicalException ex)
+            {
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = ex.Message,
+                    Data = "test" as object
+                });
+            }
+            catch (Exception ex)
+            {
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = ex.Message,
+                    Data = "test" as object
+                });
+            }
+            if (_list.Count > 0)
+            {
+                throw new FaultException<ErrorList>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
+            }
             log4net.Config.XmlConfigurator.Configure();
         }
 
@@ -68,12 +97,9 @@ namespace Case3.PcSWinkelen.Implementation
         /// <returns></returns>
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
-
             CatalogusCollection catalogusCollection = new CatalogusCollection();
-
             if (request != null)
             {
-
                 try
                 {
                     CatalogusManager catalogusManager = new CatalogusManager();
@@ -87,21 +113,28 @@ namespace Case3.PcSWinkelen.Implementation
                 });
             }
                 }
-                catch (Exception)
+                catch (TechnicalException ex)
                 {
-
-                    throw new FaultException("Er is een fout opgetreden in het ophalen van de catalogus");
-
-                    /*throw new FaultException<FunctionalErrorList>(new FunctionalErrorList()
-                    {
-                        new FunctionalErrorDetail()
-                        {
-                            Message = "Er is een fout opgetreden in het ophalen van de catalogus",
-                            ErrorCode = 1001,
-                        }
-                    }, "Error");*/
+                    _list.Add(new ErrorDetail()
+                {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                        Data = ex.Data
+                    });
                 }
-                
+                catch (Exception ex)
+                    {
+                    _list.Add(new ErrorDetail()
+                        {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                        Data = ex.Data
+                    });
+                        }
+                if (_list.Count > 0)
+                {
+                    throw new FaultException<ErrorList>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
+                }
             }
 
             FindCatalogusResponseMessage findCatalogusResponseMessage = new FindCatalogusResponseMessage()
@@ -151,7 +184,7 @@ namespace Case3.PcSWinkelen.Implementation
                 throw new FaultException(ex.InnerException.Message);
             }
 
-            return new AddItemToWinkelmandResponseMessage {Succeeded = true};
+            return new AddItemToWinkelmandResponseMessage { Succeeded = true };
         }
 
         /// <summary>

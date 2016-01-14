@@ -6,6 +6,7 @@ using Minor.ServiceBus.Agent.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,7 +23,18 @@ namespace Case3.PcSWinkelen.Agent.Agents
         public BSCatalogusBeheerAgent()
         {
             _factory = new ServiceFactory<ICatalogusBeheer>("BSCatalogusBeheer");
-            _agent = _factory.CreateAgent();
+            try
+            {
+                _agent = _factory.CreateAgent();
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new TechnicalException("BSCatalogusBeheer kan niet bereikt worden.", ex.InnerException);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
