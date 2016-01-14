@@ -86,7 +86,7 @@ namespace Case3.FEWebwinkel.Agent
             }
             catch(FaultException<ErrorLijst> ex)
             {
-                var x = ex;
+                throw new Exception(ex.Message);
             }
             catch (FaultException ex)
             {

@@ -24,7 +24,14 @@ namespace Case3.FEWebwinkel.Site.Managers
         /// </summary>
         public CatalogusManager()
         {
-            _pcsWinkelenAgent = new PcSWinkelenAgent();
+            try
+            {
+                _pcsWinkelenAgent = new PcSWinkelenAgent();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
         /// <summary>
         /// This constructor is for testing purposes
@@ -43,9 +50,16 @@ namespace Case3.FEWebwinkel.Site.Managers
         /// <returns>Returns a list with CatalogusViewModels</returns>
         public IEnumerable<CatalogusViewModel> FindAllProducts()
         {
-            var products = _pcsWinkelenAgent.GetProducts();
-            var viewmodels = ConvertCatalogusCollectionToCatalogusViewModelList(products);
-            return viewmodels;
+            try
+            {
+                var products = _pcsWinkelenAgent.GetProducts();
+                var viewmodels = ConvertCatalogusCollectionToCatalogusViewModelList(products);
+                return viewmodels;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         /// <summary>
