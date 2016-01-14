@@ -12,8 +12,8 @@ namespace Case3.PcSBestellen.Agent.Agents
 
         public BsBestellingenbeheerAgent()
         {
-            //_factory = new ServiceFactory<IPcSWinkelenService>("PcSWinkelen");
-            //_agent = _factory.CreateAgent();
+            _factory = new ServiceFactory<IBSBestellingenbeheerService>("BSBestellen");
+            _agent = _factory.CreateAgent();
         }
 
         public BsBestellingenbeheerAgent(IBSBestellingenbeheerService agent)

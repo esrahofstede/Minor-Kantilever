@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{91AC1292-B089-46EA-8CCA-0919B6CE637A}</ProjectGuid>
+    <ProjectGuid>{22C02C22-9975-4D18-89C7-DC424663E0AF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Case3.PcSBestellen.Agent</RootNamespace>
-    <AssemblyName>Case3.PcSBestellen.Agent</AssemblyName>
+    <RootNamespace>Case3.PcSBestellen.PcSBestellenSchema</RootNamespace>
+    <AssemblyName>Case3.PcSBestellen.PcSBestellenSchema</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,8 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,28 +29,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\..\99-Shared\Case3Key.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Acceptatie|AnyCPU'">
-    <OutputPath>bin\Acceptatie\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Minor.ServiceBus.Agent.Implementation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=73e451069382071b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Minor.Caespi.ServiceBus.Agent.1.0.0.3\lib\net452\Minor.ServiceBus.Agent.Implementation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,20 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agents\BsBestellingenbeheerAgent.cs" />
-    <Compile Include="Interfaces\IBsBestellingenbeheerAgent.cs" />
+    <Compile Include="DTO\PcSBestellenTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\99-Shared\Case3Key.snk">
-      <Link>Case3Key.snk</Link>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
-      <Link>CustomDictionary.xml</Link>
-    </CodeAnalysisDictionary>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -84,6 +53,11 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>svcutil.exe /dataContractOnly /out:$(ProjectDir)DTO\PcSBestellenTypes.cs  /r:"$(SolutionDir)Case3.PcSBestellen.Schema\bin\$(ConfigurationName)\Case3.PcSBestellen.Schema.dll" /n:"urn:case3-pcsbestellen:v1:messages,Case3.PcSBestellen.V1.Messages"  /n:"urn:case3-bsbestellingenbeheer:v1:schema,Case3.BSBestellingenbeheer.V1.Schema"  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.BSCatalogusBeheer.Schema.ProductNS"  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.BSCatalogusBeheer.Schema.CategorieNS" "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\V1\Product.xsd" "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\V1\Categorie.xsd" "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Schema.xsd" "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Schema\Case3.PcSBestellen.V1.Messages.xsd"
+
+</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

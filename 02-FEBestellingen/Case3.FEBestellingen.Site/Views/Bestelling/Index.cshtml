@@ -1,0 +1,44 @@
+﻿@model Case3.FEBestellingen.Site.ViewModels.BestellingViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bestelling</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Naam
+        </th>
+        <th>
+            Leverancier
+        </th>
+        <th>
+            Leverancierscode
+        </th>
+        <th>
+            Aantal
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Artikelen)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Leveranciersnaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Leverancierscode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aantal)
+            </td>
+        </tr>
+    }
+</table>
+<div class="clearfix"></div>
+

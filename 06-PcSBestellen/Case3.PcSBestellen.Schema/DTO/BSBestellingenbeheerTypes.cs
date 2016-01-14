@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:messages", ClrNamespace="Case3.BSBestellingenbeheer.V1.Messages")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="Case3.BSBestellingenbeheer.V1.Schemap")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="Case3.BSBestellingenbeheer.V1.Schema")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.ProductNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.CategorieNS")]
 
@@ -47,7 +47,7 @@ namespace Case3.BSBestellingenbeheer.V1.Messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.BSBestellingenbeheer.V1.Schemap.Bestelling BestellingOpdrachtField;
+        private Case3.BSBestellingenbeheer.V1.Schema.Bestelling BestellingOpdrachtField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -62,7 +62,7 @@ namespace Case3.BSBestellingenbeheer.V1.Messages
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.BSBestellingenbeheer.V1.Schemap.Bestelling BestellingOpdracht
+        public Case3.BSBestellingenbeheer.V1.Schema.Bestelling BestellingOpdracht
         {
             get
             {
@@ -75,7 +75,7 @@ namespace Case3.BSBestellingenbeheer.V1.Messages
         }
     }
 }
-namespace Case3.BSBestellingenbeheer.V1.Schemap
+namespace Case3.BSBestellingenbeheer.V1.Schema
 {
     using System.Runtime.Serialization;
     
@@ -88,7 +88,7 @@ namespace Case3.BSBestellingenbeheer.V1.Schemap
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.BSBestellingenbeheer.V1.Schemap.Artikelen ArtikelenField;
+        private Case3.BSBestellingenbeheer.V1.Schema.Artikelen ArtikelenField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -103,7 +103,7 @@ namespace Case3.BSBestellingenbeheer.V1.Schemap
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.BSBestellingenbeheer.V1.Schemap.Artikelen Artikelen
+        public Case3.BSBestellingenbeheer.V1.Schema.Artikelen Artikelen
         {
             get
             {
@@ -119,7 +119,7 @@ namespace Case3.BSBestellingenbeheer.V1.Schemap
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Artikelen", Namespace="urn:case3-bsbestellingenbeheer:v1:schema", ItemName="ArtikelItem")]
-    public class Artikelen : System.Collections.Generic.List<Case3.BSBestellingenbeheer.V1.Schemap.BestelItem>
+    public class Artikelen : System.Collections.Generic.List<Case3.BSBestellingenbeheer.V1.Schema.BestelItem>
     {
     }
     

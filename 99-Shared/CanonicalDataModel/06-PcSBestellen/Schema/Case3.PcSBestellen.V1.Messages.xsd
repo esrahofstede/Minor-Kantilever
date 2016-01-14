@@ -14,7 +14,7 @@
   </xs:complexType>
   <xs:complexType name="FindNextBestellingResultMessage">
     <xs:sequence>
-      <xs:element name="BestellingSummary" type="k:Bestelling"/>
+      <xs:element name="BestellingOpdracht" type="k:Bestelling"/>
     </xs:sequence>
   </xs:complexType>
   

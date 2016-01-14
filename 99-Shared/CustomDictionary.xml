@@ -22,6 +22,11 @@
       <Word>Mvc</Word>
       <Word>Sms</Word>
       <Word>Artikel</Word>
+
+      <Word>Leveranciersnaam</Word>
+      <Word>Leverancierscode</Word>
+      <Word>Aantal</Word>
+
       <Word>Artikelen</Word>
       <Word>Bestel</Word>
       <Word>Bestelling</Word>
