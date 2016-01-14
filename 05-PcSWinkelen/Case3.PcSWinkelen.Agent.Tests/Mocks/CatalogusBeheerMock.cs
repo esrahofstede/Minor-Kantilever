@@ -3,6 +3,7 @@ using Case3.PcSWinkelen.Schema.Messages;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -51,21 +52,25 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
             },
         };
 
+        [ExcludeFromCodeCoverage]
         public MsgFindCategorieenResult FindCategorieen(MsgFindCategorieenRequest message)
         {
             throw new NotImplementedException();
         }
 
+        [ExcludeFromCodeCoverage]
         public Task<MsgFindCategorieenResult> FindCategorieenAsync(MsgFindCategorieenRequest message)
         {
             throw new NotImplementedException();
         }
 
+        [ExcludeFromCodeCoverage]
         public MsgFindLeveranciersResult FindLeveranciers(MsgFindLeveranciersRequest message)
         {
             throw new NotImplementedException();
         }
 
+        [ExcludeFromCodeCoverage]
         public Task<MsgFindLeveranciersResult> FindLeveranciersAsync(MsgFindLeveranciersRequest message)
         {
             throw new NotImplementedException();
@@ -79,6 +84,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
             };
         }
 
+        [ExcludeFromCodeCoverage]
         public Task<MsgFindProductByIdResult> FindProductByIdAsync(MsgFindProductByIdRequest message)
         {
             throw new NotImplementedException();
@@ -102,16 +108,19 @@ namespace Case3.PcSWinkelen.Agent.Tests.Mocks
             };
         }
 
+        [ExcludeFromCodeCoverage]
         public Task<MsgFindProductsResult> FindProductsAsync(MsgFindProductsRequest message)
         {
             throw new NotImplementedException();
         }
 
+        [ExcludeFromCodeCoverage]
         public MsgUpdateCatalogusResult UpdateCatalogus(MsgUpdateCatalogusRequest message)
         {
             throw new NotImplementedException();
         }
 
+        [ExcludeFromCodeCoverage]
         public Task<MsgUpdateCatalogusResult> UpdateCatalogusAsync(MsgUpdateCatalogusRequest message)
         {
             throw new NotImplementedException();

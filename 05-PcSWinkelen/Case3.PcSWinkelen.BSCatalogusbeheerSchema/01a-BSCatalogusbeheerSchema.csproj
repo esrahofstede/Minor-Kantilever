@@ -46,6 +46,16 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug%28Without Build Events%29|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug%28Without Build Events%29\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
       <Private>True</Private>
@@ -87,15 +97,8 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>svcutil ^
-  /out:$(ProjectDir)BSCatalogusbeheerTypes.cs ^
-  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1,Case3.PcSWinkelen.Schema.Messages" ^
-  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1,Case3.PcSWinkelen.Schema.ProductUpdateNS" ^
-  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.PcSWinkelen.Schema.ProductNS" ^
-  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.PcSWinkelen.Schema.CategorieNS" ^
-  /n:"urn:schemas-www-kantilever-nl:common:fouten:v1,Case3.PcSWinkelen.Schema.FoutenNS" ^
-  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:leverancier:v1,Case3.PcSWinkelen.Schema.LeverancierNS" ^
-  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Contract\*.wsdl"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
