@@ -1,9 +1,10 @@
-﻿using System;
-using Case3.BSBestellingenbeheer.V1.Messages;
+﻿using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.BSBestellingenbeheer.V1.Schema;
+using Case3.BSCatalogusBeheer.Schema.ProductNS;
 using Case3.PcSBestellen.Agent.Interfaces;
 using Case3.PcSBestellen.Implementation.Managers;
 using Case3.PcSBestellen.V1.Messages;
+using Case3.PcSBestellen.V1.Schema;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -22,7 +23,29 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
             {
                 BestellingOpdracht = new Bestelling
                 {
-                    Artikelen = new Artikelen(),// TODO nog aanvullen met gegevens en deze Asserten
+                    Artikelen = new Artikelen
+                    {
+                        new BestelItem
+                        {
+                            Product = new Product
+                            {
+                                Naam = "Fietsbel",
+                                LeverancierNaam = "Gazelle",
+                                LeveranciersProductId = "GA12345FB",
+                            },
+                            Aantal = 1,
+                        },
+                        new BestelItem
+                        {
+                            Product = new Product
+                            {
+                                Naam = "Zadelpen",
+                                LeverancierNaam = "Giant",
+                                LeveranciersProductId = "GI12345ZP",
+                            },
+                            Aantal = 2,
+                        },
+                    },
                 }
             };
         }
@@ -45,10 +68,21 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
             var findFirstResultMessage = CreateFindFirstBestellingResultMessage();
 
             // Act
-            var result = manager.ConvertFindFirstResultMessageToFindNextResultMessage(findFirstResultMessage);
+            FindNextBestellingResultMessage result = manager.ConvertFindFirstResultMessageToFindNextResultMessage(findFirstResultMessage);
+            ArtikelenPcS artikelen = result.BestellingOpdracht.ArtikelenPcS;
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(FindNextBestellingResultMessage));
+            //First Item
+            Assert.AreEqual("Fietsbel", artikelen[0].Product.Naam);
+            Assert.AreEqual("Gazelle", artikelen[0].Product.LeverancierNaam);
+            Assert.AreEqual("GA12345FB", artikelen[0].Product.LeveranciersProductId);
+            Assert.AreEqual(1, artikelen[0].Aantal);
+            //First Item
+            Assert.AreEqual("Zadelpen", artikelen[1].Product.Naam);
+            Assert.AreEqual("Giant", artikelen[1].Product.LeverancierNaam);
+            Assert.AreEqual("GI12345ZP", artikelen[1].Product.LeveranciersProductId);
+            Assert.AreEqual(2, artikelen[1].Aantal);
         }
         #endregion
         #region -------[Tests for ConvertFindNextRequestMessageToFindFirstRequestMessage]-------

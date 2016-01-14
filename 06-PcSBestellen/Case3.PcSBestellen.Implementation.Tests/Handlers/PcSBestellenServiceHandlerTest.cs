@@ -4,6 +4,8 @@ using Case3.PcSBestellen.Implementation.Managers.Interfaces;
 using Moq;
 using Case3.PcSBestellen.V1.Messages;
 using Case3.BSBestellingenbeheer.V1.Schema;
+using Case3.PcSBestellen.V1.Schema;
+using Case3.BSCatalogusBeheer.Schema.ProductNS;
 
 namespace Case3.PcSBestellen.Implementation.Tests.Handlers
 {
@@ -18,9 +20,31 @@ namespace Case3.PcSBestellen.Implementation.Tests.Handlers
         {
             return new FindNextBestellingResultMessage
             {
-                BestellingOpdracht = new Bestelling
+                BestellingOpdracht = new BestellingPcS
                 {
-                    Artikelen = null, // TODO nog aanvullen met gegevens en deze Asserten
+                    ArtikelenPcS = new ArtikelenPcS
+                    {
+                        new BestelItemPcS
+                        {
+                            Product = new Product
+                            {
+                                Naam = "Fietsbel",
+                                LeverancierNaam = "Gazelle",
+                                LeveranciersProductId = "GA12345FB",
+                            },
+                            Aantal = 1,
+                        },
+                        new BestelItemPcS
+                        {
+                            Product = new Product
+                            {
+                                Naam = "Zadelpen",
+                                LeverancierNaam = "Giant",
+                                LeveranciersProductId = "GI12345ZP",
+                            },
+                            Aantal = 2,
+                        },
+                    }
                 }
             };
         }
@@ -58,9 +82,20 @@ namespace Case3.PcSBestellen.Implementation.Tests.Handlers
 
             // Act
             var result = handler.FindNextBestelling(new FindNextBestellingRequestMessage());
+            var artikelen = result.BestellingOpdracht.ArtikelenPcS;
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(FindNextBestellingResultMessage));
+            //First Item
+            Assert.AreEqual("Fietsbel", artikelen[0].Product.Naam);
+            Assert.AreEqual("Gazelle", artikelen[0].Product.LeverancierNaam);
+            Assert.AreEqual("GA12345FB", artikelen[0].Product.LeveranciersProductId);
+            Assert.AreEqual(1, artikelen[0].Aantal);
+            //First Item
+            Assert.AreEqual("Zadelpen", artikelen[1].Product.Naam);
+            Assert.AreEqual("Giant", artikelen[1].Product.LeverancierNaam);
+            Assert.AreEqual("GI12345ZP", artikelen[1].Product.LeveranciersProductId);
+            Assert.AreEqual(2, artikelen[1].Aantal);
         }
         #endregion
     }

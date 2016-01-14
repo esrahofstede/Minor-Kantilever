@@ -1,8 +1,14 @@
-﻿using Case3.BSBestellingenbeheer.V1.Messages;
+﻿using AutoMapper;
+using Case3.BSBestellingenbeheer.V1.Messages;
+using Case3.BSBestellingenbeheer.V1.Schema;
+using Case3.BSCatalogusBeheer.Schema.ProductNS;
 using Case3.PcSBestellen.Agent.Agents;
 using Case3.PcSBestellen.Agent.Interfaces;
 using Case3.PcSBestellen.Implementation.Managers.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
+using Case3.PcSBestellen.V1.Schema;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Case3.PcSBestellen.Implementation.Managers
 {
@@ -38,9 +44,24 @@ namespace Case3.PcSBestellen.Implementation.Managers
         /// <returns>Returns a FindFirstBestellingRequestMessage<returns>
         public FindNextBestellingResultMessage ConvertFindFirstResultMessageToFindNextResultMessage(FindFirstBestellingResultMessage findFirstResultMessage)
         {
+            var artikelen = new ArtikelenPcS();
+
+            foreach (var item in findFirstResultMessage.BestellingOpdracht.Artikelen)
+            {
+                artikelen.Add(new BestelItemPcS
+                    {
+                        Aantal = item.Aantal,
+                        ExtensionData = item.ExtensionData,
+                        Product = item.Product
+                    });
+            }
+            
             return new FindNextBestellingResultMessage
             {
-                BestellingOpdracht = findFirstResultMessage.BestellingOpdracht,
+                BestellingOpdracht = new BestellingPcS
+                {
+                    ArtikelenPcS = artikelen
+                },
             };
         }
 
