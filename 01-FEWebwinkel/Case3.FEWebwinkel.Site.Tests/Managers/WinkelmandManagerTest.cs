@@ -52,7 +52,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         {
             // Arrange
             var collection = CreateWinkelmandCollection();
-            //needed to prevent that CatalogusManager connects to PcSWinkelen
+            //needed to prevent that WinkelmandManager connects to PcSWinkelen
             var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
             var target = new WinkelmandManager(agentMock.Object);
 
@@ -68,7 +68,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         {
             // Arrange
             var collection = CreateWinkelmandCollection();
-            //needed to prevent that CatalogusManager connects to PcSWinkelen
+            //needed to prevent that WinkelmandManager connects to PcSWinkelen
             var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
             var target = new WinkelmandManager(agentMock.Object);
 
@@ -94,12 +94,12 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         {
             // Arrange
             var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
-            agentMock.Setup(a => a.GetWinkelmand("afsf"))
+            agentMock.Setup(a => a.GetWinkelmand("test"))
                      .Returns(CreateWinkelmandCollection());
             var target = new WinkelmandManager(agentMock.Object);
 
             // Act
-            var result = target.GetWinkelmand("afsf");
+            var result = target.GetWinkelmand("test");
 
             // Assert
             Assert.AreEqual(typeof(List<ArtikelViewModel>), result.GetType());
@@ -110,12 +110,12 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         {
             // Arrange
             var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
-            agentMock.Setup(a => a.GetWinkelmand("afsf"))
+            agentMock.Setup(a => a.GetWinkelmand("test"))
                      .Returns(CreateWinkelmandCollection());
             var target = new WinkelmandManager(agentMock.Object);
 
             // Act
-            var result = target.GetWinkelmand("afsf");
+            var result = target.GetWinkelmand("test");
 
             // Assert
             Assert.AreEqual(2, result.Count);

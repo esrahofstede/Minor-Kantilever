@@ -8,10 +8,23 @@ using System.Threading.Tasks;
 
 namespace Case3.FEWebwinkel.Site.Managers.Interfaces
 {
-    interface IWinkelmandManager
+    /// <summary>
+    /// The WinkelmandManager interface
+    /// </summary>
+    public interface IWinkelmandManager
     {
-        List<ArtikelViewModel> GetWinkelmand(string SessieId);
+        /// <summary>
+        /// This function gets all the products from a Winkelmand
+        /// </summary>
+        /// <param name="SessieId">The Id to find the correct Winkelmand</param>
+        /// <returns>Returns a list of ArtikelViewModels</returns>
+        List<ArtikelViewModel> GetWinkelmand(string sessionId);
 
-        List<ArtikelViewModel> ConvertWinkelmandCollectionToArtikelViewModelList(WinkelMandCollection WinkelmandCollection);
+        /// <summary>
+        /// This function Converts a List with ArtikelViewModels based on the given WinkelMandCollection
+        /// </summary>
+        /// <param name="WinkelmandCollection">The collection which has to be converted</param>
+        /// <returns>Returns a list with ArtikelViewModels</returns>
+        List<ArtikelViewModel> ConvertWinkelmandCollectionToArtikelViewModelList(WinkelMandCollection winkelmandCollection);
     }
 }

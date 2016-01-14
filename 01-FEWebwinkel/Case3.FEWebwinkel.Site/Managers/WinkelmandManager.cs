@@ -33,24 +33,26 @@ namespace Case3.FEWebwinkel.Site.Managers
             _pcsWinkelenAgent = agent;
         }
 
-
-        public List<ArtikelViewModel> GetWinkelmand(string SessieId)
+        /// <summary>
+        /// This function gets a list of all products from the Winkelmand
+        /// </summary>
+        /// <param name="sessionId">The id to find the correct winkelmand</param>
+        /// <returns>Returns a list of ArtikelViewModels</returns>
+        public List<ArtikelViewModel> GetWinkelmand(string sessionId)
         {
-            var winkelmand = _pcsWinkelenAgent.GetWinkelmand(SessieId);
-
+            var winkelmand = _pcsWinkelenAgent.GetWinkelmand(sessionId);
             var ViewModels = ConvertWinkelmandCollectionToArtikelViewModelList(winkelmand);
-
             return ViewModels;
         }
 
         /// <summary>
         /// This function Converts a List with ArtikelViewModels based on the given WinkelMandCollection
         /// </summary>
-        /// <param name="WinkelmandCollection">The collection which has to be converted</param>
+        /// <param name="winkelmandCollection">The collection which has to be converted</param>
         /// <returns>Returns a list with ArtikelViewModels</returns>
-        public List<ArtikelViewModel> ConvertWinkelmandCollectionToArtikelViewModelList(WinkelMandCollection WinkelmandCollection)
+        public List<ArtikelViewModel> ConvertWinkelmandCollectionToArtikelViewModelList(WinkelMandCollection winkelmandCollection)
         {
-            var ArtikelViewModels = WinkelmandCollection.Select(wm => new ArtikelViewModel
+            var ArtikelViewModels = winkelmandCollection.Select(wm => new ArtikelViewModel
             {
                 ID = wm.Product.Id,
                 ArtikelNaam = wm.Product.Naam,
