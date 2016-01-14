@@ -22,5 +22,10 @@ namespace Case3.PcSWinkelen.Implementation.Tests
         {
             Item = item;
         }
+
+        public void Update(WinkelmandItem item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

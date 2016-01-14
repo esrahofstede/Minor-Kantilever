@@ -69,5 +69,27 @@ namespace Case3.PcSWinkelen.DAL.Tests
                 Assert.AreEqual(1, result.Count());
             }
         }
+
+        [TestMethod]
+        public void UpdateAantalFromWinkelmandItem()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                // Arrange
+                var target = new WinkelmandDataMapper();
+                target.Insert(DummyData.GetDummyWinkelmandItem);
+                var newItem = DummyData.GetDummyWinkelmandItem;
+                newItem.Aantal++;
+                
+
+                // Act
+                target.Update(newItem);
+                List<WinkelmandItem> result = target.FindAllBy(w => w.SessieID == newItem.SessieID && w.ProductID == newItem.ProductID).ToList();
+
+                // Assert
+                Assert.AreEqual(6, result[0].Aantal);
+            }
+        }
+
     }
 }
