@@ -1,11 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Case3.BSCatalogusBeheer.Schema.ProductNS;
 using Case3.PcSBestellen.Implementation.Managers.Interfaces;
-using Moq;
 using Case3.PcSBestellen.V1.Messages;
-using Case3.BSBestellingenbeheer.V1.Schema;
 using Case3.PcSBestellen.V1.Schema;
-using Case3.BSCatalogusBeheer.Schema.ProductNS;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace Case3.PcSBestellen.Implementation.Tests.Handlers
 {
