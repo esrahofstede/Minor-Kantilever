@@ -1,9 +1,8 @@
-﻿using System;
-using Case3.BSBestellingenbeheer.V1.Messages;
+﻿using Case3.BSBestellingenbeheer.V1.Messages;
+using Case3.PcSBestellen.Agent.Agents;
+using Case3.PcSBestellen.Agent.Interfaces;
 using Case3.PcSBestellen.Implementation.Managers.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
-using Case3.PcSBestellen.Agent.Interfaces;
-using Case3.PcSBestellen.Agent.Agents;
 
 namespace Case3.PcSBestellen.Implementation.Managers
 {
