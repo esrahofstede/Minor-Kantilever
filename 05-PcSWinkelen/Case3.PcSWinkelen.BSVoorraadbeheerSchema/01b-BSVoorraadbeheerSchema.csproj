@@ -37,6 +37,35 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\..\99-Shared\Case3Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug%28Without Build Events%29|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug%28Without Build Events%29\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithoutBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugWithoutBuild\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Acceptatie|AnyCPU'">
+    <OutputPath>bin\Acceptatie\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -55,7 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
-      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
+      <Project>{1B0325D0-D374-4EB1-ABE7-13A77C885F14}</Project>
       <Name>01a-BSCatalogusbeheerSchema</Name>
     </ProjectReference>
   </ItemGroup>
@@ -87,8 +116,7 @@
 
 REM /n"" ^
 REM /n"     NOG MEER NAMESPACES     " ^
-REM /n"" ^
-</PreBuildEvent>
+REM /n"" ^</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

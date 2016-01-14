@@ -42,6 +42,35 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\..\99-Shared\Case3Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug%28Without Build Events%29|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug%28Without Build Events%29\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithoutBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugWithoutBuild\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Acceptatie|AnyCPU'">
+    <OutputPath>bin\Acceptatie\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -58,16 +87,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
-      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
-      <Name>01a-BSCatalogusbeheerSchema</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSWinkelen.BSVoorraadbeheerSchema\01b-BSVoorraadbeheerSchema.csproj">
-      <Project>{495eeffc-6b29-42ba-bc94-fc745fc00abe}</Project>
-      <Name>01b-BSVoorraadbeheerSchema</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
@@ -76,6 +95,16 @@
     <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
+      <Project>{1B0325D0-D374-4EB1-ABE7-13A77C885F14}</Project>
+      <Name>01a-BSCatalogusbeheerSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSVoorraadbeheerSchema\01b-BSVoorraadbeheerSchema.csproj">
+      <Project>{495EEFFC-6B29-42BA-BC94-FC745FC00ABE}</Project>
+      <Name>01b-BSVoorraadbeheerSchema</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -115,8 +144,6 @@ svcutil /dataContractOnly /out:$(ProjectDir)CommonTypes.cs "$(SolutionDir)..\99-
 REM /n"" ^
 REM /n"     NOG MEER NAMESPACES     " ^
 REM /n"" ^
-
-
 </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

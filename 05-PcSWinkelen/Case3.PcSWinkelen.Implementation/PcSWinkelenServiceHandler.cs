@@ -4,6 +4,7 @@ using Case3.PcSWinkelen.MessagesNS;
 using Case3.PcSWinkelen.SchemaNS;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Case3.PcSWinkelen.Agent.Agents;
@@ -21,16 +22,20 @@ namespace Case3.PcSWinkelen.Implementation
     public class PcSWinkelenServiceHandler : IPcSWinkelenService
     {
         /// <summary>
-        /// Get list of Products with the Voorraad included
+        /// The logger for logging exceptions
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
         private static ILog _logger = LogManager.GetLogger(typeof(PcSWinkelenServiceHandler));
 
         private IWinkelmandDataMapper _winkelmandDataMapper;
         private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
         private IWinkelmandItemDTOMapper _winkelmandItemDTOMapper;
 
+        /// <summary>
+        /// Custom constructor for testing purposes
+        /// </summary>
+        /// <param name="dataMapper">The winkelmand datamapper which is to be used. Must implement IWinkelmandDataMapper</param>
+        /// <param name="catalogusBeheerAgent">The winkelmand agent which is to be used. Must implement IBSCatalogusBeheerAgent</param>
+        /// <param name="DTOMapper">The DTO mapper which is to be used. Must implement IWinkelmandItemDTOMapper</param>
         public PcSWinkelenServiceHandler(
             IWinkelmandDataMapper dataMapper, 
             IBSCatalogusBeheerAgent catalogusBeheerAgent,
@@ -41,7 +46,10 @@ namespace Case3.PcSWinkelen.Implementation
             _catalogusBeheerAgent = catalogusBeheerAgent;
         }
 
-        [ExcludeFromCodeCoverage]
+        //[ExcludeFromCodeCoverage]
+        /// <summary>
+        /// Default constructor which implements default mappers and agents.
+        /// </summary>
         public PcSWinkelenServiceHandler()
         {
             _winkelmandDataMapper = new WinkelmandDataMapper();
@@ -49,7 +57,12 @@ namespace Case3.PcSWinkelen.Implementation
             _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
             log4net.Config.XmlConfigurator.Configure();
         }
-        
+
+        /// <summary>
+        /// Get list of Products with the Voorraad included
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request)
         {
 
@@ -120,18 +133,39 @@ namespace Case3.PcSWinkelen.Implementation
             return new AddItemToWinkelmandResponseMessage {Succeeded = true};
         }
 
+        /// <summary>
+        /// Gets all items from the winkelmand in the database
+        /// </summary>
+        /// <param name="request">The request containing the session id</param>
+        /// <returns></returns>
         public GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request)
         {
             var response = new GetWinkelmandResponseMessage();
             response.WinkelmandCollection = new WinkelMandCollection();
             response.SessieId = request.SessieId;
-
+            try
+            {
             var winkelmandItems = _winkelmandDataMapper.FindAllBy(w => w.SessieID == request.SessieId).ToList();
+
             foreach (var winkelmandItem in winkelmandItems)
             {
-                response.WinkelmandCollection.Add(_winkelmandItemDTOMapper.MapEntityToDTO(winkelmandItem));
+                try
+                {
+                    response.WinkelmandCollection.Add(_winkelmandItemDTOMapper.MapEntityToDTO(winkelmandItem));
+                }
+                catch (NullReferenceException)
+                {
+                    throw new FaultException("DTOMapping couldn't be completed for item: " + winkelmandItem.Naam + " with id: " + winkelmandItem.ProductID);
+                }
+                
             }
 
+            }
+            catch (Exception ex)
+            {
+                _logger.Fatal("Something went wrong", ex);
+                throw new FaultException("Product items couldn't be retrieved");
+            }
 
             return response;
         }
