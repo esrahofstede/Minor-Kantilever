@@ -4,10 +4,11 @@ using System.Runtime.Serialization;
 
 namespace Case3.PcSWinkelen.Implementation
 {
-    [Serializable]
+    [DataContract]
     internal class FunctionalException : Exception
     {
-        public FunctionalErrorList Errors { get; set; }
+        //[DataMember]
+        //public FunctionalErrorList Errors { get; set; }
 
         public FunctionalException()
         {

@@ -1,11 +1,15 @@
-﻿using System;
+﻿using case3common.v1.faults;
+using System;
 using System.Runtime.Serialization;
 
 namespace Case3.PcSWinkelen.Agent.Agents
 {
-    [Serializable]
-    class TechnicalException : Exception
+    [DataContract]
+    public class TechnicalException : Exception
     {
+        [DataMember]
+        public FunctionalErrorList Errors { get; set; }
+
         public TechnicalException()
         {
         }

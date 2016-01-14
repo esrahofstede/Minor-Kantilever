@@ -29,7 +29,7 @@ namespace Case3.PcSWinkelen.Agent.Agents
             }
             catch (InvalidOperationException ex)
             {
-                throw new TechnicalException(ex.Message, ex.InnerException);
+                throw new TechnicalException("BSCatalogusBeheer kan niet bereikt worden.", ex.InnerException);
             }
             catch (Exception)
             {

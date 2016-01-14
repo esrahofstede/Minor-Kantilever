@@ -4,8 +4,6 @@ using Case3.PcSWinkelen.MessagesNS;
 using Case3.PcSWinkelen.SchemaNS;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Interfaces;
@@ -16,6 +14,7 @@ using log4net;
 using System.ServiceModel;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
 using case3common.v1.faults;
+using System.Runtime.Serialization;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -25,6 +24,9 @@ namespace Case3.PcSWinkelen.Implementation
         /// The logger for logging exceptions
         /// </summary>
         private static ILog _logger = LogManager.GetLogger(typeof(PcSWinkelenServiceHandler));
+
+        [DataMember]
+        private ErrorList _list = new ErrorList();
 
         private IWinkelmandDataMapper _winkelmandDataMapper;
         private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
@@ -37,7 +39,7 @@ namespace Case3.PcSWinkelen.Implementation
         /// <param name="catalogusBeheerAgent">The winkelmand agent which is to be used. Must implement IBSCatalogusBeheerAgent</param>
         /// <param name="DTOMapper">The DTO mapper which is to be used. Must implement IWinkelmandItemDTOMapper</param>
         public PcSWinkelenServiceHandler(
-            IWinkelmandDataMapper dataMapper, 
+            IWinkelmandDataMapper dataMapper,
             IBSCatalogusBeheerAgent catalogusBeheerAgent,
             IWinkelmandItemDTOMapper DTOMapper)
         {
@@ -57,15 +59,32 @@ namespace Case3.PcSWinkelen.Implementation
             try
             {
                 _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
-            } 
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
             }
-            
+            catch (TechnicalException ex)
+            {
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = ex.Message,
+                    Data = "test" as object
+                });
+            }
+            catch (Exception ex)
+            {
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = ex.Message,
+                    Data = "test" as object
+                });
+            }
+            if (_list.Count > 0)
+            {
+                throw new FaultException<ErrorList>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
+            }
             log4net.Config.XmlConfigurator.Configure();
         }
-        
+
         /// <summary>
         /// Get list of Products with the Voorraad included
         /// </summary>
@@ -81,28 +100,35 @@ namespace Case3.PcSWinkelen.Implementation
                     CatalogusManager catalogusManager = new CatalogusManager();
                     IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
                     foreach (CatalogusProductItem productVoorraad in productVoorraadList)
-            {
-                catalogusCollection.Add(new CatalogusProductItem()
-                {
-                    Product = productVoorraad.Product,
-                    Voorraad = productVoorraad.Voorraad
-                });
-            }
-                }
-                catch (FunctionalException ex)
-                {
-                    throw new FaultException<FunctionalErrorList>(ex.Errors);
-                }
-                catch (Exception)
-                {
-                    throw new FaultException<FunctionalErrorList>(new FunctionalErrorList()
                     {
-                        new FunctionalErrorDetail()
+                        catalogusCollection.Add(new CatalogusProductItem()
                         {
-                            Message = "Er is een fout opgetreden in het ophalen van de catalogus.",
-                            ErrorCode = 1001,
-                        }
-                    }, "Error");
+                            Product = productVoorraad.Product,
+                            Voorraad = productVoorraad.Voorraad
+                        });
+                    }
+                }
+                catch (TechnicalException ex)
+                {
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                        Data = ex.Data
+                    });
+                }
+                catch (Exception ex)
+                {
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                        Data = ex.Data
+                    });
+                }
+                if (_list.Count > 0)
+                {
+                    throw new FaultException<ErrorList>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
                 }
             }
 
@@ -150,20 +176,20 @@ namespace Case3.PcSWinkelen.Implementation
             response.SessieId = request.SessieId;
             try
             {
-            var winkelmandItems = _winkelmandDataMapper.FindAllBy(w => w.SessieID == request.SessieId).ToList();
+                var winkelmandItems = _winkelmandDataMapper.FindAllBy(w => w.SessieID == request.SessieId).ToList();
 
-            foreach (var winkelmandItem in winkelmandItems)
-            {
-                try
+                foreach (var winkelmandItem in winkelmandItems)
                 {
-                response.WinkelmandCollection.Add(_winkelmandItemDTOMapper.MapEntityToDTO(winkelmandItem));
-            }
-                catch (NullReferenceException)
-                {
-                    throw new FaultException("DTOMapping couldn't be completed for item: " + winkelmandItem.Naam + " with id: " + winkelmandItem.ProductID);
+                    try
+                    {
+                        response.WinkelmandCollection.Add(_winkelmandItemDTOMapper.MapEntityToDTO(winkelmandItem));
+                    }
+                    catch (NullReferenceException)
+                    {
+                        throw new FaultException("DTOMapping couldn't be completed for item: " + winkelmandItem.Naam + " with id: " + winkelmandItem.ProductID);
+                    }
+
                 }
-                
-            }
 
             }
             catch (Exception ex)

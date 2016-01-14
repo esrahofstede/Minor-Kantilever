@@ -14,7 +14,6 @@ namespace Case3.PcSWinkelen.Agent.Managers
     {
         private IBSVoorraadBeheerAgent _bSVoorraadBeheerAgent;
         private IBSCatalogusBeheerAgent _bSCatalogusBeheerAgent;
-        private FunctionalErrorList _list = new FunctionalErrorList();
 
         /// <summary>
         /// Creates an instance of the CatalogusManager
@@ -25,21 +24,13 @@ namespace Case3.PcSWinkelen.Agent.Managers
                 _bSVoorraadBeheerAgent = new BSVoorraadBeheerAgent();
                 _bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent();
             }
-            catch (TechnicalException ex)
+            catch (TechnicalException)
             {
-                _list.Add(new FunctionalErrorDetail()
-                {
-                    Message = ex.Message,
-                    Data = ex.Data,
-                });
+                throw;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                _list.Add(new FunctionalErrorDetail()
-                {
-                    Message = ex.Message,
-                    Data = ex.Data,
-                });
+                throw;
             }
         }
 
