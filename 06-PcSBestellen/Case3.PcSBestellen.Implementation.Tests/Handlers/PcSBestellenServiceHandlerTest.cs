@@ -60,7 +60,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Handlers
             var result = handler.FindNextBestelling(new FindNextBestellingRequestMessage());
 
             // Assert
-            Assert.Fail();
+            Assert.IsInstanceOfType(result, typeof(FindNextBestellingResultMessage));
         }
         #endregion
     }
