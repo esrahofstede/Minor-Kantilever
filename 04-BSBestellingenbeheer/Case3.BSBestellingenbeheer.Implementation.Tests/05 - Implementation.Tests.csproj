@@ -70,9 +70,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BSBestellingenServiceHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Case3.BSBestellingenbeheer.Implementation\04 - Implementation.csproj">

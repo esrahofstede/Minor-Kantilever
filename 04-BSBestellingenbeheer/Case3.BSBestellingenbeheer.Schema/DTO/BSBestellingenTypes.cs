@@ -188,13 +188,6 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNS
             }
         }
     }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ProductCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ItemName="Product")]
-    public class ProductCollection : System.Collections.Generic.List<Case3.BSCatalogusBeheer.Schema.ProductNS.Product>
-    {
-    }
 }
 namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
 {
