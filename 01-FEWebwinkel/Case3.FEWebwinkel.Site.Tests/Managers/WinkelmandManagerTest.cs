@@ -102,7 +102,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             var result = target.GetWinkelmand("test");
 
             // Assert
-            Assert.AreEqual(typeof(List<ArtikelViewModel>), result.GetType());
+            Assert.AreEqual(typeof(WinkelmandViewModel), result.GetType());
         }
 
         [TestMethod]
@@ -116,19 +116,19 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
 
             // Act
             var result = target.GetWinkelmand("test");
-
+            var artikelen = result.Artikelen;
             // Assert
-            Assert.AreEqual(2, result.Count);
+            Assert.AreEqual(2, artikelen.Count);
             //First Viewmodel
-            Assert.AreEqual(1, result[0].ID);
-            Assert.AreEqual("Fietsbel", result[0].ArtikelNaam);
-            Assert.AreEqual(5.99M, result[0].Prijs);
-            Assert.AreEqual(2, result[0].Aantal);
+            Assert.AreEqual(1, artikelen[0].ID);
+            Assert.AreEqual("Fietsbel", artikelen[0].ArtikelNaam);
+            Assert.AreEqual(5.99M, artikelen[0].Prijs);
+            Assert.AreEqual(2, artikelen[0].Aantal);
             //Second Viewmodel
-            Assert.AreEqual(2, result[1].ID);
-            Assert.AreEqual("Zadelpen", result[1].ArtikelNaam);
-            Assert.AreEqual(15.12M, result[1].Prijs);
-            Assert.AreEqual(1, result[1].Aantal);
+            Assert.AreEqual(2, artikelen[1].ID);
+            Assert.AreEqual("Zadelpen", artikelen[1].ArtikelNaam);
+            Assert.AreEqual(15.12M, artikelen[1].Prijs);
+            Assert.AreEqual(1, artikelen[1].Aantal);
         }
     }
 }

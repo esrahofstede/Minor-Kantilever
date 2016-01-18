@@ -890,7 +890,7 @@ namespace case3common.v1.faults
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
         public object Data
         {
             get

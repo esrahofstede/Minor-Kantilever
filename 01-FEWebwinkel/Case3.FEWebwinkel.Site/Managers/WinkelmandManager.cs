@@ -4,10 +4,8 @@ using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Case3.FEWebwinkel.Site.Managers
 {
@@ -34,15 +32,46 @@ namespace Case3.FEWebwinkel.Site.Managers
         }
 
         /// <summary>
-        /// This function gets a list of all products from the Winkelmand
+        /// This function gets a filled WinkelmandViewModel
         /// </summary>
-        /// <param name="sessionId">The id to find the correct winkelmand</param>
-        /// <returns>Returns a list of ArtikelViewModels</returns>
-        public List<ArtikelViewModel> GetWinkelmand(string sessionId)
+        /// <param name="SessieId">The Id to find the correct Winkelmand</param>
+        /// <returns>Returns a WinkelmandViewModel</returns>
+        public WinkelmandViewModel GetWinkelmand(string sessionId)
         {
             var winkelmand = _pcsWinkelenAgent.GetWinkelmand(sessionId);
-            var ViewModels = ConvertWinkelmandCollectionToArtikelViewModelList(winkelmand);
-            return ViewModels;
+
+            var artikelLijst = ConvertWinkelmandCollectionToArtikelViewModelList(winkelmand);
+
+            var winkelmandViewModel = CreateWinkelmandViewModel(sessionId, artikelLijst);
+            return winkelmandViewModel;
+        }
+
+        /// <summary>
+        /// This function creates a WinkelmandViewModel based on the sessionId an artikelLijst
+        /// </summary>
+        /// <param name="sessionId">The ID of the session</param>
+        /// <param name="artikelLijst">The list with artikelen that has to be added to the WinkelmandViewModel</param>
+        /// <returns></returns>
+        private WinkelmandViewModel CreateWinkelmandViewModel(string sessionId, List<ArtikelViewModel> artikelLijst)
+        {
+            decimal totaalInclBTW = 0M;
+            decimal totaalExclBTW = 0M;
+
+            if (sessionId.Length > 0) //SessionId has been set if > 0, so the totals can be calculated
+            {
+                totaalInclBTW = artikelLijst.Select(artikel => (artikel.Prijs * artikel.Aantal)).Sum();
+                totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
+            }
+
+            var winkelmandViewModel = new WinkelmandViewModel
+            {
+                Artikelen = artikelLijst,
+                BTWPercentage = _btwCalculator.BTWPercentage,
+                TotaalInclBTW = totaalInclBTW,
+                TotaalExclBTW = totaalExclBTW,
+                TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW),
+            };
+            return winkelmandViewModel;
         }
 
         /// <summary>

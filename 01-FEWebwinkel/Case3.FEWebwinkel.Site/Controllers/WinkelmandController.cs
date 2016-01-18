@@ -10,7 +10,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
 {
     public class WinkelmandController : Controller
     {
-	    private BTWCalculator _btwCalculator = new BTWCalculator();
         private IWinkelmandManager _winkelmandManager;
 
         /// <summary>
@@ -38,8 +37,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
         public ActionResult Index()
         {
             string userGuid;
-            decimal totaalExclBTW = 0M;
-            decimal totaalInclBTW = 0M;
 
             try //to get the list from an existing cookie
             {
@@ -51,22 +48,8 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 userGuid = Guid.NewGuid().ToString();
             }
             
-            var artikellijst = _winkelmandManager.GetWinkelmand(userGuid);
-            if (userGuid.Length > 0)
-            {
-                totaalInclBTW = artikellijst.Select(artikel => (artikel.Prijs * artikel.Aantal)).Sum();
-                totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
-            }
-
-            var model = new WinkelmandViewModel
-            {
-                Artikelen = artikellijst,
-                BTWPercentage = _btwCalculator.BTWPercentage,
-                TotaalInclBTW = totaalInclBTW,
-                TotaalExclBTW = totaalExclBTW,
-                TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW),
-            };
-
+            var model = _winkelmandManager.GetWinkelmand(userGuid);
+            
             return View(model);
         }
     }
