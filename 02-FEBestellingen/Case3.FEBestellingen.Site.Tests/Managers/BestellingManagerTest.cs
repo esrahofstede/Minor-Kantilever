@@ -1,5 +1,4 @@
-﻿using Case3.BSBestellingenbeheer.V1.SchemaNSPcS;
-using Case3.BSCatalogusBeheer.Schema.ProductNSPcS;
+﻿using Case3.BSCatalogusBeheer.Schema.ProductNSPcS;
 using Case3.FEBestellingen.Agent.Interfaces;
 using Case3.FEBestellingen.Site.Managers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -8,6 +7,7 @@ using System;
 using Moq;
 using Case3.PcSBestellen.V1.Messages;
 using Case3.FEBestellingen.Site.ViewModels;
+using case3pcsbestellen.v1.schema;
 
 namespace Case3.FEBestellingen.Site.Tests.Managers
 {
@@ -18,13 +18,13 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
     public class BestellingManagerTest
     {
         #region -------[Support functions for tests]-------
-        private static Bestelling CreateBestelling()
+        private static BestellingPcS CreateBestelling()
         {
-            var bestelling = new Bestelling
+            var bestelling = new BestellingPcS
             {
-                Artikelen = new Artikelen
+                ArtikelenPcS = new ArtikelenPcS
                 {
-                   new BestelItem
+                   new BestelItemPcS
                    {
                        Product = new Product
                        {
@@ -34,7 +34,7 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
                        },
                        Aantal = 1,
                    },
-                   new BestelItem
+                   new BestelItemPcS
                    {
                        Product = new Product
                        {

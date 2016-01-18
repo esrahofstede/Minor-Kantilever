@@ -2,9 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Case3.PcSBestellen.V1.Messages;
-using Case3.BSBestellingenbeheer.V1.SchemaNSPcS;
 using Case3.BSCatalogusBeheer.Schema.ProductNSPcS;
 using Case3.FEBestellingen.Agent.Agents;
+using case3pcsbestellen.v1.schema;
 
 namespace Case3.FEBestellingen.Agent.Tests
 {
@@ -16,11 +16,11 @@ namespace Case3.FEBestellingen.Agent.Tests
         {
             return new FindNextBestellingResultMessage
             {
-                BestellingSummary = new Bestelling
+                BestellingOpdracht = new BestellingPcS
                 {
-                    Artikelen = new Artikelen
+                    ArtikelenPcS = new ArtikelenPcS
                     {
-                        new BestelItem
+                        new BestelItemPcS
                         {
                             Product = new Product
                             {
@@ -30,7 +30,7 @@ namespace Case3.FEBestellingen.Agent.Tests
                             },
                             Aantal = 1
                         },
-                        new BestelItem
+                        new BestelItemPcS
                         {
                             Product = new Product
                             {
@@ -59,7 +59,7 @@ namespace Case3.FEBestellingen.Agent.Tests
             var result = agent.FindNextBestelling(new FindNextBestellingRequestMessage());
 
             // Assert
-            Assert.IsInstanceOfType(result, typeof(Bestelling));
+            Assert.IsInstanceOfType(result, typeof(BestellingPcS));
         }
         #endregion
     }
