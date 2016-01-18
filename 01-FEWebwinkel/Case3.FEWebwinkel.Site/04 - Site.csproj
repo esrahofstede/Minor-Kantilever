@@ -47,7 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Case3.BTWConfigurationReader, Version=1.0.0.2, Culture=neutral, PublicKeyToken=8d42a567b9955386, processorArchitecture=MSIL">
-      <HintPath>..\packages\GoudGeelBtwCalculator.1.0.0.3\lib\Case3.BTWConfigurationReader.dll</HintPath>
+      <HintPath>..\packages\GoudGeelBtwCalculator.1.0.0.4\lib\Case3.BTWConfigurationReader.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
