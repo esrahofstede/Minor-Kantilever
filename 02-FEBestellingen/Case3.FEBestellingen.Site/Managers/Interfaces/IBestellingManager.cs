@@ -1,6 +1,6 @@
-﻿using Case3.BSBestellingenbeheer.V1.SchemaNSPcS;
-using Case3.FEBestellingen.Site.ViewModels;
+﻿using Case3.FEBestellingen.Site.ViewModels;
 using Case3.PcSBestellen.V1.Messages;
+using case3pcsbestellen.v1.schema;
 
 namespace Case3.FEBestellingen.Site.Managers.Interfaces
 {
@@ -20,6 +20,6 @@ namespace Case3.FEBestellingen.Site.Managers.Interfaces
         /// </summary>
         /// <param name="bestelling">The Bestelling which has to be converted</param>
         /// <returns>Returns a BestellingViewModel<returns>
-        BestellingViewModel ConvertBestellingToBestellingViewModel(Bestelling bestelling);
+        BestellingViewModel ConvertBestellingToBestellingViewModel(BestellingPcS bestelling);
     }
 }
