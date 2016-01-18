@@ -16,6 +16,9 @@ namespace Case3.PcSBestellen.Contract
         /// <returns>Returns a FindNextBestellingResultMessage</returns>
         [OperationContract]
         FindNextBestellingResultMessage FindNextBestelling(FindNextBestellingRequestMessage requestMessage);
+
+        [OperationContract]
+        BestellingPlaatsenResultMessage BestellingPlaatsen(BestellingPlaatsenRequestMessage bestelling);
     }
    
 }

@@ -28,7 +28,8 @@ namespace Case3.PcSWinkelen.Contract
         [OperationContract]
         GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request);
 
-
+        [OperationContract]
+        WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling);
 
     }
 }

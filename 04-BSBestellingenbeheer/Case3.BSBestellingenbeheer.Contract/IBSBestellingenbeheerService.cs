@@ -8,5 +8,9 @@ namespace Case3.BSBestellingenbeheer.Contract
     {
         [OperationContract]
         FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage);
+
+        InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling);
+
+        UpdateBestellingResultMessage UpdateBestelling(UpdateBestellingRequestMessage bestelling);
     }
 }
