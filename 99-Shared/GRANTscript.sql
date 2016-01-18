@@ -16,26 +16,52 @@
 --	  Add this script AFTER [Auto script Schema (and data)]
 --
 
+--IF NOT EXISTS 
+--    (SELECT name  
+--     FROM master.sys.server_principals
+--     WHERE name = 'IIS APPPOOL\DefaultAppPool')
+--BEGIN
+--    CREATE LOGIN [IIS APPPOOL\DefaultAppPool] 
+--	FROM WINDOWS
+--END
+--GO
+
+--USE [Goudgeel_FEWebwinkel_AcceptatieDB]	-- RENAME this to the name of the database that you are installing
+--GO
+
+--IF NOT EXISTS
+--    (SELECT name
+--     FROM sys.database_principals
+--     WHERE name = 'IIS APPPOOL\DefaultAppPool')
+--BEGIN
+--    CREATE USER [IIS APPPOOL\DefaultAppPool] FOR LOGIN [IIS APPPOOL\DefaultAppPool]
+--END
+
+--ALTER ROLE [db_owner] ADD MEMBER [IIS APPPOOL\DefaultAppPool]
+--GO
+
+
+USE [master]
+GO
+
 IF NOT EXISTS 
     (SELECT name  
      FROM master.sys.server_principals
      WHERE name = 'IIS APPPOOL\DefaultAppPool')
 BEGIN
     CREATE LOGIN [IIS APPPOOL\DefaultAppPool] 
-	FROM WINDOWS
+ FROM WINDOWS
 END
 GO
 
-USE [Goudgeel_FEWebwinkel_AcceptatieDB]	-- RENAME this to the name of the database that you are installing
+USE [master]
 GO
 
-IF NOT EXISTS
-    (SELECT name
-     FROM sys.database_principals
-     WHERE name = 'IIS APPPOOL\DefaultAppPool')
-BEGIN
-    CREATE USER [IIS APPPOOL\DefaultAppPool] FOR LOGIN [IIS APPPOOL\DefaultAppPool]
-END
+USE [Goudgeel_PcSWinkelenDB_Acceptatie]
+GO
+if not exists(select * from sys.database_principals where name = 'IIS APPPOOL\DefaultAppPool')
+CREATE USER [IIS APPPOOL\DefaultAppPool] FOR LOGIN [IIS APPPOOL\DefaultAppPool]
+GO
 
 ALTER ROLE [db_owner] ADD MEMBER [IIS APPPOOL\DefaultAppPool]
 GO

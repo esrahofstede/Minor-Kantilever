@@ -15,7 +15,7 @@ namespace Case3.FEWebwinkel.Site.Managers.Interfaces
         /// <param name="page">Current pagenumber</param>
         /// <param name="pageSize">Size of the page</param>
         /// <returns>Returns a list with CatalogusViewModels</returns>
-        List<CatalogusViewModel> GetProducts(int page, int pageSize);
+        IEnumerable<CatalogusViewModel> FindAllProducts();
 
         /// <summary>
         /// This function Convert a List with CatalogusViewModels based on the given CatalogusCollection
@@ -23,5 +23,7 @@ namespace Case3.FEWebwinkel.Site.Managers.Interfaces
         /// <param name="catalogusCollection">The collection which has to be converted</param>
         /// <returns>Returns a list with CatalogusViewModels<returns>
         List<CatalogusViewModel> ConvertCatalogusCollectionToCatalogusViewModelList(CatalogusCollection catalogusCollection);
+
+        bool InsertArtikelToWinkelmand(int productID, string userGuid);
     }
 }

@@ -2,24 +2,47 @@
 <Dictionary>
   <Words>
     <Recognized>
-      <Word>Klantbeheer</Word>
-      <Word>Bestellingenbeheer</Word>
-      <Word>Naam</Word>
-      <Word>Bestellen</Word>
-      <Word>Winkelen</Word>
-      <Word>Bestellingen</Word>
-      <Word>Webwinkel</Word>
-      <Word>Catalogus</Word>
+      <Word>Er</Word>
+      <Word>een</Word>
+      <Word>fout</Word>
+      <Word>opgetreden</Word>
+      <Word>ophalen</Word>
+      <Word>Afbeeldingslocatie</Word>
       <Word>Beheer</Word>
-      <Word>Incl</Word>
+      <Word>Bestellen</Word>
+      <Word>Bestellingen</Word>
+      <Word>Bestellingenbeheer</Word>
+      <Word>Catalogus</Word>
+      <Word>Catalogusbeheer</Word>
+      <Word>Incl</Word>      
       <Word>Excl</Word>      
       <Word>Afbeeldingslocatie</Word>
       <Word>Webwinkel</Word>
       <Word>Prijs</Word>
+      <Word>Klantbeheer</Word>
       <Word>Leverancier</Word>
-      <Word>Voorraad</Word>
+      <Word>leveranciers</Word>
       <Word>Mvc</Word>
+      <Word>Naam</Word>
+      <Word>Prijs</Word>
+      <Word>Serverity</Word>
       <Word>Sms</Word>
+      <Word>Voorraad</Word>
+      <Word>Voorraadbeheer</Word>
+      <Word>Webwinkel</Word>
+      <Word>Webwinkel</Word>
+      <Word>Winkelen</Word>
+      <Word>Winkelmand</Word>
+      <Word>Winkelmand</Word>
+      <Word>Nator</Word>
+      <Word>Artikel</Word>
+      <Word>Artikelen</Word>
+      <Word>Aantal</Word>
+      <Word>Excl</Word>
+      <Word>Incl</Word>
+      <Word>Totaal</Word>
+      <Word>niet</Word>
+      <Word>gevonden</Word>
       <Word>Artikel</Word>
       <Word>Bestelling</Word>
       <Word>Leveranciersnaam</Word>
@@ -35,6 +58,10 @@
       <Term PreferredAlternate=""></Term>
     </Deprecated>
     <Compound>
+      <Term>CatalogusBeheer</Term>
+      <Term>VoorraadBeheer</Term>
+      <Term>catalogusBeheer</Term>
+      <Term>voorraadBeheer</Term>
       <Term CompoundAlternate=""></Term>
     </Compound>
     <DiscreteExceptions>
@@ -43,13 +70,20 @@
   </Words>
   <Acronyms>
     <CasingExceptions>
-      <Acronym>XML</Acronym>
+      <Acronym>BTW</Acronym>
+      <Acronym>BTWIs</Acronym>
+      <Acronym>DAL</Acronym>
+      <Acronym>DTO</Acronym>
+      <Acronym>DTOM</Acronym>
+      <Acronym>FE</Acronym>
+      <Acronym>ID</Acronym>
+      <Acronym>Incl</Acronym>
       <Acronym>Mvc</Acronym>
       <Acronym>MVC</Acronym>
-      <Acronym>Pc</Acronym>
-      <Acronym>DAL</Acronym>
       <Acronym>Mvc</Acronym>
-      <Acronym>FE</Acronym>
+      <Acronym>Pc</Acronym>
+      <Acronym>SMS</Acronym>
+      <Acronym>XML</Acronym>
       <Acronym>BTW</Acronym>
       <Acronym>DTO</Acronym>
       <Acronym>BTWIs</Acronym>

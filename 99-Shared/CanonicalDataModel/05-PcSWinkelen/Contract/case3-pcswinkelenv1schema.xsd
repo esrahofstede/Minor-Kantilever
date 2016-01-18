@@ -3,11 +3,11 @@
   <xs:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" />
   <xs:complexType name="CatalogusCollection">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogusItem" nillable="true" type="tns:ProductVoorraad" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogusItem" nillable="true" type="tns:CatalogusProductItem" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CatalogusCollection" nillable="true" type="tns:CatalogusCollection" />
-  <xs:complexType name="ProductVoorraad">
+  <xs:complexType name="CatalogusProductItem">
     <xs:sequence>
       <xs:element name="Product" nillable="true" xmlns:q1="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" type="q1:Product">
         <xs:annotation>
@@ -19,5 +19,39 @@
       <xs:element name="Voorraad" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ProductVoorraad" nillable="true" type="tns:ProductVoorraad" />
+  <xs:element name="CatalogusProductItem" nillable="true" type="tns:CatalogusProductItem" />
+  <xs:complexType name="WinkelmandItemRef">
+    <xs:sequence>
+      <xs:element name="ProductId" type="xs:int" />
+      <xs:element name="Aantal" type="xs:int" />
+      <xs:element name="SessieId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WinkelmandItemRef" nillable="true" type="tns:WinkelmandItemRef" />
+  <xs:complexType name="WinkelmandItem">
+    <xs:sequence>
+      <xs:element name="Product" nillable="true" xmlns:q2="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" type="q2:Product">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Aantal" type="xs:int" />
+      <xs:element minOccurs="0" name="SessieId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WinkelmandItem" nillable="true" type="tns:WinkelmandItem" />
+  <xs:complexType name="WinkelMandCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WinkelmandItem" nillable="true" type="tns:WinkelmandItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WinkelMandCollection" nillable="true" type="tns:WinkelMandCollection" />
 </xs:schema>

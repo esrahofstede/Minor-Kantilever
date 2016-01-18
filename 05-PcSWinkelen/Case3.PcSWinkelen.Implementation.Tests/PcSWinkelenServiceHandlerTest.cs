@@ -1,44 +1,47 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Case3.PcSWinkelen.MessagesNS;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
     [TestClass]
     public class PcSWinkelenServiceHandlerTest
     {
+   
         [TestMethod]
-        public void InstanceTest()
+        public void CreatePcSWinkelenServiceHandlerTest()
         {
             // Arrange
 
             // Act
-            PcSWinkelenServiceHandler pcsWinkelenServiceHandler = new PcSWinkelenServiceHandler();
+            PcSWinkelenServiceHandler pcSWinkelenServiceHandler = new PcSWinkelenServiceHandler();
 
             // Assert
-            Assert.IsNotNull(pcsWinkelenServiceHandler);
-            Assert.IsInstanceOfType(pcsWinkelenServiceHandler, typeof(PcSWinkelenServiceHandler));
+            Assert.IsNotNull(pcSWinkelenServiceHandler);
+            Assert.IsInstanceOfType(pcSWinkelenServiceHandler, typeof(PcSWinkelenServiceHandler));
         }
+
 
         [TestMethod]
-        public void GetCatalogusList()
+        public void CheckGetCatalogusItemsReturnsFindCatalogusResponseMessage()
         {
             // Arrange
-            PcSWinkelenServiceHandler pcsWinkelenServiceHandler = new PcSWinkelenServiceHandler();
+            PcSWinkelenServiceHandler pcSWinkelenServiceHandler = new PcSWinkelenServiceHandler();
 
             // Act
+            FindCatalogusRequestMessage findCatalogusRequestMessage = new FindCatalogusRequestMessage()
+            {
+                Page = 1,
+                PageSize = 2
+            };
+            FindCatalogusResponseMessage findCatalogusResponseMessage = pcSWinkelenServiceHandler.GetCatalogusItems(findCatalogusRequestMessage);
 
             // Assert
-            Assert.IsNotNull(pcsWinkelenServiceHandler);
-            Assert.IsInstanceOfType(pcsWinkelenServiceHandler, typeof(PcSWinkelenServiceHandler));
+            Assert.IsNotNull(findCatalogusResponseMessage);
+            Assert.IsInstanceOfType(findCatalogusResponseMessage, typeof(FindCatalogusResponseMessage));
+
+
         }
-
-
-
-        // Arrange
-
-        // Act
-
-        // Assert
 
     }
 }

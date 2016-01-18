@@ -15,17 +15,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SayHelloTest">
+  <xs:element name="AddProductToWinkelmand">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="request" nillable="true" xmlns:q3="urn:case3-pcswinkelen:v1:messages" type="q3:AddItemToWinkelmandRequestMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SayHelloTestResponse">
+  <xs:element name="AddProductToWinkelmandResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="SayHelloTestResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AddProductToWinkelmandResult" nillable="true" xmlns:q4="urn:case3-pcswinkelen:v1:messages" type="q4:AddItemToWinkelmandResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWinkelmand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" xmlns:q5="urn:case3-pcswinkelen:v1:messages" type="q5:GetWinkelmandRequestMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWinkelmandResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetWinkelmandResult" nillable="true" xmlns:q6="urn:case3-pcswinkelen:v1:messages" type="q6:GetWinkelmandResponseMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

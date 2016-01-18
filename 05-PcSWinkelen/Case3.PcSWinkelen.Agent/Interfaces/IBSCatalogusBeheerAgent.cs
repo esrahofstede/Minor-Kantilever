@@ -1,4 +1,4 @@
-﻿using Case3.PcSWinkelen.Schema.Product;
+﻿using Case3.PcSWinkelen.Schema.ProductNS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,17 +24,10 @@ namespace Case3.PcSWinkelen.Agent.Interfaces
         IEnumerable<Product> GetProducts(int page, int pageSize);
 
         /// <summary>
-        /// Get all products with Voorraad
+        /// Get product by its id
         /// </summary>
-        /// <returns>IEnumerable of Product entities</returns>
-        IEnumerable<Product> GetProductsWithVoorraad();
-
-        /// <summary>
-        /// Get products with Voorraad by page and page length
-        /// </summary>
-        /// <param name="page"></param>
-        /// <param name="pageSize"></param>
-        /// <returns>IEnumerable of Product entities</returns>
-        IEnumerable<Product> GetProductsWithVoorraad(int page, int pageSize);
+        /// <param name="id">The id of the product</param>
+        /// <returns></returns>
+        Product GetProductById(int id);
     }
 }

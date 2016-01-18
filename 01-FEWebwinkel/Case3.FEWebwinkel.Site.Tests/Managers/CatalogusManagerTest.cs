@@ -23,7 +23,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         {
             var collection = new CatalogusCollection
             {
-                new ProductVoorraad {
+                new CatalogusProductItem {
                     Product = new Product
                     {
                         Id = 1,
@@ -34,7 +34,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
                     },
                     Voorraad = 10,
                 },
-                new ProductVoorraad {
+                new CatalogusProductItem {
                     Product = new Product
                     {
                         Id = 2,
@@ -69,14 +69,14 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             Assert.AreEqual("Fietsbel", result[0].Naam);
             Assert.AreEqual("../Content/Product_img/fietsbel.gif", result[0].Afbeeldingslocatie);
             Assert.AreEqual("Gazelle", result[0].Leverancier);
-            Assert.AreEqual(4.95M, result[0].Prijs);
+            Assert.AreEqual(5.99M, result[0].Prijs);
             Assert.AreEqual(10, result[0].Voorraad);
             //Second Viewmodel
             Assert.AreEqual(2, result[1].ID);
             Assert.AreEqual("Zadelpen", result[1].Naam);
             Assert.AreEqual("../Content/Product_img/zadelpen.gif", result[1].Afbeeldingslocatie);
             Assert.AreEqual("Giant", result[1].Leverancier);
-            Assert.AreEqual(12.50M, result[1].Prijs);
+            Assert.AreEqual(15.12M, result[1].Prijs);
             Assert.AreEqual(10, result[1].Voorraad);
         }
         #endregion
@@ -86,29 +86,46 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         {
             // Arrange
             var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
-            agentMock.Setup(a => a.GetProducts(1, 20))
+            agentMock.Setup(a => a.GetProducts())
                      .Returns(CreateCatalogusCollection());
             var target = new CatalogusManager(agentMock.Object);
 
             // Act
-            var result = target.GetProducts(1, 20);
+            var result = target.FindAllProducts();
 
             // Assert
             Assert.AreEqual(2, result.Count());
             //First Viewmodel
-            Assert.AreEqual(1, result[0].ID);
-            Assert.AreEqual("Fietsbel", result[0].Naam);
-            Assert.AreEqual("../Content/Product_img/fietsbel.gif", result[0].Afbeeldingslocatie);
-            Assert.AreEqual("Gazelle", result[0].Leverancier);
-            Assert.AreEqual(4.95M, result[0].Prijs);
-            Assert.AreEqual(10, result[0].Voorraad);
+            Assert.AreEqual(1, result.ElementAt(0).ID);
+            Assert.AreEqual("Fietsbel", result.ElementAt(0).Naam);
+            Assert.AreEqual("../Content/Product_img/fietsbel.gif", result.ElementAt(0).Afbeeldingslocatie);
+            Assert.AreEqual("Gazelle", result.ElementAt(0).Leverancier);
+            Assert.AreEqual(5.99M, result.ElementAt(0).Prijs);
+            Assert.AreEqual(10, result.ElementAt(0).Voorraad);
             //Second Viewmodel
-            Assert.AreEqual(2, result[1].ID);
-            Assert.AreEqual("Zadelpen", result[1].Naam);
-            Assert.AreEqual("../Content/Product_img/zadelpen.gif", result[1].Afbeeldingslocatie);
-            Assert.AreEqual("Giant", result[1].Leverancier);
-            Assert.AreEqual(12.50M, result[1].Prijs);
-            Assert.AreEqual(10, result[1].Voorraad);
+            Assert.AreEqual(2, result.ElementAt(1).ID);
+            Assert.AreEqual("Zadelpen", result.ElementAt(1).Naam);
+            Assert.AreEqual("../Content/Product_img/zadelpen.gif", result.ElementAt(1).Afbeeldingslocatie);
+            Assert.AreEqual("Giant", result.ElementAt(1).Leverancier);
+            Assert.AreEqual(15.12M, result.ElementAt(1).Prijs);
+            Assert.AreEqual(10, result.ElementAt(1).Voorraad);
+        }
+        #endregion
+        #region -------[Tests for InsertArtikelToWinkelmand]-------
+        [TestMethod]
+        public void ManagerInsertsWinkelmand()
+        {
+            // Arrange
+            var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
+            agentMock.Setup(a => a.AddProductToWinkelmand(1, "test"))
+                     .Returns(true);
+            var target = new CatalogusManager(agentMock.Object);
+
+            // Act
+            var result = target.InsertArtikelToWinkelmand(1, "test");
+
+            // Assert
+            Assert.IsTrue(result);
         }
         #endregion
     }

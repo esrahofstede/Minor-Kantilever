@@ -3,6 +3,7 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="urn:case3-common:v1:faults" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="urn:case3-pcswinkelen:v1:messages" />
       <xsd:import namespace="urn:case3-pcswinkelen:v1:schema" />
@@ -16,20 +17,34 @@
   <wsdl:message name="IPcSWinkelenService_GetCatalogusItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCatalogusItemsResponse" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_SayHelloTest_InputMessage">
-    <wsdl:part name="parameters" element="tns:SayHelloTest" />
+  <wsdl:message name="IPcSWinkelenService_GetCatalogusItems_ErrorLijstFault_FaultMessage">
+    <wsdl:part name="detail" xmlns:q1="urn:case3-common:v1:faults" element="q1:ErrorLijst" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_SayHelloTest_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SayHelloTestResponse" />
+  <wsdl:message name="IPcSWinkelenService_AddProductToWinkelmand_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductToWinkelmand" />
+  </wsdl:message>
+  <wsdl:message name="IPcSWinkelenService_AddProductToWinkelmand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductToWinkelmandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPcSWinkelenService_GetWinkelmand_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWinkelmand" />
+  </wsdl:message>
+  <wsdl:message name="IPcSWinkelenService_GetWinkelmand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWinkelmandResponse" />
   </wsdl:message>
   <wsdl:portType name="IPcSWinkelenService">
     <wsdl:operation name="GetCatalogusItems">
       <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems" message="tns:IPcSWinkelenService_GetCatalogusItems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse" message="tns:IPcSWinkelenService_GetCatalogusItems_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsErrorLijstFault" name="ErrorLijstFault" message="tns:IPcSWinkelenService_GetCatalogusItems_ErrorLijstFault_FaultMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SayHelloTest">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/SayHelloTest" message="tns:IPcSWinkelenService_SayHelloTest_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/SayHelloTestResponse" message="tns:IPcSWinkelenService_SayHelloTest_OutputMessage" />
+    <wsdl:operation name="AddProductToWinkelmand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand" message="tns:IPcSWinkelenService_AddProductToWinkelmand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmandResponse" message="tns:IPcSWinkelenService_AddProductToWinkelmand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWinkelmand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand" message="tns:IPcSWinkelenService_GetWinkelmand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse" message="tns:IPcSWinkelenService_GetWinkelmand_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DefaultBinding_IPcSWinkelenService" type="tns:IPcSWinkelenService">
@@ -42,9 +57,21 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ErrorLijstFault">
+        <soap:fault name="ErrorLijstFault" use="literal" />
+      </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="SayHelloTest">
-      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/SayHelloTest" style="document" />
+    <wsdl:operation name="AddProductToWinkelmand">
+      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWinkelmand">
+      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmand" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

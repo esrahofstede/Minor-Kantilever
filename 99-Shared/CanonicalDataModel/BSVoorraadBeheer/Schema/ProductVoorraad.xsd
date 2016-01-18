@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:tns="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1" 
+           xmlns:p="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" 
+           targetNamespace="urn:schemas-www-kantilever-nl:bsvoorraadbeheer:voorraad:v1" 
+           elementFormDefault="qualified" 
+           attributeFormDefault="qualified">
+	<xs:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" 
+             schemaLocation="..\..\BSCatalogusBeheer\Schema\ProductRef.xsd"/>
+	<xs:complexType name="ProductVoorraad">
+		<xs:sequence>
+			<xs:element name="Product" type="p:ProductRef" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Voorraad" type="xs:int" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

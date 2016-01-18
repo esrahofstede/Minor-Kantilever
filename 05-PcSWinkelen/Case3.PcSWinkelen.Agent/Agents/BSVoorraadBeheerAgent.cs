@@ -1,8 +1,9 @@
-﻿using Case3.PcSWinkelen.Agent.Interfaces;
+﻿using Case3.PcSWinkelen.Agent.Exceptions;
+using Case3.PcSWinkelen.Agent.Interfaces;
+using Case3.PcSWinkelen.Schema.ProductNS;
+using Case3.PcSWinkelen.Schema.VoorraadMessages;
 using Minor.ServiceBus.Agent.Implementation;
-using Case3.PcSWinkelen.Schema.Product;
-using Case3.PcSWinkelen.Schema.Messages;
-using Case3.PcSWinkelen.Agent.Exceptions;
+using System;
 
 namespace Case3.PcSWinkelen.Agent.Agents
 {
@@ -11,12 +12,30 @@ namespace Case3.PcSWinkelen.Agent.Agents
         private ServiceFactory<IVoorraadBeheer> _factory;
         private IVoorraadBeheer _agent;
 
+        /// <summary>
+        /// Instantiate a ServiceFactory with a reference to the described service
+        /// </summary>
         public BSVoorraadBeheerAgent()
         {
             _factory = new ServiceFactory<IVoorraadBeheer>("BSVoorraadBeheer");
-            _agent = _factory.CreateAgent();
+            try
+            {
+                _agent = _factory.CreateAgent();
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new TechnicalException("BSVoorraadBeheer kan niet bereikt worden." ,ex.InnerException);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
+        /// <summary>
+        /// For testing purposes, possible to inject a mock class
+        /// </summary>
+        /// <param name="agent"></param>
         public BSVoorraadBeheerAgent(IVoorraadBeheer agent)
         {
             _agent = agent;
@@ -41,12 +60,12 @@ namespace Case3.PcSWinkelen.Agent.Agents
             }
         }
         /// <summary>
-        /// 
+        /// Creates a ProductRef which is required within the MsgFindVoorraadRequest class
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="leveranciersProductId"></param>
         /// <returns></returns>
-        private ProductRef CreateProductRef(int? productId, string leveranciersProductId)
+        private static ProductRef CreateProductRef(int? productId, string leveranciersProductId)
         {
             return new ProductRef()
             {

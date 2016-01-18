@@ -1,36 +1,44 @@
 ﻿using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.Script.Serialization;
 
 namespace Case3.FEWebwinkel.Site.Managers
 {
     public class CookieNator<T> : ICookieNator<T>
     {
-        private string _cookieValueString;
         private HttpCookieCollection _httpCookieCollection;
 
+        /// <summary>
+        /// This is the default constructor
+        /// </summary>
+        /// <param name="httpCookieCollection"></param>
         public CookieNator(HttpCookieCollection httpCookieCollection)
         {
             _httpCookieCollection = httpCookieCollection;
         }
 
-        public List<T> GetCookieValue(string cookieName)
+        /// <summary>
+        /// Get the value of a cookie
+        /// </summary>
+        /// <param name="cookieName">Name of the cookie you want the value of</param>
+        /// <returns>(string) cookie value</returns>
+        public string GetCookieValue(string cookieName)
         {
-            this.GetCookieString(cookieName);
-            return DeserializeCookieValueString();
+            return _httpCookieCollection.Get(cookieName).Value;
         }
 
-        private void GetCookieString(string cookieName)
+        /// <summary>
+        /// Creates the cookie "UserGuid" with the Guid that is passed to this method
+        /// </summary>
+        /// <param name="userGuid">An user Guid</param>
+        public void CreateCookieWithUserGuid(string userGuid)
         {
-            _cookieValueString = _httpCookieCollection.Get("artikelen").Value;
-        }
 
-        private List<T> DeserializeCookieValueString()
-        {
-            return new JavaScriptSerializer().Deserialize<List<T>>(_cookieValueString);
+            var cookie = new HttpCookie("UserGuid", userGuid)
+            {
+                Expires = DateTime.Now.AddMonths(1), //Cookie expires after one month, in other words: the cart has been emptied 
+            };
+            HttpContext.Current.Response.Cookies.Add(cookie);
         }
 
     }

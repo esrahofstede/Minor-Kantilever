@@ -49,8 +49,42 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug%28Without Build Events%29|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug%28Without Build Events%29\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithoutBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugWithoutBuild\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -60,23 +94,56 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="PcSWinkelenServiceHandlerTest.cs" />
+    <Compile Include="AddProductToWinkelmandTest.cs" />
+    <Compile Include="DummyData.cs" />
+    <Compile Include="GetWinkelmandTest.cs" />
+    <Compile Include="Mappers\WinkelmandDTOMapperTest.cs" />
+    <Compile Include="WinkelMandDataMapperMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PcSWinkelenServiceHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Case3.PcSWinkelen.Agent\09 - Agent.csproj">
+      <Project>{a0be951e-3160-4dcb-916b-86d8c348bd91}</Project>
+      <Name>09 - Agent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
+      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
+      <Name>01a-BSCatalogusbeheerSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.Contract\02 - Contract.csproj">
+      <Project>{c458b7ea-6bfb-4c2f-a3dc-485b452c0f0e}</Project>
+      <Name>02 - Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.DAL\06 - DAL.csproj">
+      <Project>{9f9925b2-b276-40ed-a8a9-658d701fa877}</Project>
+      <Name>06 - DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.Entities\08 - Entities.csproj">
+      <Project>{949fb4d2-feb9-44ec-93ba-359c1bbcd860}</Project>
+      <Name>08 - Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.Implementation\04 - Implementation.csproj">
       <Project>{4b579cb9-6f8f-429a-bbbb-33d25a443324}</Project>
       <Name>04 - Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj">
+      <Project>{2742240d-a070-44a7-8560-8c8ba25a1c7b}</Project>
+      <Name>01c-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

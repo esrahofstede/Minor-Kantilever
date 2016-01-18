@@ -191,6 +191,8 @@
     <Compile Include="Managers\CookieNator.cs" />
     <Compile Include="Managers\Interfaces\ICatalogusManager.cs" />
     <Compile Include="Managers\Interfaces\ICookieNator.cs" />
+    <Compile Include="Managers\Interfaces\IWinkelmandManager.cs" />
+    <Compile Include="Managers\WinkelmandManager.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\ArtikelViewModel.cs" />
     <Compile Include="ViewModels\CatalogusViewModel.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\TechnicalErrorViewModel.cs" />
     <Compile Include="ViewModels\WinkelmandViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +264,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\AcceptatieBuildServer.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Catalogus.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -307,12 +311,14 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Catalogus\Index.cshtml" />
     <Content Include="Views\Winkelmand\Index.cshtml" />
+    <Content Include="Views\Catalogus\CatalogusIndexError.cshtml" />
     <None Include="Web.Acceptatie.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

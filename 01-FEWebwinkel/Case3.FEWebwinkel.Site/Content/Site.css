@@ -123,6 +123,7 @@ h2.catalog-header {
 .catalog-heading {
     position: relative;
     padding:5px;
+    height: 90px;
 }
 
 .shopping-cart > .glyphicon {

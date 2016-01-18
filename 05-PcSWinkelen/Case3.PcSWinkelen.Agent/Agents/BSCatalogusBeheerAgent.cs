@@ -1,11 +1,12 @@
 ﻿
 using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Schema.Messages;
-using Case3.PcSWinkelen.Schema.Product;
+using Case3.PcSWinkelen.Schema.ProductNS;
 using Minor.ServiceBus.Agent.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,7 +23,18 @@ namespace Case3.PcSWinkelen.Agent.Agents
         public BSCatalogusBeheerAgent()
         {
             _factory = new ServiceFactory<ICatalogusBeheer>("BSCatalogusBeheer");
-            _agent = _factory.CreateAgent();
+            try
+            {
+                _agent = _factory.CreateAgent();
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new TechnicalException("BSCatalogusBeheer kan niet bereikt worden.", ex.InnerException);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -56,26 +68,17 @@ namespace Case3.PcSWinkelen.Agent.Agents
             return result.Products;
         }
 
-        public IEnumerable<Product> GetProductsWithVoorraad()
+
+        /// <summary>
+        /// Get product by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Product GetProductById(int id)
         {
-
-            MsgFindProductsResult result = _agent.FindProducts(new MsgFindProductsRequest() { Page = 1, PageSize = 20 });
-
-            foreach(Product product in result.Products)
-            {
-                // Call VoorraadService
-            }
-            Parallel.ForEach<Product>(result.Products, (product) =>
-            {
-                
-            });
-
-            return result.Products;
+            MsgFindProductByIdResult result = _agent.FindProductById(new MsgFindProductByIdRequest {Id = id});
+            return result.Product;
         }
 
-        public IEnumerable<Product> GetProductsWithVoorraad(int page, int pageSize)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

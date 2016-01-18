@@ -7,6 +7,8 @@ using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
+using System;
+using Case3.FEWebwinkel.Agent.Exceptions;
 
 namespace Case3.FEWebwinkel.Site.Managers
 {
@@ -15,7 +17,7 @@ namespace Case3.FEWebwinkel.Site.Managers
     /// </summary>
     public class CatalogusManager : ICatalogusManager
     {
-        private IPcSWinkelenAgent _pcsWinkelenAgent;
+        private Agent.Interfaces.IPcSWinkelenAgent _pcsWinkelenAgent;
         private BTWCalculator _btwCalculator = new BTWCalculator();
 
         /// <summary>
@@ -23,7 +25,14 @@ namespace Case3.FEWebwinkel.Site.Managers
         /// </summary>
         public CatalogusManager()
         {
-            _pcsWinkelenAgent = new PcSWinkelenAgent();
+            try
+            {
+                _pcsWinkelenAgent = new PcSWinkelenAgent();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         /// <summary>
         /// This constructor is for testing purposes
@@ -35,18 +44,23 @@ namespace Case3.FEWebwinkel.Site.Managers
         }
 
         /// <summary>
-        /// This function returns a List with CatalogusViewModels
+        /// This function returns a List with CatalogusViewModels for all products
         /// </summary>
         /// <param name="page">Current pagenumber</param>
         /// <param name="pageSize">Size of the page</param>
         /// <returns>Returns a list with CatalogusViewModels</returns>
-        public List<CatalogusViewModel> GetProducts(int page, int pageSize)
+        public IEnumerable<CatalogusViewModel> FindAllProducts()
         {
-            var products = _pcsWinkelenAgent.GetProducts(page, pageSize);
-
-            var viewmodels = ConvertCatalogusCollectionToCatalogusViewModelList(products);
-
-            return viewmodels;
+            try
+            {
+                var products = _pcsWinkelenAgent.GetProducts();
+                var viewmodels = ConvertCatalogusCollectionToCatalogusViewModelList(products);
+                return viewmodels;
+            }
+            catch (TechnicalException)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -65,8 +79,12 @@ namespace Case3.FEWebwinkel.Site.Managers
                 Prijs = _btwCalculator.CalculatePriceInclusiveBTW(cat.Product.Prijs),
                 Voorraad = (cat.Voorraad > 10 ? 10 : cat.Voorraad),
             });
-
             return CatalogusViewModels.ToList();
+        }
+
+        public bool InsertArtikelToWinkelmand(int productID, string userGuid)
+        {
+            return _pcsWinkelenAgent.AddProductToWinkelmand(productID, userGuid);
         }
     }
 }

@@ -1,61 +1,74 @@
 ﻿using Case3.BTWConfigurationReader;
 using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
-using Case3.FEWebwinkel.Site.Models;
+using Case3.FEWebwinkel.Site.ViewModels;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
     public class WinkelmandController : Controller
     {
-	private BTWCalculator _btwCalculator = new BTWCalculator();
-        private ICookieNator<ArtikelViewModel> _cookieNator;
+	    private BTWCalculator _btwCalculator = new BTWCalculator();
+        private IWinkelmandManager _winkelmandManager;
+
+        /// <summary>
+        /// This constructor is the default constructor
+        /// </summary>
         public WinkelmandController()
         {
-
+            _winkelmandManager = new WinkelmandManager();
         }
-        public WinkelmandController(ICookieNator<ArtikelViewModel> cookieNator)
+        /// <summary>
+        /// This constructor is for testing purposes
+        /// </summary>
+        /// <param name="manager">This should be a mock of ICatalogusManager</param>
+        public WinkelmandController(IWinkelmandManager manager)
         {
-            _cookieNator = cookieNator;
+            _winkelmandManager = manager;
         }
+
 
         // GET: Winkelmand
+        /// <summary>
+        /// This function returns a view of the user's Winkelmand
+        /// </summary>
+        /// <returns>Returns a view with the data of a WinkelmandViewModel</returns>
         public ActionResult Index()
         {
+            string userGuid;
+            decimal totaalExclBTW = 0M;
             decimal totaalInclBTW = 0M;
-            List<ArtikelViewModel> artikelLijst = null;
 
             try //to get the list from an existing cookie
             {
-                CookieNator<ArtikelViewModel> cookieNator = new CookieNator<ArtikelViewModel>(Request.Cookies);
-                artikelLijst = cookieNator.GetCookieValue("artikelen");
-            }
-            catch (NullReferenceException ex) //Create a new list if cookie can't be found
-            {
-                artikelLijst = new List<ArtikelViewModel>();
-            }
+                CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
+                userGuid = cookieNator.GetCookieValue("UserGuid");
 
-            if (artikelLijst.Count > 0)
-            {
-                //totaalInclBTW = artikelLijst.Select(artikel => (artikel.Prijs * artikel.Aantal))
-                //                            .Sum();
-                foreach(ArtikelViewModel artikelViewModel in artikelLijst)
-                {
-                    totaalInclBTW += artikelViewModel.Prijs * artikelViewModel.Aantal;
-                }
+                
             }
+            catch (NullReferenceException) //Create a new list if cookie can't be found
+            {
+                userGuid = Guid.NewGuid().ToString();
+            }
+            
+            var artikellijst = _winkelmandManager.GetWinkelmand(userGuid);
+            if (userGuid.Length > 0)
+            {
+                totaalInclBTW = artikellijst.Select(artikel => (artikel.Prijs * artikel.Aantal)).Sum();
+                //need up to date version of btwCalculator for this, uncomment this when ready:
+                //totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
 
+            }
 
             var model = new WinkelmandViewModel
             {
-                Artikelen = artikelLijst,
+                Artikelen = artikellijst,
                 BTWPercentage = _btwCalculator.BTWPercentage,
                 TotaalInclBTW = totaalInclBTW,
-                TotaalExclBTW = Math.Round(((totaalInclBTW * 100) / 121), 2),
-                TotaalBTW = _btwCalculator.CalculateBTWOfPrice(((totaalInclBTW * 100) / 121)),
+                TotaalExclBTW = totaalExclBTW,
+                TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW),
             };
 
             return View(model);

@@ -44,8 +44,37 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\99-Shared\Case3Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug%28Without Build Events%29|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug%28Without Build Events%29\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithoutBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugWithoutBuild\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -62,27 +91,43 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BSCatalogusBeheerAgentTest.cs" />
-    <Compile Include="Mocks\CatalogusBeheerMock.cs" />
-    <Compile Include="Mocks\VoorraadBeheerMock.cs" />
+    <Compile Include="Agents\BSCatalogusbeheerAgentTest.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Managers\CatalogusManagerTest.cs" />
+    <Compile Include="Mocks\CatalogusbeheerMock.cs" />
+    <Compile Include="Mocks\VoorraadbeheerMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BSVoorraadBeheerAgentTest.cs" />
+    <Compile Include="Agents\BSVoorraadbeheerAgentTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Case3.PcSWinkelen.Agent\09 - Agent.csproj">
       <Project>{a0be951e-3160-4dcb-916b-86d8c348bd91}</Project>
       <Name>09 - Agent</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSWinkelen.Schema\01 - Schema.csproj">
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
       <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
-      <Name>01 - Schema</Name>
+      <Name>01a-BSCatalogusbeheerSchema</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSVoorraadbeheerSchema\01b-BSVoorraadbeheerSchema.csproj">
+      <Project>{495eeffc-6b29-42ba-bc94-fc745fc00abe}</Project>
+      <Name>01b-BSVoorraadbeheerSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj">
+      <Project>{2742240d-a070-44a7-8560-8c8ba25a1c7b}</Project>
+      <Name>01c-PcSWinkelenSchema</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
+      <Link>CustomDictionary.xml</Link>
+    </CodeAnalysisDictionary>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

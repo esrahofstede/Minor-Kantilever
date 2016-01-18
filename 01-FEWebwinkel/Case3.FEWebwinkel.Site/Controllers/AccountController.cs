@@ -10,10 +10,12 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Case3.FEWebwinkel.Site.Models;
 using Case3.FEWebwinkel.Site.ViewModels;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
     [Authorize]
+    [ExcludeFromCodeCoverage]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

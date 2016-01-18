@@ -1,15 +1,10 @@
-﻿using Case3.BSCatalogusBeheer.Schema.Product;
-using Case3.BTWConfigurationReader;
+﻿using Case3.FEWebwinkel.Agent.Exceptions;
 using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
-using Case3.FEWebwinkel.Site.Models;
 using Case3.FEWebwinkel.Site.ViewModels;
-using Case3.PcSWinkelen.Schema;
 using System;
-using System.Collections.Generic;
-using System.Web;
+using System.Diagnostics.CodeAnalysis;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
@@ -19,20 +14,26 @@ namespace Case3.FEWebwinkel.Site.Controllers
     public class CatalogusController : Controller
     {
         private ICatalogusManager _catalogusManager;
-        private BTWCalculator _btwCalculator = new BTWCalculator();
 
         /// <summary>
         /// This constructor is the default constructor
         /// </summary>
         public CatalogusController()
         {
-            _catalogusManager = new CatalogusManager();
+            try
+            {
+                _catalogusManager = new CatalogusManager();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         /// <summary>
         /// This constructor is for testing purposes
         /// </summary>
-        /// <param name="manager">This should be a mock of CatalogusManager</param>
-        public CatalogusController(CatalogusManager manager)
+        /// <param name="manager">This should be a mock of ICatalogusManager</param>
+        public CatalogusController(ICatalogusManager manager)
         {
             _catalogusManager = manager;
         }
@@ -42,65 +43,44 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// <returns>View with products of the catalog</returns>
         public ActionResult Index()
         {
-            var model = _catalogusManager.GetProducts(1, 20);            
-
-            return View(model);
+            try
+            {
+                var model = _catalogusManager.FindAllProducts();
+                return View(model);
+            }
+            catch (TechnicalException ex)
+            {
+                TechnicalErrorViewModel model = new TechnicalErrorViewModel(ex.Message);
+                return View("CatalogusIndexError", model);
+            }
         }
 
         /// <summary>
         /// Adds an Artikel to the Winkelmand
         /// </summary>
-        /// <param name="artikel">The chosen product that you want to add to your winkelmand</param>
+        /// <param name="articleID">The ID of the chosen article</param>
         [HttpPost]
-        public ActionResult Index(CatalogusViewModel Catalogusartikel, List<CatalogusViewModel> model3)
+        //[ExcludeFromCodeCoverage]
+        public ActionResult Index(int articleID)
         {
-            List<ArtikelViewModel> artikelLijst = null;
-
-            try //to get the list from an existing cookie and add the new artikel to the list
+            string userGuid;
+            CookieNator<Guid> cookieNator;
+            try //to get the userGuid from an existing cookie
             {
-                CookieNator<ArtikelViewModel> cookieNator = new CookieNator<ArtikelViewModel>(Request.Cookies);
-                artikelLijst = cookieNator.GetCookieValue("artikelen");
-                //string jsonStringArtikellijst = Request.Cookies.Get("artikelen").Value;
-                //artikelLijst = new JavaScriptSerializer().Deserialize<List<ArtikelViewModel>>(jsonStringArtikellijst);
+                cookieNator = new CookieNator<Guid>(Request.Cookies);
+                userGuid = cookieNator.GetCookieValue("UserGuid");
             }
-            catch (NullReferenceException ex) //Create a new list if cookie can't be found
+            catch (NullReferenceException) //Create a new userGuid if cookie can't be found
             {
-                artikelLijst = new List<ArtikelViewModel>();
+                userGuid = Guid.NewGuid().ToString();
+                //Set cookie for later usage
+                cookieNator = new CookieNator<Guid>(Request.Cookies);
+                cookieNator.CreateCookieWithUserGuid(userGuid);
             }
-            //Add the new Artikel to the list
-            ArtikelViewModel artikel = CreateArtikelViewModelFromCatalogusViewModel(Catalogusartikel);
-            artikelLijst.Add(artikel);
+            
+            bool succeeded =_catalogusManager.InsertArtikelToWinkelmand(articleID, userGuid);
 
-            //Set cookie for later usage
-            CreateCookieWithArtikellijst(artikelLijst);
-
-            return RedirectToAction("Index");
-        }
-
-        ////////////////////////////////////////////////////////////////////
-        //Verplaats onderstaande methodes naar eventuele helper class
-
-        private void CreateCookieWithArtikellijst(List<ArtikelViewModel> artikelLijst)
-        {
-            //serialize artikelLijst and create cookie
-            string MyJsonObject = new JavaScriptSerializer().Serialize(artikelLijst);
-            var cookie = new HttpCookie("artikelen", MyJsonObject)
-            {
-                Expires = DateTime.Now.AddYears(1)
-            };
-
-            HttpContext.Response.Cookies.Add(cookie);
-        }
-
-        private ArtikelViewModel CreateArtikelViewModelFromCatalogusViewModel(CatalogusViewModel catalogusArtikel)
-        {
-            return new ArtikelViewModel
-            {
-                ID = catalogusArtikel.ID,
-                ArtikelNaam = catalogusArtikel.Naam,
-                Aantal = 1,
-                Prijs = catalogusArtikel.Prijs.GetValueOrDefault(),
-            };
+            return RedirectToAction("Index", new { AddedToWinkelmand = succeeded });
         }
     }
 }

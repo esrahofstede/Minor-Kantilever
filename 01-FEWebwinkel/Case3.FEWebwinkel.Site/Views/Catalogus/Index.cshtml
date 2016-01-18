@@ -21,22 +21,17 @@
 
                 <div class="product-top">
                     <div class="img-wrapper" style="background-image:url(@item.Afbeeldingslocatie)">
-                        @Html.Hidden("ID", item.ID)
-                        @Html.Hidden("Afbeeldingslocatie", item.Afbeeldingslocatie)
+                        @Html.Hidden("articleID", item.ID)
                     </div>
                     <div class="info-wrapper">
                         <p>
                             @Html.DisplayFor(modelItem => item.Naam)
-                            @Html.Hidden("Naam", item.Naam)
                         </p>
                         <p>
-
                             @Html.DisplayFor(modelItem => item.Leverancier)
-                            @Html.Hidden("Leverancier", item.Leverancier)
                         </p>
                         <p>
                             &#8364 @Html.DisplayFor(modelItem => item.Prijs)
-                                   @Html.Hidden("Prijs", item.Prijs)
                         </p>
                         <p>
                             @Html.DisplayFor(modelItem => item.Voorraad) in voorraad
@@ -45,7 +40,7 @@
                 </div>
 
                 <div class="product-bottom">
-                    <input type="submit" name="AddToWinkelmandKnop" value="Aan winkelmand toevoegen" /> <!--<a href="http://asp.net" class="btn btn-primary">Aan winkelmand toevoegen</a>-->
+                    <input type="submit" value="Aan winkelmand toevoegen" class="btn btn-primary" />
                 </div>
             }
         </div>
