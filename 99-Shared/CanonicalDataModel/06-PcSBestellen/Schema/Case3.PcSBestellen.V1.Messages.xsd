@@ -3,18 +3,18 @@
   targetNamespace="urn:case3-pcsbestellen:v1:messages"
     elementFormDefault="qualified"
     xmlns:msg="urn:case3-pcsbestellen:v1:messages"
-    xmlns:k="urn:case3-bsbestellingenbeheer:v1:schema"
+    xmlns:k="urn:case3-pcsbestellen:v1:schema"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
-  <xs:import namespace="urn:case3-bsbestellingenbeheer:v1:schema"
-             schemaLocation="..\..\04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Schema.xsd" />
+  <xs:import namespace="urn:case3-pcsbestellen:v1:schema"
+             schemaLocation="Case3.PcSBestellen.V1.Schema.xsd" />
   
   <xs:complexType name="FindNextBestellingRequestMessage">
     <xs:sequence/>
   </xs:complexType>
   <xs:complexType name="FindNextBestellingResultMessage">
     <xs:sequence>
-      <xs:element name="BestellingSummary" type="k:Bestelling"/>
+      <xs:element name="BestellingOpdracht" type="k:BestellingPcS"/>
     </xs:sequence>
   </xs:complexType>
   

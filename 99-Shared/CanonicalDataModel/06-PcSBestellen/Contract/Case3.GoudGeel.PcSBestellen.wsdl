@@ -5,7 +5,7 @@
       <xsd:import namespace="Case3.GoudGeel.PcSBestellen" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="urn:case3-pcsbestellen:v1:messages" />
-      <xsd:import namespace="urn:case3-bsbestellingenbeheer:v1:schema" />
+      <xsd:import namespace="urn:case3-pcsbestellen:v1:schema" />
       <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" />
       <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1" />
     </xsd:schema>

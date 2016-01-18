@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Case3.PcSWinkelen.Schema.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using Case3.PcSWinkelen.Schema;
-using Case3.PcSWinkelen.Messages;
 using System.Text;
 
 namespace Case3.PcSWinkelen.Contract

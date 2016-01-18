@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="DTO\BSBestellingenbeheerTypes.cs" />
     <Compile Include="DTO\BSKlantbeheerTypes.cs" />
-    <Compile Include="DTO\PcSBestellenTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,22 +86,11 @@
 svcutil ^
   /out:$(ProjectDir)DTO\BSBestellingenbeheerTypes.cs ^
   /n:"urn:case3-bsbestellingenbeheer:v1:messages,Case3.BSBestellingenbeheer.V1.Messages" ^
-  /n:"urn:case3-bsbestellingenbeheer:v1:schema,Case3.BSBestellingenbeheer.V1.Schemap" ^
+  /n:"urn:case3-bsbestellingenbeheer:v1:schema,Case3.BSBestellingenbeheer.V1.Schema" ^
   /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.BSCatalogusBeheer.Schema.ProductNS" ^
   /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.BSCatalogusBeheer.Schema.CategorieNS" ^
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Contract\*.xsd" ^
-  "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Contract\*.wsdl"
-
-svcutil.exe /dataContractOnly ^
- /out:$(ProjectDir)DTO\PcSBestellenTypes.cs ^
- /n:"urn:case3-pcsbestellen:v1:messages,Case3.PcSBestellen.V1.Messages" ^
- /n:"urn:case3-bsbestellingenbeheer:v1:schema,Case3.BSBestellingenbeheer.V1.SchemaNSPcS" ^
- /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.BSCatalogusBeheer.Schema.ProductNSPcS" ^
- /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.BSCatalogusBeheer.Schema.CategorieNSPcS" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\V1\Product.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\V1\Categorie.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Schema.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Schema\Case3.PcSBestellen.V1.Messages.xsd"</PreBuildEvent>
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Contract\*.wsdl"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
