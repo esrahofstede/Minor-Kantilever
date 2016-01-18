@@ -84,6 +84,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Minor.ServiceBus.PfSLocatorService.Contract\01 - Contract.csproj">
+      <Project>{a19d2502-c95d-4b17-955c-8d96d287303d}</Project>
+      <Name>01 - Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Minor.ServiceBus.PfSLocatorService.Implementation\03 - Implementation.csproj">
       <Project>{4faa9db8-1db2-4085-a126-6a8eeeb1722b}</Project>
       <Name>03 - Implementation</Name>
