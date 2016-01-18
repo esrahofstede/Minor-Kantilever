@@ -14,14 +14,15 @@
       <Word>Bestellingenbeheer</Word>
       <Word>Catalogus</Word>
       <Word>Catalogusbeheer</Word>
-      <Word>Incl</Word>      
+      <Word>Incl</Word>
       <Word>Excl</Word>      
       <Word>Afbeeldingslocatie</Word>
       <Word>Webwinkel</Word>
       <Word>Prijs</Word>
       <Word>Klantbeheer</Word>
       <Word>Leverancier</Word>
-      <Word>leveranciers</Word>
+      <Word>Leverancierscode</Word>
+      <Word>Voorraad</Word>
       <Word>Mvc</Word>
       <Word>Naam</Word>
       <Word>Prijs</Word>
@@ -48,7 +49,11 @@
       <Word>Leveranciersnaam</Word>
       <Word>Leverancierscode</Word>
       <Word>Aantal</Word>
+
       <Word>Artikelen</Word>
+      <Word>Bestel</Word>
+      <Word>Bestelling</Word>
+      <Word>Aantal</Word>
       <Word>Bestellingen</Word>
       <Word>Bs</Word>
   </Recognized>

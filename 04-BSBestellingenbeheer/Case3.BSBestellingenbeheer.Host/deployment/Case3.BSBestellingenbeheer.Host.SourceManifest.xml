@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <DbFullSql path="C:\GIT\Goudgeel\99-Shared\GRANTscriptBSBestellingenBeheer.sql" Transacted="False" />
+  <IisApp path="C:\GIT\Goudgeel\04-BSBestellingenbeheer\Case3.BSBestellingenbeheer.Host\obj\Acceptatie\Package\PackageTmp" />
+  <setAcl path="C:\GIT\Goudgeel\04-BSBestellingenbeheer\Case3.BSBestellingenbeheer.Host\obj\Acceptatie\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\GIT\Goudgeel\04-BSBestellingenbeheer\Case3.BSBestellingenbeheer.Host\obj\Acceptatie\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

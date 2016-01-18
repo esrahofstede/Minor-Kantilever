@@ -37,8 +37,26 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\..\99-Shared\Case3Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Acceptatie|AnyCPU'">
+    <OutputPath>bin\Acceptatie\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,13 +66,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BestellingDbInitializerTemporary.cs" />
     <Compile Include="BSBestellingenServiceHandler.cs" />
+    <Compile Include="Interfaces\IBestellingManager.cs" />
+    <Compile Include="Managers\BestellingManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
@@ -65,6 +88,14 @@
     <ProjectReference Include="..\Case3.BSBestellingenbeheer.Contract\02 - Contract.csproj">
       <Project>{a654623f-7a0b-4abf-8e6e-a08ef24fdaba}</Project>
       <Name>02 - Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.BSBestellingenbeheer.DAL\06 - DAL.csproj">
+      <Project>{c648b7a9-810b-4523-9473-686b2bff10bc}</Project>
+      <Name>06 - DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.BSBestellingenbeheer.Entities\08 - Entities.csproj">
+      <Project>{0fb9a314-fd9d-4689-862c-02c7852a3ecd}</Project>
+      <Name>08 - Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Case3.BSBestellingenbeheer.Schema\01 - Schema.csproj">
       <Project>{e43c8d0e-0321-4c18-8ad2-ff35c09d35c1}</Project>
