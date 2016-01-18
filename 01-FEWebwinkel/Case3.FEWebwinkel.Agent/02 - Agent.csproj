@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agents\PcSWinkelenAgent.cs" />
+    <Compile Include="Exceptions\TechnicalException.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interfaces\IPcSWinkelenAgent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

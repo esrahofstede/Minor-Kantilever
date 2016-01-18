@@ -1,4 +1,5 @@
 ﻿using Case3.BSCatalogusBeheer.Schema.Product;
+using Case3.FEWebwinkel.Agent.Exceptions;
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.PcSWinkelen.Messages;
 using Case3.PcSWinkelen.Schema;
@@ -24,9 +25,9 @@ namespace Case3.FEWebwinkel.Agent
             {
                 _agent = _factory.CreateAgent();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //PcSWinkelen not found
+                throw new TechnicalException("Er is een technische fout opgetreden.");
             }
         }
 
@@ -52,13 +53,11 @@ namespace Case3.FEWebwinkel.Agent
                 FindCatalogusResponseMessage result = _agent.GetCatalogusItems(new FindCatalogusRequestMessage() { Page = page, PageSize = pageSize });
                 return result.Products;
             }
-            catch (FaultException<ErrorLijst> ex)
+            catch (FaultException<ErrorLijst>)
             {
-                var x = ex;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                var x = e;
             }
             return null;
         }
@@ -84,9 +83,9 @@ namespace Case3.FEWebwinkel.Agent
                     result.AddRange(products);
                 }
             }
-            catch(FaultException<ErrorLijst> ex)
+            catch(FaultException<ErrorLijst>)
             {
-                throw new Exception(ex.Message);
+                throw new TechnicalException("Er is iets fout gegaan tijdens het ophalen van de catalogus. Probeer het later nog eens.");
             }
             catch (FaultException ex)
             {

@@ -200,6 +200,7 @@
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\TechnicalErrorViewModel.cs" />
     <Compile Include="ViewModels\WinkelmandViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -310,6 +311,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Catalogus\Index.cshtml" />
     <Content Include="Views\Winkelmand\Index.cshtml" />
+    <Content Include="Views\Catalogus\CatalogusIndexError.cshtml" />
     <None Include="Web.Acceptatie.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

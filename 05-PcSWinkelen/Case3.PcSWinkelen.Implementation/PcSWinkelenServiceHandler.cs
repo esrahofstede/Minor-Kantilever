@@ -72,7 +72,6 @@ namespace Case3.PcSWinkelen.Implementation
                 {
                     ErrorCode = 2,
                     Message = ex.Message,
-                    Data = "test" as object
                 });
             }
             catch (Exception ex)
@@ -81,7 +80,6 @@ namespace Case3.PcSWinkelen.Implementation
                 {
                     ErrorCode = 2,
                     Message = ex.Message,
-                    Data = "test" as object
                 });
             }
             if (_list.Count > 0)

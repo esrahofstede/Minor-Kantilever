@@ -8,6 +8,7 @@ using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using System;
+using Case3.FEWebwinkel.Agent.Exceptions;
 
 namespace Case3.FEWebwinkel.Site.Managers
 {
@@ -28,7 +29,7 @@ namespace Case3.FEWebwinkel.Site.Managers
             {
                 _pcsWinkelenAgent = new PcSWinkelenAgent();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -56,7 +57,7 @@ namespace Case3.FEWebwinkel.Site.Managers
                 var viewmodels = ConvertCatalogusCollectionToCatalogusViewModelList(products);
                 return viewmodels;
             }
-            catch (Exception e)
+            catch (TechnicalException)
             {
                 throw;
             }

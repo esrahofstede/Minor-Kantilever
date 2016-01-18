@@ -1,5 +1,7 @@
-﻿using Case3.FEWebwinkel.Site.Managers;
+﻿using Case3.FEWebwinkel.Agent.Exceptions;
+using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
+using Case3.FEWebwinkel.Site.ViewModels;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Web.Mvc;
@@ -18,7 +20,14 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// </summary>
         public CatalogusController()
         {
-            _catalogusManager = new CatalogusManager();
+            try
+            {
+                _catalogusManager = new CatalogusManager();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         /// <summary>
         /// This constructor is for testing purposes
@@ -34,9 +43,16 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// <returns>View with products of the catalog</returns>
         public ActionResult Index()
         {
-            var model = _catalogusManager.FindAllProducts();            
-
-            return View(model);
+            try
+            {
+                var model = _catalogusManager.FindAllProducts();
+                return View(model);
+            }
+            catch (TechnicalException ex)
+            {
+                TechnicalErrorViewModel model = new TechnicalErrorViewModel(ex.Message);
+                return View("CatalogusIndexError", model);
+            }
         }
 
         /// <summary>
