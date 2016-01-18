@@ -23,7 +23,7 @@ namespace Case3.FEBestellingen.Site.Controllers
         /// </summary>
         public BestellingController()
         {
-            //_bestellingManager = new BestellingManager();
+            _bestellingManager = new BestellingManager();
         }
         /// <summary>
         /// This constructor is for testing purposes
@@ -40,11 +40,12 @@ namespace Case3.FEBestellingen.Site.Controllers
         [Authorize(Roles = "Magazijnmedewerkers")]
         public ActionResult Index()
         {
+            var requestMessage = new FindNextBestellingRequestMessage();
+            var model = _bestellingManager.FindNextBestelling(requestMessage);
+            
+            
             //dummy data, delete this when real data is available
-            //var requestMessage = new FindNextBestellingRequestMessage();
-            //var model = _bestellingManager.FindNextBestelling(requestMessage);
-
-            var model = new BestellingViewModel
+            /*var model = new BestellingViewModel
             {
                 Artikelen = new List<ArtikelViewModel>
                 {
@@ -63,7 +64,7 @@ namespace Case3.FEBestellingen.Site.Controllers
                         Aantal = 2,
                     }
                 }
-            };
+            };*/
             return View(model);
         }
 

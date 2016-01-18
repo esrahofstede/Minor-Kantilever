@@ -1,10 +1,10 @@
-﻿using Case3.BSBestellingenbeheer.V1.SchemaNSPcS;
-using Case3.PcSBestellen.V1.Messages;
+﻿using Case3.PcSBestellen.V1.Messages;
+using case3pcsbestellen.v1.schema;
 
 namespace Case3.FEBestellingen.Agent.Interfaces
 {
     public interface IPcSBestellenAgent
     {
-        Bestelling FindNextBestelling(FindNextBestellingRequestMessage requestMessage);
+        BestellingPcS FindNextBestelling(FindNextBestellingRequestMessage requestMessage);
     }
 }

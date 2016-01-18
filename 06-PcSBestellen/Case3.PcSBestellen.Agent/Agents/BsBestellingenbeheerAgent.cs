@@ -17,7 +17,7 @@ namespace Case3.PcSBestellen.Agent.Agents
         /// </summary>
         public BsBestellingenbeheerAgent()
         {
-            _factory = new ServiceFactory<IBSBestellingenbeheerService>("BSBestellen");
+            _factory = new ServiceFactory<IBSBestellingenbeheerService>("BSBestellingen");
             _agent = _factory.CreateAgent();
         }
         /// <summary>

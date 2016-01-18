@@ -60,7 +60,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// </summary>
         /// <param name="articleID">The ID of the chosen article</param>
         [HttpPost]
-        //[ExcludeFromCodeCoverage]
         public ActionResult Index(int articleID)
         {
             string userGuid;

@@ -1,9 +1,9 @@
-﻿using Case3.BSBestellingenbeheer.V1.SchemaNSPcS;
-using Case3.FEBestellingen.Agent.Agents;
+﻿using Case3.FEBestellingen.Agent.Agents;
 using Case3.FEBestellingen.Agent.Interfaces;
 using Case3.FEBestellingen.Site.Managers.Interfaces;
 using Case3.FEBestellingen.Site.ViewModels;
 using Case3.PcSBestellen.V1.Messages;
+using case3pcsbestellen.v1.schema;
 using System.Linq;
 
 namespace Case3.FEBestellingen.Site.Managers
@@ -38,7 +38,7 @@ namespace Case3.FEBestellingen.Site.Managers
         public BestellingViewModel FindNextBestelling(FindNextBestellingRequestMessage requestMessage)
         {
             //Get Bestelling from PcSBestellen
-            Bestelling bestelling = _pcsBestellenAgent.FindNextBestelling(requestMessage);
+            BestellingPcS bestelling = _pcsBestellenAgent.FindNextBestelling(requestMessage);
             //Convert the Bestelling to a BestellingViewModel
             BestellingViewModel bestellingViewModel = ConvertBestellingToBestellingViewModel(bestelling);
 
@@ -50,19 +50,25 @@ namespace Case3.FEBestellingen.Site.Managers
         /// </summary>
         /// <param name="bestelling">The Bestelling which has to be converted</param>
         /// <returns>Returns a BestellingViewModel<returns>
-        public BestellingViewModel ConvertBestellingToBestellingViewModel(Bestelling bestelling)
+        public BestellingViewModel ConvertBestellingToBestellingViewModel(BestellingPcS bestelling)
         {
-            //Create Artikelen based on the Bestelling
-            var artikelen = bestelling.Artikelen.Select(art => new ArtikelViewModel
-            {
-                Naam = art.Product.Naam,
-                Leveranciersnaam = art.Product.LeverancierNaam,
-                Leverancierscode = art.Product.LeveranciersProductId,
-                Aantal = art.Aantal,
-            }).ToList();
+            BestellingViewModel bestellingModel = new BestellingViewModel();
 
-            //Add the Artikelen to the BestellingViewModel
-            BestellingViewModel bestellingModel = new BestellingViewModel { Artikelen = artikelen};
+            //Create Artikelen based on the Bestelling
+            if (bestelling != null)
+            {
+
+                var artikelen = bestelling.ArtikelenPcS.Select(art => new ArtikelViewModel
+                {
+                    Naam = art.Product.Naam,
+                    Leveranciersnaam = art.Product.LeverancierNaam,
+                    Leverancierscode = art.Product.LeveranciersProductId,
+                    Aantal = art.Aantal,
+                }).ToList();
+
+                //Add the Artikelen to the BestellingViewModel
+                bestellingModel = new BestellingViewModel { Artikelen = artikelen };
+            }
 
             return bestellingModel;
         }

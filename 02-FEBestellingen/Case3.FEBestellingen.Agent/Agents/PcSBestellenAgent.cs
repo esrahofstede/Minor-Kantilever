@@ -2,7 +2,7 @@
 using Case3.FEBestellingen.Agent.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
 using Minor.ServiceBus.Agent.Implementation;
-using Case3.BSBestellingenbeheer.V1.SchemaNSPcS;
+using case3pcsbestellen.v1.schema;
 
 namespace Case3.FEBestellingen.Agent.Agents
 {
@@ -13,7 +13,7 @@ namespace Case3.FEBestellingen.Agent.Agents
 
         public PcSBestellenAgent()
         {
-            _factory = new ServiceFactory<IPcSBestellenService>("PcSBestellingen");
+            _factory = new ServiceFactory<IPcSBestellenService>("PcSBestellen");
             _agent = _factory.CreateAgent();
         }
 
@@ -21,10 +21,10 @@ namespace Case3.FEBestellingen.Agent.Agents
         {
             _agent = agent;
         }
-        public Bestelling FindNextBestelling(FindNextBestellingRequestMessage requestMessage)
+        public BestellingPcS FindNextBestelling(FindNextBestellingRequestMessage requestMessage)
         {
             FindNextBestellingResultMessage result = _agent.FindNextBestelling(requestMessage);
-            return result.BestellingSummary;
+            return result.BestellingOpdracht;
         }
     }
 }

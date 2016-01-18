@@ -28,7 +28,7 @@
   <serviceLocation>
     <name>BSBestellingen</name>
     <profile>Acceptatie</profile>
-    <metadataAddress>http://minorbldsrv/Goudgeel/Acceptatie/BSBestellingen/PcSWinkelen.svc/mex</metadataAddress>
+    <metadataAddress>http://minorbldsrv/Goudgeel/Acceptatie/BSBestellingenBeheer/BSBestellingen.svc/mex</metadataAddress>
   </serviceLocation>
   <serviceLocation>
     <name>BSVoorraadBeheer</name>
