@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01a - Schema", "Case3.PcSBestellen.Schema\01a - Schema.csproj", "{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}"
 EndProject
@@ -92,8 +92,8 @@ Global
 		{05F97430-6546-481D-8492-F52B76239D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05F97430-6546-481D-8492-F52B76239D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05F97430-6546-481D-8492-F52B76239D0C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Acceptatie|Any CPU.ActiveCfg = Release|Any CPU
-		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Acceptatie|Any CPU.Build.0 = Release|Any CPU
+		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
+		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
 		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
