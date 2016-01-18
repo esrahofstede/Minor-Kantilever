@@ -29,9 +29,9 @@ namespace Case3.FEWebwinkel.Site.Managers
             {
                 _pcsWinkelenAgent = new PcSWinkelenAgent();
             }
-            catch (Exception)
+            catch (Exception) // no local variable, because otherwise you'll lose the stack trace
             {
-                throw;
+                throw; //rethrow the exception with stack trace
             }
         }
         /// <summary>

@@ -45,8 +45,6 @@ namespace Case3.FEWebwinkel.Site.Controllers
             {
                 CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
                 userGuid = cookieNator.GetCookieValue("UserGuid");
-
-                
             }
             catch (NullReferenceException) //Create a new list if cookie can't be found
             {
@@ -57,9 +55,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
             if (userGuid.Length > 0)
             {
                 totaalInclBTW = artikellijst.Select(artikel => (artikel.Prijs * artikel.Aantal)).Sum();
-                //need up to date version of btwCalculator for this, uncomment this when ready:
-                //totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
-
+                totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
             }
 
             var model = new WinkelmandViewModel

@@ -19,11 +19,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05 - Implementation.Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02 - Contract", "Case3.PcSBestellen.Contract\02 - Contract.csproj", "{3AC7389B-7507-4B69-93EB-181A1B917801}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03 - Host", "Case3.PcSWinkelen.Host\03 - Host.csproj", "{7A4D967C-5151-41A2-AF0E-62DC54DB712B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10 - Agent.Tests", "Case3.PcSBestellen.Agent.Tests\10 - Agent.Tests.csproj", "{05F97430-6546-481D-8492-F52B76239D0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01b - PcSBestellenSchema", "Case3.PcSBestellen.PcSBestellenSchema\01b - PcSBestellenSchema.csproj", "{22C02C22-9975-4D18-89C7-DC424663E0AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03 - Host", "Case3.PcSBestellen.Host\03 - Host.csproj", "{7A4D967C-5151-41A2-AF0E-62DC54DB712B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,12 +80,6 @@ Global
 		{3AC7389B-7507-4B69-93EB-181A1B917801}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AC7389B-7507-4B69-93EB-181A1B917801}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AC7389B-7507-4B69-93EB-181A1B917801}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
-		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
-		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{05F97430-6546-481D-8492-F52B76239D0C}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
 		{05F97430-6546-481D-8492-F52B76239D0C}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
 		{05F97430-6546-481D-8492-F52B76239D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -98,6 +92,12 @@ Global
 		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22C02C22-9975-4D18-89C7-DC424663E0AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Acceptatie|Any CPU.ActiveCfg = Acceptatie|Any CPU
+		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Acceptatie|Any CPU.Build.0 = Acceptatie|Any CPU
+		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A4D967C-5151-41A2-AF0E-62DC54DB712B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
