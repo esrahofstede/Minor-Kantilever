@@ -13,6 +13,8 @@ namespace Case3.PcSBestellen.Agent.Tests.Mocks
     {
         private Bestelling _bestellingOpdracht = new Bestelling()
         {
+
+
             Artikelen = new Artikelen()
             {
                 new BestelItem()

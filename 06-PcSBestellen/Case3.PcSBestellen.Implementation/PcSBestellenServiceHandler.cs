@@ -41,7 +41,6 @@ namespace Case3.PcSBestellen.Implementation
         public FindNextBestellingResultMessage FindNextBestelling(FindNextBestellingRequestMessage requestMessage)
         {
             FindNextBestellingResultMessage resultMessage = _bestellingenManager.FindNextBestelling(requestMessage);
-
             return resultMessage;
         }
 
