@@ -69,5 +69,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
 
             return View(model);
         }
+
+        public ActionResult Bestellen()
+        {
+            return View();
+        }
     }
 }
