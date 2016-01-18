@@ -312,6 +312,7 @@
     <Content Include="Views\Catalogus\Index.cshtml" />
     <Content Include="Views\Winkelmand\Index.cshtml" />
     <Content Include="Views\Catalogus\CatalogusIndexError.cshtml" />
+    <Content Include="Views\Winkelmand\Bestellen.cshtml" />
     <None Include="Web.Acceptatie.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
