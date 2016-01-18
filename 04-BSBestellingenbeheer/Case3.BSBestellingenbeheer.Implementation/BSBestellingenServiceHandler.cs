@@ -51,5 +51,15 @@ namespace Case3.BSBestellingenbeheer.Implementation
                 BestellingOpdracht = _bestellingManager.FindFirstBestelling()
             };
         }
+
+        public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UpdateBestellingResultMessage UpdateBestelling(UpdateBestellingRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

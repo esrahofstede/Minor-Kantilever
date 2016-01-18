@@ -7,10 +7,14 @@
 >
 
   <xs:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1"
-              schemaLocation="..\..\BSCatalogusBeheer\V1\Product.xsd" />
+              schemaLocation="..\..\BSCatalogusBeheer\Schema\Product.xsd" />
 
   <xs:complexType name="BestellingPcS">
     <xs:sequence>
+      <xs:element name="BestellingID" nillable="true" type="xs:int" />
+      <xs:element name="FactuurID" nillable="true" type="xs:int" />
+      <xs:element name="Status" nillable="true" type="xs:string" />
+      <xs:element name="Klantgegevens" nillable="true" type="k:KlantgegevensPcS" />
       <xs:element name="ArtikelenPcS" type="k:ArtikelenPcS" />
     </xs:sequence>
   </xs:complexType>
@@ -19,6 +23,16 @@
     <xs:sequence>
       <xs:element name="Product" type="product:Product" minOccurs="1" maxOccurs="1"/>
       <xs:element name="Aantal" type="xs:int" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="KlantgegevensPcS">
+    <xs:sequence>
+      <xs:element name="Naam" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Adresregel1" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Adresregel2" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Postcode" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Woonplaats" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 

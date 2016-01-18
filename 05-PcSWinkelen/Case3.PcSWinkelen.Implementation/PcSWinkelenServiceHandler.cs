@@ -234,5 +234,16 @@ namespace Case3.PcSWinkelen.Implementation
             return response;
         }
 
+        /// <summary>
+        /// Cals the agent PcSBestellen
+        /// Retrieves the winkelmanditems from the database
+        /// Sends all the items to the PcSBestellen
+        /// </summary>
+        /// <param name="bestelling">The session id of the client</param>
+        /// <returns></returns>
+        public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
