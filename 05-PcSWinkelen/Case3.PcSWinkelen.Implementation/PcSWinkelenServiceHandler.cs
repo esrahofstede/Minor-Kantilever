@@ -148,8 +148,8 @@ namespace Case3.PcSWinkelen.Implementation
         /// Haal het volledige product op uit de catalogus
         /// Als het item al bestaat wordt niet het aantal opgehoogd, maar een nieuwe toegevoegd.
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
+        /// <param name="request">The request message with references to the user and the Product</param>
+        /// <returns>Returns an AddItemToWinkelmandResponseMessage</returns>
         public AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request)
         {
             Product product;
@@ -201,7 +201,7 @@ namespace Case3.PcSWinkelen.Implementation
         /// Gets all items from the winkelmand in the database
         /// </summary>
         /// <param name="request">The request containing the session id</param>
-        /// <returns></returns>
+        /// <returns>The response message with all Winkelmand Items</returns>
         public GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request)
         {
             var response = new GetWinkelmandResponseMessage();
