@@ -14,7 +14,7 @@ namespace Case3.PcSWinkelen.DAL.Tests
     public class WinkelmandItemDataMapperTest
     {
         [ClassInitialize]
-        public static void ClassInitialize(TestContext testcontext)
+        public static void ClassInitialize(TestContext testContext)
         {
             Database.SetInitializer(new WinkelmandDBInitializer());
             using (var context = new WinkelmandContext())

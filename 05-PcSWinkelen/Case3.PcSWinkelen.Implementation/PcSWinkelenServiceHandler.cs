@@ -42,13 +42,13 @@ namespace Case3.PcSWinkelen.Implementation
         /// </summary>
         /// <param name="dataMapper">The winkelmand datamapper which is to be used. Must implement IWinkelmandDataMapper</param>
         /// <param name="catalogusBeheerAgent">The winkelmand agent which is to be used. Must implement IBSCatalogusBeheerAgent</param>
-        /// <param name="DTOMapper">The DTO mapper which is to be used. Must implement IWinkelmandItemDTOMapper</param>
+        /// <param name="dtoMapper">The DTO mapper which is to be used. Must implement IWinkelmandItemDTOMapper</param>
         public PcSWinkelenServiceHandler(
             IWinkelmandDataMapper dataMapper, 
             IBSCatalogusBeheerAgent catalogusBeheerAgent,
-            IWinkelmandItemDTOMapper DTOMapper)
+            IWinkelmandItemDTOMapper dtoMapper)
         {
-            _winkelmandItemDTOMapper = DTOMapper;
+            _winkelmandItemDTOMapper = dtoMapper;
             _winkelmandDataMapper = dataMapper;
             _catalogusBeheerAgent = catalogusBeheerAgent;
             log4net.Config.XmlConfigurator.Configure();

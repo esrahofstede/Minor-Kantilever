@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\WinkelmandContext.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Mappers\IWinkelmandDataMapper.cs" />
     <Compile Include="Mappers\WinkelmandDataMapper.cs" />
     <Compile Include="Mappings\WinkelmandItemMapping.cs" />
