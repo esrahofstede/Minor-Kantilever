@@ -54,9 +54,7 @@ namespace Case3.PcSWinkelen.Agent.Managers
         public IEnumerable<CatalogusProductItem> GetVoorraadWithProductsList(int page, int pageSize)
         {
             List<Product> products = _bSCatalogusBeheerAgent.GetProducts(page, pageSize).ToList();
-
             List<CatalogusProductItem> resultProductVoorraad = new List<CatalogusProductItem>();
-
             if (products.Count > 0)
             {
                 foreach (Product product in products)
@@ -65,20 +63,26 @@ namespace Case3.PcSWinkelen.Agent.Managers
                     try
                     {
                         voorraad = _bSVoorraadBeheerAgent.GetProductVoorraad(product.Id, product.LeveranciersProductId);
+                        resultProductVoorraad.Add(new CatalogusProductItem()
+                        {
+                            Product = product,
+                            Voorraad = voorraad
+                        });
                     }
                     catch (ProductVoorraadNotFoundException)
                     {
-                        voorraad = -1;
+                        if (product.LeverbaarTot > DateTime.Now)
+                        {
+                            resultProductVoorraad.Add(new CatalogusProductItem()
+                            {
+                                Product = product,
+                                Voorraad = 0
+                            });
+                        }
                     }
-               
-                    resultProductVoorraad.Add(new CatalogusProductItem()
-                    {
-                        Product = product,
-                        Voorraad = voorraad
-                    });
+                    
                 }
             }
-
             return resultProductVoorraad.ToList();
         }
 

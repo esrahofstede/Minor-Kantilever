@@ -1,13 +1,6 @@
-﻿using Case3.BTWConfigurationReader;
-using Case3.FEBestellingen.Site.Managers;
+﻿using Case3.FEBestellingen.Site.Managers;
 using Case3.FEBestellingen.Site.Managers.Interfaces;
-using Case3.FEBestellingen.Site.ViewModels;
 using Case3.PcSBestellen.V1.Messages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Permissions;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Case3.FEBestellingen.Site.Controllers
@@ -18,7 +11,6 @@ namespace Case3.FEBestellingen.Site.Controllers
     public class BestellingController : Controller
     {
         private IBestellingManager _bestellingManager;
-
 
         /// <summary>
         /// This is the default constructor

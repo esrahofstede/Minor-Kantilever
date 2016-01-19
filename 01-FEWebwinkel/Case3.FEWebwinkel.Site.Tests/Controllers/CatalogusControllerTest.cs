@@ -8,6 +8,7 @@ using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Moq;
 using System;
+using Case3.FEWebwinkel.Agent.Exceptions;
 
 namespace Case3.FEWebwinkel.Site.Tests.Controllers
 {
@@ -43,6 +44,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             };
         }
         #endregion
+        #region -------[Test for the index action]-------
         [TestMethod]
         public void CatalogControllerIndexActionReturnsViewResult()
         {
@@ -89,7 +91,8 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             Assert.AreEqual("Giant", modelInView[1].Leverancier);
             Assert.AreEqual(30, modelInView[1].Voorraad);
         }
-
+        #endregion
+        #region -------[Integration Test for index action]-------
         [TestMethod]
         public void IntegrationCatalogusControllerReturnsListOfCatalogusViewModels()
         {
@@ -109,6 +112,51 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             }
             
         }
+
+        [TestMethod]
+        public void IndexReturnsTechnicalViewModelWhenTechnicalException()
+        {
+            //Assert
+            var mock = new Mock<ICatalogusManager>(MockBehavior.Strict);
+            mock.Setup(p => p.FindAllProducts()).Throws(new TechnicalException("Er is een technische fout opgetreden."));
+            var controller = new CatalogusController(mock.Object);
+
+            //Arrange
+            var result = controller.Index() as ViewResult;
+
+            //Act
+            Assert.IsInstanceOfType(result.Model, typeof(TechnicalErrorViewModel));
+            Assert.AreEqual("Er is een technische fout opgetreden.", ((TechnicalErrorViewModel)result.Model).Message);
+        }
+
+        [TestMethod]
+        public void IndexRedirectsToActionWhenNullReferenceException()
+        {
+            //Assert
+            var mock = new Mock<ICatalogusManager>(MockBehavior.Strict);
+            mock.Setup(p => p.FindAllProducts()).Throws(new NullReferenceException());
+            var controller = new CatalogusController(mock.Object);
+
+            //Arrange
+            var result = controller.Index() as RedirectToRouteResult;
+
+            //Act
+            Assert.AreEqual("TechnicalError", result.RouteValues["Action"]);
+        }
+
+        [TestMethod]
+        public void TechnicalErrorReturnsView()
+        {
+            //Assert
+            var controller = new CatalogusController();
+            
+            //Act
+            var result = controller.TechnicalError();
+
+            //Arrange
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
+        #endregion
     }
     
 }

@@ -251,6 +251,8 @@ namespace case3pcsbestellen.v1.schema
         
         private string WoonplaatsField;
         
+        private string TelefoonnummerField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -325,6 +327,19 @@ namespace case3pcsbestellen.v1.schema
             set
             {
                 this.WoonplaatsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public string Telefoonnummer
+        {
+            get
+            {
+                return this.TelefoonnummerField;
+            }
+            set
+            {
+                this.TelefoonnummerField = value;
             }
         }
     }

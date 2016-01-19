@@ -2,6 +2,9 @@
 
 namespace Case3.FEWebwinkel.Site.ViewModels
 {
+    /// <summary>
+    /// This is the WinkelmandViewModel used for displaying the Winkelmand
+    /// </summary>
     public class WinkelmandViewModel
     {
         public List<ArtikelViewModel> Artikelen { get; set; }

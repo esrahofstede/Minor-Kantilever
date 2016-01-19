@@ -29,7 +29,7 @@ namespace Case3.FEWebwinkel.Site.Managers
             {
                 _pcsWinkelenAgent = new PcSWinkelenAgent();
             }
-            catch (Exception) // no local variable, because otherwise you'll lose the stack trace
+            catch (TechnicalException) // no local variable, because otherwise you'll lose the stack trace
             {
                 throw; //rethrow the exception with stack trace
             }
@@ -58,6 +58,10 @@ namespace Case3.FEWebwinkel.Site.Managers
                 return viewmodels;
             }
             catch (TechnicalException)
+            {
+                throw;
+            }
+            catch (NullReferenceException)
             {
                 throw;
             }

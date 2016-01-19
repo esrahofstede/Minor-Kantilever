@@ -167,5 +167,15 @@ namespace Case3.FEWebwinkel.Agent.Tests.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<WinkelmandBestellenResponseMessage> WinkelmandBestellenAsync(WinkelmandBestellenRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -29,8 +29,7 @@
   </xs:complexType>
 
   <xs:complexType name="BestellingPlaatsenResultMessage">
-    <xs:sequence>
-    </xs:sequence>
+    <xs:sequence/>
   </xs:complexType>
   
 </xs:schema>
