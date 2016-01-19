@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:case3-pcsbestellen:v1:messages" elementFormDefault="qualified" targetNamespace="urn:case3-pcsbestellen:v1:messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="urn:case3-pcsbestellen:v1:schema" />
+  <xs:complexType name="FindNextBestellingRequestMessage">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="FindNextBestellingRequestMessage" nillable="true" type="tns:FindNextBestellingRequestMessage" />
+  <xs:complexType name="FindNextBestellingResultMessage">
+    <xs:sequence>
+      <xs:element name="BestellingOpdracht" nillable="true" xmlns:q1="urn:case3-pcsbestellen:v1:schema" type="q1:BestellingPcS">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FindNextBestellingResultMessage" nillable="true" type="tns:FindNextBestellingResultMessage" />
+  <xs:complexType name="BestellingPlaatsenRequestMessage">
+    <xs:sequence>
+      <xs:element name="BestellingPcS" nillable="true" xmlns:q2="urn:case3-pcsbestellen:v1:schema" type="q2:BestellingPcS">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BestellingPlaatsenRequestMessage" nillable="true" type="tns:BestellingPlaatsenRequestMessage" />
+  <xs:complexType name="BestellingPlaatsenResultMessage">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="BestellingPlaatsenResultMessage" nillable="true" type="tns:BestellingPlaatsenResultMessage" />
+</xs:schema>

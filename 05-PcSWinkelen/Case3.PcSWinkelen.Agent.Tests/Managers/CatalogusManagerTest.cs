@@ -93,13 +93,11 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
         }
 
         [TestMethod]
-        //[ExpectedException(typeof(ProductVoorraadNotFoundException))]
-        public void CreateCatalogusManagerMockInstanceThrowException()
+        public void VerifyProductVoorraadIs0WhenVoorraadNotFoundButIsLeverbaarTot2050()
         {
             //Arrange
             Mock<IBSCatalogusBeheerAgent> catalogusBeheerAgentMock = new Mock<IBSCatalogusBeheerAgent>(MockBehavior.Strict);
-            catalogusBeheerAgentMock.Setup(p => p.GetProducts()).Returns(_products);
-            catalogusBeheerAgentMock.Setup(p => p.GetProducts(1, 20)).Returns(new List<Product>() { new Product() { Id = 4, LeveranciersProductId = "A001" } });
+            catalogusBeheerAgentMock.Setup(p => p.GetProducts(1, 20)).Returns(new List<Product>() { new Product() { Id = 4, LeveranciersProductId = "A001", LeverbaarTot = new DateTime(2050,5,5) } });
 
             Mock<IBSVoorraadBeheerAgent> voorraadBeheerAgentMock = new Mock<IBSVoorraadBeheerAgent>(MockBehavior.Strict);
             voorraadBeheerAgentMock.Setup(p => p.GetProductVoorraad(4, "A001")).Throws(new ProductVoorraadNotFoundException("BSVoorraadBeheer", "Product niet gevonden.", 1, FoutErnst.Waarschuwing));
@@ -110,8 +108,26 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
             IEnumerable<CatalogusProductItem> newProducts = catalogusManager.GetVoorraadWithProductsList(1, 20);
 
             //Assert
-            Assert.AreEqual(-1, newProducts.First().Voorraad);
-                //ExpectedException(typeof(ProductVoorraadNotFoundException))
+            Assert.AreEqual(0, newProducts.First().Voorraad);
+        }
+
+        [TestMethod]
+        public void VerifyProductListIs0WhenVoorraadNotFoundWhenNotLeverbaar()
+        {
+            //Arrange
+            Mock<IBSCatalogusBeheerAgent> catalogusBeheerAgentMock = new Mock<IBSCatalogusBeheerAgent>(MockBehavior.Strict);
+            catalogusBeheerAgentMock.Setup(p => p.GetProducts(1, 20)).Returns(new List<Product>() { new Product() { Id = 4, LeveranciersProductId = "A001", LeverbaarTot = new DateTime(1900, 5, 5) } });
+
+            Mock<IBSVoorraadBeheerAgent> voorraadBeheerAgentMock = new Mock<IBSVoorraadBeheerAgent>(MockBehavior.Strict);
+            voorraadBeheerAgentMock.Setup(p => p.GetProductVoorraad(4, "A001")).Throws(new ProductVoorraadNotFoundException("BSVoorraadBeheer", "Product niet gevonden.", 1, FoutErnst.Waarschuwing));
+
+            CatalogusManager catalogusManager = new CatalogusManager(catalogusBeheerAgentMock.Object, voorraadBeheerAgentMock.Object);
+
+            //Act
+            IEnumerable<CatalogusProductItem> newProducts = catalogusManager.GetVoorraadWithProductsList(1, 20);
+
+            //Assert
+            Assert.AreEqual(0, newProducts.Count());
         }
 
         [TestMethod]
@@ -136,8 +152,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
             Assert.IsNotNull(catalogusManager);
             Assert.IsInstanceOfType(newProducts, typeof(IEnumerable<CatalogusProductItem>));
             Assert.AreEqual(0, newProducts.Count());
+
         }
-
-
     }
 }
