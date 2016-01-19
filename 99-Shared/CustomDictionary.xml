@@ -51,13 +51,19 @@
       <Word>Leveranciersnaam</Word>
       <Word>Leverancierscode</Word>
       <Word>Aantal</Word>
-
+      <Word>Leveranciers</Word>
+      <Word>Sessie</Word>
       <Word>Artikelen</Word>
       <Word>Bestel</Word>
       <Word>Bestelling</Word>
       <Word>Aantal</Word>
       <Word>Bestellingen</Word>
       <Word>Bs</Word>
+      <Word>kan</Word>
+      <Word>bereikt</Word>
+      <Word>BSCatalogusBeheer</Word>
+      <Word>BSVoorraadBeheer</Word>
+      <Word>dto</Word>
   </Recognized>
     <Unrecognized>
     </Unrecognized>

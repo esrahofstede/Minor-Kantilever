@@ -202,7 +202,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
         /// Retrieve product by its id 
         /// </summary>
         [TestMethod]
-        public void FindProductbyIdProductIsCorrectProduct()
+        public void FindProductByIdProductIsCorrectProduct()
         {
             // Arrange
             BSCatalogusBeheerAgent bSCatalogusBeheerAgent = new BSCatalogusBeheerAgent(new CatalogusBeheerMock());

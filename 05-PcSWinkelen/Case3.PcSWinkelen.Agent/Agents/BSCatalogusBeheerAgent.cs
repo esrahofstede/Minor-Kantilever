@@ -72,8 +72,8 @@ namespace Case3.PcSWinkelen.Agent.Agents
         /// <summary>
         /// Get product by Id
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The Id of the product to find</param>
+        /// <returns>Returns the Product that is found</returns>
         public Product GetProductById(int id)
         {
             MsgFindProductByIdResult result = _agent.FindProductById(new MsgFindProductByIdRequest {Id = id});

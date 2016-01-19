@@ -42,13 +42,13 @@ namespace Case3.PcSWinkelen.Implementation
         /// </summary>
         /// <param name="dataMapper">The winkelmand datamapper which is to be used. Must implement IWinkelmandDataMapper</param>
         /// <param name="catalogusBeheerAgent">The winkelmand agent which is to be used. Must implement IBSCatalogusBeheerAgent</param>
-        /// <param name="DTOMapper">The DTO mapper which is to be used. Must implement IWinkelmandItemDTOMapper</param>
+        /// <param name="dtoMapper">The DTO mapper which is to be used. Must implement IWinkelmandItemDTOMapper</param>
         public PcSWinkelenServiceHandler(
             IWinkelmandDataMapper dataMapper, 
             IBSCatalogusBeheerAgent catalogusBeheerAgent,
-            IWinkelmandItemDTOMapper DTOMapper)
+            IWinkelmandItemDTOMapper dtoMapper)
         {
-            _winkelmandItemDTOMapper = DTOMapper;
+            _winkelmandItemDTOMapper = dtoMapper;
             _winkelmandDataMapper = dataMapper;
             _catalogusBeheerAgent = catalogusBeheerAgent;
             log4net.Config.XmlConfigurator.Configure();
@@ -148,8 +148,8 @@ namespace Case3.PcSWinkelen.Implementation
         /// Haal het volledige product op uit de catalogus
         /// Als het item al bestaat wordt niet het aantal opgehoogd, maar een nieuwe toegevoegd.
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
+        /// <param name="request">The request message with references to the user and the Product</param>
+        /// <returns>Returns an AddItemToWinkelmandResponseMessage</returns>
         public AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request)
         {
             Product product;
@@ -201,7 +201,7 @@ namespace Case3.PcSWinkelen.Implementation
         /// Gets all items from the winkelmand in the database
         /// </summary>
         /// <param name="request">The request containing the session id</param>
-        /// <returns></returns>
+        /// <returns>The response message with all Winkelmand Items</returns>
         public GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request)
         {
             var response = new GetWinkelmandResponseMessage();
@@ -234,5 +234,16 @@ namespace Case3.PcSWinkelen.Implementation
             return response;
         }
 
+        /// <summary>
+        /// Cals the agent PcSBestellen
+        /// Retrieves the winkelmanditems from the database
+        /// Sends all the items to the PcSBestellen
+        /// </summary>
+        /// <param name="bestelling">The session id of the client</param>
+        /// <returns></returns>
+        public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
