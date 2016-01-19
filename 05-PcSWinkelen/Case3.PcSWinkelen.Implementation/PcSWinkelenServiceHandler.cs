@@ -244,7 +244,7 @@ namespace Case3.PcSWinkelen.Implementation
         }
 
         /// <summary>
-        /// Cals the agent PcSBestellen
+        /// Calls the agent PcSBestellen
         /// Retrieves the winkelmanditems from the database
         /// Sends all the items to the PcSBestellen
         /// </summary>
