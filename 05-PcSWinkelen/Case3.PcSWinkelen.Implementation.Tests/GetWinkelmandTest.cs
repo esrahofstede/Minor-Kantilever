@@ -34,13 +34,14 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Agent
             var agentMock = new Mock<IBSCatalogusBeheerAgent>(MockBehavior.Strict);
             agentMock.Setup(agent => agent.GetProductById(It.IsAny<int>())).Returns(DummyData.GetDummyProduct);
+            var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
 
-                //DTO
+            //DTO
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapDTOToEntity(It.IsAny<SchemaNS.WinkelmandItem>())).Returns(DummyData.GetDummyWinkelmandItem);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapEntityToDTO(It.IsAny<WinkelmandItem>())).Returns(DummyData.GetDummyDTOWinkelmandItem);
 
-            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, agentMock.Object, dtoMapperMock.Object, managerMock.Object);
+            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, agentMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object ,managerMock.Object);
 
             //Act
             var test = handler.GetWinkelmand(DummyData.GetDummyGetWinkelmandRequestMessage);
@@ -66,13 +67,14 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Agent
             var agentMock = new Mock<IBSCatalogusBeheerAgent>(MockBehavior.Strict);
             agentMock.Setup(agent => agent.GetProductById(It.IsAny<int>())).Returns(DummyData.GetDummyProduct);
+            var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
 
             //DTO
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapDTOToEntity(It.IsAny<SchemaNS.WinkelmandItem>())).Returns(DummyData.GetDummyWinkelmandItem);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapEntityToDTO(It.IsAny<WinkelmandItem>())).Returns(DummyData.GetDummyDTOWinkelmandItem);
 
-            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, agentMock.Object, dtoMapperMock.Object, managerMock.Object);
+            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, agentMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object);
 
             //Act
             var test = handler.GetWinkelmand(DummyData.GetDummyGetWinkelmandRequestMessage);
@@ -100,13 +102,14 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Agent
             var agentMock = new Mock<IBSCatalogusBeheerAgent>(MockBehavior.Strict);
             agentMock.Setup(agent => agent.GetProductById(It.IsAny<int>())).Throws<CommunicationException>();
+            var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
 
             //DTO
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapDTOToEntity(It.IsAny<SchemaNS.WinkelmandItem>())).Returns(DummyData.GetDummyWinkelmandItem);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapEntityToDTO(It.IsAny<WinkelmandItem>())).Returns(DummyData.GetDummyDTOWinkelmandItem);
 
-            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, agentMock.Object, dtoMapperMock.Object, managerMock.Object);
+            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, agentMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object);
 
             //Act
             var test = handler.GetWinkelmand(DummyData.GetDummyGetWinkelmandRequestMessage);
@@ -131,6 +134,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Agent
             var agentMock = new Mock<IBSCatalogusBeheerAgent>(MockBehavior.Strict);
             agentMock.Setup(agent => agent.GetProductById(It.IsAny<int>())).Returns(DummyData.GetDummyProduct);
+            var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
 
             //DTO
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
@@ -139,7 +143,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapEntityToDTO(It.IsAny<WinkelmandItem>()))
                 .Throws<NullReferenceException>();
 
-            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, agentMock.Object, dtoMapperMock.Object, managerMock.Object);
+            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, agentMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object);
 
             //Act
             var test = handler.GetWinkelmand(DummyData.GetDummyGetWinkelmandRequestMessage);

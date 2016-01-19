@@ -754,7 +754,7 @@ namespace Case3.BSBestellingenBeheer.SchemaNS
             get
             {
                 return this.TelefoonnummerField;
-    }
+            }
             set
             {
                 this.TelefoonnummerField = value;
@@ -1363,15 +1363,15 @@ namespace Case3.PcSBestellen.MessagesNS
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSBestellen.SchemaNS.BestellingPcS BestellingPcS
+        public Case3.PcSBestellen.SchemaNS.BestellingPcS Bestelling
         {
             get
             {
-                return this.BestellingPcSField;
+                return this.BestellingField;
             }
             set
             {
-                this.BestellingPcSField = value;
+                this.BestellingField = value;
             }
         }
     }
@@ -1457,7 +1457,7 @@ namespace Case3.PcSBestellen.SchemaNS
             set
             {
                 this.FactuurIDField = value;
-        }
+            }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
@@ -1582,6 +1582,8 @@ namespace Case3.PcSBestellen.SchemaNS
         
         private string WoonplaatsField;
         
+        private string TelefoonnummerField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1656,6 +1658,19 @@ namespace Case3.PcSBestellen.SchemaNS
             set
             {
                 this.WoonplaatsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public string Telefoonnummer
+        {
+            get
+            {
+                return this.TelefoonnummerField;
+            }
+            set
+            {
+                this.TelefoonnummerField = value;
             }
         }
     }

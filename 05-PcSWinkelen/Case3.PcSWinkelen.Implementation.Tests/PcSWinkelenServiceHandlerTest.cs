@@ -64,11 +64,12 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             var catalogusBeheerMock = new Mock<IBSCatalogusBeheerAgent>(MockBehavior.Strict);
             var winkelmandDatamapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
+            var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
             var managerMock = new Mock<ICatalogusManager>(MockBehavior.Strict);
 
             managerMock.Setup(p => p.GetVoorraadWithProductsList(1, 10)).Throws(new TechnicalException("Error tijdens het ophalen van producten"));
 
-            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, managerMock.Object);
+            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object,bestellenAgentMock.Object, managerMock.Object);
 
             //Act
             var result = handler.GetCatalogusItems(new FindCatalogusRequestMessage()
@@ -93,10 +94,11 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             var winkelmandDatamapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             var managerMock = new Mock<ICatalogusManager>(MockBehavior.Strict);
+            var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
 
             managerMock.Setup(p => p.GetVoorraadWithProductsList(1, 10)).Throws(new Exception("Null reference"));
 
-            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, managerMock.Object);
+            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object);
 
             //Act
             var result = handler.GetCatalogusItems(new FindCatalogusRequestMessage()
@@ -120,10 +122,11 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             var winkelmandDatamapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             var managerMock = new Mock<ICatalogusManager>(MockBehavior.Strict);
+            var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
 
             managerMock.Setup(p => p.GetVoorraadWithProductsList(1, 20)).Throws(new TechnicalException("Error tijdens het ophalen van producten"));
 
-            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, managerMock.Object);
+            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object);
 
             try
             {
