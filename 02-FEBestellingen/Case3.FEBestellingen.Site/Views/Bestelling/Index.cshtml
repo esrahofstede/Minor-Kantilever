@@ -3,56 +3,148 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Bestelling</h2>
-
-<table class="table">
-    <tr>
-        <th>
-            Artikel
-        </th>
-        <th>
-            Leverancier
-        </th>
-        <th>
-            Leverancierscode
-        </th>
-        <th>
-            Aantal
-        </th>
-    </tr>
-
-@using (Html.BeginForm("Index", "Factuur", FormMethod.Post))
-{
-
-    foreach (var item in Model.Artikelen)
-    {
+<div id="bestellen">
+    <h2>Bestelling</h2>
+    <table class="table">
         <tr>
+            <th>
+                Artikel
+            </th>
+            <th>
+                Leverancier
+            </th>
+            <th>
+                Leverancierscode
+            </th>
+            <th>
+                Aantal
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Artikelen)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtikelNaam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Leveranciersnaam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Leverancierscode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aantal)
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="3"></td>
             <td>
-                @Html.DisplayFor(modelItem => item.ArtikelNaam)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Leveranciersnaam)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Leverancierscode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Aantal)
+                <button id="bestelbutton" class="btn-primary btn-lg">Ingepakt</button>
             </td>
         </tr>
-    }
+    </table>
+</div>
+<div id="factuur" class="hide">
+    <div>
+        <h1>Factuur</h1>
+        <div class="pull-right">
+            <p>
+                Kantilever B.V. <br />
+                Kruisboog 42<br />
+                3905 TG Veenendaal<br />
+                Tel: +31 318 552020<br />
+                Email: info@kantilever.nl<br />
+                IBAN: NL44 INGB 00058 54051
+            </p>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+        <h2>Ordergegevens</h2>
+        <hr />
+        <span class="margin-right-receipt">
+            Factuurnummer: @Model.FactuurNummer
+        </span>
+        <span class="margin-right-receipt">
+            Factuurdatum: @Html.DisplayFor(modelItem => Model.FactuurDatum)
+        </span>
+    <table class="table">
+        <tr>
+            <th>
+                Artikel
+            </th>
+            <th>
+                Prijs (incl. BTW)
+            </th>
+            <th>
+                Aantal
+            </th>
+            <th>
+                Totaal (incl. BTW)
+            </th>
+        </tr>
+        @foreach (var item in Model.Artikelen)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtikelNaam)
+                </td>
+                <td>
+                    € @Html.DisplayFor(modelItem => item.Prijs)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aantal)
+                </td>
+                <td>
+                    € @(item.Prijs * item.Aantal)
+                </td>
+            </tr>
+        }
+        <tr>
+            <td class="total"></td>
+            <td class="total"></td>
+            <td class="total">
+                <div class="pull-right">
+                    Totaal Excl. BTW: <br />
+                    @Model.BTWPercentage% BTW Totaal: <br />
+                    Totaal Incl. BTW:
+                </div>
+            </td>
+            <td class="total">
+                € @Model.TotaalExclBTW <br />
+                € @Model.TotaalBTW <br />
+                € @Model.TotaalInclBTW
+            </td>
+        </tr>
+    </table>
+    <button id="factuurbutton" class="no-print btn-primary btn-lg clearfix pull-right">Afleveradres tonen</button>
+</div>
+<div id="afleveradres" class="hide">
+    <h2 class="no-print">Afleveradres</h2>
 
-    <tr>
-        <td colspan="3"></td>
-        <td>
-            <input type="submit" value="Search" />
-
-            @Html.ActionLink("Ingepakt", "Index", "Factuur", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop" })
-        </td>
-    </tr>
-}
-</table>
-
-<div class="clearfix"></div>
+        @Html.DisplayFor(modelItem => Model.KlantNaam)
+        
+        @Html.DisplayFor(modelItem => Model.Adresregel1)
+        
+        @if (Model.Adresregel2 != null)
+        {
+            @Html.DisplayFor(modelItem => Model.Adresregel2)
+        }
+        @Html.DisplayFor(modelItem => Model.Postcode) @Html.DisplayFor(modelItem => Model.Woonplaats)
+        @Html.ActionLink("Volgende bestelling", "Index", "Bestelling", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop no-print" })
+</div>
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#bestelbutton").click(function(){
+            $("#bestellen").toggleClass("hide");
+            $("#factuur").toggleClass("hide");
+        });
+        $("#factuurbutton").click(function () {
+            $("#factuur").toggleClass("hide");
+            $("#afleveradres").toggleClass("hide");
+        });
+    });
+</script>
 

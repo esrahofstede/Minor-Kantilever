@@ -22,3 +22,24 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.margin-right-receipt {
+    margin-right: 45px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+@media print {
+    .no-print {
+        display:none;    
+    }
+    @page 
+        {
+            size: auto;   /* auto is the current printer page size */
+            margin: 0mm;  /* this affects the margin in the printer settings */
+        }
+
+        body 
+        {
+            margin: 0px;  /* the margin on the content before printing */
+       }
+}
