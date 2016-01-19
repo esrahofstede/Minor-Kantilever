@@ -23,6 +23,9 @@ using System.Linq.Expressions;
 
 namespace Case3.PcSWinkelen.Implementation
 {
+    /// <summary>
+    /// Handler class for the PcSWinkelenService
+    /// </summary>
     public class PcSWinkelenServiceHandler : IPcSWinkelenService
     {
         /// <summary>

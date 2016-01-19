@@ -10,6 +10,9 @@ using System.Linq;
 
 namespace Case3.PcSWinkelen.Agent.Managers
 {
+    /// <summary>
+    /// Class which arrange the communication for the catalogus
+    /// </summary>
     public class CatalogusManager : ICatalogusManager
     {
         private IBSVoorraadBeheerAgent _bSVoorraadBeheerAgent;

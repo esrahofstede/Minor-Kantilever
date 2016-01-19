@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace Case3.PcSWinkelen.Agent.Agents
 {
+    /// <summary>
+    /// Agent class which has connection with the BSCatalogusBeheerAgent
+    /// </summary>
     public class BSCatalogusBeheerAgent : IBSCatalogusBeheerAgent
     {
         private ServiceFactory<ICatalogusBeheer> _factory;

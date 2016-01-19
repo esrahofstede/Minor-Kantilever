@@ -14,6 +14,9 @@ using System.Globalization;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Managers
 {
+    /// <summary>
+    /// Class which tests the functionalities of the CatalogusManager class
+    /// </summary>
     [TestClass]
     public class CatalogusManagerTest
     {

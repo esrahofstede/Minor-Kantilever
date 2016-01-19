@@ -4,6 +4,9 @@ using System.ServiceModel;
 
 namespace Case3.PcSWinkelen.Contract
 {
+    /// <summary>
+    /// Contract for the PcSWinkelenService 
+    /// </summary>
     [ServiceContract(Namespace = "Case3.GoudGeel.PcSWinkelen")]
     public interface IPcSWinkelenService
     {
@@ -16,12 +19,27 @@ namespace Case3.PcSWinkelen.Contract
         [FaultContract(typeof(ErrorLijst))]
         FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request);
 
+        /// <summary>
+        /// Adds product to winkelmand
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [OperationContract]
         AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request);
 
+        /// <summary>
+        /// Retrieves the winkelmand with content
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [OperationContract]
         GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request);
 
+        /// <summary>
+        /// Bestellen van winkelwagen
+        /// </summary>
+        /// <param name="bestelling"></param>
+        /// <returns></returns>
         [OperationContract]
         WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling);
 
