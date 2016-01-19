@@ -125,7 +125,6 @@
   <PropertyGroup>
     <PreBuildEvent>if not $(ConfigurationName) == DebugWithoutBuild ^
 svcutil ^
- /dataContractOnly ^
   /out:$(ProjectDir)PcSWinkelenTypes.cs ^
   /r:"$(SolutionDir)Case3.PcSWinkelen.BSCatalogusbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSCatalogusbeheer.Schema.dll" ^
   /r:"$(SolutionDir)Case3.PcSWinkelen.BSVoorraadbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSVoorraadbeheerSchema.dll" ^
@@ -139,20 +138,18 @@ svcutil ^
   /n:"urn:case3-bsbestellingenbeheer:v1:schema,Case3.BSBestellingenBeheer.SchemaNS" ^
   /n:"urn:case3-bsbestellingenbeheer:v1:messages,Case3.BSBestellingenBeheer.MessagesNS" ^
   /n:"urn:case3-pcsbestellen:v1:messages,Case3.PcSBestellen.MessagesNS" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Product.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Categorie.xsd" ^
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Schema.xsd" ^
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Messages.xsd" ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\ErrorLijst.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\*.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Schema\*.xsd"
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Contract\*.wsdl" ^
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Contract\*.xsd"
 
 REM if not $(ConfigurationName) == DebugWithoutBuild ^
 REM svcutil /dataContractOnly /out:$(ProjectDir)CommonTypes.cs "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\ErrorLijst.xsd"
 
 REM /n"" ^
 REM /n"     NOG MEER NAMESPACES     " ^
-REM /n"" ^
+REM /n "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Schema\*.xsd" ^
 </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

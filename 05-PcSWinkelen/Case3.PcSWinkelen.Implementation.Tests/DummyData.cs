@@ -77,13 +77,24 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             }
         };
 
-        internal static Klantgegevens GetDummyKlantgegevens = new Klantgegevens
+        internal static KlantgegevensPcS GetDummyKlantgegevens = new KlantgegevensPcS
         {
             Naam = "Marco Pil",
             Adresregel1 = "Afdeling Infosupport",
             Adresregel2 = "Sint Jacobsstraat 12",
             Postcode = "3511 BS",
             Woonplaats = "Utrecht"
+        };
+
+        internal static BestelItem GetDummyBestelItem = new BestelItem
+        {
+            Product = GetDummyProduct,
+            Aantal = _dummyAantal
+        };
+
+        internal static IEnumerable<BestelItem> GetDummyBestelItems = new List<BestelItem>
+        {
+            GetDummyBestelItem
         };
 
         internal static WinkelmandBestellenRequestMessage GetDummyWinkelmandBestellenRequestMessage = new WinkelmandBestellenRequestMessage

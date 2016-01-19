@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using Case3.BSBestellingenBeheer.SchemaNS;
 using Case3.PcSBestellen.SchemaNS;
 using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Contract;
@@ -22,21 +24,20 @@ namespace Case3.PcSWinkelen.Implementation.Tests
         {
             //Arrange
             IWinkelmandDataMapper mapper = new WinkelmandDataMapper();
+            var winkelmandItemMapperMock = new Mock<IBestelItemWinkelmandItemMapper>(MockBehavior.Strict);
+            winkelmandItemMapperMock.Setup(itemMapper => itemMapper.MapWinkelmandItemsToBestelItems(It.IsAny<IEnumerable<Entities.WinkelmandItem>>())).Returns(DummyData.GetDummyBestelItems);
 
-            //Datamapper
             var dataMapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             dataMapperMock.Setup(dataMapper => dataMapper.FindAllBy(It.IsAny<Expression<Func<WinkelmandItem, bool>>>()))
                 .Returns(new List<WinkelmandItem> { DummyData.GetDummyWinkelmandItem });
 
-            //Agent
             var agentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
             agentMock.Setup(agent => agent.BestellingPlaatsen(It.IsAny<BestellingPcS>()));
 
-            //DTO
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapDTOToEntity(It.IsAny<SchemaNS.WinkelmandItem>())).Returns(DummyData.GetDummyWinkelmandItem);
 
-            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, null, dtoMapperMock.Object, agentMock.Object);
+            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, null, dtoMapperMock.Object, agentMock.Object, winkelmandItemMapperMock.Object);
 
             //Act
             var test = handler.WinkelmandBestellen(DummyData.GetDummyWinkelmandBestellenRequestMessage);
@@ -52,22 +53,17 @@ namespace Case3.PcSWinkelen.Implementation.Tests
         {
             //Arrange
             IWinkelmandDataMapper mapper = new WinkelmandDataMapper();
-            
+            var winkelmandItemMapperMock = new Mock<IBestelItemWinkelmandItemMapper>(MockBehavior.Strict);
+            winkelmandItemMapperMock.Setup(itemMapper => itemMapper.MapWinkelmandItemsToBestelItems(It.IsAny<IEnumerable<Entities.WinkelmandItem>>())).Returns(DummyData.GetDummyBestelItems);
 
-            //Datamapper
             var dataMapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             dataMapperMock.Setup(dataMapper => dataMapper.FindAllBy(It.IsAny<Expression<Func<WinkelmandItem, bool>>>()))
                 .Returns(new List<WinkelmandItem> { DummyData.GetDummyWinkelmandItem });
-
-            //Agent
             var agentMock = new PcSBestellenAgentMock();
-
-            //DTO
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapDTOToEntity(It.IsAny<SchemaNS.WinkelmandItem>())).Returns(DummyData.GetDummyWinkelmandItem);
-            //dtoMapperMock.Setup(dtopmapper => dtopmapper.MapEntityToDTO(It.IsAny<WinkelmandItem>())).Returns(DummyData.GetDummyDTOWinkelmandItem);
 
-            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, null, dtoMapperMock.Object, agentMock);
+            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, null, dtoMapperMock.Object, agentMock, winkelmandItemMapperMock.Object);
 
             //Act
             var test = handler.WinkelmandBestellen(DummyData.GetDummyWinkelmandBestellenRequestMessage);
@@ -75,8 +71,24 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Assert
             Assert.IsInstanceOfType(test, typeof(WinkelmandBestellenResponseMessage));
             dataMapperMock.Verify(dataMapper => dataMapper.FindAllBy(It.IsAny<Expression<Func<WinkelmandItem, bool>>>()), Times.Once());
-            Assert.AreEqual(agentMock.Bestelling, DummyData.GetDummyBestellingPcS);
-
+            Assert.AreEqual(agentMock.Bestelling.Klantgegevens.Naam, DummyData.GetDummyBestellingPcS.Klantgegevens.Naam);
+            Assert.AreEqual(agentMock.Bestelling.Klantgegevens.Adresregel1, DummyData.GetDummyBestellingPcS.Klantgegevens.Adresregel1);
+            Assert.AreEqual(agentMock.Bestelling.Klantgegevens.Adresregel2, DummyData.GetDummyBestellingPcS.Klantgegevens.Adresregel2);
+            Assert.AreEqual(agentMock.Bestelling.Klantgegevens.Postcode, DummyData.GetDummyBestellingPcS.Klantgegevens.Postcode);
+            Assert.AreEqual(agentMock.Bestelling.Klantgegevens.Woonplaats, DummyData.GetDummyBestellingPcS.Klantgegevens.Woonplaats);
+            Assert.AreEqual(agentMock.Bestelling.ArtikelenPcS.First().Aantal, DummyData.GetDummyBestellingPcS.ArtikelenPcS.First().Aantal);
+            Assert.AreEqual(
+                agentMock.Bestelling.ArtikelenPcS.First().Product.LeveranciersProductId, 
+                DummyData.GetDummyBestellingPcS.ArtikelenPcS.First().Product.LeveranciersProductId);
+            Assert.AreEqual(
+                agentMock.Bestelling.ArtikelenPcS.First().Product.LeverancierNaam, 
+                DummyData.GetDummyBestellingPcS.ArtikelenPcS.First().Product.LeverancierNaam);
+            Assert.AreEqual(
+                agentMock.Bestelling.ArtikelenPcS.First().Product.Naam, 
+                DummyData.GetDummyBestellingPcS.ArtikelenPcS.First().Product.Naam);
+           Assert.AreEqual(
+                agentMock.Bestelling.ArtikelenPcS.First().Product.Prijs, 
+                DummyData.GetDummyBestellingPcS.ArtikelenPcS.First().Product.Prijs);
         }
     }
 }

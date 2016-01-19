@@ -20,6 +20,8 @@ using DTOSchema = Case3.PcSWinkelen.SchemaNS;
 using case3common.v1.faults;
 using System.Runtime.Serialization;
 using System.Linq.Expressions;
+using AutoMapper;
+using Case3.BSBestellingenBeheer.SchemaNS;
 using Case3.PcSBestellen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Implementation
@@ -38,6 +40,7 @@ namespace Case3.PcSWinkelen.Implementation
         private IWinkelmandItemDTOMapper _winkelmandItemDTOMapper;
         private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
         private IPcSBestellenAgent _bestellenAgent;
+        private IBestelItemWinkelmandItemMapper _bestelItemWinkelmandItemMapper;
 
         /// <summary>
         /// Custom constructor for testing purposes
@@ -46,16 +49,19 @@ namespace Case3.PcSWinkelen.Implementation
         /// <param name="catalogusBeheerAgent">The winkelmand agent which is to be used. Must implement IBSCatalogusBeheerAgent</param>
         /// <param name="dtoMapper">The DTO mapper which is to be used. Must implement IWinkelmandItemDTOMapper</param>
         /// <param name="bestellenAgent"></param>
+        /// <param name="bestelItemWinkelmandItemMapper"></param>
         public PcSWinkelenServiceHandler(
             IWinkelmandDataMapper dataMapper, 
             IBSCatalogusBeheerAgent catalogusBeheerAgent,
             IWinkelmandItemDTOMapper dtoMapper,
-            IPcSBestellenAgent bestellenAgent)
+            IPcSBestellenAgent bestellenAgent,
+            IBestelItemWinkelmandItemMapper bestelItemWinkelmandItemMapper)
         {
             _winkelmandItemDTOMapper = dtoMapper;
             _winkelmandDataMapper = dataMapper;
             _catalogusBeheerAgent = catalogusBeheerAgent;
             _bestellenAgent = bestellenAgent;
+            _bestelItemWinkelmandItemMapper = bestelItemWinkelmandItemMapper;
             log4net.Config.XmlConfigurator.Configure();
         }
 
@@ -68,9 +74,11 @@ namespace Case3.PcSWinkelen.Implementation
             log4net.Config.XmlConfigurator.Configure();
             _winkelmandDataMapper = new WinkelmandDataMapper();
             _winkelmandItemDTOMapper = new WinkelmandItemDTOMapper();
+            _bestelItemWinkelmandItemMapper = new BestelItemWinkelmandItemMapper();
             try
             {
-            _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
+                _bestellenAgent = new PcSBestellenAgent();
+                _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
             }
             catch (TechnicalException ex)
             {
@@ -250,8 +258,22 @@ namespace Case3.PcSWinkelen.Implementation
         public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
         {
             var response = new WinkelmandBestellenResponseMessage();
-            var bestelItem = _winkelmandDataMapper.FindAllBy(wi => wi.SessieID == bestelling.SessieId);
-            _bestellenAgent.BestellingPlaatsen(new BestellingPcS());
+            var bestelItems = _winkelmandDataMapper.FindAllBy(wi => wi.SessieID == bestelling.SessieId);
+            var bestelItemsWithProduct = _bestelItemWinkelmandItemMapper.MapWinkelmandItemsToBestelItems(bestelItems);
+
+            var klantgegevens = bestelling.Klantgegevens;
+
+            Mapper.Initialize(asd => asd.CreateMap<BestelItem, BestelItemPcS>()
+                .IgnoreAllPropertiesWithAnInaccessibleSetter());
+            var artikelenPcS = Mapper.Map<ArtikelenPcS>(bestelItemsWithProduct);
+
+            var bestellingPcS = new BestellingPcS
+            {
+                Klantgegevens = klantgegevens,
+                ArtikelenPcS = artikelenPcS
+            };
+
+            _bestellenAgent.BestellingPlaatsen(bestellingPcS);
             return response;
         }
     }

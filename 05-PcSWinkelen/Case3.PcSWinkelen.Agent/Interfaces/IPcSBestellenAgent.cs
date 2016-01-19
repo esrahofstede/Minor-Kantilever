@@ -9,6 +9,6 @@ namespace Case3.PcSWinkelen.Agent.Interfaces
 {
     public interface IPcSBestellenAgent
     {
-        void BestellingPlaatsen(BestellingPcS bestelling);
+        bool BestellingPlaatsen(BestellingPcS bestelling);
     }
 }
