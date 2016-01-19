@@ -19,7 +19,7 @@
 			<xs:element name="LeverbaarVanaf" type="xs:dateTime" nillable="true" minOccurs="0"/>
 			<xs:element name="Naam" type="xs:string" nillable="true" minOccurs="0"/>
 			<xs:element name="Prijs" type="xs:decimal" nillable="true" minOccurs="0"/>
-			<xs:element name="CategorieLijst" type="cat:CategorieCollection" nillable="true" minOccurs="0"/>
+			<!--<xs:element name="CategorieLijst" type="cat:CategorieCollection" nillable="true" minOccurs="0"/>-->
 		</xs:sequence>
 	</xs:complexType>
 	

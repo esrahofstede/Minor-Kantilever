@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.PcSWinkelen.Schema.CategorieNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:schema", ClrNamespace="Case3.PcSWinkelen.SchemaNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:messages", ClrNamespace="Case3.PcSWinkelen.MessagesNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="Case3.BSBestellingenBeheer.SchemaNS")]
@@ -17,18 +16,6 @@
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:messages", ClrNamespace="Case3.PcSBestellen.MessagesNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:schema", ClrNamespace="Case3.PcSBestellen.SchemaNS")]
 
-namespace Case3.PcSWinkelen.Schema.CategorieNS
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CategorieCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ItemName="Categorie")]
-    public class CategorieCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.CategorieNS.Categorie>
-    {
-    }
-}
 namespace Case3.PcSWinkelen.SchemaNS
 {
     using System.Runtime.Serialization;
@@ -924,7 +911,6 @@ namespace case3common.v1.faults
     [System.Runtime.Serialization.DataContractAttribute(Name="ErrorDetail", Namespace="urn:case3-common:v1:faults")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.ProductNS.Product))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CategorieNS.Categorie))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CategorieNS.CategorieCollection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.SchemaNS.CatalogusProductItem))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.SchemaNS.CatalogusCollection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.SchemaNS.WinkelmandItemRef))]

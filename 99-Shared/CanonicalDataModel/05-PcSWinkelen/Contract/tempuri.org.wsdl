@@ -15,56 +15,56 @@
       <xsd:import namespace="urn:case3-pcsbestellen:v1:schema" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IPcSWinkelenService_GetCatalogusItems_InputMessage">
+  <wsdl:message name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetCatalogusItems_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCatalogusItems" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_GetCatalogusItems_OutputMessage">
+  <wsdl:message name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetCatalogusItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCatalogusItemsResponse" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_GetCatalogusItems_ErrorLijstFault_FaultMessage">
+  <wsdl:message name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetCatalogusItems_ErrorLijstFault_FaultMessage">
     <wsdl:part name="detail" xmlns:q1="urn:case3-common:v1:faults" element="q1:ErrorLijst" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_AddProductToWinkelmand_InputMessage">
+  <wsdl:message name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_AddProductToWinkelmand_InputMessage">
     <wsdl:part name="parameters" element="tns:AddProductToWinkelmand" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_AddProductToWinkelmand_OutputMessage">
+  <wsdl:message name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_AddProductToWinkelmand_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddProductToWinkelmandResponse" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_GetWinkelmand_InputMessage">
+  <wsdl:message name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetWinkelmand_InputMessage">
     <wsdl:part name="parameters" element="tns:GetWinkelmand" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_GetWinkelmand_OutputMessage">
+  <wsdl:message name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetWinkelmand_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetWinkelmandResponse" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_WinkelmandBestellen_InputMessage">
+  <wsdl:message name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_WinkelmandBestellen_InputMessage">
     <wsdl:part name="parameters" element="tns:WinkelmandBestellen" />
   </wsdl:message>
-  <wsdl:message name="IPcSWinkelenService_WinkelmandBestellen_OutputMessage">
+  <wsdl:message name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_WinkelmandBestellen_OutputMessage">
     <wsdl:part name="parameters" element="tns:WinkelmandBestellenResponse" />
   </wsdl:message>
-  <wsdl:portType name="IPcSWinkelenService">
+  <wsdl:portType name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1">
     <wsdl:operation name="GetCatalogusItems">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems" message="tns:IPcSWinkelenService_GetCatalogusItems_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse" message="tns:IPcSWinkelenService_GetCatalogusItems_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsErrorLijstFault" name="ErrorLijstFault" message="tns:IPcSWinkelenService_GetCatalogusItems_ErrorLijstFault_FaultMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetCatalogusItems" message="tns:urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetCatalogusItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetCatalogusItemsResponse" message="tns:urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetCatalogusItems_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetCatalogusItemsErrorLijstFault" name="ErrorLijstFault" message="tns:urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetCatalogusItems_ErrorLijstFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddProductToWinkelmand">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand" message="tns:IPcSWinkelenService_AddProductToWinkelmand_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmandResponse" message="tns:IPcSWinkelenService_AddProductToWinkelmand_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/AddProductToWinkelmand" message="tns:urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_AddProductToWinkelmand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/AddProductToWinkelmandResponse" message="tns:urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_AddProductToWinkelmand_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetWinkelmand">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand" message="tns:IPcSWinkelenService_GetWinkelmand_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse" message="tns:IPcSWinkelenService_GetWinkelmand_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetWinkelmand" message="tns:urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetWinkelmand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetWinkelmandResponse" message="tns:urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetWinkelmand_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="WinkelmandBestellen">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellen" message="tns:IPcSWinkelenService_WinkelmandBestellen_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellenResponse" message="tns:IPcSWinkelenService_WinkelmandBestellen_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/WinkelmandBestellen" message="tns:urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_WinkelmandBestellen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/WinkelmandBestellenResponse" message="tns:urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_WinkelmandBestellen_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="DefaultBinding_IPcSWinkelenService" type="tns:IPcSWinkelenService">
+  <wsdl:binding name="DefaultBinding_urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1" type="tns:urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetCatalogusItems">
-      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems" style="document" />
+      <soap:operation soapAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetCatalogusItems" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -76,7 +76,7 @@
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="AddProductToWinkelmand">
-      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand" style="document" />
+      <soap:operation soapAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/AddProductToWinkelmand" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -85,7 +85,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetWinkelmand">
-      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmand" style="document" />
+      <soap:operation soapAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetWinkelmand" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -94,7 +94,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="WinkelmandBestellen">
-      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellen" style="document" />
+      <soap:operation soapAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/WinkelmandBestellen" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

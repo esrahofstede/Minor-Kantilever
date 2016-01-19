@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Case3.PcSWinkelen.Contract
 {
-    [ServiceContract]
+    [ServiceContract(Name = "urn:minor:case3:pcswinkelen:v1")]
     public interface IPcSWinkelenService
     {
         /// <summary>

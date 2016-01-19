@@ -250,7 +250,7 @@ namespace Case3.PcSWinkelen.Implementation
         public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
         {
             var response = new WinkelmandBestellenResponseMessage();
-            _winkelmandDataMapper.FindAllBy(wi => wi.SessieID == bestelling.SessieId);
+            var bestelItem = _winkelmandDataMapper.FindAllBy(wi => wi.SessieID == bestelling.SessieId);
             _bestellenAgent.BestellingPlaatsen(new BestellingPcS());
             return response;
         }
