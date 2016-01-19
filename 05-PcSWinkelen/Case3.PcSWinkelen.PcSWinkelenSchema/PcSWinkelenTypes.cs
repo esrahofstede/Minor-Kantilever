@@ -767,7 +767,7 @@ namespace Case3.BSBestellingenBeheer.SchemaNS
             get
             {
                 return this.TelefoonnummerField;
-            }
+    }
             set
             {
                 this.TelefoonnummerField = value;

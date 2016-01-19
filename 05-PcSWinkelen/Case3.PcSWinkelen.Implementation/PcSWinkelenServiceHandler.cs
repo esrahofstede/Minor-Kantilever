@@ -36,6 +36,7 @@ namespace Case3.PcSWinkelen.Implementation
         private IWinkelmandDataMapper _winkelmandDataMapper;
         private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
         private IWinkelmandItemDTOMapper _winkelmandItemDTOMapper;
+        private ICatalogusManager _manager;
 
         /// <summary>
         /// Custom constructor for testing purposes
@@ -46,11 +47,13 @@ namespace Case3.PcSWinkelen.Implementation
         public PcSWinkelenServiceHandler(
             IWinkelmandDataMapper dataMapper,
             IBSCatalogusBeheerAgent catalogusBeheerAgent,
-            IWinkelmandItemDTOMapper dtoMapper)
+            IWinkelmandItemDTOMapper dtoMapper,
+            ICatalogusManager manager)
         {
             _winkelmandItemDTOMapper = dtoMapper;
             _winkelmandDataMapper = dataMapper;
             _catalogusBeheerAgent = catalogusBeheerAgent;
+            _manager = manager;
             log4net.Config.XmlConfigurator.Configure();
         }
 
@@ -65,6 +68,7 @@ namespace Case3.PcSWinkelen.Implementation
             try
             {
                 _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
+                _manager = new CatalogusManager();
             }
             catch (TechnicalException ex)
             {
@@ -103,7 +107,7 @@ namespace Case3.PcSWinkelen.Implementation
             {
                 try
                 {
-                    CatalogusManager catalogusManager = new CatalogusManager();
+                    ICatalogusManager catalogusManager = _manager;
                     IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
                     foreach (CatalogusProductItem productVoorraad in productVoorraadList)
                     {
