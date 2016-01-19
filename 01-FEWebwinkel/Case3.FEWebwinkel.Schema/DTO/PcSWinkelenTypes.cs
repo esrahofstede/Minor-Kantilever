@@ -1838,33 +1838,33 @@ namespace case3pcsbestellen.v1.schema
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ServiceModel.ServiceContractAttribute(ConfigurationName="IPcSWinkelenService")]
+[System.ServiceModel.ServiceContractAttribute(Namespace="Case3.GoudGeel.PcSWinkelen", ConfigurationName="IPcSWinkelenService")]
 public interface IPcSWinkelenService
 {
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(case3common.v1.faults.ErrorLijst), Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsErrorLijstFault", Name="ErrorLijst", Namespace="urn:case3-common:v1:faults")]
+    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetCatalogusItems", ReplyAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetCatalogusItemsResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(case3common.v1.faults.ErrorLijst), Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetCatalogusItemsErrorLijstFault", Name="ErrorLijst", Namespace="urn:case3-common:v1:faults")]
     Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage GetCatalogusItems(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetCatalogusItems", ReplyAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetCatalogusItemsResponse")]
     System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage> GetCatalogusItemsAsync(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmandResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/AddProductToWinkelmand", ReplyAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/AddProductToWinkelmandResponse")]
     Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage AddProductToWinkelmand(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmandResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/AddProductToWinkelmand", ReplyAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/AddProductToWinkelmandResponse")]
     System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage> AddProductToWinkelmandAsync(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetWinkelmand", ReplyAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetWinkelmandResponse")]
     Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage GetWinkelmand(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetWinkelmand", ReplyAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetWinkelmandResponse")]
     System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage> GetWinkelmandAsync(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellen", ReplyAction="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellenResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/WinkelmandBestellen", ReplyAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/WinkelmandBestellenResponse")]
     Case3.PcSWinkelen.Messages.WinkelmandBestellenResponseMessage WinkelmandBestellen(Case3.PcSWinkelen.Messages.WinkelmandBestellenRequestMessage bestelling);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellen", ReplyAction="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellenResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/WinkelmandBestellen", ReplyAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/WinkelmandBestellenResponse")]
     System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.WinkelmandBestellenResponseMessage> WinkelmandBestellenAsync(Case3.PcSWinkelen.Messages.WinkelmandBestellenRequestMessage bestelling);
 }
 
