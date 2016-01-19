@@ -15,10 +15,10 @@ namespace Case3.PcSWinkelen.Implementation.Tests
     public class PcSWinkelenServiceHandlerTest
     {
         /// <summary>
-        /// This method tests the constructor of PcsWinkelenServiceHandler.
+        /// This method tests the constructor of PcsWinkelenServiceHandler. This test is dependent.
         /// </summary>
         [TestMethod]
-        public void CreatePcSWinkelenServiceHandler()
+        public void Integration_CreatePcSWinkelenServiceHandler()
         {
             // Arrange
 
@@ -31,10 +31,10 @@ namespace Case3.PcSWinkelen.Implementation.Tests
         }
 
         /// <summary>
-        /// This method tests if GetCatalogusItems returns FindCatalogusResponseMessage
+        /// This method tests if GetCatalogusItems returns FindCatalogusResponseMessage with 2 products.
         /// </summary>
         [TestMethod]
-        public void CheckGetCatalogusItemsReturnsFindCatalogusResponseMessage()
+        public void Integration_CheckGetCatalogusItemsReturnsFindCatalogusResponseMessage()
         {
             // Arrange
             PcSWinkelenServiceHandler pcSWinkelenServiceHandler = new PcSWinkelenServiceHandler();
@@ -50,6 +50,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             // Assert
             Assert.IsNotNull(findCatalogusResponseMessage);
             Assert.IsInstanceOfType(findCatalogusResponseMessage, typeof(FindCatalogusResponseMessage));
+            Assert.AreEqual(2, findCatalogusResponseMessage.Products.Count);
         }
 
         /// <summary>
