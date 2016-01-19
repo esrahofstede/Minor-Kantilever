@@ -1,7 +1,4 @@
 ﻿$(document).ready(function () {
- 
-
-    
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -26,5 +23,9 @@
         }, 500);
        
     }
+
+    $(".product-bottom > input[type='submit']").on("click", function () {
+        $(this).val("Bezig met toevoegen..");
+    });
 
 });

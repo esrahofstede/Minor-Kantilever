@@ -32,6 +32,7 @@
       <xs:element name="Adresregel2" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
       <xs:element name="Postcode" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
       <xs:element name="Woonplaats" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Telefoonnummer" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 

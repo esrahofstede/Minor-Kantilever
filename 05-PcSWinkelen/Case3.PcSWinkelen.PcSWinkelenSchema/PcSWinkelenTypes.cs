@@ -682,6 +682,8 @@ namespace Case3.BSBestellingenBeheer.SchemaNS
         
         private string WoonplaatsField;
         
+        private string TelefoonnummerField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -756,6 +758,19 @@ namespace Case3.BSBestellingenBeheer.SchemaNS
             set
             {
                 this.WoonplaatsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public string Telefoonnummer
+        {
+            get
+            {
+                return this.TelefoonnummerField;
+            }
+            set
+            {
+                this.TelefoonnummerField = value;
             }
         }
     }
@@ -955,6 +970,7 @@ namespace case3common.v1.faults
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.MessagesNS.BestellingPlaatsenResultMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.SchemaNS.BestellingPcS))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.SchemaNS.BestelItemPcS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.SchemaNS.KlantgegevensPcS))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.SchemaNS.ArtikelenPcS))]
     public partial class ErrorDetail : object, System.Runtime.Serialization.IExtensibleDataObject
     {
@@ -1272,7 +1288,7 @@ namespace Case3.PcSBestellen.MessagesNS
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.BSBestellingenBeheer.SchemaNS.Bestelling BestellingField;
+        private Case3.PcSBestellen.SchemaNS.BestellingPcS BestellingPcSField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -1287,15 +1303,15 @@ namespace Case3.PcSBestellen.MessagesNS
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.BSBestellingenBeheer.SchemaNS.Bestelling Bestelling
+        public Case3.PcSBestellen.SchemaNS.BestellingPcS BestellingPcS
         {
             get
             {
-                return this.BestellingField;
+                return this.BestellingPcSField;
             }
             set
             {
-                this.BestellingField = value;
+                this.BestellingPcSField = value;
             }
         }
     }
@@ -1334,6 +1350,14 @@ namespace Case3.PcSBestellen.SchemaNS
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        private System.Nullable<int> BestellingIDField;
+        
+        private System.Nullable<int> FactuurIDField;
+        
+        private string StatusField;
+        
+        private Case3.PcSBestellen.SchemaNS.KlantgegevensPcS KlantgegevensField;
+        
         private Case3.PcSBestellen.SchemaNS.ArtikelenPcS ArtikelenPcSField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -1348,7 +1372,59 @@ namespace Case3.PcSBestellen.SchemaNS
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> BestellingID
+        {
+            get
+            {
+                return this.BestellingIDField;
+            }
+            set
+            {
+                this.BestellingIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> FactuurID
+        {
+            get
+            {
+                return this.FactuurIDField;
+            }
+            set
+            {
+                this.FactuurIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                this.StatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public Case3.PcSBestellen.SchemaNS.KlantgegevensPcS Klantgegevens
+        {
+            get
+            {
+                return this.KlantgegevensField;
+            }
+            set
+            {
+                this.KlantgegevensField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
         public Case3.PcSBestellen.SchemaNS.ArtikelenPcS ArtikelenPcS
         {
             get
@@ -1409,6 +1485,117 @@ namespace Case3.PcSBestellen.SchemaNS
             set
             {
                 this.AantalField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KlantgegevensPcS", Namespace="urn:case3-pcsbestellen:v1:schema")]
+    public partial class KlantgegevensPcS : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string NaamField;
+        
+        private string Adresregel1Field;
+        
+        private string Adresregel2Field;
+        
+        private string PostcodeField;
+        
+        private string WoonplaatsField;
+        
+        private string TelefoonnummerField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Naam
+        {
+            get
+            {
+                return this.NaamField;
+            }
+            set
+            {
+                this.NaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public string Adresregel1
+        {
+            get
+            {
+                return this.Adresregel1Field;
+            }
+            set
+            {
+                this.Adresregel1Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public string Adresregel2
+        {
+            get
+            {
+                return this.Adresregel2Field;
+            }
+            set
+            {
+                this.Adresregel2Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public string Postcode
+        {
+            get
+            {
+                return this.PostcodeField;
+            }
+            set
+            {
+                this.PostcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public string Woonplaats
+        {
+            get
+            {
+                return this.WoonplaatsField;
+            }
+            set
+            {
+                this.WoonplaatsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public string Telefoonnummer
+        {
+            get
+            {
+                return this.TelefoonnummerField;
+            }
+            set
+            {
+                this.TelefoonnummerField = value;
             }
         }
     }

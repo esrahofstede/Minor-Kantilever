@@ -9,6 +9,8 @@ using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.PcSWinkelen.Schema;
+using Case3.FEWebwinkel.Agent.Exceptions;
+using System;
 
 namespace Case3.FEWebwinkel.Site.Tests.Managers
 {
@@ -128,5 +130,38 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             Assert.IsTrue(result);
         }
         #endregion
+
+        [TestMethod]
+        [ExpectedException(typeof(TechnicalException))]
+        public void FindAllProductsRethrowsTechnicalException()
+        {
+            //Arrange
+            var mock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
+            mock.Setup(p => p.GetProducts()).Throws(new TechnicalException());
+            CatalogusManager manager = new CatalogusManager(mock.Object);
+
+            //Act
+            var result = manager.FindAllProducts();
+
+            //Assert
+            //Expect TechnicalException
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void FindAllProductsRethrowsException()
+        {
+            //Arrange
+            var mock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
+            mock.Setup(p => p.GetProducts()).Throws(new NullReferenceException());
+            CatalogusManager manager = new CatalogusManager(mock.Object);
+
+            //Act
+            var result = manager.FindAllProducts();
+
+            //Assert
+            //Expect NullReferenceException
+        }
     }
 }

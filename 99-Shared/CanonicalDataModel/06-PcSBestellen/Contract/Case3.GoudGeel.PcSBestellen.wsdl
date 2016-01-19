@@ -16,16 +16,35 @@
   <wsdl:message name="IPcSBestellenService_FindNextBestelling_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindNextBestellingResponse" />
   </wsdl:message>
+  <wsdl:message name="IPcSBestellenService_BestellingPlaatsen_InputMessage">
+    <wsdl:part name="parameters" element="tns:BestellingPlaatsen" />
+  </wsdl:message>
+  <wsdl:message name="IPcSBestellenService_BestellingPlaatsen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BestellingPlaatsenResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPcSBestellenService">
     <wsdl:operation name="FindNextBestelling">
       <wsdl:input wsaw:Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/FindNextBestelling" message="tns:IPcSBestellenService_FindNextBestelling_InputMessage" />
       <wsdl:output wsaw:Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/FindNextBestellingResponse" message="tns:IPcSBestellenService_FindNextBestelling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BestellingPlaatsen">
+      <wsdl:input wsaw:Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/BestellingPlaatsen" message="tns:IPcSBestellenService_BestellingPlaatsen_InputMessage" />
+      <wsdl:output wsaw:Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/BestellingPlaatsenResponse" message="tns:IPcSBestellenService_BestellingPlaatsen_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DefaultBinding_IPcSBestellenService" type="tns:IPcSBestellenService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="FindNextBestelling">
       <soap:operation soapAction="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/FindNextBestelling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BestellingPlaatsen">
+      <soap:operation soapAction="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/BestellingPlaatsen" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

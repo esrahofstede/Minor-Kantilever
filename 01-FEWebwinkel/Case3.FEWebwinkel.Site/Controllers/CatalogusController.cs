@@ -4,6 +4,7 @@ using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.ViewModels;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.ServiceModel;
 using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
@@ -24,11 +25,12 @@ namespace Case3.FEWebwinkel.Site.Controllers
             {
                 _catalogusManager = new CatalogusManager();
             }
-            catch (Exception)
+            catch (TechnicalException)
             {
-                throw;
+                TechnicalError();
             }
         }
+
         /// <summary>
         /// This constructor is for testing purposes
         /// </summary>
@@ -52,6 +54,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
             {
                 TechnicalErrorViewModel model = new TechnicalErrorViewModel(ex.Message);
                 return View("CatalogusIndexError", model);
+            }
+            catch(NullReferenceException)
+            {
+                return RedirectToAction("TechnicalError");
             }
         }
 
@@ -80,6 +86,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
             bool succeeded =_catalogusManager.InsertArtikelToWinkelmand(articleID, userGuid);
 
             return RedirectToAction("Index", new { AddedToWinkelmand = succeeded });
+        }
+        public ActionResult TechnicalError()
+        {
+            return View();
         }
     }
 }

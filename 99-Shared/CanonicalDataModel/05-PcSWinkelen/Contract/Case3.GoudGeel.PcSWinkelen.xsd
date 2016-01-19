@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="Case3.GoudGeel.PcSWinkelen" elementFormDefault="qualified" targetNamespace="Case3.GoudGeel.PcSWinkelen" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="urn:case3-pcswinkelen:v1:messages" />
   <xs:element name="GetCatalogusItems">
     <xs:complexType>
@@ -40,6 +40,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetWinkelmandResult" nillable="true" xmlns:q6="urn:case3-pcswinkelen:v1:messages" type="q6:GetWinkelmandResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WinkelmandBestellen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bestelling" nillable="true" xmlns:q7="urn:case3-pcswinkelen:v1:messages" type="q7:WinkelmandBestellenRequestMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WinkelmandBestellenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WinkelmandBestellenResult" nillable="true" xmlns:q8="urn:case3-pcswinkelen:v1:messages" type="q8:WinkelmandBestellenResponseMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

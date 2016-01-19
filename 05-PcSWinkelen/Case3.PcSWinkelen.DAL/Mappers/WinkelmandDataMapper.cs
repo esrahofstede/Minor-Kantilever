@@ -32,9 +32,12 @@ namespace Case3.PcSWinkelen.DAL.Mappers
         {
             using (var context = new WinkelmandContext())
             {
-                var oldItem = context.WinkelmandItems.Find(updatedItem.ID);
-                context.Entry(oldItem).CurrentValues.SetValues(updatedItem);
-                context.SaveChanges();
+                if (updatedItem != null)
+                {
+                    var oldItem = context.WinkelmandItems.Find(updatedItem.ID);
+                    context.Entry(oldItem).CurrentValues.SetValues(updatedItem);
+                    context.SaveChanges();
+                }
             }
         }
 

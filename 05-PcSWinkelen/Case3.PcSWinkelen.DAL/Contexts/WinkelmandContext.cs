@@ -22,8 +22,11 @@ namespace Case3.PcSWinkelen.DAL.Contexts
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add<WinkelmandItem>(new WinkelmandItemMapping());
-            base.OnModelCreating(modelBuilder);
+            if (modelBuilder != null)
+            {
+                modelBuilder.Configurations.Add<WinkelmandItem>(new WinkelmandItemMapping());
+                base.OnModelCreating(modelBuilder);
+            }
         }
 
         /// <summary>

@@ -29,10 +29,10 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
         }
 
         /// <summary>
-        /// Check if return type is correct
+        /// Check if return type is correct. This test is dependent.
         /// </summary>
         [TestMethod]
-        public void CreateInstanceAndCheckReturnType()
+        public void Acceptation_CreateInstanceAndCheckReturnType()
         {
             //Assert
             BSCatalogusBeheerAgent agent = new BSCatalogusBeheerAgent();

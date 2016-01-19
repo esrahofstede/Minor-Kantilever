@@ -17,10 +17,13 @@
       <Word>Incl</Word>
       <Word>Excl</Word>      
       <Word>Afbeeldingslocatie</Word>
+      <word>BSVoorraadBeheer</word>
       <Word>Webwinkel</Word>
       <Word>Prijs</Word>
       <Word>Klantbeheer</Word>
       <Word>Leverancier</Word>
+      <Word>Leveranciers</Word>
+      <Word>Sessie</Word>
       <Word>Leverancierscode</Word>
       <Word>Voorraad</Word>
       <Word>Mvc</Word>
@@ -57,12 +60,37 @@
       <Word>Aantal</Word>
       <Word>Bestellingen</Word>
       <Word>Bs</Word>
+      <Word>BSCatalogusBeheer</Word>
       <Word>kan</Word>
       <Word>bereikt</Word>
       <Word>BSCatalogusBeheer</Word>
       <Word>BSVoorraadBeheer</Word>
       <Word>dto</Word>
-      <Word>Plaats</Word>
+      <Word>klant</Word>
+      <Word>Registreer</Word>
+      <Word>Voornaam</Word>
+      <Word>Tussenvoegsel</Word>
+      <Word>Achternaam</Word>
+      <Word>Adres</Word>
+      <Word>Woonplaats</Word>
+      <Word>Telefoonnummer</Word>
+      <Word>Emailadres</Word>
+      <Word>Er</Word>
+      <Word>Is</Word>
+      <Word>Iets</Word>
+      <Word>Fout</Word>
+      <Word>Gegaan</Word>
+      <Word>Tijdens</Word>
+      <Word>Ophalen</Word>
+      <Word>Het</Word>
+      <Word>Van</Word>
+      <Word>De</Word>
+      <Word>Probeer</Word>
+      <Word>Later</Word>
+      <Word>Nog</Word>
+      <Word>Eens</Word>
+      <Word>Technische</Word>
+      <Word>DTO</Word>
   </Recognized>
     <Unrecognized>
     </Unrecognized>

@@ -25,6 +25,10 @@ namespace Case3.FEWebwinkel.Agent
             {
                 _agent = _factory.CreateAgent();
             }
+            catch (CommunicationException)
+            {
+                throw new TechnicalException("Er is een technische fout opgetreden.");
+            }
             catch (Exception)
             {
                 throw new TechnicalException("Er is een technische fout opgetreden.");
@@ -55,11 +59,12 @@ namespace Case3.FEWebwinkel.Agent
             }
             catch (FaultException<ErrorLijst>)
             {
+                throw new TechnicalException("Er is iets fout gegaan tijdens het ophalen van de catalogus. Probeer het later nog eens.");
             }
             catch (Exception)
             {
+                throw new TechnicalException("Er is iets fout gegaan tijdens het ophalen van de catalogus. Probeer het later nog eens.");
             }
-            return null;
         }
 
         /// <summary>
@@ -87,13 +92,9 @@ namespace Case3.FEWebwinkel.Agent
             {
                 throw new TechnicalException("Er is iets fout gegaan tijdens het ophalen van de catalogus. Probeer het later nog eens.");
             }
-            catch (FaultException ex)
+            catch (Exception)
             {
-                var x = ex;
-            }
-            catch (Exception e)
-            {
-                var x = e;
+                throw new TechnicalException("Er is iets fout gegaan tijdens het ophalen van de catalogus. Probeer het later nog eens.");
             }
             return result;
         }

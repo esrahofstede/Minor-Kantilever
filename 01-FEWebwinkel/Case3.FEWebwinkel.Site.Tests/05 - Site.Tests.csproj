@@ -98,12 +98,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CatalogusControllerTest.cs" />
+    <Compile Include="Controllers\KlantControllerTest.cs" />
     <Compile Include="Helpers\CookieHelperTest.cs" />
     <Compile Include="Controllers\WinkelmandControllerTest.cs" />
     <Compile Include="Managers\CatalogusManagerTest.cs" />
     <Compile Include="Managers\WinkelmandManagerTest.cs" />
     <Compile Include="Mocks\CatalogusManagerMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\KlantRegistreerViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

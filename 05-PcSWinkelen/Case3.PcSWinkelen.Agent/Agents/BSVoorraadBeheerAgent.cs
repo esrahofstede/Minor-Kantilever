@@ -53,7 +53,8 @@ namespace Case3.PcSWinkelen.Agent.Agents
             if (result.Succes)
             {
                 return result.ProductVoorraad.Voorraad;
-            } else
+            }
+            else
             {
                 throw new ProductVoorraadNotFoundException(result.Foutmelding.Bron, result.Foutmelding.Melding, 
                     result.Foutmelding.Nummer, result.Foutmelding.Niveau);
