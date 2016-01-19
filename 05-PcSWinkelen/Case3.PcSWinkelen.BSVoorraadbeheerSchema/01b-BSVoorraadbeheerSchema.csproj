@@ -43,7 +43,7 @@
     <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -53,7 +53,7 @@
     <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -100,7 +100,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>svcutil ^
+    <PreBuildEvent>if not $(ConfigurationName) == DebugWithoutBuild ^
+svcutil ^
   /out:$(ProjectDir)BSVoorraadbeheerTypes.cs ^
   /r:"$(SolutionDir)Case3.PcSWinkelen.BSCatalogusbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSCatalogusbeheer.Schema.dll" ^
   /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1,Case3.PcSWinkelen.Schema.Messages" ^

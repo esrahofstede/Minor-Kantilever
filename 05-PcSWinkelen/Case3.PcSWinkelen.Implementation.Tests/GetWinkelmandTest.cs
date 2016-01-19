@@ -25,8 +25,8 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Arrange
             IWinkelmandDataMapper mapper = new WinkelmandDataMapper();
             var managerMock = new Mock<ICatalogusManager>(MockBehavior.Strict);
-
-            //Datamapper
+            
+                //Datamapper
             var dataMapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             dataMapperMock.Setup(dataMapper => dataMapper.FindAllBy(It.IsAny<Expression<Func<WinkelmandItem,bool>>>()))
                 .Returns(new List<WinkelmandItem> {DummyData.GetDummyWinkelmandItem});

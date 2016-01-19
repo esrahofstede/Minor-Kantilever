@@ -105,6 +105,8 @@
     <Compile Include="DummyData.cs" />
     <Compile Include="GetWinkelmandTest.cs" />
     <Compile Include="Mappers\WinkelmandDTOMapperTest.cs" />
+    <Compile Include="PcSBestellenAgentMock.cs" />
+    <Compile Include="WinkelmandBestellenTest.cs" />
     <Compile Include="WinkelMandDataMapperMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PcSWinkelenServiceHandlerTest.cs" />

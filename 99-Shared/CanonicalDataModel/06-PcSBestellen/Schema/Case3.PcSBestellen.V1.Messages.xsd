@@ -31,5 +31,17 @@
   <xs:complexType name="BestellingPlaatsenResultMessage">
     <xs:sequence/>
   </xs:complexType>
-  
+
+  <xs:complexType name="UpdateBestellingStatusRequestMessage">
+    <xs:sequence>
+      <xs:element name="Bestelling" type="k:BestellingPcS" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateBestellingStatusResultMessage">
+    <xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
+
 </xs:schema>

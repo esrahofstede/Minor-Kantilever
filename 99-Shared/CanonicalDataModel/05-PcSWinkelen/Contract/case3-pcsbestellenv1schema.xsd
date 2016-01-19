@@ -24,7 +24,6 @@
       <xs:element name="Adresregel2" nillable="true" type="xs:string" />
       <xs:element name="Postcode" nillable="true" type="xs:string" />
       <xs:element name="Woonplaats" nillable="true" type="xs:string" />
-      <xs:element name="Telefoonnummer" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="KlantgegevensPcS" nillable="true" type="tns:KlantgegevensPcS" />

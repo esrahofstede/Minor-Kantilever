@@ -10,10 +10,10 @@
 			<xs:element name="Naam" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CategorieCollection">
+	<!--<xs:complexType name="CategorieCollection">
 		<xs:sequence>
 			<xs:element name="Categorie" type="tns:Categorie" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
+	</xs:complexType>-->
 </xs:schema>
  
