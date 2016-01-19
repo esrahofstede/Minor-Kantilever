@@ -55,7 +55,6 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             mock.Setup(wm => wm.GetWinkelmand(It.IsAny<string>())).Returns(winkelmandViewModel);
 
             var controller = new WinkelmandController(mock.Object);
-            //var controller = new WinkelmandController();
 
             // Act
             ActionResult result = controller.Index();

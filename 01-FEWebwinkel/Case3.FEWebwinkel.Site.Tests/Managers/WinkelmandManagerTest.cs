@@ -117,6 +117,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             // Act
             var result = target.GetWinkelmand("test");
             var artikelen = result.Artikelen;
+
             // Assert
             Assert.AreEqual(2, artikelen.Count);
             //First Viewmodel
