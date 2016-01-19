@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿using System.ServiceModel;
 
 namespace Case3.BSKlantbeheer.Contract
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "Case3.GoudGeel.BsKlantbeheer")]
     public interface IBSKlantbeheerService
     {
         [OperationContract]

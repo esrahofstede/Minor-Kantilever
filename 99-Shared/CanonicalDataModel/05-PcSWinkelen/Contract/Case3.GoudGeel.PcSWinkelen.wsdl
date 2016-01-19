@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="Case3.GoudGeel.PcSWinkelen" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" targetNamespace="Case3.GoudGeel.PcSWinkelen" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import namespace="http://tempuri.org/" />
+    <xsd:schema targetNamespace="Case3.GoudGeel.PcSWinkelen/Imports">
+      <xsd:import namespace="Case3.GoudGeel.PcSWinkelen" />
       <xsd:import namespace="urn:case3-common:v1:faults" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="urn:case3-pcswinkelen:v1:messages" />
@@ -44,27 +44,27 @@
   </wsdl:message>
   <wsdl:portType name="IPcSWinkelenService">
     <wsdl:operation name="GetCatalogusItems">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems" message="tns:IPcSWinkelenService_GetCatalogusItems_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse" message="tns:IPcSWinkelenService_GetCatalogusItems_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsErrorLijstFault" name="ErrorLijstFault" message="tns:IPcSWinkelenService_GetCatalogusItems_ErrorLijstFault_FaultMessage" />
+      <wsdl:input wsaw:Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetCatalogusItems" message="tns:IPcSWinkelenService_GetCatalogusItems_InputMessage" />
+      <wsdl:output wsaw:Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetCatalogusItemsResponse" message="tns:IPcSWinkelenService_GetCatalogusItems_OutputMessage" />
+      <wsdl:fault wsaw:Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetCatalogusItemsErrorLijstFault" name="ErrorLijstFault" message="tns:IPcSWinkelenService_GetCatalogusItems_ErrorLijstFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddProductToWinkelmand">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand" message="tns:IPcSWinkelenService_AddProductToWinkelmand_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmandResponse" message="tns:IPcSWinkelenService_AddProductToWinkelmand_OutputMessage" />
+      <wsdl:input wsaw:Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/AddProductToWinkelmand" message="tns:IPcSWinkelenService_AddProductToWinkelmand_InputMessage" />
+      <wsdl:output wsaw:Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/AddProductToWinkelmandResponse" message="tns:IPcSWinkelenService_AddProductToWinkelmand_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetWinkelmand">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand" message="tns:IPcSWinkelenService_GetWinkelmand_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse" message="tns:IPcSWinkelenService_GetWinkelmand_OutputMessage" />
+      <wsdl:input wsaw:Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetWinkelmand" message="tns:IPcSWinkelenService_GetWinkelmand_InputMessage" />
+      <wsdl:output wsaw:Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetWinkelmandResponse" message="tns:IPcSWinkelenService_GetWinkelmand_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="WinkelmandBestellen">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellen" message="tns:IPcSWinkelenService_WinkelmandBestellen_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellenResponse" message="tns:IPcSWinkelenService_WinkelmandBestellen_OutputMessage" />
+      <wsdl:input wsaw:Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/WinkelmandBestellen" message="tns:IPcSWinkelenService_WinkelmandBestellen_InputMessage" />
+      <wsdl:output wsaw:Action="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/WinkelmandBestellenResponse" message="tns:IPcSWinkelenService_WinkelmandBestellen_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DefaultBinding_IPcSWinkelenService" type="tns:IPcSWinkelenService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetCatalogusItems">
-      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems" style="document" />
+      <soap:operation soapAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetCatalogusItems" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -76,7 +76,7 @@
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="AddProductToWinkelmand">
-      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand" style="document" />
+      <soap:operation soapAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/AddProductToWinkelmand" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -85,7 +85,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetWinkelmand">
-      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmand" style="document" />
+      <soap:operation soapAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/GetWinkelmand" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -94,7 +94,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="WinkelmandBestellen">
-      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellen" style="document" />
+      <soap:operation soapAction="Case3.GoudGeel.PcSWinkelen/IPcSWinkelenService/WinkelmandBestellen" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

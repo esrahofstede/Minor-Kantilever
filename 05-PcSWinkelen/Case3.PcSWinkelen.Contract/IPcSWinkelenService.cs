@@ -1,16 +1,10 @@
-﻿using Case3.PcSWinkelen.Schema.Messages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using Case3.PcSWinkelen.MessagesNS;
+﻿using Case3.PcSWinkelen.MessagesNS;
 using case3common.v1.faults;
 using System.ServiceModel;
-using System.Text;
 
 namespace Case3.PcSWinkelen.Contract
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "Case3.GoudGeel.PcSWinkelen")]
     public interface IPcSWinkelenService
     {
         /// <summary>
