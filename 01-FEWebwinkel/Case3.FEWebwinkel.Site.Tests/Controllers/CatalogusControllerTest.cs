@@ -94,7 +94,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
         #endregion
         #region -------[Integration Test for index action]-------
         [TestMethod]
-        public void IntegrationCatalogusControllerReturnsListOfCatalogusViewModels()
+        public void Integration_CatalogusControllerReturnsListOfCatalogusViewModels()
         {
             //Arrange
             CatalogusController controller = new CatalogusController();
@@ -106,7 +106,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
 
                 //Arrange
                 Assert.IsInstanceOfType(result.Model, typeof(IEnumerable<CatalogusViewModel>));
-            } catch (Exception) //WCF EXCEPTION!!!!!
+            } catch (Exception)
             {
                 Assert.Fail("Kan geen verbinding maken met de service.");
             }

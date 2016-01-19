@@ -17,9 +17,10 @@ using log4net;
 using System.ServiceModel;
 using System.Web.Hosting;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
-using case3common.v1.faults;
+using Case3.Common.Faults;
 using System.Runtime.Serialization;
 using System.Linq.Expressions;
+using Case3.PcSBestellen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -37,8 +38,9 @@ namespace Case3.PcSWinkelen.Implementation
         private ErrorLijst _list = new ErrorLijst();
 
         private IWinkelmandDataMapper _winkelmandDataMapper;
-        private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
         private IWinkelmandItemDTOMapper _winkelmandItemDTOMapper;
+        private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
+        private IPcSBestellenAgent _bestellenAgent;
         private ICatalogusManager _manager;
 
         /// <summary>
@@ -47,15 +49,18 @@ namespace Case3.PcSWinkelen.Implementation
         /// <param name="dataMapper">The winkelmand datamapper which is to be used. Must implement IWinkelmandDataMapper</param>
         /// <param name="catalogusBeheerAgent">The winkelmand agent which is to be used. Must implement IBSCatalogusBeheerAgent</param>
         /// <param name="dtoMapper">The DTO mapper which is to be used. Must implement IWinkelmandItemDTOMapper</param>
+        /// <param name="bestellenAgent"></param>
         public PcSWinkelenServiceHandler(
             IWinkelmandDataMapper dataMapper,
             IBSCatalogusBeheerAgent catalogusBeheerAgent,
             IWinkelmandItemDTOMapper dtoMapper,
+            IPcSBestellenAgent bestellenAgent,
             ICatalogusManager manager)
         {
             _winkelmandItemDTOMapper = dtoMapper;
             _winkelmandDataMapper = dataMapper;
             _catalogusBeheerAgent = catalogusBeheerAgent;
+            _bestellenAgent = bestellenAgent;
             _manager = manager;
             log4net.Config.XmlConfigurator.Configure();
         }
@@ -66,6 +71,7 @@ namespace Case3.PcSWinkelen.Implementation
         /// </summary>
         public PcSWinkelenServiceHandler()
         {
+            log4net.Config.XmlConfigurator.Configure();
             _winkelmandDataMapper = new WinkelmandDataMapper();
             _winkelmandItemDTOMapper = new WinkelmandItemDTOMapper();
             try
@@ -95,7 +101,7 @@ namespace Case3.PcSWinkelen.Implementation
             {
                 throw new FaultException<ErrorLijst>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
             }
-            log4net.Config.XmlConfigurator.Configure();
+
         }
 
         /// <summary>
@@ -208,7 +214,8 @@ namespace Case3.PcSWinkelen.Implementation
                 }
 
                 return new AddItemToWinkelmandResponseMessage { Succeeded = true };
-            } else
+            }
+            else
             {
                 return new AddItemToWinkelmandResponseMessage { Succeeded = false };
             }
@@ -251,7 +258,7 @@ namespace Case3.PcSWinkelen.Implementation
         }
 
         /// <summary>
-        /// Cals the agent PcSBestellen
+        /// Calls the agent PcSBestellen
         /// Retrieves the winkelmanditems from the database
         /// Sends all the items to the PcSBestellen
         /// </summary>
@@ -259,7 +266,9 @@ namespace Case3.PcSWinkelen.Implementation
         /// <returns></returns>
         public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
         {
-            throw new NotImplementedException();
+            var response = new WinkelmandBestellenResponseMessage();
+            _bestellenAgent.BestellingPlaatsen(new BestellingPcS());
+            return response;
         }
     }
 }

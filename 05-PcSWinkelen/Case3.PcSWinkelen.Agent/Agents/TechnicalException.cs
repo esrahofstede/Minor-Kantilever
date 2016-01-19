@@ -1,4 +1,4 @@
-﻿using case3common.v1.faults;
+﻿using Case3.Common.Faults;
 using System;
 using System.Runtime.Serialization;
 

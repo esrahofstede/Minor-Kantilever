@@ -30,10 +30,10 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
         }
 
         /// <summary>
-        /// Test which must throw an exception, the exception must be the right one
+        /// Test which must throw an exception, the exception must be the right one. This test is dependent.
         /// </summary>
         [TestMethod]
-        public void ProductNotExistsInVoorraadThrowsExceptionAndCheckExceptionDetails()
+        public void Acceptation_ProductNotExistsInVoorraadThrowsExceptionAndCheckExceptionDetails()
         {
             //Assert
             BSVoorraadBeheerAgent agent = new BSVoorraadBeheerAgent();
@@ -54,11 +54,11 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
         }
 
         /// <summary>
-        /// Test which must throw an exception because productId is null
+        /// Test which must throw an exception because productId is null. This test is dependent.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ProductVoorraadNotFoundException))]
-        public void GetProductVoorraadWithNullableProductId()
+        public void Acceptation_GetProductVoorraadWithNullableProductId()
         {
             //Assert
             BSVoorraadBeheerAgent agent = new BSVoorraadBeheerAgent();

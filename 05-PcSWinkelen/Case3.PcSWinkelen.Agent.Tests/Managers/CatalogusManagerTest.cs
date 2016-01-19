@@ -58,17 +58,6 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
             },
         };
 
-        [TestMethod]
-        public void CreateCatalogusManagerInstance()
-        {
-            //Arrange
-
-            //Act
-            CatalogusManager catalogusManager = new CatalogusManager();
-
-            //Assert
-            Assert.IsNotNull(catalogusManager);
-        }
 
         [TestMethod]
         public void CreateCatalogusManagerMockInstance()

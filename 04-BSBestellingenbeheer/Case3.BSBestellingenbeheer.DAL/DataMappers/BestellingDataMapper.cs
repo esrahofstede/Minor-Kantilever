@@ -18,7 +18,7 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         /// Gets bestellingen entities from the database and returns the first
         /// </summary>
         /// <param name="context"></param>
-        /// <returns></returns>
+        /// <returns>The first bestelling to pack</returns>
         public Bestelling GetBestellingToPack(BestellingContext context)
         {
             return context.Bestellingen.OrderBy(b => b.BestelDatum).Include(b => b.Artikelen).FirstOrDefault();
