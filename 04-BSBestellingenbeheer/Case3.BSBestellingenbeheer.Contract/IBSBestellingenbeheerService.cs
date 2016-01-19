@@ -12,24 +12,24 @@ namespace Case3.BSBestellingenbeheer.Contract
         /// <summary>
         /// Method to find the first bestelling in the database
         /// </summary>
-        /// <param name="requestMessage"></param>
-        /// <returns></returns>
+        /// <param name="requestMessage">The request message</param>
+        /// <returns>The result message containing a Bestelling</returns>
         [OperationContract]
         FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage);
 
         /// <summary>
         /// Method to insert a bestelling to the database
         /// </summary>
-        /// <param name="bestelling"></param>
-        /// <returns></returns>
+        /// <param name="bestelling">The request message containing the Bestelling to insert</param>
+        /// <returns>Returns an InsertBestellingResultMessage</returns>
         [OperationContract]
         InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling);
 
         /// <summary>
         /// Method to update a bestelling in the database
         /// </summary>
-        /// <param name="bestelling"></param>
-        /// <returns></returns>
+        /// <param name="bestelling">Request message containing an updated Bestelling</param>
+        /// <returns>Returns an UpdateBestellinResultMessage</returns>
         [OperationContract]
         UpdateBestellingResultMessage UpdateBestelling(UpdateBestellingRequestMessage bestelling);
     }
