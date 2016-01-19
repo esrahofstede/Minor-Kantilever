@@ -26,6 +26,11 @@ namespace Case3.FEWebwinkel.Site.ViewModels
 
         public string AdresRegel2 { get; set; }
 
+        /// <summary>
+        /// Postcode will validate on the following inputs:
+        /// 1234AB
+        /// 1234 AB
+        /// </summary>
         [Required(ErrorMessage = "{0} is verplicht")]
         [RegularExpression(@"^[1-9]\d{3} ?[A-Z]{2}$", ErrorMessage = "Het formaat van een postcode is: 1234AB of 1234 AB")]
         public string Postcode { get; set; }
@@ -47,6 +52,14 @@ namespace Case3.FEWebwinkel.Site.ViewModels
         [RegularExpression(@"^(\d{2}-?\d{8}|\d{3}-?\d{7}|\d{4}-?\d{6}|\+31-?\d{9})$", ErrorMessage = "Het formaat van een telefoonnummer is: 06-12345678, 012-3456789, 0123-456789, 0123456789 of +31123456789")]
         public string Telefoonnummer { get; set; }
 
+        /// <summary>
+        /// Email will validate on the following adresses:
+        /// janjansen@test.nl
+        /// jan_jansen@test.nl
+        /// jan.jansen@test.nl
+        /// jan-jansen@test.nl
+        /// janjansen@test.com
+        /// </summary>
         [RegularExpression(@"^[A-Za-z0-9_\-\.]*@[A-Za-z]*.\w{2,3}$", ErrorMessage = "Het formaat van een e-mailadres is: janjansen@test.nl, jan_jansen@test.nl, jan.jansen@test.nl, jan-jansen@test.nl, janjansen@test.com")]
         public string Emailadres { get; set; }
     }
