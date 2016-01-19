@@ -3,17 +3,24 @@ using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Tests.Controllers
 {
+    /// <summary>
+    /// Responsible for testing the WinkelmandController Class
+    /// </summary>
     [TestClass]
     public class WinkelmandControllerTest
     {
-        private static List<ArtikelViewModel> CreateWinkelmandViewModel()
+        #region -------[Support functions for tests]-------
+        private static WinkelmandViewModel CreateWinkelmandViewModel()
         {
-            var viewmodels = new List<ArtikelViewModel>()
+            return new WinkelmandViewModel
+            {
+                Artikelen = new List<ArtikelViewModel>()
                 {
                     new ArtikelViewModel
                     {
@@ -30,21 +37,24 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
                         Prijs = 15.12M,
                         Aantal = 1,
                     },
+                },
+                BTWPercentage = 21M,
+                TotaalBTW = 21M,
+                TotaalExclBTW = 100M,
+                TotaalInclBTW = 121M,
             };
-
-            return viewmodels;
         }
-
+        #endregion
+        #region -------[Test for the index action]-------
         [TestMethod]
         public void WinkelmandControllerIndexActionReturnsViewResult()
         {
             // Arrange
-            var artikelList = CreateWinkelmandViewModel();
+            var winkelmandViewModel = CreateWinkelmandViewModel();
             var mock = new Mock<IWinkelmandManager>(MockBehavior.Strict);
-            mock.Setup(wm => wm.GetWinkelmand(It.IsAny<string>())).Returns(artikelList);
+            mock.Setup(wm => wm.GetWinkelmand(It.IsAny<string>())).Returns(winkelmandViewModel);
 
             var controller = new WinkelmandController(mock.Object);
-            //var controller = new WinkelmandController();
 
             // Act
             ActionResult result = controller.Index();
@@ -56,9 +66,9 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
         public void WinkelmandControllerIndexActionHasCorrectModel()
         {
             // Arrange
-            var artikelList = CreateWinkelmandViewModel();
+            var winkelmandViewModel = CreateWinkelmandViewModel();
             var mock = new Mock<IWinkelmandManager>(MockBehavior.Strict);
-            mock.Setup(wm => wm.GetWinkelmand(It.IsAny<string>())).Returns(artikelList);
+            mock.Setup(wm => wm.GetWinkelmand(It.IsAny<string>())).Returns(winkelmandViewModel);
 
             var controller = new WinkelmandController(mock.Object);
 
@@ -99,13 +109,31 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             Assert.AreEqual(15.12M, modelResult.Artikelen[1].Prijs);
             Assert.AreEqual(1, modelResult.Artikelen[1].Aantal);
             //Other Data from WinkelmandViewModel
-            Assert.AreEqual(27.10M, modelResult.TotaalInclBTW);
-            //Assert.AreEqual(2.90M, modelResult.TotaalExclBTW);
+            Assert.AreEqual(121M, modelResult.TotaalInclBTW);
+            Assert.AreEqual(100M, modelResult.TotaalExclBTW);
             Assert.AreEqual(21, modelResult.BTWPercentage);
-            //Assert.AreEqual(24.20, modelResult.TotaalBTW);
         }
+        #endregion
+        #region -------[Integration Test for index action]-------
+        [TestMethod]
+        public void IntegrationWinkelmandControllerReturnsWinkelmandViewModel()
+        {
+            //Arrange
+            WinkelmandController controller = new WinkelmandController();
 
+            try
+            {
+                //Act
+                var result = controller.Index() as ViewResult;
 
-
+                //Arrange
+                Assert.IsInstanceOfType(result.Model, typeof(WinkelmandViewModel));
+            }
+            catch (Exception) //WCF EXCEPTION!!!!!
+            {
+                Assert.Fail("Kan geen verbinding maken met de service.");
+            }
+        }
+        #endregion
     }
 }

@@ -43,6 +43,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             };
         }
         #endregion
+        #region -------[Test for the index action]-------
         [TestMethod]
         public void CatalogControllerIndexActionReturnsViewResult()
         {
@@ -89,7 +90,8 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             Assert.AreEqual("Giant", modelInView[1].Leverancier);
             Assert.AreEqual(30, modelInView[1].Voorraad);
         }
-
+        #endregion
+        #region -------[Integration Test for index action]-------
         [TestMethod]
         public void IntegrationCatalogusControllerReturnsListOfCatalogusViewModels()
         {
@@ -107,8 +109,8 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             {
                 Assert.Fail("Kan geen verbinding maken met de service.");
             }
-            
         }
+        #endregion
     }
-    
+
 }

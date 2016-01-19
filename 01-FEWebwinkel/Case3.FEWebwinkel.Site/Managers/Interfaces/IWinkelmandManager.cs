@@ -14,11 +14,11 @@ namespace Case3.FEWebwinkel.Site.Managers.Interfaces
     public interface IWinkelmandManager
     {
         /// <summary>
-        /// This function gets all the products from a Winkelmand
+        /// This function gets a filled WinkelmandViewModel
         /// </summary>
         /// <param name="SessieId">The Id to find the correct Winkelmand</param>
-        /// <returns>Returns a list of ArtikelViewModels</returns>
-        List<ArtikelViewModel> GetWinkelmand(string sessionId);
+        /// <returns>Returns a WinkelmandViewModel</returns>
+        WinkelmandViewModel GetWinkelmand(string sessionId);
 
         /// <summary>
         /// This function Converts a List with ArtikelViewModels based on the given WinkelMandCollection
