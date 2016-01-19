@@ -122,9 +122,9 @@ namespace Case3.FEWebwinkel.Agent
             return result.Succeeded;
         }
 
-        public void SendBestelling(string sessionId)
+        public void SendBestelling(string sessionId, KlantRegistreerViewModel klant)
         {
-            WinkelmandBestellenResponseMessage result = _agent.WinkelmandBestellen(new WinkelmandBestellenRequestMessage() { SessieId = sessionId });//, Klantgegevens = klantGegevens})
+            WinkelmandBestellenResponseMessage result = _agent.WinkelmandBestellen(new WinkelmandBestellenRequestMessage() { SessieId = sessionId, Klantgegevens = klant});
         }
     }
 }

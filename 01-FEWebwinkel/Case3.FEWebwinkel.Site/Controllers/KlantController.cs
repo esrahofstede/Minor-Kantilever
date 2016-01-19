@@ -1,4 +1,5 @@
 ﻿using Case3.FEWebwinkel.Site.Managers;
+using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.ViewModels;
 using System;
 using System.Web.Mvc;
@@ -10,7 +11,24 @@ namespace Case3.FEWebwinkel.Site.Controllers
     /// </summary>
     public class KlantController : Controller
     {
-        private BestellingManager _bestellingManager;
+        private IBestellingManager _bestellingManager;
+
+        /// <summary>
+        /// This constructor is the default constructor
+        /// </summary>
+        public KlantController()
+        {
+            _bestellingManager = new BestellingManager();
+        }
+        /// <summary>
+        /// This constructor is for testing purposes
+        /// </summary>
+        /// <param name="manager">This should be a mock of ICatalogusManager</param>
+        public KlantController(IBestellingManager manager)
+        {
+            _bestellingManager = manager;
+        }
+
         /// <summary>
         /// This function is responsible for returning the registreer klant form
         /// </summary>
@@ -42,7 +60,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
                 //TODO doorlinken naar Bevestigingsview -> Uw bestelling wordt zo snel mogelijk verwerkt
                 _bestellingManager.PlaatsBestelling(userGuid,klant);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Bestellen", "Winkelmand");
             }
         }
     }

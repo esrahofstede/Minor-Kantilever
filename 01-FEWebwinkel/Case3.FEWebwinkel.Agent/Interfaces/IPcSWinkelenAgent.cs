@@ -10,6 +10,6 @@ namespace Case3.FEWebwinkel.Agent.Interfaces
 
         bool AddProductToWinkelmand(int productId, string sessionId);
 
-        void SendBestelling(string sessionId);//TO DO: add klantgegevens
+        void SendBestelling(string sessionId, KlantRegistreerViewModel klant);
     }
 }

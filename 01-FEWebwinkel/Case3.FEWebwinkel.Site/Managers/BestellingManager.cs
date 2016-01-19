@@ -32,7 +32,7 @@ namespace Case3.FEWebwinkel.Site.Managers
 
         public void PlaatsBestelling(string sessionId, KlantRegistreerViewModel klant)
         {
-            _pcsWinkelenAgent.SendBestelling(sessionId);
+            _pcsWinkelenAgent.SendBestelling(sessionId, klant);
         }
     }
 }
