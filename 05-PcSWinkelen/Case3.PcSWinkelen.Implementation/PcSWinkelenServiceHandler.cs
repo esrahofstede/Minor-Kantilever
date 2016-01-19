@@ -17,7 +17,7 @@ using log4net;
 using System.ServiceModel;
 using System.Web.Hosting;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
-using case3common.v1.faults;
+using Case3.Common.Faults;
 using System.Runtime.Serialization;
 using System.Linq.Expressions;
 using Case3.PcSBestellen.SchemaNS;

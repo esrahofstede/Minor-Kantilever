@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using Case3.PcSWinkelen.MessagesNS;
-using case3common.v1.faults;
+using Case3.Common.Faults;
 using System.ServiceModel;
 using System.Text;
 

@@ -139,6 +139,7 @@ svcutil ^
   /n:"urn:case3-bsbestellingenbeheer:v1:schema,Case3.BSBestellingenBeheer.SchemaNS" ^
   /n:"urn:case3-bsbestellingenbeheer:v1:messages,Case3.BSBestellingenBeheer.MessagesNS" ^
   /n:"urn:case3-pcsbestellen:v1:messages,Case3.PcSBestellen.MessagesNS" ^
+  /n:"urn:case3-common:v1:faults, Case3.Common.Faults" ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Product.xsd" ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Categorie.xsd" ^
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Schema.xsd" ^
