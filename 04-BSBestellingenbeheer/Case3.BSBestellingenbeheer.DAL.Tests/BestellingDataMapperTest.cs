@@ -22,7 +22,9 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 context.Database.Initialize(false);
             }
         }
-
+        /// <summary>
+        /// This methods tests if the first bestelling to pack is the one expected.
+        /// </summary>
         [TestMethod]
         public void TestGetBestellingFirstResult()
         {
