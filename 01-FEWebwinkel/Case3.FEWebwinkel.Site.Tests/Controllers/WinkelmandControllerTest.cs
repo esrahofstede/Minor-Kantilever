@@ -116,7 +116,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
         #endregion
         #region -------[Integration Test for index action]-------
         [TestMethod]
-        public void IntegrationWinkelmandControllerReturnsWinkelmandViewModel()
+        public void Integration_WinkelmandControllerReturnsWinkelmandViewModel()
         {
             //Arrange
             WinkelmandController controller = new WinkelmandController();
@@ -129,7 +129,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
                 //Arrange
                 Assert.IsInstanceOfType(result.Model, typeof(WinkelmandViewModel));
             }
-            catch (Exception) //WCF EXCEPTION!!!!!
+            catch (Exception)
             {
                 Assert.Fail("Kan geen verbinding maken met de service.");
             }
