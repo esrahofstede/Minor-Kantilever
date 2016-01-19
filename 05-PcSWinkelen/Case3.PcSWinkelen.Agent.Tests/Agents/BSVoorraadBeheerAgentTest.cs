@@ -33,6 +33,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
         public void ProductNotExistsInVoorraadThrowsExceptionAndCheckExceptionDetails()
         {
             //Assert
+          
             BSVoorraadBeheerAgent agent = new BSVoorraadBeheerAgent();
 
             //Act
