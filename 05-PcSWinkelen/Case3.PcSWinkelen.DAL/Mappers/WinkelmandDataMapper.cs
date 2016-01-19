@@ -28,13 +28,16 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             }
         }
 
-        public void Update(WinkelmandItem updatedItem)
+        public void Update(WinkelmandItem item)
         {
             using (var context = new WinkelmandContext())
             {
-                var oldItem = context.WinkelmandItems.Find(updatedItem.ID);
-                context.Entry(oldItem).CurrentValues.SetValues(updatedItem);
-                context.SaveChanges();
+                if (item != null)
+                {
+                    var oldItem = context.WinkelmandItems.Find(item.ID);
+                    context.Entry(oldItem).CurrentValues.SetValues(item);
+                    context.SaveChanges();
+                }
             }
         }
 

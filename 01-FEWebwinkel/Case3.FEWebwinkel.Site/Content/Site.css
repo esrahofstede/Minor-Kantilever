@@ -98,8 +98,8 @@ div.catalog-section {
 }
 
 .navbar-inverse, .btn {
-       background-color: rgb(170,177,228)!important;
-       border-color: rgba(0, 0, 0, 0.17)!important;
+       background-color: rgb(170,177,228);
+       border-color: rgba(0, 0, 0, 0.17);
 }
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a, .btn {
     color: black!important;
@@ -133,6 +133,10 @@ h2.catalog-header {
 
 .shopping-cart > .glyphicon:hover {
     color: rgb(124, 129, 165)!important;
+}
+
+.btn-primary:hover {
+    background-color: rgb(124, 129, 165)!important;
 }
 
 .bestel-knop {
