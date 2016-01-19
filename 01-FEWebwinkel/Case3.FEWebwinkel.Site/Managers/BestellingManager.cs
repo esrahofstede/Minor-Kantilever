@@ -1,6 +1,7 @@
 ﻿using Case3.FEWebwinkel.Agent;
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
+using Case3.FEWebwinkel.Site.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Case3.FEWebwinkel.Site.Managers
         }
 
 
-        public void PlaatsBestelling(string sessionId)
+        public void PlaatsBestelling(string sessionId, KlantRegistreerViewModel klant)
         {
             _pcsWinkelenAgent.SendBestelling(sessionId);
         }
