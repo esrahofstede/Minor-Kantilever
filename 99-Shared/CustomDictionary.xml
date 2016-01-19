@@ -62,6 +62,15 @@
       <Word>BSCatalogusBeheer</Word>
       <Word>BSVoorraadBeheer</Word>
       <Word>dto</Word>
+      <Word>klant</Word>
+      <Word>Registreer</Word>
+      <Word>Voornaam</Word>
+      <Word>Tussenvoegsel</Word>
+      <Word>Achternaam</Word>
+      <Word>Adres</Word>
+      <Word>Woonplaats</Word>
+      <Word>Telefoonnummer</Word>
+      <Word>Emailadres</Word>
   </Recognized>
     <Unrecognized>
     </Unrecognized>
