@@ -1,4 +1,5 @@
-﻿using Case3.FEBestellingen.Site.Managers;
+﻿using Case3.BTWConfigurationReader;
+using Case3.FEBestellingen.Site.Managers;
 using Case3.FEBestellingen.Site.Managers.Interfaces;
 using Case3.FEBestellingen.Site.ViewModels;
 using Case3.PcSBestellen.V1.Messages;
@@ -17,6 +18,8 @@ namespace Case3.FEBestellingen.Site.Controllers
     public class BestellingController : Controller
     {
         private IBestellingManager _bestellingManager;
+        private BTWCalculator _btwCalculator = new BTWCalculator();
+
 
         /// <summary>
         /// This is the default constructor
@@ -40,34 +43,40 @@ namespace Case3.FEBestellingen.Site.Controllers
         [Authorize(Roles = "Magazijnmedewerkers")]
         public ActionResult Index()
         {
-            var requestMessage = new FindNextBestellingRequestMessage();
-            var model = _bestellingManager.FindNextBestelling(requestMessage);
-            
-            
-            //dummy data, delete this when real data is available
-            /*var model = new BestellingViewModel
-            {
-                Artikelen = new List<ArtikelViewModel>
-                {
-                    new ArtikelViewModel
-                    {
-                        Naam = "Fietsbel",
-                        Leveranciersnaam = "Gazelle",
-                        Leverancierscode = "GA12345FB",
-                        Aantal = 1,                        
-                    },
-                    new ArtikelViewModel
-                    {
-                        Naam = "Zadelpen",
-                        Leveranciersnaam = "Giant",
-                        Leverancierscode = "GI12345ZP",
-                        Aantal = 2,
-                    }
-                }
-            };*/
+            var model = _bestellingManager.FindNextBestelling(new FindNextBestellingRequestMessage());
+
+            decimal totaalInclBTW = (decimal) model.Artikelen.Select(artikel => (artikel.Prijs * artikel.Aantal)).Sum();
+            decimal totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
+
+            model.BTWPercentage = _btwCalculator.BTWPercentage;
+            model.TotaalInclBTW = totaalInclBTW;
+            model.TotaalExclBTW = totaalExclBTW;
+            model.TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW);
+           
             return View(model);
         }
 
+        //dummy data, delete this when real data is available
+        /*var model = new BestellingViewModel
+        {
+            Artikelen = new List<ArtikelViewModel>
+            {
+                new ArtikelViewModel
+                {
+                    Naam = "Fietsbel",
+                    Leveranciersnaam = "Gazelle",
+                    Leverancierscode = "GA12345FB",
+                    Aantal = 1,                        
+                },
+                new ArtikelViewModel
+                {
+                    Naam = "Zadelpen",
+                    Leveranciersnaam = "Giant",
+                    Leverancierscode = "GI12345ZP",
+                    Aantal = 2,
+                }
+            }
+        };*/
 
     }
 }

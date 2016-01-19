@@ -41,6 +41,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                                 {
                                     Naam = artikel.Naam,
                                     LeverancierNaam = artikel.Leverancier,
+                                    Prijs = 5.00M,
                                     LeveranciersProductId = artikel.Leverancierscode,
                                 },
                                 Aantal = artikel.Aantal

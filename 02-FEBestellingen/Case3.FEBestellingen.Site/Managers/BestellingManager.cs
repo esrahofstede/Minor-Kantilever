@@ -60,7 +60,8 @@ namespace Case3.FEBestellingen.Site.Managers
 
                 var artikelen = bestelling.ArtikelenPcS.Select(art => new ArtikelViewModel
                 {
-                    Naam = art.Product.Naam,
+                    ArtikelNaam = art.Product.Naam,
+                    Prijs = art.Product.Prijs,
                     Leveranciersnaam = art.Product.LeverancierNaam,
                     Leverancierscode = art.Product.LeveranciersProductId,
                     Aantal = art.Aantal,

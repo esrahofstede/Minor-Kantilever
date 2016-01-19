@@ -1,0 +1,89 @@
+﻿@model Case3.FEBestellingen.Site.ViewModels.BestellingViewModel
+
+@{
+    ViewBag.Title = "Factuur";
+}
+
+<h2>Factuur</h2>
+
+    <table class="table">
+        <tr>
+            <th style="width:30%;">
+                Factuurnummer
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.FactuurNummer)
+            </td>
+            
+        </tr>
+
+        <tr>
+            <th style="width:30%;">
+                Factuurdatum
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => Model.FactuurDatum)
+            </td>
+        </tr>
+    </table>
+
+    <table class="table">
+        <tr>
+            <th>
+                Artikel
+            </th>
+            <th>
+                Prijs (incl. BTW)
+            </th>
+            <th>
+                Aantal
+            </th>
+            <th>
+                Totaal (incl. BTW)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Artikelen)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtikelNaam)
+                </td>
+                <td>
+                    € @Html.DisplayFor(modelItem => item.Prijs)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aantal)
+                </td>
+                <td>
+                    € @(item.Prijs * item.Aantal)
+                </td>
+
+            </tr>
+        }
+
+        <tr>
+            <td class="total"></td>
+            <td class="total"></td>
+            <td class="total">
+                <div class="pull-right">
+                    Totaal Excl. BTW: <br />
+                    @Model.BTWPercentage% BTW Totaal: <br />
+                    Totaal Incl. BTW:
+                </div>
+            </td>
+            <td class="total">
+                € @Model.TotaalExclBTW <br />
+                € @Model.TotaalBTW <br />
+                € @Model.TotaalInclBTW
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3"></td>
+            <td>@Html.ActionLink("Afleveradres tonen", "AfleverAdres", "Factuur", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop" })</td>
+        </tr>
+    </table>
+
+    <div class="clearfix"></div>
+

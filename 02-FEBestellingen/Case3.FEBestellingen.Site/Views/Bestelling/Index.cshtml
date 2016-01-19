@@ -9,7 +9,7 @@
 <table class="table">
     <tr>
         <th>
-            Naam
+            Artikel
         </th>
         <th>
             Leverancier
@@ -21,12 +21,12 @@
             Aantal
         </th>
     </tr>
-    @User.Identity.Name
+
     @foreach (var item in Model.Artikelen)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Naam)
+                @Html.DisplayFor(modelItem => item.ArtikelNaam)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Leveranciersnaam)
@@ -39,6 +39,11 @@
             </td>
         </tr>
     }
+ 
+    <tr>
+        <td colspan="4">@Html.ActionLink("Ingepakt", "Index", "Factuur", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop" })</td>
+    </tr>
 </table>
+
 <div class="clearfix"></div>
 
