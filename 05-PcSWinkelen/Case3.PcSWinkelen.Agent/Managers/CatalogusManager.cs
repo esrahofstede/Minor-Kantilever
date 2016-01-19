@@ -3,7 +3,7 @@ using Case3.PcSWinkelen.Agent.Exceptions;
 using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using Case3.PcSWinkelen.SchemaNS;
-using case3common.v1.faults;
+using Case3.Common.Faults;
 using System;
 using System.Collections.Generic;
 using System.Linq;

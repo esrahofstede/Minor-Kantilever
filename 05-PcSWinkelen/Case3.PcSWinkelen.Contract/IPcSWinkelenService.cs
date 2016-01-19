@@ -1,5 +1,5 @@
 ﻿using Case3.PcSWinkelen.MessagesNS;
-using case3common.v1.faults;
+using Case3.Common.Faults;
 using System.ServiceModel;
 
 namespace Case3.PcSWinkelen.Contract

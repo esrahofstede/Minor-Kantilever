@@ -7,7 +7,7 @@ using Case3.PcSWinkelen.DAL.Mappers;
 using Case3.PcSWinkelen.Implementation.Mappers;
 using Case3.PcSWinkelen.Agent.Agents;
 using System.ServiceModel;
-using case3common.v1.faults;
+using Case3.Common.Faults;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {

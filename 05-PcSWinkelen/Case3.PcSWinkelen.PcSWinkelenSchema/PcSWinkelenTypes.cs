@@ -12,7 +12,7 @@
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:schema", ClrNamespace="Case3.PcSWinkelen.SchemaNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcswinkelen:v1:messages", ClrNamespace="Case3.PcSWinkelen.MessagesNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="Case3.BSBestellingenBeheer.SchemaNS")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-common:v1:faults", ClrNamespace="case3common.v1.faults")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-common:v1:faults", ClrNamespace="Case3.Common.Faults")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:messages", ClrNamespace="Case3.BSBestellingenBeheer.MessagesNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:messages", ClrNamespace="Case3.PcSBestellen.MessagesNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:schema", ClrNamespace="Case3.PcSBestellen.SchemaNS")]
@@ -929,7 +929,7 @@ namespace Case3.BSBestellingenBeheer.SchemaNS
     {
     }
 }
-namespace case3common.v1.faults
+namespace Case3.Common.Faults
 {
     using System.Runtime.Serialization;
     
@@ -953,7 +953,7 @@ namespace case3common.v1.faults
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.MessagesNS.GetWinkelmandResponseMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.MessagesNS.WinkelmandBestellenRequestMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.MessagesNS.WinkelmandBestellenResponseMessage))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.ErrorLijst))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.Common.Faults.ErrorLijst))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenBeheer.MessagesNS.FindFirstBestellingRequestMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenBeheer.MessagesNS.FindFirstBestellingResultMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenBeheer.MessagesNS.InsertBestellingRequestMessage))]
@@ -1038,7 +1038,7 @@ namespace case3common.v1.faults
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ErrorLijst", Namespace="urn:case3-common:v1:faults", ItemName="ErrorDetail")]
-    public class ErrorLijst : System.Collections.Generic.List<case3common.v1.faults.ErrorDetail>
+    public class ErrorLijst : System.Collections.Generic.List<Case3.Common.Faults.ErrorDetail>
     {
     }
 }
