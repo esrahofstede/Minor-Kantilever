@@ -74,6 +74,7 @@ namespace Case3.PcSWinkelen.Implementation
             try
             {
                 _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
+                _manager = new CatalogusManager();
             }
             catch (TechnicalException ex)
             {
@@ -263,7 +264,6 @@ namespace Case3.PcSWinkelen.Implementation
         public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
         {
             var response = new WinkelmandBestellenResponseMessage();
-            var bestelItem = _winkelmandDataMapper.FindAllBy(wi => wi.SessieID == bestelling.SessieId);
             _bestellenAgent.BestellingPlaatsen(new BestellingPcS());
             return response;
         }
