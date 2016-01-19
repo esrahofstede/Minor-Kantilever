@@ -12,24 +12,46 @@ using System.Web.Mvc;
 
 namespace Case3.FEBestellingen.Site.Controllers
 {
+    /// <summary>
+    /// This class is responsible for all interactions with Facturen
+    /// </summary>
     public class FactuurController : Controller
     {
 
         private IBestellingManager _bestellingManager;
 
+        /// <summary>
+        /// This is the default controller
+        /// </summary>
         public FactuurController()
         {
             _bestellingManager = new BestellingManager();
         }
 
-        // GET: Factuur
-        [Authorize(Roles = "Magazijnmedewerkers")]
-        public ActionResult Index()
+        /// <summary>
+        /// This constructor is for testing purposes
+        /// </summary>
+        /// <param name="agent">This should be a mock of IPcSWinkelenAgent</param>
+        public FactuurController(IBestellingManager bestellingManager)
         {
-            var model = _bestellingManager.FindNextBestelling(new FindNextBestellingRequestMessage());
-            return View(model);
+            _bestellingManager = bestellingManager;
         }
 
+        /// <summary>
+        /// This function returns an overview page of a factuur
+        /// </summary>
+        /// <returns>View with factuur of the bestelling</returns>
+        [Authorize(Roles = "Magazijnmedewerkers")]
+        [HttpPost]
+        public ActionResult Index(BestellingViewModel bestellingViewModel)
+        {
+            return View(bestellingViewModel);
+        }
+
+        /// <summary>
+        /// This function returns an overview page of the afleveradres
+        /// </summary>
+        /// <returns>View with factuur of the afleveradres</returns>
         [Authorize(Roles = "Magazijnmedewerkers")]
         public ActionResult AfleverAdres()
         {
@@ -41,7 +63,7 @@ namespace Case3.FEBestellingen.Site.Controllers
             }*/
 
 
-            KlantgegevensViewModel klantgegevensViewModel = new KlantgegevensViewModel()
+            BestellingViewModel bestellingViewModel = new BestellingViewModel()
             {
                 KlantNaam = "Dennis Meijer",
                 Adresregel1 = "Kalmoes 4",
@@ -50,7 +72,7 @@ namespace Case3.FEBestellingen.Site.Controllers
                 Woonplaats = "Nijverdal"
             };
 
-            return View(klantgegevensViewModel);
+            return View(bestellingViewModel);
         }
 
 

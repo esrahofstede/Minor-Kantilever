@@ -17,5 +17,11 @@ namespace Case3.FEBestellingen.Site.ViewModels
         public decimal TotaalInclBTW { get; set; }
         public decimal BTWPercentage { get; set; }
         public decimal TotaalBTW { get; set; }
+
+        public string KlantNaam { get; set; }
+        public string Adresregel1 { get; set; }
+        public string Adresregel2 { get; set; }
+        public string Postcode { get; set; }
+        public string Woonplaats { get; set; }
     }
 }

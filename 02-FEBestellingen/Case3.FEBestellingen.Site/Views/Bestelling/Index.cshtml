@@ -22,7 +22,10 @@
         </th>
     </tr>
 
-    @foreach (var item in Model.Artikelen)
+@using (Html.BeginForm("Index", "Factuur", FormMethod.Post))
+{
+
+    foreach (var item in Model.Artikelen)
     {
         <tr>
             <td>
@@ -39,11 +42,16 @@
             </td>
         </tr>
     }
- 
+
     <tr>
         <td colspan="3"></td>
-        <td>@Html.ActionLink("Ingepakt", "Index", "Factuur", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop" })</td>
+        <td>
+            <input type="submit" value="Search" />
+
+            @Html.ActionLink("Ingepakt", "Index", "Factuur", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop" })
+        </td>
     </tr>
+}
 </table>
 
 <div class="clearfix"></div>

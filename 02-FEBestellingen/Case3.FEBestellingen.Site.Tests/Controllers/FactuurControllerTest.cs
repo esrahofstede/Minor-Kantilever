@@ -22,7 +22,7 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
         }
 
         #region -------[Tests for Index Action]-------
-        [TestMethod]
+        /*[TestMethod]
         public void FactuurControllerIndexReturnTypeCheck()
         {
             // Arrange
@@ -34,7 +34,7 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(ViewResult));
-        }
+        }*/
         #endregion
 
 
@@ -54,15 +54,6 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
         }
         #endregion
 
-        [TestMethod]
-        public void TestMethod1()
-        {
-            // Arrange
-
-            // Act
-
-            // Assert
-
-        }
+    
     }
 }
