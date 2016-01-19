@@ -14,7 +14,7 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
 
         public Bestelling GetBestellingToPack(BestellingContext context)
         {
-            return context.Bestellingen.OrderBy(b => b.BestelDatum).Include(b => b.Artikelen).FirstOrDefault();
+            return context.Bestellingen.Where(b => b.Status == 0).OrderBy(b => b.BestelDatum).Include(b => b.Artikelen).FirstOrDefault();
         }
     }
 }

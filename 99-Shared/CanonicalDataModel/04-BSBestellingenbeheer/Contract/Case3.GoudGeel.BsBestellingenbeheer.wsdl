@@ -16,16 +16,54 @@
   <wsdl:message name="IBSBestellingenbeheerService_FindFirstBestelling_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindFirstBestellingResponse" />
   </wsdl:message>
+  <wsdl:message name="IBSBestellingenbeheerService_InsertBestelling_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBestelling" />
+  </wsdl:message>
+  <wsdl:message name="IBSBestellingenbeheerService_InsertBestelling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBestellingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSBestellingenbeheerService_UpdateBestelling_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBestelling" />
+  </wsdl:message>
+  <wsdl:message name="IBSBestellingenbeheerService_UpdateBestelling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBestellingResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBSBestellingenbeheerService">
     <wsdl:operation name="FindFirstBestelling">
       <wsdl:input wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestelling" message="tns:IBSBestellingenbeheerService_FindFirstBestelling_InputMessage" />
       <wsdl:output wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestellingResponse" message="tns:IBSBestellingenbeheerService_FindFirstBestelling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBestelling">
+      <wsdl:input wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestelling" message="tns:IBSBestellingenbeheerService_InsertBestelling_InputMessage" />
+      <wsdl:output wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestellingResponse" message="tns:IBSBestellingenbeheerService_InsertBestelling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBestelling">
+      <wsdl:input wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" message="tns:IBSBestellingenbeheerService_UpdateBestelling_InputMessage" />
+      <wsdl:output wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestellingResponse" message="tns:IBSBestellingenbeheerService_UpdateBestelling_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DefaultBinding_IBSBestellingenbeheerService" type="tns:IBSBestellingenbeheerService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="FindFirstBestelling">
       <soap:operation soapAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestelling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBestelling">
+      <soap:operation soapAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestelling" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBestelling">
+      <soap:operation soapAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

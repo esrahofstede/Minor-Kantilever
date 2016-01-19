@@ -23,6 +23,9 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             }
         }
 
+        /// <summary>
+        /// GetBestellingToPack should return 1 Bestelling where the status == 0 and ordered by BestelDatum
+        /// </summary>
         [TestMethod]
         public void TestGetBestellingFirstResult()
         {
