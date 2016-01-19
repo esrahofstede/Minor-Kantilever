@@ -43,4 +43,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="WinkelmandBestellen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bestelling" nillable="true" xmlns:q7="urn:case3-pcswinkelen:v1:messages" type="q7:WinkelmandBestellenRequestMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WinkelmandBestellenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WinkelmandBestellenResult" nillable="true" xmlns:q8="urn:case3-pcswinkelen:v1:messages" type="q8:WinkelmandBestellenResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

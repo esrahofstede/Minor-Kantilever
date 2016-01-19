@@ -123,7 +123,8 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PreBuildEvent>svcutil ^
+    <PreBuildEvent>if not $(ConfigurationName) == DebugWithoutBuild ^
+svcutil ^
  /dataContractOnly ^
   /out:$(ProjectDir)PcSWinkelenTypes.cs ^
   /r:"$(SolutionDir)Case3.PcSWinkelen.BSCatalogusbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSCatalogusbeheer.Schema.dll" ^

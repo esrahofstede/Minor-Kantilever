@@ -4,6 +4,8 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Case3.BSBestellingenBeheer.SchemaNS;
+using Case3.PcSBestellen.SchemaNS;
 using Case3.PcSWinkelen.MessagesNS;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using Case3.PcSWinkelen.SchemaNS;
@@ -13,6 +15,8 @@ namespace Case3.PcSWinkelen.Implementation.Tests
 {
     internal static class DummyData
     {
+        private static int _dummyAantal = 2;
+
         internal static string GetDummyGuid = "7caf01ef-daac-4724-a736-220b00facb21";
 
         internal static WinkelmandItemRef GetDummyWinkelmandItemRef = new WinkelmandItemRef
@@ -42,7 +46,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             Naam = "Fietsbel",
             LeverancierNaam = "Gazelle",
             LeveranciersProductId = "G001",
-            Aantal = 2,
+            Aantal = _dummyAantal,
             SessieID = GetDummyGuid
         };
 
@@ -50,7 +54,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
         {
             SessieId = GetDummyGuid,
             Product = GetDummyProduct,
-            Aantal = 2,
+            Aantal = _dummyAantal,
         };
 
 
@@ -72,5 +76,42 @@ namespace Case3.PcSWinkelen.Implementation.Tests
                 GetDummyDTOWinkelmandItem
             }
         };
+
+        internal static Klantgegevens GetDummyKlantgegevens = new Klantgegevens
+        {
+            Naam = "Marco Pil",
+            Adresregel1 = "Afdeling Infosupport",
+            Adresregel2 = "Sint Jacobsstraat 12",
+            Postcode = "3511 BS",
+            Woonplaats = "Utrecht"
+        };
+
+        internal static WinkelmandBestellenRequestMessage GetDummyWinkelmandBestellenRequestMessage = new WinkelmandBestellenRequestMessage
+        {
+            SessieId = GetDummyGuid,
+            Klantgegevens = GetDummyKlantgegevens
+        };
+
+        internal static BestellingPcS GetDummyBestellingPcS = new BestellingPcS
+        {
+            Klantgegevens = new KlantgegevensPcS
+            {
+                Naam = GetDummyKlantgegevens.Naam,
+                Postcode = GetDummyKlantgegevens.Postcode,
+                Woonplaats = GetDummyKlantgegevens.Woonplaats,
+                Adresregel1 = GetDummyKlantgegevens.Adresregel1,
+                Adresregel2 = GetDummyKlantgegevens.Adresregel2
+            },
+            ArtikelenPcS = new ArtikelenPcS
+            {
+                new BestelItemPcS
+                {
+                    Product = GetDummyProduct,
+                    Aantal = _dummyAantal
+                }
+            }
+
+        };
+
     }
 }

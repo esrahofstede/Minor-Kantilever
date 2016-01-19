@@ -126,7 +126,8 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>svcutil ^
+    <PostBuildEvent>if not $(ConfigurationName) == DebugWithoutBuild ^
+svcutil ^
   /d:"$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Contract" ^
   .\Case3.PcSWinkelen.Contract.dll</PostBuildEvent>
   </PropertyGroup>
