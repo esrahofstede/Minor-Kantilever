@@ -8,7 +8,7 @@ namespace Case3.PcSWinkelen.Agent.Agents
     public class TechnicalException : Exception
     {
         [DataMember]
-        public ErrorLijst Errors { get; set; }
+        public ErrorLijst Errors { get; }
 
         public TechnicalException()
         {

@@ -1,12 +1,27 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Case3.FEWebwinkel.Agent.Tests.Mocks;
+using Case3.FEWebwinkel.Agent.Exceptions;
+using Moq;
+using Case3.PcSWinkelen.Messages;
+using case3common.v1.faults;
+using System.ServiceModel;
 
 namespace Case3.FEWebwinkel.Agent.Tests.Agents
 {
     [TestClass]
     public class PcSWinkelenAgentTest
     {
+
+        private ErrorLijst _errorList = new ErrorLijst()
+            {
+                new ErrorDetail()
+                {
+                    ErrorCode = 404,
+                    Message = "Er is een fout opgetreden in PcSWinkelen.",
+                }
+            };
+
         [TestMethod]
         public void VerifyGetProductsReturnsCorrectAmountOfProducts()
         {
@@ -44,7 +59,7 @@ namespace Case3.FEWebwinkel.Agent.Tests.Agents
 
             //Act
             var result = agent.GetWinkelmand("test");//Gets the Winkelmand
-            
+
             //Assert
             Assert.AreEqual(2, result.Count);
             //First Viewmodel
@@ -85,6 +100,70 @@ namespace Case3.FEWebwinkel.Agent.Tests.Agents
 
             //Assert
             Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TechnicalException))]
+        public void VerifyGetProductsThrowsTechnicalExceptionWhenFaultException()
+        {
+            //Arrange
+            var mock = new Mock<IPcSWinkelenService>(MockBehavior.Strict);
+            PcSWinkelenAgent agent = new PcSWinkelenAgent(mock.Object);
+            mock.Setup(p => p.GetCatalogusItems(It.IsAny<FindCatalogusRequestMessage>())).Throws(new FaultException<ErrorLijst>(_errorList));
+
+            //Act
+            var result = agent.GetProducts();
+
+            //Assert
+            //Expect TechnicalException
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TechnicalException))]
+        public void VerifyGetProductsThrowsTechnicalExceptionWhenException()
+        {
+            //Arrange
+            var mock = new Mock<IPcSWinkelenService>(MockBehavior.Strict);
+            PcSWinkelenAgent agent = new PcSWinkelenAgent(mock.Object);
+            mock.Setup(p => p.GetCatalogusItems(It.IsAny<FindCatalogusRequestMessage>())).Throws(new Exception());
+
+            //Act
+            var result = agent.GetProducts();
+
+            //Assert
+            //Expect TechnicalException
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TechnicalException))]
+        public void VerifyGetProductsWithInputThrowsTechnicalExceptionWhenFaultException()
+        {
+            //Arrange
+            var mock = new Mock<IPcSWinkelenService>(MockBehavior.Strict);
+            PcSWinkelenAgent agent = new PcSWinkelenAgent(mock.Object);
+            mock.Setup(p => p.GetCatalogusItems(It.IsAny<FindCatalogusRequestMessage>())).Throws(new FaultException<ErrorLijst>(_errorList));
+
+            //Act
+            var result = agent.GetProducts(3, 3);
+
+            //Assert
+            //Expect TechnicalException
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TechnicalException))]
+        public void VerifyGetProductsWithInputThrowsTechnicalExceptionWhenException()
+        {
+            //Arrange
+            var mock = new Mock<IPcSWinkelenService>(MockBehavior.Strict);
+            PcSWinkelenAgent agent = new PcSWinkelenAgent(mock.Object);
+            mock.Setup(p => p.GetCatalogusItems(It.IsAny<FindCatalogusRequestMessage>())).Throws(new Exception());
+
+            //Act
+            var result = agent.GetProducts(3, 3);
+
+            //Assert
+            //Expect TechnicalException
         }
     }
 }

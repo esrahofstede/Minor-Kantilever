@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Case3.FEWebwinkel.Agent.Exceptions
 {
+    [Serializable]
     public class TechnicalException : Exception
     {
         public TechnicalException()

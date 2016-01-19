@@ -70,7 +70,6 @@ namespace Case3.PcSWinkelen.Agent.Managers
                     {
                         voorraad = -1;
                     }
-               
                     resultProductVoorraad.Add(new CatalogusProductItem()
                     {
                         Product = product,
@@ -78,7 +77,6 @@ namespace Case3.PcSWinkelen.Agent.Managers
                     });
                 }
             }
-
             return resultProductVoorraad.ToList();
         }
 
