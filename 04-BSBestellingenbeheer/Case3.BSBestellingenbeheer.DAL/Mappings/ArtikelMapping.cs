@@ -8,8 +8,15 @@ using System.Threading.Tasks;
 
 namespace Case3.BSBestellingenbeheer.DAL.Mappings
 {
-    class ArtikelMapping : EntityTypeConfiguration<Artikel>
+
+    /// <summary>
+    /// Mapping class for the Artikel entity
+    /// </summary>
+    public class ArtikelMapping : EntityTypeConfiguration<Artikel>
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ArtikelMapping()
         {
             this.ToTable("Artikel");

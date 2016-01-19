@@ -92,6 +92,9 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
             Assert.IsInstanceOfType(newProducts, typeof(IEnumerable<CatalogusProductItem>));
         }
 
+        /// <summary>
+        /// This method checks if the catalogusmanager doesn't add a product to the list if it is leverbaar. Even though there is no voorraad.
+        /// </summary>
         [TestMethod]
         public void VerifyProductVoorraadIs0WhenVoorraadNotFoundButIsLeverbaarTot2050()
         {
@@ -111,6 +114,9 @@ namespace Case3.PcSWinkelen.Agent.Tests.Managers
             Assert.AreEqual(0, newProducts.First().Voorraad);
         }
 
+        /// <summary>
+        /// This method checks if the catalogusmanager doesn't add a product to the list if it is not leverbaar anymore.
+        /// </summary>
         [TestMethod]
         public void VerifyProductListIs0WhenVoorraadNotFoundWhenNotLeverbaar()
         {

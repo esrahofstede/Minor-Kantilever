@@ -9,9 +9,16 @@ using System.Threading.Tasks;
 
 namespace Case3.BSBestellingenbeheer.DAL.DataMappers
 {
+    /// <summary>
+    /// Bestelling mapper class which maps Bestellingen from the database
+    /// </summary>
     public class BestellingDataMapper
     {
-
+        /// <summary>
+        /// Gets bestellingen entities from the database and returns the first
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public Bestelling GetBestellingToPack(BestellingContext context)
         {
             return context.Bestellingen.OrderBy(b => b.BestelDatum).Include(b => b.Artikelen).FirstOrDefault();
