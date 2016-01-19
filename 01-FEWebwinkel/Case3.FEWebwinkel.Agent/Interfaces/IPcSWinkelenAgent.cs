@@ -9,5 +9,7 @@ namespace Case3.FEWebwinkel.Agent.Interfaces
         WinkelMandCollection GetWinkelmand(string sessionId);
 
         bool AddProductToWinkelmand(int productId, string sessionId);
+
+        void SendBestelling(string sessionId);//TO DO: add klantgegevens
     }
 }

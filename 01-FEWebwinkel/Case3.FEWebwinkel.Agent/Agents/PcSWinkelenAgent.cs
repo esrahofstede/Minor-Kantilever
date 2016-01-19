@@ -120,5 +120,10 @@ namespace Case3.FEWebwinkel.Agent
                 });
             return result.Succeeded;
         }
+
+        public void SendBestelling(string sessionId)
+        {
+            WinkelmandBestellenResponseMessage result = _agent.WinkelmandBestellen(new WinkelmandBestellenRequestMessage() { SessieId = sessionId });//, Klantgegevens = klantGegevens})
+        }
     }
 }
