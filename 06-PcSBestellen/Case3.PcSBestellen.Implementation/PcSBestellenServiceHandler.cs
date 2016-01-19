@@ -44,6 +44,11 @@ namespace Case3.PcSBestellen.Implementation
             return resultMessage;
         }
 
+        /// <summary>
+        /// This function sends a bestelling to the BSBestellingBeheer service
+        /// </summary>
+        /// <param name="bestelling">The bestelling containing the products and the Klant data</param>
+        /// <returns>Returns a BestellingPlaatsenResultMessage</returns>
         public BestellingPlaatsenResultMessage BestellingPlaatsen(BestellingPlaatsenRequestMessage bestelling)
         {
             throw new System.NotImplementedException();

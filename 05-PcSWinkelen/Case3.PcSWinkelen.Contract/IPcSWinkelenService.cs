@@ -13,8 +13,8 @@ namespace Case3.PcSWinkelen.Contract
         /// <summary>
         /// Get list of Products with the Voorraad included
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
+        /// <param name="request">The request message containing the pagination info</param>
+        /// <returns>The response message containing the Catalogus collection</returns>
         [OperationContract]
         [FaultContract(typeof(ErrorLijst))]
         FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request);
