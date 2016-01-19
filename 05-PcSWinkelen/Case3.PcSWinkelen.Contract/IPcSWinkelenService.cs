@@ -22,7 +22,7 @@ namespace Case3.PcSWinkelen.Contract
         /// <summary>
         /// Adds a Product to the Winkelmand
         /// </summary>
-        /// <param name="request">The request containing the </param>
+        /// <param name="request">The request containing the product</param>
         /// <returns>The response message to see if the Product was successfully added to the Winkelmand</returns>
         [OperationContract]
         AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request);
