@@ -1,4 +1,5 @@
-﻿using Case3.FEBestellingen.Agent.Agents;
+﻿using Case3.BTWConfigurationReader;
+using Case3.FEBestellingen.Agent.Agents;
 using Case3.FEBestellingen.Agent.Interfaces;
 using Case3.FEBestellingen.Site.Managers.Interfaces;
 using Case3.FEBestellingen.Site.ViewModels;
@@ -14,6 +15,7 @@ namespace Case3.FEBestellingen.Site.Managers
     public class BestellingManager : IBestellingManager
     {
         private IPcSBestellenAgent _pcsBestellenAgent;
+        private BTWCalculator _btwCalculator = new BTWCalculator();
 
         /// <summary>
         /// This constructor is the default constructor
@@ -68,10 +70,44 @@ namespace Case3.FEBestellingen.Site.Managers
                 }).ToList();
 
                 //Add the Artikelen to the BestellingViewModel
-                bestellingModel = new BestellingViewModel { Artikelen = artikelen };
+                bestellingModel.Artikelen = artikelen;
+
+                //bestellingModel.FactuurNummer = (int)bestelling.FactuurID;
+                
+
+                //Calculate total prices and BTW
+                bestellingModel = CalculateTotalPricesBestellingViewModel(bestellingModel);
+            
             }
 
             return bestellingModel;
+        }
+
+        /// <summary>
+        /// Computes the btw and total price for the bestellingviewmodel
+        /// </summary>
+        /// <param name="bestellingViewModel">The bestellingviewmodel which needs to be processed</param>
+        /// <returns>Bestellingviewmodel with computed values</returns>
+        public BestellingViewModel CalculateTotalPricesBestellingViewModel(BestellingViewModel bestellingViewModel)
+        {
+            if(bestellingViewModel != null)
+            {
+                // Calculates price incl btw
+                decimal totaalInclBTW = (decimal)bestellingViewModel.Artikelen.Select(artikel => (artikel.Prijs * artikel.Aantal)).Sum();
+
+                // Calculates price excl btw
+                decimal totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
+
+                // Sets the values in the bestellingViewModel
+                bestellingViewModel.BTWPercentage = _btwCalculator.BTWPercentage;
+                bestellingViewModel.TotaalInclBTW = totaalInclBTW;
+                bestellingViewModel.TotaalExclBTW = totaalExclBTW;
+
+                // Calculate the BTW for the price
+                bestellingViewModel.TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW);
+            }
+
+            return bestellingViewModel;
         }
     }
 }

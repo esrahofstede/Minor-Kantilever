@@ -43,10 +43,24 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
         #endregion
         #region -------[Tests for Index Action]-------
         [TestMethod]
+        public void BestellingControllerCreateInstance()
+        {
+            // Arrange
+
+            // Act
+            var controller = new BestellingController();
+
+            // Assert
+            Assert.IsNotNull(controller);
+            Assert.IsInstanceOfType(controller, typeof(BestellingController));
+        }
+
+
+        [TestMethod]
         public void BestellingControllerIndexActionReturnsViewResult()
         {
             // Arrange
-            var mock = new Mock<IBestellingManager>(MockBehavior.Strict);
+            Mock<IBestellingManager> mock = new Mock<IBestellingManager>(MockBehavior.Strict);
             mock.Setup(m => m.FindNextBestelling(It.IsAny<FindNextBestellingRequestMessage>()))
                 .Returns(new BestellingViewModel());
 

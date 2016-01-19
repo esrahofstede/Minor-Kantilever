@@ -1,7 +1,26 @@
-﻿
+﻿@model Case3.FEBestellingen.Site.ViewModels.KlantgegevensViewModel
+
+
 @{
     ViewBag.Title = "AfleverAdres";
 }
 
 <h2>AfleverAdres</h2>
 
+<table class="table">
+    <tr>
+        <td>@Html.DisplayFor(modelItem => Model.KlantNaam)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayFor(modelItem => Model.Adresregel1)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayFor(modelItem => Model.Adresregel2)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayFor(modelItem => Model.Postcode) @Html.DisplayFor(modelItem => Model.Woonplaats)</td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Volgende bestelling", "Index", "Bestelling", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop" })</td>
+    </tr>
+</table>

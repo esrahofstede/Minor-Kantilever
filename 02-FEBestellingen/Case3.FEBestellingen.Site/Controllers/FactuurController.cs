@@ -1,7 +1,9 @@
 ﻿using Case3.BTWConfigurationReader;
 using Case3.FEBestellingen.Site.Managers;
 using Case3.FEBestellingen.Site.Managers.Interfaces;
+using Case3.FEBestellingen.Site.ViewModels;
 using Case3.PcSBestellen.V1.Messages;
+using case3pcsbestellen.v1.schema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +16,6 @@ namespace Case3.FEBestellingen.Site.Controllers
     {
 
         private IBestellingManager _bestellingManager;
-        private BTWCalculator _btwCalculator = new BTWCalculator();
 
         public FactuurController()
         {
@@ -26,15 +27,6 @@ namespace Case3.FEBestellingen.Site.Controllers
         public ActionResult Index()
         {
             var model = _bestellingManager.FindNextBestelling(new FindNextBestellingRequestMessage());
-
-            decimal totaalInclBTW = (decimal) model.Artikelen.Select(artikel => (artikel.Prijs * artikel.Aantal)).Sum();
-            decimal totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
-
-            model.BTWPercentage = _btwCalculator.BTWPercentage;
-            model.TotaalInclBTW = totaalInclBTW;
-            model.TotaalExclBTW = totaalExclBTW;
-            model.TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW);
-
             return View(model);
         }
 
@@ -43,15 +35,21 @@ namespace Case3.FEBestellingen.Site.Controllers
         {
             var model = _bestellingManager.FindNextBestelling(new FindNextBestellingRequestMessage());
 
-            decimal totaalInclBTW = (decimal)model.Artikelen.Select(artikel => (artikel.Prijs * artikel.Aantal)).Sum();
-            decimal totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
+            /*KlantgegevensViewModel klantgegevensViewModel = new KlantgegevensViewModel()
+            {
+                KlantNaam = model.
+            }*/
 
-            model.BTWPercentage = _btwCalculator.BTWPercentage;
-            model.TotaalInclBTW = totaalInclBTW;
-            model.TotaalExclBTW = totaalExclBTW;
-            model.TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW);
+
+            KlantgegevensViewModel klantgegevensViewModel = new KlantgegevensViewModel()
+            {
+
+            };
 
             return View(model);
         }
+
+
+
     }
 }

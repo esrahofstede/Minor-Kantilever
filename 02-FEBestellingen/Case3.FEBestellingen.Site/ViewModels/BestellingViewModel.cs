@@ -12,7 +12,7 @@ namespace Case3.FEBestellingen.Site.ViewModels
         public List<ArtikelViewModel> Artikelen { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime FactuurDatum { get { return DateTime.Now; } set { FactuurDatum = value; } }
-        public int FactuurNummer { get { return 10001; } set { FactuurNummer = value; } }
+        public int FactuurNummer { get; set; }
         public decimal TotaalExclBTW { get; set; }
         public decimal TotaalInclBTW { get; set; }
         public decimal BTWPercentage { get; set; }
