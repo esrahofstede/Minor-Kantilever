@@ -4,13 +4,10 @@
     elementFormDefault="qualified"
     xmlns:msg="urn:case3-bsbestellingenbeheer:v1:messages"
     xmlns:k="urn:case3-bsbestellingenbeheer:v1:schema"
-    xmlns:bestelling="urn:case3-bsbestellingenbeheer:v1:schema"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
   <xs:import namespace="urn:case3-bsbestellingenbeheer:v1:schema"
              schemaLocation="Case3.BSBestellingenbeheer.V1.Schema.xsd" />
-  <xs:import namespace="urn:case3-bsbestellingenbeheer:v1:schema"
-             schemaLocation="..\..\04-BSBestellingenbeheer\Schema\Case3.BSBestellingenbeheer.V1.Schema.xsd" />
 
   <xs:complexType name="FindFirstBestellingRequestMessage">
     <xs:sequence/>
@@ -24,7 +21,7 @@
   
    <xs:complexType name="InsertBestellingRequestMessage">
      <xs:sequence>
-       <xs:element name="Bestelling" type="bestelling:Bestelling" nillable="true" minOccurs="1" maxOccurs="1"/>
+       <xs:element name="Bestelling" type="k:Bestelling" minOccurs="1" maxOccurs="1"/>
      </xs:sequence>
   </xs:complexType>
   
@@ -35,7 +32,7 @@
 
   <xs:complexType name="UpdateBestellingRequestMessage">
     <xs:sequence>
-      <xs:element name="Bestelling" type="bestelling:Bestelling" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bestelling" type="k:Bestelling" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 
