@@ -12,9 +12,10 @@ namespace Case3.PcSWinkelen.Implementation.Tests
     {
         public BestellingPcS Bestelling { get; set; }
 
-        public void BestellingPlaatsen(BestellingPcS bestelling)
+        public bool BestellingPlaatsen(BestellingPcS bestelling)
         {
             Bestelling = bestelling;
+            return true;
         }
     }
 }

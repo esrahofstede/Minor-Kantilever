@@ -4,9 +4,6 @@ using Case3.PcSWinkelen.MessagesNS;
 using Case3.PcSWinkelen.SchemaNS;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Linq;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Interfaces;
@@ -15,14 +12,11 @@ using Case3.PcSWinkelen.Implementation.Mappers;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
 using System.ServiceModel;
-using System.Web.Hosting;
-using DTOSchema = Case3.PcSWinkelen.SchemaNS;
+using WinkelenNS = Case3.PcSWinkelen.SchemaNS;
 using case3common.v1.faults;
 using System.Runtime.Serialization;
-using System.Linq.Expressions;
 using AutoMapper;
-using Case3.BSBestellingenBeheer.SchemaNS;
-using Case3.PcSBestellen.SchemaNS;
+using BestellenNS = Case3.PcSBestellen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -118,13 +112,13 @@ namespace Case3.PcSWinkelen.Implementation
                     CatalogusManager catalogusManager = new CatalogusManager();
                     IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
                     foreach (CatalogusProductItem productVoorraad in productVoorraadList)
-            {
-                catalogusCollection.Add(new CatalogusProductItem()
-                {
-                    Product = productVoorraad.Product,
-                    Voorraad = productVoorraad.Voorraad
-                });
-            }
+                    {
+                        catalogusCollection.Add(new CatalogusProductItem()
+                        {
+                            Product = productVoorraad.Product,
+                            Voorraad = productVoorraad.Voorraad
+                        });
+                    }
                 }
                 catch (TechnicalException ex)
                 {
@@ -178,7 +172,7 @@ namespace Case3.PcSWinkelen.Implementation
             }
 
 
-            var winkelmandItem = new DTOSchema.WinkelmandItem
+            var winkelmandItem = new WinkelmandItem
             {
                 Product = product,
                 Aantal = request.WinkelmandItemRef.Aantal,
@@ -258,22 +252,28 @@ namespace Case3.PcSWinkelen.Implementation
         public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
         {
             var response = new WinkelmandBestellenResponseMessage();
-            var bestelItems = _winkelmandDataMapper.FindAllBy(wi => wi.SessieID == bestelling.SessieId);
-            var bestelItemsWithProduct = _bestelItemWinkelmandItemMapper.MapWinkelmandItemsToBestelItems(bestelItems);
+            var winkelmandItems = _winkelmandDataMapper.FindAllBy(wi => wi.SessieID == bestelling.SessieId);
+            var bestelItems = _bestelItemWinkelmandItemMapper.MapWinkelmandItemsToBestelItems(winkelmandItems);
 
-            var klantgegevens = bestelling.Klantgegevens;
-
-            Mapper.Initialize(asd => asd.CreateMap<BestelItem, BestelItemPcS>()
+            Mapper.Initialize(asd => asd.CreateMap<KlantgegevensPcS, BestellenNS.KlantgegevensPcS>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter());
-            var artikelenPcS = Mapper.Map<ArtikelenPcS>(bestelItemsWithProduct);
+            var klantgegevens = Mapper.Map<BestellenNS.KlantgegevensPcS>(bestelling.Klantgegevens);
 
-            var bestellingPcS = new BestellingPcS
+            Mapper.Initialize(asd => asd.CreateMap<BestellenNS.BestelItemPcS, BestellenNS.BestelItemPcS>()
+                .IgnoreAllPropertiesWithAnInaccessibleSetter());
+            var artikelenPcS = Mapper.Map<BestellenNS.ArtikelenPcS>(bestelItems);
+
+            var bestellingPcS = new BestellenNS.BestellingPcS
             {
                 Klantgegevens = klantgegevens,
                 ArtikelenPcS = artikelenPcS
             };
 
             _bestellenAgent.BestellingPlaatsen(bestellingPcS);
+
+            //VERWIJDEREN van de hele handel
+
+
             return response;
         }
     }

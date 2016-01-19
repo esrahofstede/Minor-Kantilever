@@ -12,9 +12,6 @@
              schemaLocation="Case3.PcSWinkelen.V1.Schema.xsd" />
   <xs:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1"
             schemaLocation="..\..\BSCatalogusBeheer\Schema\Product.xsd" />
-  <xs:import namespace="urn:case3-pcsbestellen:v1:schema"
-           schemaLocation="..\..\06-PcSBestellen\Schema\Case3.PcSBestellen.V1.Schema.xsd" />
-  
   
   <xs:complexType name="FindCatalogusRequestMessage">
     <xs:sequence>
@@ -67,7 +64,7 @@
   <xs:complexType name="WinkelmandBestellenRequestMessage">
     <xs:sequence>
       <xs:element name="SessieId" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="Klantgegevens" type="bestelling:KlantgegevensPcS" minOccurs="1" maxOccurs="1"/>      
+      <xs:element name="Klantgegevens" type="k:KlantgegevensPcS" minOccurs="1" maxOccurs="1"/>      
     </xs:sequence>
   </xs:complexType>
 

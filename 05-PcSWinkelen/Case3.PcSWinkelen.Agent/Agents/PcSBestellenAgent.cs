@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Case3.PcSBestellen.MessagesNS;
 using Case3.PcSBestellen.SchemaNS;
 using Case3.PcSWinkelen.Agent.Interfaces;
@@ -24,7 +20,7 @@ namespace Case3.PcSWinkelen.Agent.Agents
             }
             catch (InvalidOperationException ex)
             {
-                throw new TechnicalException("BSCatalogusBeheer kan niet bereikt worden.", ex.InnerException);
+                throw new TechnicalException("PcSBestellen kan niet bereikt worden.", ex.InnerException);
             }
             catch (Exception)
             {
@@ -33,7 +29,7 @@ namespace Case3.PcSWinkelen.Agent.Agents
         }
         public bool BestellingPlaatsen(BestellingPcS bestelling)
         {
-            var result = _agent.BestellingPlaatsen(new BestellingPlaatsenRequestMessage {BestellingPcS = bestelling});
+            var result = _agent.BestellingPlaatsen(new BestellingPlaatsenRequestMessage { BestellingPcS = bestelling});
             return true;
         }
     }

@@ -9,10 +9,6 @@
       <xsd:import namespace="urn:case3-pcswinkelen:v1:schema" />
       <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" />
       <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1" />
-      <xsd:import namespace="urn:case3-bsbestellingenbeheer:v1:schema" />
-      <xsd:import namespace="urn:case3-bsbestellingenbeheer:v1:messages" />
-      <xsd:import namespace="urn:case3-pcsbestellen:v1:messages" />
-      <xsd:import namespace="urn:case3-pcsbestellen:v1:schema" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1_GetCatalogusItems_InputMessage">

@@ -122,9 +122,13 @@
       <Project>{949FB4D2-FEB9-44EC-93BA-359C1BBCD860}</Project>
       <Name>08 - Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj">
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSBestellenSchema\01c-PcSBestellenSchema.csproj">
+      <Project>{be21d871-9ecd-49ad-a204-9e4aaefc96f4}</Project>
+      <Name>01c-PcSBestellenSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01d-PcSWinkelenSchema.csproj">
       <Project>{2742240d-a070-44a7-8560-8c8ba25a1c7b}</Project>
-      <Name>01c-PcSWinkelenSchema</Name>
+      <Name>01d-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

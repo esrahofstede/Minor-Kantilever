@@ -2,11 +2,10 @@
 using Case3.PcSWinkelen.Agent.Exceptions;
 using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Schema.ProductNS;
-using Case3.PcSWinkelen.SchemaNS;
-using case3common.v1.faults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Case3.PcSWinkelen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Agent.Managers
 {

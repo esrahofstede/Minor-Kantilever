@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Case3.BSBestellingenBeheer.SchemaNS;
 using Case3.PcSBestellen.SchemaNS;
 using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Contract;
@@ -18,35 +17,6 @@ namespace Case3.PcSWinkelen.Implementation.Tests
     [TestClass]
     public class WinkelmandBestellenTest
     {
-        
-        [TestMethod]
-        public void FunctionExistsAndCallsCorrectMethods()
-        {
-            //Arrange
-            IWinkelmandDataMapper mapper = new WinkelmandDataMapper();
-            var winkelmandItemMapperMock = new Mock<IBestelItemWinkelmandItemMapper>(MockBehavior.Strict);
-            winkelmandItemMapperMock.Setup(itemMapper => itemMapper.MapWinkelmandItemsToBestelItems(It.IsAny<IEnumerable<Entities.WinkelmandItem>>())).Returns(DummyData.GetDummyBestelItems);
-
-            var dataMapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
-            dataMapperMock.Setup(dataMapper => dataMapper.FindAllBy(It.IsAny<Expression<Func<WinkelmandItem, bool>>>()))
-                .Returns(new List<WinkelmandItem> { DummyData.GetDummyWinkelmandItem });
-
-            var agentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
-            agentMock.Setup(agent => agent.BestellingPlaatsen(It.IsAny<BestellingPcS>()));
-
-            var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
-            dtoMapperMock.Setup(dtopmapper => dtopmapper.MapDTOToEntity(It.IsAny<SchemaNS.WinkelmandItem>())).Returns(DummyData.GetDummyWinkelmandItem);
-
-            IPcSWinkelenService handler = new PcSWinkelenServiceHandler(dataMapperMock.Object, null, dtoMapperMock.Object, agentMock.Object, winkelmandItemMapperMock.Object);
-
-            //Act
-            var test = handler.WinkelmandBestellen(DummyData.GetDummyWinkelmandBestellenRequestMessage);
-
-            //Assert
-            Assert.IsInstanceOfType(test, typeof(WinkelmandBestellenResponseMessage));
-            dataMapperMock.Verify(dataMapper => dataMapper.FindAllBy(It.IsAny<Expression<Func<WinkelmandItem, bool>>>()), Times.Once());
-            agentMock.Verify(agent => agent.BestellingPlaatsen(It.IsAny<BestellingPcS>()), Times.AtLeastOnce);
-        }
 
         [TestMethod]
         public void FunctionExistsAndCallsCorrectMethodsWithCorrectData()

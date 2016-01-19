@@ -54,4 +54,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WinkelMandCollection" nillable="true" type="tns:WinkelMandCollection" />
+  <xs:complexType name="KlantgegevensPcS">
+    <xs:sequence>
+      <xs:element name="Naam" nillable="true" type="xs:string" />
+      <xs:element name="Adresregel1" nillable="true" type="xs:string" />
+      <xs:element name="Adresregel2" nillable="true" type="xs:string" />
+      <xs:element name="Postcode" nillable="true" type="xs:string" />
+      <xs:element name="Woonplaats" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KlantgegevensPcS" nillable="true" type="tns:KlantgegevensPcS" />
 </xs:schema>

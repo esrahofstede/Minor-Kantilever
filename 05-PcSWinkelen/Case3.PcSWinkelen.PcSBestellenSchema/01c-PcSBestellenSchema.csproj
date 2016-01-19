@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE21D871-9ECD-49AD-A204-9E4AAEFC96F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Case3.PcSWinkelen.PcSBestellenSchema</RootNamespace>
+    <AssemblyName>Case3.PcSWinkelen.PcSBestellenSchema</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithoudBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugWithoudBuild\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\99-Shared\Case3Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PcSBestellenTypes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSCatalogusbeheerSchema\01a-BSCatalogusbeheerSchema.csproj">
+      <Project>{1b0325d0-d374-4eb1-abe7-13a77c885f14}</Project>
+      <Name>01a-BSCatalogusbeheerSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.BSVoorraadbeheerSchema\01b-BSVoorraadbeheerSchema.csproj">
+      <Project>{495eeffc-6b29-42ba-bc94-fc745fc00abe}</Project>
+      <Name>01b-BSVoorraadbeheerSchema</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\99-Shared\Case3Key.snk">
+      <Link>Case3Key.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\99-Shared\CustomDictionary.xml">
+      <Link>CustomDictionary.xml</Link>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if not $(ConfigurationName) == DebugWithoutBuild ^
+svcutil ^
+  /out:$(ProjectDir)PcSBestellenTypes.cs ^
+  /r:"$(SolutionDir)Case3.PcSWinkelen.BSCatalogusbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSCatalogusbeheer.Schema.dll" ^
+  /r:"$(SolutionDir)Case3.PcSWinkelen.BSVoorraadbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSVoorraadbeheerSchema.dll" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1,Case3.PcSWinkelen.Schema.Messages" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1,Case3.PcSWinkelen.Schema.ProductUpdateNS" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.PcSWinkelen.Schema.CategorieNS" ^
+  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.PcSWinkelen.Schema.ProductNS" ^
+  /n:"urn:case3-pcswinkelen:v1:schema,Case3.PcSWinkelen.SchemaNS" ^
+  /n:"urn:case3-pcswinkelen:v1:messages,Case3.PcSWinkelen.MessagesNS" ^
+  /n:"urn:case3-pcsbestellen:v1:schema,Case3.PcSBestellen.SchemaNS" ^
+  /n:"urn:case3-bsbestellingenbeheer:v1:schema,Case3.BSBestellingenBeheer.SchemaNS" ^
+  /n:"urn:case3-bsbestellingenbeheer:v1:messages,Case3.BSBestellingenBeheer.MessagesNS" ^
+  /n:"urn:case3-pcsbestellen:v1:messages,Case3.PcSBestellen.MessagesNS" ^
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Contract\*.wsdl" ^
+  "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Contract\*.xsd"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -69,6 +69,10 @@
     <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Case3.PcSWinkelen.PcSWinkelenSchema, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8d42a567b9955386, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Case3.PcSWinkelen.Host\Bin\Case3.PcSWinkelen.PcSWinkelenSchema.dll</HintPath>
+    </Reference>
     <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
@@ -119,9 +123,13 @@
       <Project>{495eeffc-6b29-42ba-bc94-fc745fc00abe}</Project>
       <Name>01b-BSVoorraadbeheerSchema</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj">
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSBestellenSchema\01c-PcSBestellenSchema.csproj">
+      <Project>{be21d871-9ecd-49ad-a204-9e4aaefc96f4}</Project>
+      <Name>01c-PcSBestellenSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01d-PcSWinkelenSchema.csproj">
       <Project>{2742240d-a070-44a7-8560-8c8ba25a1c7b}</Project>
-      <Name>01c-PcSWinkelenSchema</Name>
+      <Name>01d-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
