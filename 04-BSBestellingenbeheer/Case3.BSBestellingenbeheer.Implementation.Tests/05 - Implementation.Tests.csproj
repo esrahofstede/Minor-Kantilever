@@ -71,6 +71,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BestellingenManagerTest.cs" />
+    <Compile Include="BSBestellingenServiceHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Case3.BSBestellingenbeheer.Implementation\04 - Implementation.csproj">
