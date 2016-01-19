@@ -14,9 +14,12 @@
     <tr>
         <td>@Html.DisplayFor(modelItem => Model.Adresregel1)</td>
     </tr>
-    <tr>
-        <td>@Html.DisplayFor(modelItem => Model.Adresregel2)</td>
-    </tr>
+    @if (Model.Adresregel2 != null)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => Model.Adresregel2)</td>
+        </tr>
+    }
     <tr>
         <td>@Html.DisplayFor(modelItem => Model.Postcode) @Html.DisplayFor(modelItem => Model.Woonplaats)</td>
     </tr>

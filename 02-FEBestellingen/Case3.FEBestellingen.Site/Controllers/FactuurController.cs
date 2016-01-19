@@ -33,7 +33,7 @@ namespace Case3.FEBestellingen.Site.Controllers
         [Authorize(Roles = "Magazijnmedewerkers")]
         public ActionResult AfleverAdres()
         {
-            var model = _bestellingManager.FindNextBestelling(new FindNextBestellingRequestMessage());
+            //var model = _bestellingManager.FindNextBestelling(new FindNextBestellingRequestMessage());
 
             /*KlantgegevensViewModel klantgegevensViewModel = new KlantgegevensViewModel()
             {
@@ -43,10 +43,14 @@ namespace Case3.FEBestellingen.Site.Controllers
 
             KlantgegevensViewModel klantgegevensViewModel = new KlantgegevensViewModel()
             {
-
+                KlantNaam = "Dennis Meijer",
+                Adresregel1 = "Kalmoes 4",
+                Adresregel2 = "Zolderverdieping",
+                Postcode = "7443KB",
+                Woonplaats = "Nijverdal"
             };
 
-            return View(model);
+            return View(klantgegevensViewModel);
         }
 
 
