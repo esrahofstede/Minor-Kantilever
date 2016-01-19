@@ -14,9 +14,11 @@ namespace Case3.PcSWinkelen.Implementation.Tests
     [TestClass]
     public class PcSWinkelenServiceHandlerTest
     {
-   
+        /// <summary>
+        /// This method tests the constructor of PcsWinkelenServiceHandler.
+        /// </summary>
         [TestMethod]
-        public void CreatePcSWinkelenServiceHandlerTest()
+        public void CreatePcSWinkelenServiceHandler()
         {
             // Arrange
 
@@ -28,7 +30,9 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             Assert.IsInstanceOfType(pcSWinkelenServiceHandler, typeof(PcSWinkelenServiceHandler));
         }
 
-
+        /// <summary>
+        /// This method tests if GetCatalogusItems returns FindCatalogusResponseMessage
+        /// </summary>
         [TestMethod]
         public void CheckGetCatalogusItemsReturnsFindCatalogusResponseMessage()
         {
@@ -48,6 +52,9 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             Assert.IsInstanceOfType(findCatalogusResponseMessage, typeof(FindCatalogusResponseMessage));
         }
 
+        /// <summary>
+        /// This methods tests if the catalogusmanager throws a fault exception when a TechnicalException occurs.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(FaultException<ErrorLijst>))]
         public void VerifyCatalogusManagerThrowsFaultExceptionWhenTechnicalExceptionOccurs()
@@ -73,6 +80,9 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Expect FaultException<ErrorLijst>
         }
 
+        /// <summary>
+        /// This methods tests if the catalogusmanager throws a fault exception when a Exception occurs.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(FaultException<ErrorLijst>))]
         public void VerifyCatalogusManagerThrowsFaultExceptionWhenExceptionOccurs()
@@ -98,6 +108,9 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Expect FaultException<ErrorLijst>
         }
 
+        /// <summary>
+        /// This method tests if the PcsWinkelenServiceHandler returns a list with exceptions when an exception occurs.
+        /// </summary>
         [TestMethod]
         public void VerifyCatalogusManagerAddsExceptionToList()
         {
