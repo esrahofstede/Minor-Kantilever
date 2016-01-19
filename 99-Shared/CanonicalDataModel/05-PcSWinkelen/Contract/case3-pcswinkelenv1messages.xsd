@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="urn:case3-pcswinkelen:v1:messages" elementFormDefault="qualified" targetNamespace="urn:case3-pcswinkelen:v1:messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="urn:case3-pcswinkelen:v1:schema" />
+  <xs:import namespace="urn:case3-bsbestellingenbeheer:v1:schema" />
   <xs:complexType name="FindCatalogusRequestMessage">
     <xs:sequence>
       <xs:element minOccurs="0" name="NaamFilter" nillable="true" type="xs:string" />
@@ -76,4 +77,27 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="GetWinkelmandResponseMessage" nillable="true" type="tns:GetWinkelmandResponseMessage" />
+  <xs:complexType name="WinkelmandBestellenRequestMessage">
+    <xs:sequence>
+      <xs:element name="SessieId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Klantgegevens" nillable="true" xmlns:q4="urn:case3-bsbestellingenbeheer:v1:schema" type="q4:Klantgegevens">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WinkelmandBestellenRequestMessage" nillable="true" type="tns:WinkelmandBestellenRequestMessage" />
+  <xs:complexType name="WinkelmandBestellenResponseMessage">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="WinkelmandBestellenResponseMessage" nillable="true" type="tns:WinkelmandBestellenResponseMessage" />
 </xs:schema>

@@ -9,6 +9,10 @@
       <xsd:import namespace="urn:case3-pcswinkelen:v1:schema" />
       <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" />
       <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1" />
+      <xsd:import namespace="urn:case3-bsbestellingenbeheer:v1:schema" />
+      <xsd:import namespace="urn:case3-bsbestellingenbeheer:v1:messages" />
+      <xsd:import namespace="urn:case3-pcsbestellen:v1:messages" />
+      <xsd:import namespace="urn:case3-pcsbestellen:v1:schema" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPcSWinkelenService_GetCatalogusItems_InputMessage">
@@ -32,6 +36,12 @@
   <wsdl:message name="IPcSWinkelenService_GetWinkelmand_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetWinkelmandResponse" />
   </wsdl:message>
+  <wsdl:message name="IPcSWinkelenService_WinkelmandBestellen_InputMessage">
+    <wsdl:part name="parameters" element="tns:WinkelmandBestellen" />
+  </wsdl:message>
+  <wsdl:message name="IPcSWinkelenService_WinkelmandBestellen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WinkelmandBestellenResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPcSWinkelenService">
     <wsdl:operation name="GetCatalogusItems">
       <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems" message="tns:IPcSWinkelenService_GetCatalogusItems_InputMessage" />
@@ -45,6 +55,10 @@
     <wsdl:operation name="GetWinkelmand">
       <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand" message="tns:IPcSWinkelenService_GetWinkelmand_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse" message="tns:IPcSWinkelenService_GetWinkelmand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WinkelmandBestellen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellen" message="tns:IPcSWinkelenService_WinkelmandBestellen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellenResponse" message="tns:IPcSWinkelenService_WinkelmandBestellen_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DefaultBinding_IPcSWinkelenService" type="tns:IPcSWinkelenService">
@@ -72,6 +86,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetWinkelmand">
       <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WinkelmandBestellen">
+      <soap:operation soapAction="http://tempuri.org/IPcSWinkelenService/WinkelmandBestellen" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

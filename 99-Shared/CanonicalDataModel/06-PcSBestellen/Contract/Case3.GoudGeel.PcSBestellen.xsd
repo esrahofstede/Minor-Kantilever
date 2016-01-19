@@ -15,4 +15,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="BestellingPlaatsen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bestelling" nillable="true" xmlns:q3="urn:case3-pcsbestellen:v1:messages" type="q3:BestellingPlaatsenRequestMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BestellingPlaatsenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BestellingPlaatsenResult" nillable="true" xmlns:q4="urn:case3-pcsbestellen:v1:messages" type="q4:BestellingPlaatsenResultMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
