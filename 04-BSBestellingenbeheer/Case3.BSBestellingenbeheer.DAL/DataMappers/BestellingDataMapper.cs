@@ -19,8 +19,15 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         {
             using (var context = new BestellingContext())
             {
-                context.Bestellingen.Add(item);
-                context.SaveChanges();
+                try
+                {
+                    context.Bestellingen.Add(item);
+                    context.SaveChanges();
+                } 
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
 

@@ -54,9 +54,13 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                 }
                 _bestellingDataMapper.Insert(insertBestelling);
             }
+            catch (InvalidOperationException)
+            {
+                throw;
+            }
             catch (Exception)
             {
-                throw new Exception();
+                throw;
             }
         }
 

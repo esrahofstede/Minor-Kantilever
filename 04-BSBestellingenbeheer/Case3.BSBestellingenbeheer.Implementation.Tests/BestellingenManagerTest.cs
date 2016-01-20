@@ -4,6 +4,7 @@ using Case3.BSBestellingenbeheer.Implementation.Managers;
 using Case3.BSBestellingenbeheer.V1.Schema;
 using Moq;
 using Case3.BSBestellingenbeheer.Implementation.Tests.Mocks;
+using System.Data.Entity.Validation;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Tests
 {
@@ -126,7 +127,8 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         }
 
         [TestMethod]
-        public void InsertInvalid()
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void InsertInvalidThrowsInvalidOperationException()
         {
             //Arrange
             var mock = new BestellingDataMapperMock();
@@ -136,9 +138,8 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             int initialValue = mock.Count;
             manager.InsertBestelling(_bestellingInvalid);
 
-
             //Assert
-            Assert.AreEqual(initialValue + 1, mock.Count);
+            //Expect InvalidOperationException
         }
     }
 }
