@@ -1,38 +1,47 @@
 ﻿using Case3.BSBestellingenbeheer.Implementation.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Case3.BSBestellingenbeheer.V1.Schema;
 using Case3.BSBestellingenbeheer.DAL.DataMappers;
 using Case3.BSCatalogusBeheer.Schema.ProductNS;
 using Case3.BSBestellingenbeheer.DAL.Context;
+using System;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Managers
 {
     public class BestellingManager : IBestellingManager
     {
+        private IDataMapper<Entities.Bestelling, long> _bestellingDataMapper;
+
+        public BestellingManager()
+        {
+            _bestellingDataMapper = new BestellingDataMapper();
+        }
+
+        public BestellingManager(IDataMapper<Entities.Bestelling, long> datamapper)
+        {
+            _bestellingDataMapper = datamapper;
+        }
+
+        public void InsertBestelling(Bestelling bestelling)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// This method returns the First bestelling to be packed.
         /// </summary>
         /// <returns>Bestelling to be packed</returns>
         public Bestelling FindFirstBestelling()
         {
-
             Bestelling bestelling = new Bestelling()
             {
                 Artikelen = new Artikelen()
             };
 
             BestellingDataMapper bestellingDataMappper = new BestellingDataMapper();
-
             Entities.Bestelling bestellingEntity = null;
-
             using (var context = new BestellingContext())
             {
                 bestellingEntity = bestellingDataMappper.GetBestellingToPack(context);
-            
                 if (bestellingEntity != null)
                 {
                     if(bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
@@ -53,8 +62,9 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                     }
                 }
             }
-
             return bestelling;
         }
+
+       
     }
 }

@@ -22,7 +22,6 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// </summary>
         public BSBestellingenServiceHandler()
         {
-
             Database.SetInitializer(new BestellingDbInitializerTemporary());
             using (var context = new BestellingContext())
             {
@@ -60,9 +59,10 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// </summary>
         /// <param name="bestelling"></param>
         /// <returns></returns>
-        public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
+        public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage request)
         {
-            throw new NotImplementedException();
+            _bestellingManager.InsertBestelling(request.Bestelling);
+            return new InsertBestellingResultMessage();  
         }
 
         /// <summary>

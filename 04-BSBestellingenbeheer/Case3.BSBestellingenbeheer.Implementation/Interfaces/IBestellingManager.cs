@@ -14,5 +14,6 @@ namespace Case3.BSBestellingenbeheer.Implementation.Interfaces
         /// </summary>
         /// <returns>Bestelling to be packed</returns>
         Bestelling FindFirstBestelling();
+        void InsertBestelling(Bestelling bestelling);
     }
 }
