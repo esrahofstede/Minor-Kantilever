@@ -5,6 +5,7 @@ using Case3.PcSBestellen.Implementation.Managers.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
 using Case3.PcSBestellen.V1.Schema;
 using System;
+using UpdateBestellingStatusResultMessage = Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage;
 
 namespace Case3.PcSBestellen.Implementation.Managers
 {
@@ -101,11 +102,11 @@ namespace Case3.PcSBestellen.Implementation.Managers
             //Convert the incoming requestMessage to the required requestMessage for the BsBestellingenbeheer
             var bsRequestMessage = ConvertPcSUpdateRequestMessageToBSUpdateRequestMessage(request);
             //Update the bestelling from the BsBestellingenbeheer using the agent
-            BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage bsResultMessage = _bsBestellingenAgent.UpdateBestellingStatus(bsRequestMessage);
+            var bsResultMessage = _bsBestellingenAgent.UpdateBestellingStatus(bsRequestMessage);
             //Convert the incoming resultMessage to the correct outgoing resultMessage for FEBestellen
-            V1.Messages.UpdateBestellingStatusResultMessage findNextResultMessage = ConvertBsUpdateResultMessageToPcSUpdateResultMessage(bsResultMessage);
+            //var findNextResultMessage = ConvertBsUpdateResultMessageToPcSUpdateResultMessage(bsResultMessage);
 
-            return findNextResultMessage;
+            return new V1.Messages.UpdateBestellingStatusResultMessage();
         }
 
         /// <summary>

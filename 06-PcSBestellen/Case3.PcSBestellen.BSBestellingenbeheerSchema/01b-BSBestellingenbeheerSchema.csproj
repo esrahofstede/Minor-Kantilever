@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}</ProjectGuid>
+    <ProjectGuid>{A3CD13D4-0AEF-41D6-BFA4-E5BA7A68543D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Case3.PcSBestellen.Schema</RootNamespace>
-    <AssemblyName>Case3.PcSBestellen.Schema</AssemblyName>
+    <RootNamespace>Case3.PcSBestellen.BSBestellingenbeheerSchema</RootNamespace>
+    <AssemblyName>Case3.PcSBestellen.BSBestellingenbeheerSchema</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,8 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,36 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\..\99-Shared\Case3Key.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Acceptatie|AnyCPU'">
-    <OutputPath>bin\Acceptatie\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithoutBuild|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\DebugWithoutBuild\</OutputPath>
-    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,34 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\BSBestellingenbeheerTypes.cs" />
-    <Compile Include="DTO\BSKlantbeheerTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\99-Shared\Case3Key.snk">
-      <Link>Case3Key.snk</Link>
-    </None>
+    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01a-BSKlantbeheerSchema.csproj">
+      <Project>{0ceb091a-9056-4bd0-87d2-864bf8fdf5c4}</Project>
+      <Name>01a-BSKlantbeheerSchema</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
-      <Link>CustomDictionary.xml</Link>
-    </CodeAnalysisDictionary>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>if not $(ConfigurationName) == DebugWithoutBuild ^
-svcutil.exe ^
-   /dconly ^
-   /out:$(ProjectDir)DTO\BSKlantbeheerTypes.cs ^
-   /n:"urn:case3-bdklantbeheer:v1:messages,Case3.BSKlantbeheer.V1.Messages" ^
-   /n:"urn:case3-bdklantbeheer:v1:schema,Case3.BSKlantbeheer.V1.Schema" ^
-   "$(SolutionDir)..\99-Shared\CanonicalDataModel\03-BSKlantbeheer\Schema\*.xsd"
-
-if not $(ConfigurationName) == DebugWithoutBuild ^
 svcutil ^
   /out:$(ProjectDir)DTO\BSBestellingenbeheerTypes.cs ^
+ /r:"$(SolutionDir)Case3.PcSBestellen.Schema\bin\$(ConfigurationName)\Case3.PcSBestellen.Schema.dll" ^
   /n:"urn:case3-bsbestellingenbeheer:v1:messages,Case3.BSBestellingenbeheer.V1.Messages" ^
   /n:"urn:case3-bsbestellingenbeheer:v1:schema,Case3.BSBestellingenbeheer.V1.Schema" ^
   /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.BSCatalogusBeheer.Schema.ProductNS" ^

@@ -1,9 +1,9 @@
-﻿using Case3.BSBestellingenbeheer.V1.Messages;
+﻿using BSBestellingenNS = Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.BSBestellingenbeheer.V1.Schema;
 using Case3.BSCatalogusBeheer.Schema.ProductNS;
 using Case3.PcSBestellen.Agent.Interfaces;
 using Case3.PcSBestellen.Implementation.Managers;
-using Case3.PcSBestellen.V1.Messages;
+using PcSBestellenNS = Case3.PcSBestellen.V1.Messages;
 using Case3.PcSBestellen.V1.Schema;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -17,9 +17,9 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
     public class BSBestellingenManagerTest
     {
         #region -------[Support functions for tests]-------
-        private static FindFirstBestellingResultMessage CreateFindFirstBestellingResultMessage()
+        private static BSBestellingenNS.FindFirstBestellingResultMessage CreateFindFirstBestellingResultMessage()
         {
-            return new FindFirstBestellingResultMessage
+            return new BSBestellingenNS.FindFirstBestellingResultMessage
             {
                 BestellingOpdracht = new Bestelling
                 {
@@ -49,9 +49,9 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
                 }
             };
         }
-        private static FindNextBestellingRequestMessage CreateFindNextBestellingRequestMessage()
+        private static PcSBestellenNS.FindNextBestellingRequestMessage CreateFindNextBestellingRequestMessage()
         {
-            return new FindNextBestellingRequestMessage
+            return new PcSBestellenNS.FindNextBestellingRequestMessage
             {
                 //There is nothing to create at this time, but this method has already been made for possible additions
             };
@@ -68,11 +68,11 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
             var findFirstResultMessage = CreateFindFirstBestellingResultMessage();
 
             // Act
-            FindNextBestellingResultMessage result = manager.ConvertFindFirstResultMessageToFindNextResultMessage(findFirstResultMessage);
+            PcSBestellenNS.FindNextBestellingResultMessage result = manager.ConvertFindFirstResultMessageToFindNextResultMessage(findFirstResultMessage);
             ArtikelenPcS artikelen = result.BestellingOpdracht.ArtikelenPcS;
 
             // Assert
-            Assert.IsInstanceOfType(result, typeof(FindNextBestellingResultMessage));
+            Assert.IsInstanceOfType(result, typeof(PcSBestellenNS.FindNextBestellingResultMessage));
             //First Item
             Assert.AreEqual("Fietsbel", artikelen[0].Product.Naam);
             Assert.AreEqual("Gazelle", artikelen[0].Product.LeverancierNaam);
@@ -99,7 +99,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
             var result = manager.ConvertFindNextRequestMessageToFindFirstRequestMessage(findNextRequestMessage);
 
             // Assert
-            Assert.IsInstanceOfType(result, typeof(FindFirstBestellingRequestMessage));
+            Assert.IsInstanceOfType(result, typeof(BSBestellingenNS.FindFirstBestellingRequestMessage));
         }
         #endregion
         #region -------[Tests for FindNextBestelling]-------
@@ -110,7 +110,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
             var findNextRequestMessage = CreateFindNextBestellingRequestMessage();
             var findFirstResultMessage = CreateFindFirstBestellingResultMessage();
             var mock = new Mock<IBSBestellingenbeheerAgent>(MockBehavior.Strict);
-            mock.Setup(m => m.FindFirstBestelling(It.IsAny<FindFirstBestellingRequestMessage>()))
+            mock.Setup(m => m.FindFirstBestelling(It.IsAny<BSBestellingenNS.FindFirstBestellingRequestMessage>()))
                 .Returns(findFirstResultMessage);
 
             var manager = new BSBestellingenManager(mock.Object);
@@ -119,7 +119,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
             var result = manager.FindNextBestelling(findNextRequestMessage);
 
             // Assert
-            Assert.IsInstanceOfType(result, typeof(FindNextBestellingResultMessage));
+            Assert.IsInstanceOfType(result, typeof(PcSBestellenNS.FindNextBestellingResultMessage));
         }
         #endregion
         #region -------[Tests for ConvertPcSUpdateRequestMessageToBSUpdateRequestMessage]-------
@@ -127,7 +127,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
         public void BSBestellingenManagerConvertsPcSUpdateRequestMessageToBSUpdateRequestMessage()
         {
             // Arrange
-            var mock = new Mock<IBsBestellingenbeheerAgent>(MockBehavior.Strict);
+            var mock = new Mock<IBSBestellingenbeheerAgent>(MockBehavior.Strict);
 
             var manager = new BSBestellingenManager(mock.Object);
             var pcsUpdateRequestMessage = new V1.Messages.UpdateBestellingStatusRequestMessage { BestellingID = 1};
@@ -144,7 +144,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
         public void BSBestellingenManagerConvertsBsUpdateResultMessageToPcSUpdateResultMessage()
         {
             // Arrange
-            var mock = new Mock<IBsBestellingenbeheerAgent>(MockBehavior.Strict);
+            var mock = new Mock<IBSBestellingenbeheerAgent>(MockBehavior.Strict);
 
             var manager = new BSBestellingenManager(mock.Object);
             var bsUpdateResultMessage = new BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage();
@@ -161,9 +161,9 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
         public void BSBestellingenManagerUpdatesBestelling()
         {
             // Arrange
-            var mock = new Mock<IBsBestellingenbeheerAgent>(MockBehavior.Strict);
-            mock.Setup(m => m.UpdateBestellingStatus(It.IsAny<BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage>()))
-                .Returns(new BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage());
+            var mock = new Mock<IBSBestellingenbeheerAgent>(MockBehavior.Strict);
+            mock.Setup(m => m.UpdateBestellingStatus(It.IsAny<BSBestellingenNS.UpdateBestellingStatusRequestMessage>()))
+                .Returns(new PcSBestellenNS.UpdateBestellingStatusResultMessage());
 
             var manager = new BSBestellingenManager(mock.Object);
             var pcsUpdateRequestMessage = new V1.Messages.UpdateBestellingStatusRequestMessage { BestellingID = 1 }; ;

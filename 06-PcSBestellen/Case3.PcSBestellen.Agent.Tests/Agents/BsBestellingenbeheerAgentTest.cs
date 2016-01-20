@@ -8,7 +8,7 @@ using Moq;
 namespace Case3.PcSBestellen.Agent.Tests.Agents
 {
     [TestClass]
-    public class BsBestellingenbeheerAgentTest
+    public class BSBestellingenbeheerAgentTest
     {
         #region -------[Support functions for tests]-------
         private static FindFirstBestellingResultMessage CreateFindFirstBestellingResultMessage()
@@ -102,7 +102,7 @@ namespace Case3.PcSBestellen.Agent.Tests.Agents
             mock.Setup(m => m.UpdateBestellingStatus(It.IsAny<UpdateBestellingStatusRequestMessage>()))
                 .Returns(new UpdateBestellingStatusResultMessage());
 
-            var agent = new BsBestellingenbeheerAgent(mock.Object);
+            var agent = new BSBestellingenbeheerAgent(mock.Object);
 
             //Act
             var result = agent.UpdateBestellingStatus(new UpdateBestellingStatusRequestMessage());

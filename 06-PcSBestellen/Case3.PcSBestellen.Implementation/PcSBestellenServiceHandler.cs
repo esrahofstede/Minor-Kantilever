@@ -14,6 +14,8 @@ using Case3.PcSBestellen.Implementation.Managers.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
 using Case3.PcSBestellen.V1.Schema;
 using log4net;
+using UpdateBestellingStatusRequestMessage = Case3.PcSBestellen.V1.Messages.UpdateBestellingStatusRequestMessage;
+using UpdateBestellingStatusResultMessage = Case3.PcSBestellen.V1.Messages.UpdateBestellingStatusResultMessage;
 
 namespace Case3.PcSBestellen.Implementation
 {
