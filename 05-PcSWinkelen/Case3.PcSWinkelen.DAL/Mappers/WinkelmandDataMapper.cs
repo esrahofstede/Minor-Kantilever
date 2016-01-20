@@ -51,11 +51,11 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             {
                 if (updatedItem != null)
                 {
-                var oldItem = context.WinkelmandItems.Find(updatedItem.ID);
-                context.Entry(oldItem).CurrentValues.SetValues(updatedItem);
-                context.SaveChanges();
+                    var oldItem = context.WinkelmandItems.Find(updatedItem.ID);
+                    context.Entry(oldItem).CurrentValues.SetValues(updatedItem);
+                    context.SaveChanges();
+                }
             }
-        }
         }
 
         /// <summary>
@@ -71,33 +71,33 @@ namespace Case3.PcSWinkelen.DAL.Mappers
         }
 
         /// <summary>
-        /// Deletes the given winkelmanditem in the database
+        /// Retrieves a single winkelmandItem by sessieID
         /// </summary>
-        /// <param name="deleteItem"></param>
-        public void Delete(WinkelmandItem deleteItem)
+        /// <param name="sessieID">The Id of the Session of which the WinkelmandItems need to be removed</param>
+        public void DeleteBySessieID(string sessieID)
         {
             using (var context = new WinkelmandContext())
             {
-                var result = context.WinkelmandItems.Where(x => x.SessieID == deleteItem.SessieID).FirstOrDefault();
+                var winkelmandItemList = context.WinkelmandItems.Where(x => x.SessieID == sessieID).ToList();
 
-                if (result != null)
+                if (winkelmandItemList != null && winkelmandItemList.Count > 0)
                 {
-                    context.WinkelmandItems.Remove(result);
+                    context.WinkelmandItems.RemoveRange(winkelmandItemList);
                     context.SaveChanges();
                 }
             }
         }
 
         /// <summary>
-        /// Retrieves a single winkelmandItem by sessieID
+        /// Retrieves a List of WinkelmandItems based on a SessionID
         /// </summary>
-        /// <param name="sessieID"></param>
-        /// <returns></returns>
-        public WinkelmandItem FindBySessieID(string sessieID)
+        /// <param name="sessieID">The Id of the Session of which the WinkelmandItems need to be found</param>
+        /// <returns>Returns a List of WinkelmandItems</returns>
+        public List<WinkelmandItem> FindBySessieID(string sessieID)
         {
             using (var context = new WinkelmandContext())
             {
-                return context.WinkelmandItems.Where(x => x.SessieID == sessieID).FirstOrDefault();
+                return context.WinkelmandItems.Where(x => x.SessieID == sessieID).ToList();
             }
         }
     }

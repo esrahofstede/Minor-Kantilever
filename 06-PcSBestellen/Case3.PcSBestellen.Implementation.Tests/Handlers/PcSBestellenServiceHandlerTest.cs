@@ -106,7 +106,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Handlers
             mock.Setup(m => m.UpdateBestelling(It.IsAny<UpdateBestellingStatusRequestMessage>()))
                 .Returns(new UpdateBestellingStatusResultMessage());
 
-            var handler = new PcSBestellenServiceHandler(mock.Object);
+            var handler = new PcSBestellenServiceHandler(mock.Object, null);
 
             // Act
             var result = handler.UpdateBestelling(new UpdateBestellingStatusRequestMessage());
