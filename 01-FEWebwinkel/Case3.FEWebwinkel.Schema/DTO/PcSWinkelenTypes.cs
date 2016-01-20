@@ -1015,9 +1015,11 @@ namespace case3bsbestellingenbeheer.v1.schema
         
         private System.Nullable<int> FactuurIDField;
         
+        private string FactuurDatumField;
+        
         private case3bsbestellingenbeheer.v1.schema.Artikelen ArtikelenField;
         
-        private string StatusField;
+        private System.Nullable<int> StatusField;
         
         private case3bsbestellingenbeheer.v1.schema.Klantgegevens KlantgegevensField;
         
@@ -1060,6 +1062,19 @@ namespace case3bsbestellingenbeheer.v1.schema
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public string FactuurDatum
+        {
+            get
+            {
+                return this.FactuurDatumField;
+            }
+            set
+            {
+                this.FactuurDatumField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
         public case3bsbestellingenbeheer.v1.schema.Artikelen Artikelen
         {
             get
@@ -1072,8 +1087,8 @@ namespace case3bsbestellingenbeheer.v1.schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public string Status
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public System.Nullable<int> Status
         {
             get
             {
@@ -1085,7 +1100,7 @@ namespace case3bsbestellingenbeheer.v1.schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
         public case3bsbestellingenbeheer.v1.schema.Klantgegevens Klantgegevens
         {
             get
@@ -1187,6 +1202,8 @@ namespace case3common.v1.faults
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.messages.FindNextBestellingResultMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.messages.BestellingPlaatsenRequestMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.messages.BestellingPlaatsenResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.messages.UpdateBestellingStatusRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.messages.UpdateBestellingStatusResultMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.schema.BestellingPcS))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.schema.KlantgegevensPcS))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.schema.ArtikelenPcS))]
@@ -1354,7 +1371,7 @@ namespace case3bsbestellingenbeheer.v1.messages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
         public case3bsbestellingenbeheer.v1.schema.Bestelling Bestelling
         {
             get
@@ -1411,7 +1428,7 @@ namespace case3bsbestellingenbeheer.v1.messages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
         public case3bsbestellingenbeheer.v1.schema.Bestelling Bestelling
         {
             get
@@ -1564,6 +1581,63 @@ namespace case3pcsbestellen.v1.messages
             }
         }
     }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingStatusRequestMessage", Namespace="urn:case3-pcsbestellen:v1:messages")]
+    public partial class UpdateBestellingStatusRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private case3pcsbestellen.v1.schema.BestellingPcS BestellingField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public case3pcsbestellen.v1.schema.BestellingPcS Bestelling
+        {
+            get
+            {
+                return this.BestellingField;
+            }
+            set
+            {
+                this.BestellingField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingStatusResultMessage", Namespace="urn:case3-pcsbestellen:v1:messages")]
+    public partial class UpdateBestellingStatusResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
 }
 namespace case3pcsbestellen.v1.schema
 {
@@ -1582,7 +1656,9 @@ namespace case3pcsbestellen.v1.schema
         
         private System.Nullable<int> FactuurIDField;
         
-        private string StatusField;
+        private string FactuurDatumField;
+        
+        private System.Nullable<int> StatusField;
         
         private case3pcsbestellen.v1.schema.KlantgegevensPcS KlantgegevensField;
         
@@ -1626,8 +1702,21 @@ namespace case3pcsbestellen.v1.schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string Status
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public string FactuurDatum
+        {
+            get
+            {
+                return this.FactuurDatumField;
+            }
+            set
+            {
+                this.FactuurDatumField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public System.Nullable<int> Status
         {
             get
             {
@@ -1639,7 +1728,7 @@ namespace case3pcsbestellen.v1.schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
         public case3pcsbestellen.v1.schema.KlantgegevensPcS Klantgegevens
         {
             get
@@ -1652,7 +1741,7 @@ namespace case3pcsbestellen.v1.schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
         public case3pcsbestellen.v1.schema.ArtikelenPcS ArtikelenPcS
         {
             get

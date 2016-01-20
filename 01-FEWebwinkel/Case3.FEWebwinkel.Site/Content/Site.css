@@ -71,7 +71,6 @@ div.catalog-section {
     background-position: center center;
     width: 80px;
 }
-}
 
 .catalog-product > .info-wrapper {
     padding: 8px;
@@ -141,5 +140,10 @@ h2.catalog-header {
 
 .bestel-knop {
     float:right;
+}
+
+label.required::after { 
+    content: " *";
+    color:red;
 }
 
