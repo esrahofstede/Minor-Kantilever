@@ -23,7 +23,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Mappings
             this.HasKey(b => b.ID);
 
             this.Property(b => b.BestelDatum)
-                .HasColumnName("BestelDatum")
+                .HasColumnName("Besteldatum")
                 .IsRequired();
 
             this.HasMany(b => b.Artikelen);
@@ -34,22 +34,36 @@ namespace Case3.BSBestellingenbeheer.DAL.Mappings
 
             this.Property(p => p.KlantNaam)
                 .HasColumnName("Klantnaam")
+                .HasMaxLength(150)
                 .IsRequired();
 
             this.Property(p => p.Postcode)
                 .HasColumnName("Postcode")
+                .HasMaxLength(7)
                 .IsRequired();
 
             this.Property(p => p.Woonplaats)
                 .HasColumnName("Woonplaats")
+                .HasMaxLength(150)
                 .IsRequired();
 
             this.Property(p => p.AdresRegel1)
                 .HasColumnName("Adresregel1")
+                .HasMaxLength(150)
                 .IsRequired();
 
             this.Property(p => p.AdresRegel2)
-                .HasColumnName("AdresRegel2");
+                .HasMaxLength(150)
+                .HasColumnName("Adresregel2");
+
+            this.Property(p => p.Telefoonnummer)
+                .HasMaxLength(30)
+                .HasColumnName("Telefoonnummer")
+                .IsRequired();
+
+            this.Property(p => p.BTWPercentage)
+                .HasColumnName("BTWPercentage")
+                .IsRequired();
         }
     }
 }

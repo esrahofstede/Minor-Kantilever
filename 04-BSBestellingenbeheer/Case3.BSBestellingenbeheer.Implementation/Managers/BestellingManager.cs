@@ -29,7 +29,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
             {
                 Entities.Bestelling insertBestelling = new Entities.Bestelling()
                 {
-                    ID = (int)bestelling.BestellingID,
+
                     BestelDatum = besteldatum,
                     Status = (int)bestelling.Status,
                     KlantNaam = bestelling.Klantgegevens.Naam,
