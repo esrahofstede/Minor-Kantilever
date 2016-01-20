@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3520EB86-5DD7-424F-A046-219231FE7C83}</ProjectGuid>
+    <ProjectGuid>{0CEB091A-9056-4BD0-87D2-864BF8FDF5C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Case3.PcSBestellen.Implementation</RootNamespace>
-    <AssemblyName>Case3.PcSBestellen.Implementation</AssemblyName>
+    <RootNamespace>Case3.PcSBestellen.Schema</RootNamespace>
+    <AssemblyName>Case3.PcSBestellen.Schema</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,8 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,22 +52,15 @@
     <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,42 +69,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Managers\BSBestellingenManager.cs" />
-    <Compile Include="Managers\Interfaces\IBSBestellingenManager.cs" />
-    <Compile Include="PcSBestellenServiceHandler.cs" />
+    <Compile Include="DTO\BSBestellingenbeheerTypes.cs" />
+    <Compile Include="DTO\BSKlantbeheerTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Case3.PcSBestellen.Agent\09 - Agent.csproj">
-      <Project>{91ac1292-b089-46ea-8cca-0919b6ce637a}</Project>
-      <Name>09 - Agent</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSBestellen.Contract\02 - Contract.csproj">
-      <Project>{3ac7389b-7507-4b69-93eb-181a1b917801}</Project>
-      <Name>02 - Contract</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSBestellen.PcSBestellenSchema\01c-PcSBestellenSchema.csproj">
-      <Project>{22c02c22-9975-4d18-89c7-dc424663e0af}</Project>
-      <Name>01c-PcSBestellenSchema</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01a-BSKlantbeheerSchema.csproj">
-      <Project>{0ceb091a-9056-4bd0-87d2-864bf8fdf5c4}</Project>
-      <Name>01a-BSKlantbeheerSchema</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if not $(ConfigurationName) == DebugWithoutBuild ^
+svcutil.exe ^
+   /dconly ^
+   /out:$(ProjectDir)DTO\BSKlantbeheerTypes.cs ^
+   /n:"urn:case3-bdklantbeheer:v1:messages,Case3.BSKlantbeheer.V1.Messages" ^
+   /n:"urn:case3-bdklantbeheer:v1:schema,Case3.BSKlantbeheer.V1.Schema" ^
+   "$(SolutionDir)..\99-Shared\CanonicalDataModel\03-BSKlantbeheer\Schema\*.xsd"</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

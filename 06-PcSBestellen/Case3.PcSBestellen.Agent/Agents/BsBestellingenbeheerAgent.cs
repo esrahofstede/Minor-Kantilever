@@ -64,7 +64,7 @@ namespace Case3.PcSBestellen.Agent.Agents
             return result;
         }
 
-        public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage requestMessage)
+        public UpdateBestellingStatusResultMessage UpdateBestellingStatus(BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage requestMessage)
         {
             throw new NotImplementedException();
         }

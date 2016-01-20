@@ -78,9 +78,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01a - Schema.csproj">
+    <ProjectReference Include="..\Case3.PcSBestellen.BSBestellingenbeheerSchema\01b-BSBestellingenbeheerSchema.csproj">
+      <Project>{a3cd13d4-0aef-41d6-bfa4-e5ba7a68543d}</Project>
+      <Name>01b-BSBestellingenbeheerSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSBestellen.Schema\01a-BSKlantbeheerSchema.csproj">
       <Project>{0ceb091a-9056-4bd0-87d2-864bf8fdf5c4}</Project>
-      <Name>01a - Schema</Name>
+      <Name>01a-BSKlantbeheerSchema</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +99,7 @@ svcutil.exe ^
  /dataContractOnly ^
  /out:$(ProjectDir)DTO\PcSBestellenTypes.cs ^
  /r:"$(SolutionDir)Case3.PcSBestellen.Schema\bin\$(ConfigurationName)\Case3.PcSBestellen.Schema.dll" ^
+ /r:"$(SolutionDir)Case3.PcSBestellen.BSBestellingenbeheerSchema\bin\$(ConfigurationName)\Case3.PcSBestellen.BSBestellingenbeheerSchema.dll" ^
  /n:"urn:case3-pcsbestellen:v1:schema,Case3.PcSBestellen.V1.Schema" ^
  /n:"urn:case3-pcsbestellen:v1:messages,Case3.PcSBestellen.V1.Messages" ^
  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1,Case3.BSCatalogusBeheer.Schema.ProductNS" ^

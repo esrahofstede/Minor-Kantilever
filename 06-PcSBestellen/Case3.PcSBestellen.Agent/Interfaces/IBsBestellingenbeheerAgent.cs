@@ -22,7 +22,7 @@ namespace Case3.PcSBestellen.Agent.Interfaces
         /// </summary>
         /// <param name="requestMessage">The Request Message</param>
         /// <returns>Returns a UpdateBestellingStatusResultMessage</returns>
-        UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage requestMessage);
+        UpdateBestellingStatusResultMessage UpdateBestellingStatus(BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage requestMessage);
 
         InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling);
         InsertBestellingResultMessage InsertBestellingAsync(InsertBestellingRequestMessage bestelling);

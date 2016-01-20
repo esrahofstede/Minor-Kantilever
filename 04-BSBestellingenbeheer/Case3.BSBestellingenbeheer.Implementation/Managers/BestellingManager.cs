@@ -1,15 +1,9 @@
 ﻿using Case3.BSBestellingenbeheer.Implementation.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Case3.BSBestellingenbeheer.V1.Schema;
 using Case3.BSBestellingenbeheer.DAL.DataMappers;
 using Case3.BSCatalogusBeheer.Schema.ProductNS;
-using Case3.BSBestellingenbeheer.DAL.Context;
-using System;
-using System.Collections.Generic;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Managers
 {
