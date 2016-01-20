@@ -46,7 +46,8 @@ namespace Case3.PcSBestellen.Implementation
 
         public BestellingPlaatsenResultMessage BestellingPlaatsen(BestellingPlaatsenRequestMessage bestelling)
         {
-            throw new System.NotImplementedException();
+            _logger.Error(bestelling.BestellingPcS);
+            return new BestellingPlaatsenResultMessage();
         }
     }
 }

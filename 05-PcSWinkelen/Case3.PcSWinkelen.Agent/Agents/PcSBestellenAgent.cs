@@ -32,5 +32,13 @@ namespace Case3.PcSWinkelen.Agent.Agents
             var result = _agent.BestellingPlaatsen(new BestellingPlaatsenRequestMessage { BestellingPcS = bestelling});
             return true;
         }
+
+        public bool BestellingPlaatsenAsync(BestellingPcS bestelling)
+        {
+
+            var result = _agent.BestellingPlaatsen(new BestellingPlaatsenRequestMessage { BestellingPcS = bestelling });
+            return true;
+        }
+
     }
 }

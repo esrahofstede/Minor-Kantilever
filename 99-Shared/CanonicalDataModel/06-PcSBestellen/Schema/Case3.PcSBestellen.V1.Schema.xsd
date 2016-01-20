@@ -11,12 +11,12 @@
 
   <xs:complexType name="BestellingPcS">
     <xs:sequence>
-      <xs:element name="BestellingID" nillable="true" type="xs:int" />
-      <xs:element name="FactuurID" nillable="true" type="xs:int" />
-      <xs:element name="FactuurDatum" nillable="true" type="xs:date" />
-      <xs:element name="Status" nillable="true" type="xs:int" />
-      <xs:element name="Klantgegevens" nillable="true" type="k:KlantgegevensPcS" />
-      <xs:element name="ArtikelenPcS" type="k:ArtikelenPcS" />
+      <xs:element name="BestellingID" nillable="true" minOccurs="1" maxOccurs="1" type="xs:int" />
+      <xs:element name="FactuurID" nillable="true" minOccurs="1" maxOccurs="1" type="xs:int" />
+      <xs:element name="FactuurDatum" nillable="true" minOccurs="1" maxOccurs="1" type="xs:date" />
+      <xs:element name="Status" nillable="true" minOccurs="1" maxOccurs="1" type="xs:int" />
+      <xs:element name="Klantgegevens" nillable="true" minOccurs="1" maxOccurs="1" type="k:KlantgegevensPcS" />
+      <xs:element name="ArtikelenPcS" nillable="true" minOccurs="1" maxOccurs="1" type="k:ArtikelenPcS" />
     </xs:sequence>
   </xs:complexType>
 

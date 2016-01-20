@@ -92,6 +92,7 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
+      <xs:element name="BTWPercentage" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WinkelmandBestellenRequestMessage" nillable="true" type="tns:WinkelmandBestellenRequestMessage" />

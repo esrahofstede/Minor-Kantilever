@@ -64,7 +64,8 @@
   <xs:complexType name="WinkelmandBestellenRequestMessage">
     <xs:sequence>
       <xs:element name="SessieId" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="Klantgegevens" type="k:KlantgegevensPcS" minOccurs="1" maxOccurs="1"/>      
+      <xs:element name="Klantgegevens" type="k:KlantgegevensPcS" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="BTWPercentage" type="xs:int" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 

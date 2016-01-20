@@ -13,6 +13,10 @@
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.Product")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.Categorie")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-common:v1:faults", ClrNamespace="case3common.v1.faults")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:messages", ClrNamespace="case3bsbestellingenbeheer.v1.messages")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="case3bsbestellingenbeheer.v1.schema")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:messages", ClrNamespace="case3pcsbestellen.v1.messages")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:schema", ClrNamespace="case3pcsbestellen.v1.schema")]
 
 namespace Case3.PcSWinkelen.Messages
 {
@@ -369,6 +373,78 @@ namespace Case3.PcSWinkelen.Messages
             }
         }
     }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandBestellenRequestMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class WinkelmandBestellenRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string SessieIdField;
+        
+        private Case3.PcSWinkelen.Schema.KlantgegevensPcS KlantgegevensField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string SessieId
+        {
+            get
+            {
+                return this.SessieIdField;
+            }
+            set
+            {
+                this.SessieIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public Case3.PcSWinkelen.Schema.KlantgegevensPcS Klantgegevens
+        {
+            get
+            {
+                return this.KlantgegevensField;
+            }
+            set
+            {
+                this.KlantgegevensField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WinkelmandBestellenResponseMessage", Namespace="urn:case3-pcswinkelen:v1:messages")]
+    public partial class WinkelmandBestellenResponseMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
 }
 namespace Case3.PcSWinkelen.Schema
 {
@@ -568,6 +644,102 @@ namespace Case3.PcSWinkelen.Schema
             set
             {
                 this.SessieIdField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KlantgegevensPcS", Namespace="urn:case3-pcswinkelen:v1:schema")]
+    public partial class KlantgegevensPcS : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string NaamField;
+        
+        private string Adresregel1Field;
+        
+        private string Adresregel2Field;
+        
+        private string PostcodeField;
+        
+        private string WoonplaatsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Naam
+        {
+            get
+            {
+                return this.NaamField;
+            }
+            set
+            {
+                this.NaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public string Adresregel1
+        {
+            get
+            {
+                return this.Adresregel1Field;
+            }
+            set
+            {
+                this.Adresregel1Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public string Adresregel2
+        {
+            get
+            {
+                return this.Adresregel2Field;
+            }
+            set
+            {
+                this.Adresregel2Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public string Postcode
+        {
+            get
+            {
+                return this.PostcodeField;
+            }
+            set
+            {
+                this.PostcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public string Woonplaats
+        {
+            get
+            {
+                return this.WoonplaatsField;
+            }
+            set
+            {
+                this.WoonplaatsField = value;
             }
         }
     }
@@ -826,18 +998,39 @@ namespace case3common.v1.faults
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ErrorDetail", Namespace="urn:case3-common:v1:faults")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.FindFirstBestellingRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.FindFirstBestellingResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.InsertBestellingRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.InsertBestellingResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.UpdateBestellingRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.UpdateBestellingResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.schema.Klantgegevens))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.schema.Bestelling))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.schema.Artikelen))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.schema.BestelItem))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.ErrorLijst))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.messages.FindNextBestellingRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.messages.FindNextBestellingResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.messages.BestellingPlaatsenRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.messages.BestellingPlaatsenResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.schema.BestellingPcS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.schema.KlantgegevensPcS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.schema.ArtikelenPcS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3pcsbestellen.v1.schema.BestelItemPcS))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.WinkelmandBestellenRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Messages.WinkelmandBestellenResponseMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusCollection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.CatalogusProductItem))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandItemRef))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelmandItem))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.WinkelMandCollection))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSWinkelen.Schema.KlantgegevensPcS))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Categorie.CategorieCollection))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Categorie.Categorie))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.Product.Product))]
@@ -904,63 +1097,891 @@ namespace case3common.v1.faults
         }
     }
 }
+namespace case3bsbestellingenbeheer.v1.messages
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FindFirstBestellingRequestMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class FindFirstBestellingRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FindFirstBestellingResultMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class FindFirstBestellingResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private case3bsbestellingenbeheer.v1.schema.Bestelling BestellingOpdrachtField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public case3bsbestellingenbeheer.v1.schema.Bestelling BestellingOpdracht
+        {
+            get
+            {
+                return this.BestellingOpdrachtField;
+            }
+            set
+            {
+                this.BestellingOpdrachtField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertBestellingRequestMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class InsertBestellingRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private case3bsbestellingenbeheer.v1.schema.Bestelling BestellingField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public case3bsbestellingenbeheer.v1.schema.Bestelling Bestelling
+        {
+            get
+            {
+                return this.BestellingField;
+            }
+            set
+            {
+                this.BestellingField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertBestellingResultMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class InsertBestellingResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingRequestMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class UpdateBestellingRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private case3bsbestellingenbeheer.v1.schema.Bestelling BestellingField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public case3bsbestellingenbeheer.v1.schema.Bestelling Bestelling
+        {
+            get
+            {
+                return this.BestellingField;
+            }
+            set
+            {
+                this.BestellingField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingResultMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class UpdateBestellingResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
+}
+namespace case3bsbestellingenbeheer.v1.schema
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Klantgegevens", Namespace="urn:case3-bsbestellingenbeheer:v1:schema")]
+    public partial class Klantgegevens : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string NaamField;
+        
+        private string Adresregel1Field;
+        
+        private string Adresregel2Field;
+        
+        private string PostcodeField;
+        
+        private string WoonplaatsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Naam
+        {
+            get
+            {
+                return this.NaamField;
+            }
+            set
+            {
+                this.NaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public string Adresregel1
+        {
+            get
+            {
+                return this.Adresregel1Field;
+            }
+            set
+            {
+                this.Adresregel1Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public string Adresregel2
+        {
+            get
+            {
+                return this.Adresregel2Field;
+            }
+            set
+            {
+                this.Adresregel2Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public string Postcode
+        {
+            get
+            {
+                return this.PostcodeField;
+            }
+            set
+            {
+                this.PostcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public string Woonplaats
+        {
+            get
+            {
+                return this.WoonplaatsField;
+            }
+            set
+            {
+                this.WoonplaatsField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Bestelling", Namespace="urn:case3-bsbestellingenbeheer:v1:schema")]
+    public partial class Bestelling : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.Nullable<int> BestellingIDField;
+        
+        private System.Nullable<int> FactuurIDField;
+        
+        private case3bsbestellingenbeheer.v1.schema.Artikelen ArtikelenField;
+        
+        private string StatusField;
+        
+        private case3bsbestellingenbeheer.v1.schema.Klantgegevens KlantgegevensField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> BestellingID
+        {
+            get
+            {
+                return this.BestellingIDField;
+            }
+            set
+            {
+                this.BestellingIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> FactuurID
+        {
+            get
+            {
+                return this.FactuurIDField;
+            }
+            set
+            {
+                this.FactuurIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public case3bsbestellingenbeheer.v1.schema.Artikelen Artikelen
+        {
+            get
+            {
+                return this.ArtikelenField;
+            }
+            set
+            {
+                this.ArtikelenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                this.StatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public case3bsbestellingenbeheer.v1.schema.Klantgegevens Klantgegevens
+        {
+            get
+            {
+                return this.KlantgegevensField;
+            }
+            set
+            {
+                this.KlantgegevensField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Artikelen", Namespace="urn:case3-bsbestellingenbeheer:v1:schema", ItemName="ArtikelItem")]
+    public class Artikelen : System.Collections.Generic.List<case3bsbestellingenbeheer.v1.schema.BestelItem>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BestelItem", Namespace="urn:case3-bsbestellingenbeheer:v1:schema")]
+    public partial class BestelItem : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.BSCatalogusBeheer.Schema.Product.Product ProductField;
+        
+        private int AantalField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.BSCatalogusBeheer.Schema.Product.Product Product
+        {
+            get
+            {
+                return this.ProductField;
+            }
+            set
+            {
+                this.ProductField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Aantal
+        {
+            get
+            {
+                return this.AantalField;
+            }
+            set
+            {
+                this.AantalField = value;
+            }
+        }
+    }
+}
+namespace case3pcsbestellen.v1.messages
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FindNextBestellingRequestMessage", Namespace="urn:case3-pcsbestellen:v1:messages")]
+    public partial class FindNextBestellingRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FindNextBestellingResultMessage", Namespace="urn:case3-pcsbestellen:v1:messages")]
+    public partial class FindNextBestellingResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private case3pcsbestellen.v1.schema.BestellingPcS BestellingOpdrachtField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public case3pcsbestellen.v1.schema.BestellingPcS BestellingOpdracht
+        {
+            get
+            {
+                return this.BestellingOpdrachtField;
+            }
+            set
+            {
+                this.BestellingOpdrachtField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BestellingPlaatsenRequestMessage", Namespace="urn:case3-pcsbestellen:v1:messages")]
+    public partial class BestellingPlaatsenRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private case3pcsbestellen.v1.schema.BestellingPcS BestellingPcSField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public case3pcsbestellen.v1.schema.BestellingPcS BestellingPcS
+        {
+            get
+            {
+                return this.BestellingPcSField;
+            }
+            set
+            {
+                this.BestellingPcSField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BestellingPlaatsenResultMessage", Namespace="urn:case3-pcsbestellen:v1:messages")]
+    public partial class BestellingPlaatsenResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
+}
+namespace case3pcsbestellen.v1.schema
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BestellingPcS", Namespace="urn:case3-pcsbestellen:v1:schema")]
+    public partial class BestellingPcS : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.Nullable<int> BestellingIDField;
+        
+        private System.Nullable<int> FactuurIDField;
+        
+        private string StatusField;
+        
+        private case3pcsbestellen.v1.schema.KlantgegevensPcS KlantgegevensField;
+        
+        private case3pcsbestellen.v1.schema.ArtikelenPcS ArtikelenPcSField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> BestellingID
+        {
+            get
+            {
+                return this.BestellingIDField;
+            }
+            set
+            {
+                this.BestellingIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> FactuurID
+        {
+            get
+            {
+                return this.FactuurIDField;
+            }
+            set
+            {
+                this.FactuurIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                this.StatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public case3pcsbestellen.v1.schema.KlantgegevensPcS Klantgegevens
+        {
+            get
+            {
+                return this.KlantgegevensField;
+            }
+            set
+            {
+                this.KlantgegevensField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
+        public case3pcsbestellen.v1.schema.ArtikelenPcS ArtikelenPcS
+        {
+            get
+            {
+                return this.ArtikelenPcSField;
+            }
+            set
+            {
+                this.ArtikelenPcSField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KlantgegevensPcS", Namespace="urn:case3-pcsbestellen:v1:schema")]
+    public partial class KlantgegevensPcS : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string NaamField;
+        
+        private string Adresregel1Field;
+        
+        private string Adresregel2Field;
+        
+        private string PostcodeField;
+        
+        private string WoonplaatsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Naam
+        {
+            get
+            {
+                return this.NaamField;
+            }
+            set
+            {
+                this.NaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public string Adresregel1
+        {
+            get
+            {
+                return this.Adresregel1Field;
+            }
+            set
+            {
+                this.Adresregel1Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public string Adresregel2
+        {
+            get
+            {
+                return this.Adresregel2Field;
+            }
+            set
+            {
+                this.Adresregel2Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public string Postcode
+        {
+            get
+            {
+                return this.PostcodeField;
+            }
+            set
+            {
+                this.PostcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public string Woonplaats
+        {
+            get
+            {
+                return this.WoonplaatsField;
+            }
+            set
+            {
+                this.WoonplaatsField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArtikelenPcS", Namespace="urn:case3-pcsbestellen:v1:schema", ItemName="ArtikelItemPcS")]
+    public class ArtikelenPcS : System.Collections.Generic.List<case3pcsbestellen.v1.schema.BestelItemPcS>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BestelItemPcS", Namespace="urn:case3-pcsbestellen:v1:schema")]
+    public partial class BestelItemPcS : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.BSCatalogusBeheer.Schema.Product.Product ProductField;
+        
+        private int AantalField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.BSCatalogusBeheer.Schema.Product.Product Product
+        {
+            get
+            {
+                return this.ProductField;
+            }
+            set
+            {
+                this.ProductField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Aantal
+        {
+            get
+            {
+                return this.AantalField;
+            }
+            set
+            {
+                this.AantalField = value;
+            }
+        }
+    }
+}
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ServiceModel.ServiceContractAttribute(ConfigurationName="IPcSWinkelenService")]
-public interface IPcSWinkelenService
+[System.ServiceModel.ServiceContractAttribute(Name="urn:minor:case3:pcswinkelen:v1", ConfigurationName="urnminorcase3pcswinkelenv1")]
+public interface urnminorcase3pcswinkelenv1
 {
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse")]
-    [System.ServiceModel.FaultContractAttribute(typeof(case3common.v1.faults.ErrorLijst), Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsErrorLijstFault", Name="ErrorLijst", Namespace="urn:case3-common:v1:faults")]
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetCata" +
+        "logusItems", ReplyAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetCata" +
+        "logusItemsResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(case3common.v1.faults.ErrorLijst), Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetCata" +
+        "logusItemsErrorLijstFault", Name="ErrorLijst", Namespace="urn:case3-common:v1:faults")]
     Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage GetCatalogusItems(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetCatalogusItems", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetCatalogusItemsResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetCata" +
+        "logusItems", ReplyAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetCata" +
+        "logusItemsResponse")]
     System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.FindCatalogusResponseMessage> GetCatalogusItemsAsync(Case3.PcSWinkelen.Messages.FindCatalogusRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmandResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/AddProd" +
+        "uctToWinkelmand", ReplyAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/AddProd" +
+        "uctToWinkelmandResponse")]
     Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage AddProductToWinkelmand(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/AddProductToWinkelmandResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/AddProd" +
+        "uctToWinkelmand", ReplyAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/AddProd" +
+        "uctToWinkelmandResponse")]
     System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.AddItemToWinkelmandResponseMessage> AddProductToWinkelmandAsync(Case3.PcSWinkelen.Messages.AddItemToWinkelmandRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetWink" +
+        "elmand", ReplyAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetWink" +
+        "elmandResponse")]
     Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage GetWinkelmand(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPcSWinkelenService/GetWinkelmand", ReplyAction="http://tempuri.org/IPcSWinkelenService/GetWinkelmandResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetWink" +
+        "elmand", ReplyAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/GetWink" +
+        "elmandResponse")]
     System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage> GetWinkelmandAsync(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/Winkelm" +
+        "andBestellen", ReplyAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/Winkelm" +
+        "andBestellenResponse")]
+    Case3.PcSWinkelen.Messages.WinkelmandBestellenResponseMessage WinkelmandBestellen(Case3.PcSWinkelen.Messages.WinkelmandBestellenRequestMessage bestelling);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/Winkelm" +
+        "andBestellen", ReplyAction="http://tempuri.org/urn_x003A_minor_x003A_case3_x003A_pcswinkelen_x003A_v1/Winkelm" +
+        "andBestellenResponse")]
+    System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.WinkelmandBestellenResponseMessage> WinkelmandBestellenAsync(Case3.PcSWinkelen.Messages.WinkelmandBestellenRequestMessage bestelling);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public interface IPcSWinkelenServiceChannel : IPcSWinkelenService, System.ServiceModel.IClientChannel
+public interface urnminorcase3pcswinkelenv1Channel : urnminorcase3pcswinkelenv1, System.ServiceModel.IClientChannel
 {
 }
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-public partial class PcSWinkelenServiceClient : System.ServiceModel.ClientBase<IPcSWinkelenService>, IPcSWinkelenService
+public partial class urnminorcase3pcswinkelenv1Client : System.ServiceModel.ClientBase<urnminorcase3pcswinkelenv1>, urnminorcase3pcswinkelenv1
 {
     
-    public PcSWinkelenServiceClient()
+    public urnminorcase3pcswinkelenv1Client()
     {
     }
     
-    public PcSWinkelenServiceClient(string endpointConfigurationName) : 
+    public urnminorcase3pcswinkelenv1Client(string endpointConfigurationName) : 
             base(endpointConfigurationName)
     {
     }
     
-    public PcSWinkelenServiceClient(string endpointConfigurationName, string remoteAddress) : 
+    public urnminorcase3pcswinkelenv1Client(string endpointConfigurationName, string remoteAddress) : 
             base(endpointConfigurationName, remoteAddress)
     {
     }
     
-    public PcSWinkelenServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+    public urnminorcase3pcswinkelenv1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
             base(endpointConfigurationName, remoteAddress)
     {
     }
     
-    public PcSWinkelenServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+    public urnminorcase3pcswinkelenv1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
             base(binding, remoteAddress)
     {
     }
@@ -993,5 +2014,15 @@ public partial class PcSWinkelenServiceClient : System.ServiceModel.ClientBase<I
     public System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.GetWinkelmandResponseMessage> GetWinkelmandAsync(Case3.PcSWinkelen.Messages.GetWinkelmandRequestMessage request)
     {
         return base.Channel.GetWinkelmandAsync(request);
+    }
+    
+    public Case3.PcSWinkelen.Messages.WinkelmandBestellenResponseMessage WinkelmandBestellen(Case3.PcSWinkelen.Messages.WinkelmandBestellenRequestMessage bestelling)
+    {
+        return base.Channel.WinkelmandBestellen(bestelling);
+    }
+    
+    public System.Threading.Tasks.Task<Case3.PcSWinkelen.Messages.WinkelmandBestellenResponseMessage> WinkelmandBestellenAsync(Case3.PcSWinkelen.Messages.WinkelmandBestellenRequestMessage bestelling)
+    {
+        return base.Channel.WinkelmandBestellenAsync(bestelling);
     }
 }
