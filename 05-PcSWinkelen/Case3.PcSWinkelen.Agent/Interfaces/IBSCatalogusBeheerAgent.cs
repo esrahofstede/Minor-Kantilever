@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Case3.PcSWinkelen.Agent.Interfaces
 {
+    /// <summary>
+    /// Interface for the class which implements IBSCatalogusBeheerAgent which functionalities it must implement
+    /// </summary>
     public interface IBSCatalogusBeheerAgent
     {
         /// <summary>

@@ -9,6 +9,9 @@ using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.DAL.Tests
 {
+    /// <summary>
+    /// DBInitializer class which initializes the database when the database is being created
+    /// </summary>
     internal class WinkelmandDBInitializer : DropCreateDatabaseAlways<WinkelmandContext>
     {
         protected override void Seed(WinkelmandContext context)

@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Case3.BSBestellingenbeheer.Implementation
 {
+    /// <summary>
+    /// Temporary db initializer class
+    /// </summary>
     [ExcludeFromCodeCoverageAttribute]
     internal class BestellingDbInitializerTemporary : DropCreateDatabaseIfModelChanges<BestellingContext>
     {
@@ -118,8 +121,12 @@ namespace Case3.BSBestellingenbeheer.Implementation
                 BestelDatum = DateTime.Now.AddDays(1),
                 Artikelen = lijst2,
             };
-            context.Bestellingen.AddRange(new Bestelling[] { a, b });
-            context.Artikelen.AddRange(new Artikel[] { artikel1, artikel2, artikel3, artikel4, artikel21, artikel22, artikel23, artikel24 });
+            if (context != null)
+            {
+                context.Bestellingen.AddRange(new Bestelling[] { a, b });
+                context.Artikelen.AddRange(new Artikel[] { artikel1, artikel2, artikel3, artikel4, artikel21, artikel22, artikel23, artikel24 });
+            }
+            
             base.Seed(context);
         }
     }

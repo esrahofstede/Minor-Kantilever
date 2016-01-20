@@ -62,6 +62,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             {
                 ID = 1,
                 BestelDatum = DateTime.Now,
+                Status = 0,
                 Artikelen = lijst,
             };
             
@@ -114,6 +115,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             {
                 ID = 2,
                 BestelDatum = DateTime.Now.AddDays(1),
+                Status = 1,
                 Artikelen = lijst2,
             };
             context.Bestellingen.AddRange(new Bestelling[] { a, b });

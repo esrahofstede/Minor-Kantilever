@@ -10,8 +10,15 @@ using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.DAL.Mappings
 {
+    /// <summary>
+    /// Class for mapping entity WinkelmandItem to database
+    /// </summary>
     public class WinkelmandItemMapping : EntityTypeConfiguration<WinkelmandItem>
     {
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public WinkelmandItemMapping()
         {
             this.ToTable("WinkelmandItem");

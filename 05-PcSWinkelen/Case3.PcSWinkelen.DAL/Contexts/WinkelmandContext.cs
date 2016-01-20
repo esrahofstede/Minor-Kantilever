@@ -11,6 +11,9 @@ using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.DAL.Contexts
 {
+    /// <summary>
+    ///  Class for connection to Winkelmand database
+    /// </summary>
     [ExcludeFromCodeCoverage]
     public class WinkelmandContext : DbContext
     {
@@ -20,6 +23,10 @@ namespace Case3.PcSWinkelen.DAL.Contexts
 
         public DbSet<WinkelmandItem> WinkelmandItems { get; set; }
 
+        /// <summary>
+        /// Method which will be executed when the database models are created
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             if (modelBuilder != null)

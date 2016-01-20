@@ -3,13 +3,16 @@ using Case3.PcSWinkelen.Agent.Exceptions;
 using Case3.PcSWinkelen.Agent.Interfaces;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using Case3.PcSWinkelen.SchemaNS;
-using case3common.v1.faults;
+using Case3.Common.Faults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Case3.PcSWinkelen.Agent.Managers
 {
+    /// <summary>
+    /// Class which arrange the communication for the catalogus
+    /// </summary>
     public class CatalogusManager : ICatalogusManager
     {
         private IBSVoorraadBeheerAgent _bSVoorraadBeheerAgent;
@@ -46,11 +49,13 @@ namespace Case3.PcSWinkelen.Agent.Managers
         }
 
         /// <summary>
-        /// Returns a list of Products with the Voorraad of the Products included
+        /// Returns a list of Products with the Voorraad of the Products included.
+        /// If a product has no voorraad, but it is still leverbaar, then set voorraad to 0. 
+        /// If a product has no voorraad and it is not leverbaar anymore, don't return.
         /// </summary>
-        /// <param name="page"></param>
-        /// <param name="pageSize"></param>
-        /// <returns></returns>
+        /// <param name="page">Pagenumber for products</param>
+        /// <param name="pageSize">Amount of products in the submitted page.</param>
+        /// <returns>A list of products with voorraad.</returns>
         public IEnumerable<CatalogusProductItem> GetVoorraadWithProductsList(int page, int pageSize)
         {
             List<Product> products = _bSCatalogusBeheerAgent.GetProducts(page, pageSize).ToList();
@@ -63,22 +68,22 @@ namespace Case3.PcSWinkelen.Agent.Managers
                     try
                     {
                         voorraad = _bSVoorraadBeheerAgent.GetProductVoorraad(product.Id, product.LeveranciersProductId);
-                        resultProductVoorraad.Add(new CatalogusProductItem()
+                        resultProductVoorraad.Add(new CatalogusProductItem() //Add product with actual voorraad to list
                         {
                             Product = product,
                             Voorraad = voorraad
                         });
                     }
-                    catch (ProductVoorraadNotFoundException)
+                    catch (ProductVoorraadNotFoundException) //Product voorraad not found
                     {
-                        if (product.LeverbaarTot > DateTime.Now)
+                        if (product.LeverbaarTot > DateTime.Now) //If products is still leverbaar
                         {
-                            resultProductVoorraad.Add(new CatalogusProductItem()
+                            resultProductVoorraad.Add(new CatalogusProductItem() //Add product with voorraad 0 to list
                             {
                                 Product = product,
                                 Voorraad = 0
                             });
-                        }
+                        } //If product not leverbaar, don't add to list.
                     }
                     
                 }

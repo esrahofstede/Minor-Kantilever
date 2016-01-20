@@ -9,6 +9,10 @@ namespace Case3.BSBestellingenbeheer.Implementation.Interfaces
 {
     public interface IBestellingManager
     {
+        /// <summary>
+        /// This method returns the First bestelling to be packed.
+        /// </summary>
+        /// <returns>Bestelling to be packed</returns>
         Bestelling FindFirstBestelling();
     }
 }

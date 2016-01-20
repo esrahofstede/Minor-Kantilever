@@ -7,16 +7,21 @@ using Case3.PcSWinkelen.DAL.Mappers;
 using Case3.PcSWinkelen.Implementation.Mappers;
 using Case3.PcSWinkelen.Agent.Agents;
 using System.ServiceModel;
-using case3common.v1.faults;
+using Case3.Common.Faults;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// Test class for testing the PcSWinkelenServiceHandler class
+    /// </summary>
     [TestClass]
     public class PcSWinkelenServiceHandlerTest
     {
-   
+        /// <summary>
+        /// This method tests the constructor of PcsWinkelenServiceHandler. This test is dependent.
+        /// </summary>
         [TestMethod]
-        public void CreatePcSWinkelenServiceHandlerTest()
+        public void Integration_CreatePcSWinkelenServiceHandler()
         {
             // Arrange
 
@@ -28,9 +33,11 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             Assert.IsInstanceOfType(pcSWinkelenServiceHandler, typeof(PcSWinkelenServiceHandler));
         }
 
-
+        /// <summary>
+        /// This method tests if GetCatalogusItems returns FindCatalogusResponseMessage with 2 products.
+        /// </summary>
         [TestMethod]
-        public void CheckGetCatalogusItemsReturnsFindCatalogusResponseMessage()
+        public void Integration_CheckGetCatalogusItemsReturnsFindCatalogusResponseMessage()
         {
             // Arrange
             PcSWinkelenServiceHandler pcSWinkelenServiceHandler = new PcSWinkelenServiceHandler();
@@ -46,8 +53,12 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             // Assert
             Assert.IsNotNull(findCatalogusResponseMessage);
             Assert.IsInstanceOfType(findCatalogusResponseMessage, typeof(FindCatalogusResponseMessage));
+            Assert.AreEqual(2, findCatalogusResponseMessage.Products.Count);
         }
 
+        /// <summary>
+        /// This methods tests if the catalogusmanager throws a fault exception when a TechnicalException occurs.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(FaultException<ErrorLijst>))]
         public void VerifyCatalogusManagerThrowsFaultExceptionWhenTechnicalExceptionOccurs()
@@ -56,11 +67,12 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             var catalogusBeheerMock = new Mock<IBSCatalogusBeheerAgent>(MockBehavior.Strict);
             var winkelmandDatamapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
+            var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
             var managerMock = new Mock<ICatalogusManager>(MockBehavior.Strict);
 
             managerMock.Setup(p => p.GetVoorraadWithProductsList(1, 10)).Throws(new TechnicalException("Error tijdens het ophalen van producten"));
 
-            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, managerMock.Object);
+            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object,bestellenAgentMock.Object, managerMock.Object);
 
             //Act
             var result = handler.GetCatalogusItems(new FindCatalogusRequestMessage()
@@ -73,6 +85,9 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Expect FaultException<ErrorLijst>
         }
 
+        /// <summary>
+        /// This methods tests if the catalogusmanager throws a fault exception when a Exception occurs.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(FaultException<ErrorLijst>))]
         public void VerifyCatalogusManagerThrowsFaultExceptionWhenExceptionOccurs()
@@ -82,10 +97,11 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             var winkelmandDatamapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             var managerMock = new Mock<ICatalogusManager>(MockBehavior.Strict);
+            var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
 
             managerMock.Setup(p => p.GetVoorraadWithProductsList(1, 10)).Throws(new Exception("Null reference"));
 
-            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, managerMock.Object);
+            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object);
 
             //Act
             var result = handler.GetCatalogusItems(new FindCatalogusRequestMessage()
@@ -98,6 +114,9 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Expect FaultException<ErrorLijst>
         }
 
+        /// <summary>
+        /// This method tests if the PcsWinkelenServiceHandler returns a list with exceptions when an exception occurs.
+        /// </summary>
         [TestMethod]
         public void VerifyCatalogusManagerAddsExceptionToList()
         {
@@ -106,10 +125,11 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             var winkelmandDatamapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             var managerMock = new Mock<ICatalogusManager>(MockBehavior.Strict);
+            var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
 
             managerMock.Setup(p => p.GetVoorraadWithProductsList(1, 20)).Throws(new TechnicalException("Error tijdens het ophalen van producten"));
 
-            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, managerMock.Object);
+            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object);
 
             try
             {

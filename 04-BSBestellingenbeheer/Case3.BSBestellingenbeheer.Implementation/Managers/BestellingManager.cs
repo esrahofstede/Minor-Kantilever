@@ -13,6 +13,10 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
 {
     public class BestellingManager : IBestellingManager
     {
+        /// <summary>
+        /// This method returns the First bestelling to be packed.
+        /// </summary>
+        /// <returns>Bestelling to be packed</returns>
         public Bestelling FindFirstBestelling()
         {
 

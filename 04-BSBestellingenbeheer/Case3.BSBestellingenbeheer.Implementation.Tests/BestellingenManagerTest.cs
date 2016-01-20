@@ -5,9 +5,15 @@ using Case3.BSBestellingenbeheer.V1.Schema;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Tests
 {
+    /// <summary>
+    /// Testclass for testint the BestellingenManager
+    /// </summary>
     [TestClass]
     public class BestellingenManagerTest
     {
+        /// <summary>
+        /// Creates instance of BestellingManager and checks if the manager is instantiated correctly
+        /// </summary>
         [TestMethod]
         public void BestellingenManagerCreateInstance()
         {
@@ -20,6 +26,9 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             Assert.IsInstanceOfType(bestellingManager, typeof(BestellingManager));
         }
 
+        /// <summary>
+        /// Gets the first bestelling and checks that bestelling
+        /// </summary>
         [TestMethod]
         public void BestellingenManagerFindFirstBestelling()
         {
