@@ -141,7 +141,12 @@ namespace Case3.FEWebwinkel.Agent
         /// <param name="btwPercentage">The current Btw-percentage</param>
         public void SendBestelling(string sessionId, Klantgegevens klant, int btwPercentage)
         {
-            _agent.WinkelmandBestellen(new WinkelmandBestellenRequestMessage() { SessieId = sessionId, Klantgegevens = klant, BTWPercentage = btwPercentage });
+            _agent.WinkelmandBestellen(new WinkelmandBestellenRequestMessage()
+            {
+                SessieId = sessionId,
+                Klantgegevens = klant,
+                BTWPercentage = btwPercentage
+            });
         }
     }
 }

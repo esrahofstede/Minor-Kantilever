@@ -9,6 +9,11 @@ namespace Case3.FEWebwinkel.Site.Managers.Interfaces
 {
     public interface IBestellingManager
     {
+        /// <summary>
+        /// Places a Bestelling
+        /// </summary>
+        /// <param name="sessionId">The session ID for the Winkelmand</param>
+        /// <param name="klant">The data of the Klant</param
         void PlaatsBestelling(string sessionId, KlantRegistreerViewModel klant);
     }
 }
