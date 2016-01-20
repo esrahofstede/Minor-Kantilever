@@ -71,9 +71,9 @@ namespace Case3.PcSWinkelen.DAL.Mappers
         }
 
         /// <summary>
-        /// Deletes the given winkelmanditem in the database
+        /// Retrieves a single winkelmandItem by sessieID
         /// </summary>
-        /// <param name="deleteItem"></param>
+        /// <param name="sessieID">The Id of the Session of which the WinkelmandItems need to be removed</param>
         public void DeleteBySessieID(string sessieID)
         {
             using (var context = new WinkelmandContext())
@@ -82,20 +82,17 @@ namespace Case3.PcSWinkelen.DAL.Mappers
 
                 if (winkelmandItemList != null && winkelmandItemList.Count > 0)
                 {
-                    foreach (WinkelmandItem item in winkelmandItemList)
-                    {
-                        context.WinkelmandItems.Remove(item);
-                    }
+                    context.WinkelmandItems.RemoveRange(winkelmandItemList);
                     context.SaveChanges();
                 }
             }
         }
 
         /// <summary>
-        /// Retrieves a single winkelmandItem by sessieID
+        /// Retrieves a List of WinkelmandItems based on a SessionID
         /// </summary>
-        /// <param name="sessieID"></param>
-        /// <returns></returns>
+        /// <param name="sessieID">The Id of the Session of which the WinkelmandItems need to be found</param>
+        /// <returns>Returns a List of WinkelmandItems</returns>
         public List<WinkelmandItem> FindBySessieID(string sessieID)
         {
             using (var context = new WinkelmandContext())

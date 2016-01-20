@@ -190,8 +190,6 @@ namespace Case3.PcSWinkelen.DAL.Tests
                 // Assert
                 Assert.AreEqual(0, result.Count);
             }
-
         }
-
     }
 }
