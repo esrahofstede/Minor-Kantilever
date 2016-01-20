@@ -107,7 +107,8 @@ namespace Case3.PcSWinkelen.DAL.Tests
                 var result = target.FindBySessieID("");
 
                 // Assert
-                Assert.IsNull(result);
+                Assert.IsInstanceOfType(result, typeof(List<WinkelmandItem>));
+                Assert.AreEqual(0, result.Count);
             }
         }
 
@@ -124,13 +125,13 @@ namespace Case3.PcSWinkelen.DAL.Tests
 
                 // Assert
                 Assert.IsNotNull(result);
-                Assert.IsInstanceOfType(result, typeof(WinkelmandItem));
-                Assert.AreEqual("210c796d-09a6-4ba0-a7d7-09226575f864", result.SessieID);
-                Assert.AreEqual(1234, result.ProductID);
-                Assert.AreEqual("58585", result.LeveranciersProductId);
-                Assert.AreEqual("Gazelle", result.LeverancierNaam);
-                Assert.AreEqual("Fietsbel", result.Naam);
-                Assert.AreEqual(2.00M, result.Prijs);
+                Assert.IsInstanceOfType(result, typeof(List<WinkelmandItem>));
+                Assert.AreEqual("210c796d-09a6-4ba0-a7d7-09226575f864", result[0].SessieID);
+                Assert.AreEqual(1234, result[0].ProductID);
+                Assert.AreEqual("58585", result[0].LeveranciersProductId);
+                Assert.AreEqual("Gazelle", result[0].LeverancierNaam);
+                Assert.AreEqual("Fietsbel", result[0].Naam);
+                Assert.AreEqual(2.00M, result[0].Prijs);
             }
         }
 
@@ -138,19 +139,56 @@ namespace Case3.PcSWinkelen.DAL.Tests
         public void DeleteFoundWinkelmandItem()
         {
             // Arrange
+            string sessieID = "210c796d-09a6-4ba0-a7d7-09226575f864";
             var target = new WinkelmandDataMapper();
-            
+
             using (var scope = new TransactionScope())
             {
                 // Act
-                var resultOld = target.FindBySessieID("210c796d-09a6-4ba0-a7d7-09226575f864");
+                List<WinkelmandItem> resultOld = target.FindBySessieID(sessieID);
                 Assert.IsNotNull(resultOld);
 
-                target.Delete(resultOld);
-                var result = target.FindBySessieID("210c796d-09a6-4ba0-a7d7-09226575f864");
+                target.DeleteBySessieID(sessieID);
+                List<WinkelmandItem> result = target.FindBySessieID(sessieID);
 
                 // Assert
-                Assert.IsNull(result);
+                Assert.AreEqual(0, result.Count);
+            }
+        }
+
+        [TestMethod]
+        public void DeleteTwoFoundWinkelmandItems()
+        {
+            // Arrange
+            string sessieID = "210c796d-09a6-4ba0-a7d7-09226575f864";
+            var target = new WinkelmandDataMapper();
+
+            using (var scope = new TransactionScope())
+            {
+
+                WinkelmandItem item2 = new WinkelmandItem
+                {
+                    Aantal = 5,
+                    SessieID = sessieID,
+                    ProductID = 1234,
+                    LeveranciersProductId = "876554",
+                    LeverancierNaam = "Gazelle",
+                    Naam = "Fietsbel 1",
+                    Prijs = 2.00M
+                };
+                target.Insert(item2);
+
+
+                // Act
+                List<WinkelmandItem> resultOld = target.FindBySessieID(sessieID);
+                Assert.IsNotNull(resultOld);
+                Assert.AreEqual(2, resultOld.Count);
+
+                target.DeleteBySessieID(sessieID);
+                List<WinkelmandItem> result = target.FindBySessieID(sessieID);
+
+                // Assert
+                Assert.AreEqual(0, result.Count);
             }
 
         }

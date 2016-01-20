@@ -16,15 +16,6 @@ namespace Case3.PcSWinkelen.Implementation.Tests
     {
         internal WinkelmandItem Item;
 
-        public void Delete(WinkelmandItem deleteItem)
-        {
-            throw new NotImplementedException();
-        }
-
-        public WinkelmandItem FindBySessieID(string sessieID)
-        {
-            throw new NotImplementedException();
-        }
 
         public IEnumerable<WinkelmandItem> FindAllBy(Expression<Func<WinkelmandItem, bool>> isAny)
         {
@@ -37,6 +28,16 @@ namespace Case3.PcSWinkelen.Implementation.Tests
         }
 
         public void Update(WinkelmandItem item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteBySessieID(string sessieID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<WinkelmandItem> FindBySessieID(string sessieID)
         {
             throw new NotImplementedException();
         }
