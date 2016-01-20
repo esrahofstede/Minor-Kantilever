@@ -91,12 +91,12 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
             // Assert
             Assert.IsInstanceOfType(result, typeof(BestellingViewModel));
             //First item
-            Assert.AreEqual("Fietsbel", artikelen[0].Naam);
+            Assert.AreEqual("Fietsbel", artikelen[0].ArtikelNaam);
             Assert.AreEqual("Gazelle", artikelen[0].Leveranciersnaam);
             Assert.AreEqual("GZ12345FB", artikelen[0].Leverancierscode);
             Assert.AreEqual(1, artikelen[0].Aantal);
             //Second item
-            Assert.AreEqual("Zadelpen", artikelen[1].Naam);
+            Assert.AreEqual("Zadelpen", artikelen[1].ArtikelNaam);
             Assert.AreEqual("Giant", artikelen[1].Leveranciersnaam);
             Assert.AreEqual("GI12345ZP", artikelen[1].Leverancierscode);
             Assert.AreEqual(2, artikelen[1].Aantal);
@@ -142,12 +142,12 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
             //Assert
             Assert.AreEqual(2, result.Artikelen.Count);
             //First item
-            Assert.AreEqual("Fietsbel", artikelen[0].Naam);
+            Assert.AreEqual("Fietsbel", artikelen[0].ArtikelNaam);
             Assert.AreEqual("Gazelle", artikelen[0].Leveranciersnaam);
             Assert.AreEqual("GZ12345FB", artikelen[0].Leverancierscode);
             Assert.AreEqual(1, artikelen[0].Aantal);
             //Second item
-            Assert.AreEqual("Zadelpen", artikelen[1].Naam);
+            Assert.AreEqual("Zadelpen", artikelen[1].ArtikelNaam);
             Assert.AreEqual("Giant", artikelen[1].Leveranciersnaam);
             Assert.AreEqual("GI12345ZP", artikelen[1].Leverancierscode);
             Assert.AreEqual(2, artikelen[1].Aantal);

@@ -25,8 +25,8 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
                 {
                     new ArtikelViewModel
                     {
-                        
-                        Naam = "Fietsbel",
+
+                        ArtikelNaam = "Fietsbel",
                         Leveranciersnaam = "Gazelle",
                         Leverancierscode = "GA12345FB",
                         Aantal = 1,
@@ -35,7 +35,7 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
                     },
                     new ArtikelViewModel
                     {
-                        Naam = "Zadelpen",
+                        ArtikelNaam = "Zadelpen",
                         Leveranciersnaam = "Giant",
                         Leverancierscode = "GI12345ZP",
                         Aantal = 2,
@@ -93,12 +93,12 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
             Assert.IsInstanceOfType(result.Model, typeof(BestellingViewModel));
 
             //First item
-            Assert.AreEqual("Fietsbel", bestellingViewModel.Artikelen[0].Naam);
+            Assert.AreEqual("Fietsbel", bestellingViewModel.Artikelen[0].ArtikelNaam);
             Assert.AreEqual("Gazelle", bestellingViewModel.Artikelen[0].Leveranciersnaam);
             Assert.AreEqual("GA12345FB", bestellingViewModel.Artikelen[0].Leverancierscode);
             Assert.AreEqual(1, bestellingViewModel.Artikelen[0].Aantal);
             //Second item
-            Assert.AreEqual("Zadelpen", bestellingViewModel.Artikelen[1].Naam);
+            Assert.AreEqual("Zadelpen", bestellingViewModel.Artikelen[1].ArtikelNaam);
             Assert.AreEqual("Giant", bestellingViewModel.Artikelen[1].Leveranciersnaam);
             Assert.AreEqual("GI12345ZP", bestellingViewModel.Artikelen[1].Leverancierscode);
             Assert.AreEqual(2, bestellingViewModel.Artikelen[1].Aantal);
