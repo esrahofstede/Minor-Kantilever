@@ -37,9 +37,10 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// Creates instance of class but with mock possible
         /// </summary>
         /// <param name="bestellingManager"></param>
-        public BSBestellingenServiceHandler(BestellingDataMapper mapper)
+        public BSBestellingenServiceHandler(BestellingDataMapper mapper, BestellingManager bestellingManager)
         {
             _mapper = mapper;
+            _bestellingManager = bestellingManager;
         }
 
 
