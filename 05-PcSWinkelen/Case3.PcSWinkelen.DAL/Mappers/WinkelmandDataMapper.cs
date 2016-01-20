@@ -51,11 +51,11 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             {
                 if (updatedItem != null)
                 {
-                    var oldItem = context.WinkelmandItems.Find(updatedItem.ID);
-                    context.Entry(oldItem).CurrentValues.SetValues(updatedItem);
-                    context.SaveChanges();
-                }
+                var oldItem = context.WinkelmandItems.Find(updatedItem.ID);
+                context.Entry(oldItem).CurrentValues.SetValues(updatedItem);
+                context.SaveChanges();
             }
+        }
         }
 
         /// <summary>
@@ -67,6 +67,37 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             using (var context = new WinkelmandContext())
             {
                 return context.WinkelmandItems.ToList();
+            }
+        }
+
+        /// <summary>
+        /// Deletes the given winkelmanditem in the database
+        /// </summary>
+        /// <param name="deleteItem"></param>
+        public void Delete(WinkelmandItem deleteItem)
+        {
+            using (var context = new WinkelmandContext())
+            {
+                var result = context.WinkelmandItems.Where(x => x.SessieID == deleteItem.SessieID).FirstOrDefault();
+
+                if (result != null)
+                {
+                    context.WinkelmandItems.Remove(result);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Retrieves a single winkelmandItem by sessieID
+        /// </summary>
+        /// <param name="sessieID"></param>
+        /// <returns></returns>
+        public WinkelmandItem FindBySessieID(string sessieID)
+        {
+            using (var context = new WinkelmandContext())
+            {
+                return context.WinkelmandItems.Where(x => x.SessieID == sessieID).FirstOrDefault();
             }
         }
     }

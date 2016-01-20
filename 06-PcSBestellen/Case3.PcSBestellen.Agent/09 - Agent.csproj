@@ -46,13 +46,32 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithoutBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugWithoutBuild\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Minor.ServiceBus.Agent.Implementation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=73e451069382071b, processorArchitecture=MSIL">
       <HintPath>..\packages\Minor.Caespi.ServiceBus.Agent.1.0.0.3\lib\net452\Minor.ServiceBus.Agent.Implementation.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,8 +80,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agents\BsBestellingenbeheerAgent.cs" />
-    <Compile Include="Interfaces\IBsBestellingenbeheerAgent.cs" />
+    <Compile Include="Agents\BSBestellingenbeheerAgent.cs" />
+    <Compile Include="Exceptions\TechnicalException.cs" />
+    <Compile Include="Interfaces\IBSBestellingenbeheerAgent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +98,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Case3.PcSBestellen.PcSBestellenSchema\01b - PcSBestellenSchema.csproj">
+      <Project>{22C02C22-9975-4D18-89C7-DC424663E0AF}</Project>
+      <Name>01b - PcSBestellenSchema</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.PcSBestellen.Schema\01a - Schema.csproj">
       <Project>{0ceb091a-9056-4bd0-87d2-864bf8fdf5c4}</Project>
       <Name>01a - Schema</Name>

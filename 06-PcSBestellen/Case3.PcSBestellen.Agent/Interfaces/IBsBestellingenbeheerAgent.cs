@@ -1,11 +1,12 @@
 ﻿using Case3.BSBestellingenbeheer.V1.Messages;
+using Case3.PcSBestellen.V1.Messages;
 
 namespace Case3.PcSBestellen.Agent.Interfaces
 {
     /// <summary>
     /// The BsBestellingenbeheerAgent Interface 
     /// </summary>
-    public interface IBsBestellingenbeheerAgent
+    public interface IBSBestellingenbeheerAgent
     {
         /// <summary>
         /// This function returns a FindFirstBestellingResultMessage
@@ -13,5 +14,8 @@ namespace Case3.PcSBestellen.Agent.Interfaces
         /// <param name="requestMessage">The Request Message</param>
         /// <returns>Returns a FindFirstBestellingResultMessage</returns>
         FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage);
+
+        InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling);
+        InsertBestellingResultMessage InsertBestellingAsync(InsertBestellingRequestMessage bestelling);
     }
 }

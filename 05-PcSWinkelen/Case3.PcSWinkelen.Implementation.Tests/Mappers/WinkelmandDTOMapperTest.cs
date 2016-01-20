@@ -4,6 +4,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Case3.PcSWinkelen.Implementation.Tests.Mappers
 {
+    /// <summary>
+    /// Testclass for testing the winkelmand to DTO mapper functionality
+    /// </summary>
     [TestClass]
     public class WinkelmandDTOMapperTest
     {
@@ -28,6 +31,19 @@ namespace Case3.PcSWinkelen.Implementation.Tests.Mappers
         }
 
         [TestMethod]
+        public void DTOToEntityCheckNullTest()
+        {
+            //Arrange
+            IWinkelmandItemDTOMapper mapper = new WinkelmandItemDTOMapper();
+
+            //Act
+            var result = mapper.MapDTOToEntity(null);
+
+            //Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [TestMethod]
         public void EntityToDTOTest()
         {
             //Arrange
@@ -44,6 +60,19 @@ namespace Case3.PcSWinkelen.Implementation.Tests.Mappers
             Assert.AreEqual(DummyData.GetDummyWinkelmandItem.Naam, result.Product.Naam);
             Assert.AreEqual(DummyData.GetDummyWinkelmandItem.Prijs, result.Product.Prijs);
             Assert.AreEqual(DummyData.GetDummyWinkelmandItem.SessieID, result.SessieId);
+        }
+
+        [TestMethod]
+        public void EntityToDTOCheckNullTest()
+        {
+            //Arrange
+            IWinkelmandItemDTOMapper mapper = new WinkelmandItemDTOMapper();
+
+            //Act
+            var result = mapper.MapEntityToDTO(null);
+
+            //Assert
+            Assert.AreEqual(null, result);
         }
     }
 }

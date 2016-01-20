@@ -29,18 +29,4 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateBestelling">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="request" nillable="true" xmlns:q5="urn:case3-pcsbestellen:v1:messages" type="q5:UpdateBestellingStatusRequestMessage" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateBestellingResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateBestellingResult" nillable="true" xmlns:q6="urn:case3-pcsbestellen:v1:messages" type="q6:UpdateBestellingStatusResultMessage" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
 </xs:schema>

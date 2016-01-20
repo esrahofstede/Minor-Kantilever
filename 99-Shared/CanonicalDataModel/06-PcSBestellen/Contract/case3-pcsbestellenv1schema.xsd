@@ -8,13 +8,7 @@
       <xs:element name="FactuurDatum" nillable="true" type="xs:string" />
       <xs:element name="Status" nillable="true" type="xs:int" />
       <xs:element name="Klantgegevens" nillable="true" type="tns:KlantgegevensPcS" />
-      <xs:element name="ArtikelenPcS" nillable="true" type="tns:ArtikelenPcS">
-        <xs:annotation>
-          <xs:appinfo>
-            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
+      <xs:element name="ArtikelenPcS" nillable="true" type="tns:ArtikelenPcS" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BestellingPcS" nillable="true" type="tns:BestellingPcS" />
@@ -25,7 +19,6 @@
       <xs:element name="Adresregel2" nillable="true" type="xs:string" />
       <xs:element name="Postcode" nillable="true" type="xs:string" />
       <xs:element name="Woonplaats" nillable="true" type="xs:string" />
-      <xs:element name="Telefoonnummer" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="KlantgegevensPcS" nillable="true" type="tns:KlantgegevensPcS" />

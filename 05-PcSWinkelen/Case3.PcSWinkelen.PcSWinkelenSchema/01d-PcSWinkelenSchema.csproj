@@ -104,6 +104,10 @@
       <Project>{495EEFFC-6B29-42BA-BC94-FC745FC00ABE}</Project>
       <Name>01b-BSVoorraadbeheerSchema</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSBestellenSchema\01c-PcSBestellenSchema.csproj">
+      <Project>{be21d871-9ecd-49ad-a204-9e4aaefc96f4}</Project>
+      <Name>01c-PcSBestellenSchema</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -128,6 +132,7 @@ svcutil ^
   /out:$(ProjectDir)PcSWinkelenTypes.cs ^
   /r:"$(SolutionDir)Case3.PcSWinkelen.BSCatalogusbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSCatalogusbeheer.Schema.dll" ^
   /r:"$(SolutionDir)Case3.PcSWinkelen.BSVoorraadbeheerSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.BSVoorraadbeheerSchema.dll" ^
+  /r:"$(SolutionDir)Case3.PcSWinkelen.PcSBestellenSchema\bin\$(ConfigurationName)\Case3.PcSWinkelen.PcSBestellenSchema.dll" ^
   /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:messages:v1,Case3.PcSWinkelen.Schema.Messages" ^
   /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:productupdate:v1,Case3.PcSWinkelen.Schema.ProductUpdateNS" ^
   /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.PcSWinkelen.Schema.CategorieNS" ^
@@ -144,9 +149,7 @@ svcutil ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Categorie.xsd" ^
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Schema.xsd" ^
   "$(SolutionDir)..\99-Shared\CanonicalDataModel\05-PcSWinkelen\Schema\Case3.PcSWinkelen.V1.Messages.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\ErrorLijst.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\04-BSBestellingenbeheer\Schema\*.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Schema\*.xsd"
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\ErrorLijst.xsd"
 
 REM if not $(ConfigurationName) == DebugWithoutBuild ^
 

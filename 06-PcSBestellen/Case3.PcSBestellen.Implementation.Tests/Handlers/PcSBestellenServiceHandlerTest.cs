@@ -58,7 +58,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Handlers
             mock.Setup(m => m.FindNextBestelling(It.IsAny<FindNextBestellingRequestMessage>()))
                 .Returns(findNextResultMessage);
 
-            var handler = new PcSBestellenServiceHandler(mock.Object);
+            var handler = new PcSBestellenServiceHandler(mock.Object, null);
 
             // Act
             var result = handler.FindNextBestelling(new FindNextBestellingRequestMessage());
@@ -76,7 +76,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Handlers
             mock.Setup(m => m.FindNextBestelling(It.IsAny<FindNextBestellingRequestMessage>()))
                 .Returns(findNextResultMessage);
 
-            var handler = new PcSBestellenServiceHandler(mock.Object);
+            var handler = new PcSBestellenServiceHandler(mock.Object, null);
 
             // Act
             var result = handler.FindNextBestelling(new FindNextBestellingRequestMessage());

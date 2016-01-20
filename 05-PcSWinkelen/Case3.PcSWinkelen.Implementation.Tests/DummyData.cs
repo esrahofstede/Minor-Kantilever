@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Case3.BSBestellingenBeheer.SchemaNS;
+
 using Case3.PcSBestellen.SchemaNS;
 using Case3.PcSWinkelen.MessagesNS;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using Case3.PcSWinkelen.SchemaNS;
 using EntitiesNS = Case3.PcSWinkelen.Entities;
+using WinkelenNS = Case3.PcSWinkelen.SchemaNS;
+using BestellenNS = Case3.PcSBestellen.SchemaNS;
+
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// Test data for testing purposes
+    /// </summary>
     internal static class DummyData
     {
         private static int _dummyAantal = 2;
@@ -77,13 +80,33 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             }
         };
 
-        internal static Klantgegevens GetDummyKlantgegevens = new Klantgegevens
+        internal static WinkelenNS.KlantgegevensPcS GetDummyKlantgegevensPcSWinkelen = new WinkelenNS.KlantgegevensPcS
         {
             Naam = "Marco Pil",
             Adresregel1 = "Afdeling Infosupport",
             Adresregel2 = "Sint Jacobsstraat 12",
             Postcode = "3511 BS",
             Woonplaats = "Utrecht"
+        };
+
+        internal static WinkelenNS.KlantgegevensPcS GetDummyKlantgegevens = new WinkelenNS.KlantgegevensPcS
+        {
+            Naam = "Marco Pil",
+            Adresregel1 = "Afdeling Infosupport",
+            Adresregel2 = "Sint Jacobsstraat 12",
+            Postcode = "3511 BS",
+            Woonplaats = "Utrecht"
+        };
+
+        internal static BestelItemPcS GetDummyBestelItem = new BestelItemPcS
+        {
+            Product = GetDummyProduct,
+            Aantal = _dummyAantal
+        };
+
+        internal static IEnumerable<BestelItemPcS> GetDummyBestelItems = new List<BestelItemPcS>
+        {
+            GetDummyBestelItem
         };
 
         internal static WinkelmandBestellenRequestMessage GetDummyWinkelmandBestellenRequestMessage = new WinkelmandBestellenRequestMessage
@@ -94,7 +117,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
 
         internal static BestellingPcS GetDummyBestellingPcS = new BestellingPcS
         {
-            Klantgegevens = new KlantgegevensPcS
+            Klantgegevens = new BestellenNS.KlantgegevensPcS
             {
                 Naam = GetDummyKlantgegevens.Naam,
                 Postcode = GetDummyKlantgegevens.Postcode,

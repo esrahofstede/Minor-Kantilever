@@ -40,7 +40,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             agentMock.Setup(agent => agent.GetProductById(It.IsAny<int>())).Returns(DummyData.GetDummyProduct);
             var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
 
-            //DTO
+                //DTO
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapDTOToEntity(It.IsAny<SchemaNS.WinkelmandItem>())).Returns(DummyData.GetDummyWinkelmandItem);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapEntityToDTO(It.IsAny<WinkelmandItem>())).Returns(DummyData.GetDummyDTOWinkelmandItem);

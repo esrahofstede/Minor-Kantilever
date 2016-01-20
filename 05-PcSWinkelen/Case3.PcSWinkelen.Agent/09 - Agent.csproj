@@ -67,6 +67,9 @@
     <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Minor.ServiceBus.Agent.Implementation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=73e451069382071b, processorArchitecture=MSIL">
       <HintPath>..\packages\Minor.Caespi.ServiceBus.Agent.1.0.0.3\lib\net452\Minor.ServiceBus.Agent.Implementation.dll</HintPath>
       <Private>True</Private>
@@ -85,6 +88,7 @@
   <ItemGroup>
     <Compile Include="Agents\BSCatalogusBeheerAgent.cs" />
     <Compile Include="Agents\BSVoorraadBeheerAgent.cs" />
+    <Compile Include="Agents\PcSBestellenAgent.cs" />
     <Compile Include="Agents\TechnicalException.cs" />
     <Compile Include="Exceptions\ProductVoorraadNotFoundException.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -115,9 +119,17 @@
       <Project>{495eeffc-6b29-42ba-bc94-fc745fc00abe}</Project>
       <Name>01b-BSVoorraadbeheerSchema</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj">
+    <ProjectReference Include="..\Case3.PcSWinkelen.Contract\02 - Contract.csproj">
+      <Project>{c458b7ea-6bfb-4c2f-a3dc-485b452c0f0e}</Project>
+      <Name>02 - Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSBestellenSchema\01c-PcSBestellenSchema.csproj">
+      <Project>{be21d871-9ecd-49ad-a204-9e4aaefc96f4}</Project>
+      <Name>01c-PcSBestellenSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01d-PcSWinkelenSchema.csproj">
       <Project>{2742240d-a070-44a7-8560-8c8ba25a1c7b}</Project>
-      <Name>01c-PcSWinkelenSchema</Name>
+      <Name>01d-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

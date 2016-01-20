@@ -43,4 +43,14 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="KlantgegevensPcS">
+    <xs:sequence>
+      <xs:element name="Naam" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Adresregel1" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Adresregel2" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Postcode" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Woonplaats" type="xs:string" nillable="true" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
 </xs:schema>

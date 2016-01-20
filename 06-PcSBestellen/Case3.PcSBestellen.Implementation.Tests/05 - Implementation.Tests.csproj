@@ -51,12 +51,22 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithoutBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugWithoutBuild\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -73,9 +83,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DummyData.cs" />
     <Compile Include="Handlers\PcSBestellenServiceHandlerTest.cs" />
     <Compile Include="Managers\BSBestellingenManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PcSBestellenServiceHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\99-Shared\Case3Key.snk">
@@ -87,6 +99,10 @@
     <ProjectReference Include="..\Case3.PcSBestellen.Agent\09 - Agent.csproj">
       <Project>{91ac1292-b089-46ea-8cca-0919b6ce637a}</Project>
       <Name>09 - Agent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSBestellen.Contract\02 - Contract.csproj">
+      <Project>{3AC7389B-7507-4B69-93EB-181A1B917801}</Project>
+      <Name>02 - Contract</Name>
     </ProjectReference>
     <ProjectReference Include="..\Case3.PcSBestellen.Implementation\04 - Implementation.csproj">
       <Project>{3520eb86-5dd7-424f-a046-219231fe7c83}</Project>

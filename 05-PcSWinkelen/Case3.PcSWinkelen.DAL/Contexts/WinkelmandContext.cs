@@ -31,9 +31,9 @@ namespace Case3.PcSWinkelen.DAL.Contexts
         {
             if (modelBuilder != null)
             {
-                modelBuilder.Configurations.Add<WinkelmandItem>(new WinkelmandItemMapping());
-                base.OnModelCreating(modelBuilder);
-            }
+            modelBuilder.Configurations.Add<WinkelmandItem>(new WinkelmandItemMapping());
+            base.OnModelCreating(modelBuilder);
+        }
         }
 
         /// <summary>

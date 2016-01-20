@@ -7,6 +7,7 @@ using Case3.Common.Faults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Case3.PcSWinkelen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Agent.Managers
 {
@@ -77,12 +78,12 @@ namespace Case3.PcSWinkelen.Agent.Managers
                     catch (ProductVoorraadNotFoundException) //Product voorraad not found
                     {
                         if (product.LeverbaarTot > DateTime.Now) //If products is still leverbaar
-                        {
+                    {
                             resultProductVoorraad.Add(new CatalogusProductItem() //Add product with voorraad 0 to list
-                            {
-                                Product = product,
+                    {
+                        Product = product,
                                 Voorraad = 0
-                            });
+                    });
                         } //If product not leverbaar, don't add to list.
                     }
                     

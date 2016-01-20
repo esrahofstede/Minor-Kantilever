@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Case3.PcSWinkelen.Agent.Agents
 {
     /// <summary>
-    /// Agent class which has connection with the BSCatalogusBeheerAgent
+    /// Agent class for the communication with the BSCatalogusBeheer service
     /// </summary>
     public class BSCatalogusBeheerAgent : IBSCatalogusBeheerAgent
     {

@@ -46,6 +46,16 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithoutBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugWithoutBuild\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -80,7 +90,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>svcutil.exe ^
+    <PreBuildEvent>if not $(ConfigurationName) == DebugWithoutBuild ^
+svcutil.exe ^
  /dataContractOnly ^
  /out:$(ProjectDir)DTO\PcSBestellenTypes.cs ^
  /r:"$(SolutionDir)Case3.PcSBestellen.Schema\bin\$(ConfigurationName)\Case3.PcSBestellen.Schema.dll" ^
@@ -90,7 +101,8 @@
  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.BSCatalogusBeheer.Schema.CategorieNS" ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Product.xsd" ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Categorie.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Schema\*.xsd"
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Schema\*.xsd" ^
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\ErrorLijst.xsd"
 
 </PreBuildEvent>
   </PropertyGroup>

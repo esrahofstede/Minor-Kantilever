@@ -4,9 +4,6 @@ using Case3.PcSWinkelen.MessagesNS;
 using Case3.PcSWinkelen.SchemaNS;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Linq;
 using Case3.PcSWinkelen.Agent.Agents;
 using Case3.PcSWinkelen.Agent.Interfaces;
@@ -15,12 +12,14 @@ using Case3.PcSWinkelen.Implementation.Mappers;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
 using System.ServiceModel;
+using WinkelenNS = Case3.PcSWinkelen.SchemaNS;
+using case3common.v1.faults;
 using System.Web.Hosting;
 using DTOSchema = Case3.PcSWinkelen.SchemaNS;
 using Case3.Common.Faults;
 using System.Runtime.Serialization;
-using System.Linq.Expressions;
-using Case3.PcSBestellen.SchemaNS;
+using AutoMapper;
+using BestellenNS = Case3.PcSBestellen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -42,6 +41,7 @@ namespace Case3.PcSWinkelen.Implementation
         private IBSCatalogusBeheerAgent _catalogusBeheerAgent;
         private IPcSBestellenAgent _bestellenAgent;
         private ICatalogusManager _manager;
+        private IBestelItemWinkelmandItemMapper _bestelItemWinkelmandItemMapper;
 
         /// <summary>
         /// Custom constructor for testing purposes
@@ -50,10 +50,13 @@ namespace Case3.PcSWinkelen.Implementation
         /// <param name="catalogusBeheerAgent">The winkelmand agent which is to be used. Must implement IBSCatalogusBeheerAgent</param>
         /// <param name="dtoMapper">The DTO mapper which is to be used. Must implement IWinkelmandItemDTOMapper</param>
         /// <param name="bestellenAgent"></param>
+        /// <param name="bestelItemWinkelmandItemMapper"></param>
         public PcSWinkelenServiceHandler(
-            IWinkelmandDataMapper dataMapper,
+            IWinkelmandDataMapper dataMapper, 
             IBSCatalogusBeheerAgent catalogusBeheerAgent,
             IWinkelmandItemDTOMapper dtoMapper,
+            IPcSBestellenAgent bestellenAgent,
+            IBestelItemWinkelmandItemMapper bestelItemWinkelmandItemMapper)
             IPcSBestellenAgent bestellenAgent,
             ICatalogusManager manager)
         {
@@ -62,6 +65,7 @@ namespace Case3.PcSWinkelen.Implementation
             _catalogusBeheerAgent = catalogusBeheerAgent;
             _bestellenAgent = bestellenAgent;
             _manager = manager;
+            _bestelItemWinkelmandItemMapper = bestelItemWinkelmandItemMapper;
             log4net.Config.XmlConfigurator.Configure();
         }
 
@@ -74,9 +78,11 @@ namespace Case3.PcSWinkelen.Implementation
             log4net.Config.XmlConfigurator.Configure();
             _winkelmandDataMapper = new WinkelmandDataMapper();
             _winkelmandItemDTOMapper = new WinkelmandItemDTOMapper();
+            _bestelItemWinkelmandItemMapper = new BestelItemWinkelmandItemMapper();
             try
             {
-                _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
+                _bestellenAgent = new PcSBestellenAgent();
+            _catalogusBeheerAgent = new BSCatalogusBeheerAgent();
                 _manager = new CatalogusManager();
             }
             catch (TechnicalException ex)
@@ -101,7 +107,7 @@ namespace Case3.PcSWinkelen.Implementation
             {
                 throw new FaultException<ErrorLijst>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
             }
-
+            
         }
 
         /// <summary>
@@ -119,18 +125,18 @@ namespace Case3.PcSWinkelen.Implementation
                     ICatalogusManager catalogusManager = _manager;
                     IEnumerable<CatalogusProductItem> productVoorraadList = catalogusManager.GetVoorraadWithProductsList(request.Page, request.PageSize);
                     foreach (CatalogusProductItem productVoorraad in productVoorraadList)
-                    {
-                        catalogusCollection.Add(new CatalogusProductItem()
-                        {
-                            Product = productVoorraad.Product,
-                            Voorraad = productVoorraad.Voorraad
-                        });
-                    }
+            {
+                catalogusCollection.Add(new CatalogusProductItem()
+                {
+                    Product = productVoorraad.Product,
+                    Voorraad = productVoorraad.Voorraad
+                });
+            }
                 }
                 catch (TechnicalException ex)
                 {
                     _list.Add(new ErrorDetail()
-                    {
+                {
                         ErrorCode = 2,
                         Message = ex.Message,
                         Data = ex.Data
@@ -138,15 +144,15 @@ namespace Case3.PcSWinkelen.Implementation
                     _logger.Fatal(ex.Message, ex);
                 }
                 catch (Exception ex)
-                {
-                    _list.Add(new ErrorDetail()
                     {
+                    _list.Add(new ErrorDetail()
+                        {
                         ErrorCode = 2,
                         Message = ex.Message,
                         Data = ex.Data
                     });
                     _logger.Fatal(ex.Message, ex);
-                }
+                        }
                 if (_list.Count > 0)
                 {
                     throw new FaultException<ErrorLijst>(_list, "Er heeft een fout plaatsgevonden in PcSWinkelen. Zie de innerdetails voor meer informatie.");
@@ -171,50 +177,50 @@ namespace Case3.PcSWinkelen.Implementation
         {
             if (request != null)
             {
-                Product product;
-                try
-                {
-                    product = _catalogusBeheerAgent.GetProductById(request.WinkelmandItemRef.ProductId);
-                }
-                catch (CommunicationException ex)
-                {
-                    _logger.Fatal(ex.Message, ex);
-                    throw new FaultException("Ophalen product ging niet");
-                }
-
-
-                var winkelmandItem = new DTOSchema.WinkelmandItem
-                {
-                    Product = product,
-                    Aantal = request.WinkelmandItemRef.Aantal,
-                    SessieId = request.WinkelmandItemRef.SessieId
-                };
-
-                var itemToInsert = _winkelmandItemDTOMapper.MapDTOToEntity(winkelmandItem);
-                //var duplicates = _winkelmandDataMapper.FindAllBy(i => i.ID == itemToInsert.ID 
-                //                                                && i.SessieID == itemToInsert.SessieID)
-                //                                                .ToList();
-                //if (duplicates.Count > 0) //item is already in Winkelmand
-                //{
-                //    //update
-                //    itemToInsert.Aantal++;
-                //    _winkelmandDataMapper.Update(itemToInsert);
-
-                //}
-                //else
-                //{
-                try
-                {
-                    _winkelmandDataMapper.Insert(itemToInsert);
-                }
-                catch (Exception ex)
-                {
-                    _logger.Fatal("Database fout", ex);
-                    throw new FaultException(ex.InnerException.Message);
-                }
-
-                return new AddItemToWinkelmandResponseMessage { Succeeded = true };
+            Product product;
+            try
+            {
+                product = _catalogusBeheerAgent.GetProductById(request.WinkelmandItemRef.ProductId);
             }
+            catch (CommunicationException ex)
+            {
+                    _logger.Fatal(ex.Message, ex);
+                throw new FaultException("Ophalen product ging niet");
+            }
+
+
+            var winkelmandItem = new WinkelmandItem
+            {
+                Product = product,
+                Aantal = request.WinkelmandItemRef.Aantal,
+                SessieId = request.WinkelmandItemRef.SessieId
+            };
+
+            var itemToInsert = _winkelmandItemDTOMapper.MapDTOToEntity(winkelmandItem);
+            //var duplicates = _winkelmandDataMapper.FindAllBy(i => i.ID == itemToInsert.ID 
+            //                                                && i.SessieID == itemToInsert.SessieID)
+            //                                                .ToList();
+            //if (duplicates.Count > 0) //item is already in Winkelmand
+            //{
+            //    //update
+            //    itemToInsert.Aantal++;
+            //    _winkelmandDataMapper.Update(itemToInsert);
+
+            //}
+            //else
+            //{
+            try
+            {
+            _winkelmandDataMapper.Insert(itemToInsert);
+            }
+            catch (Exception ex)
+            {
+                _logger.Fatal("Database fout", ex);
+                throw new FaultException(ex.InnerException.Message);
+            }
+
+            return new AddItemToWinkelmandResponseMessage { Succeeded = true };
+        }
             else
             {
                 return new AddItemToWinkelmandResponseMessage { Succeeded = false };
@@ -233,19 +239,19 @@ namespace Case3.PcSWinkelen.Implementation
             response.SessieId = request.SessieId;
             try
             {
-                var winkelmandItems = _winkelmandDataMapper.FindAllBy(w => w.SessieID == request.SessieId).ToList();
+            var winkelmandItems = _winkelmandDataMapper.FindAllBy(w => w.SessieID == request.SessieId).ToList();
 
-                foreach (var winkelmandItem in winkelmandItems)
+            foreach (var winkelmandItem in winkelmandItems)
+            {
+                try
                 {
-                    try
-                    {
-                        response.WinkelmandCollection.Add(_winkelmandItemDTOMapper.MapEntityToDTO(winkelmandItem));
-                    }
-                    catch (NullReferenceException)
-                    {
-                        throw new FaultException("DTOMapping couldn't be completed for item: " + winkelmandItem.Naam + " with id: " + winkelmandItem.ProductID);
-                    }
+                    response.WinkelmandCollection.Add(_winkelmandItemDTOMapper.MapEntityToDTO(winkelmandItem));
                 }
+                catch (NullReferenceException)
+                {
+                    throw new FaultException("DTOMapping couldn't be completed for item: " + winkelmandItem.Naam + " with id: " + winkelmandItem.ProductID);
+                }
+            }
 
             }
             catch (Exception ex)
@@ -261,13 +267,34 @@ namespace Case3.PcSWinkelen.Implementation
         /// Calls the agent PcSBestellen
         /// Retrieves the winkelmanditems from the database
         /// Sends all the items to the PcSBestellen
+        /// Deletes the winkelmand from the PcSBestellen database
         /// </summary>
         /// <param name="bestelling">The session id of the client</param>
         /// <returns></returns>
         public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
         {
             var response = new WinkelmandBestellenResponseMessage();
-            _bestellenAgent.BestellingPlaatsen(new BestellingPcS());
+            var winkelmandItems = _winkelmandDataMapper.FindAllBy(wi => wi.SessieID == bestelling.SessieId);
+            var bestelItems = _bestelItemWinkelmandItemMapper.MapWinkelmandItemsToBestelItems(winkelmandItems);
+
+            Mapper.Initialize(asd => asd.CreateMap<KlantgegevensPcS, BestellenNS.KlantgegevensPcS>()
+                .IgnoreAllPropertiesWithAnInaccessibleSetter());
+            var klantgegevens = Mapper.Map<BestellenNS.KlantgegevensPcS>(bestelling.Klantgegevens);
+
+            Mapper.Initialize(asd => asd.CreateMap<BestellenNS.BestelItemPcS, BestellenNS.BestelItemPcS>()
+                .IgnoreAllPropertiesWithAnInaccessibleSetter());
+            var artikelenPcS = Mapper.Map<BestellenNS.ArtikelenPcS>(bestelItems);
+
+            var bestellingPcS = new BestellenNS.BestellingPcS
+            {
+                Klantgegevens = klantgegevens,
+                ArtikelenPcS = artikelenPcS
+            };
+
+            _bestellenAgent.BestellingPlaatsenAsync(bestellingPcS);
+
+            //_winkelmandDataMapper.Delete(_winkelmandDataMapper.FindBySessieID(bestelling.SessieId));
+
             return response;
         }
     }

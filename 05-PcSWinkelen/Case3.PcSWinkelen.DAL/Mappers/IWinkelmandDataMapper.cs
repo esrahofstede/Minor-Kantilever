@@ -31,5 +31,18 @@ namespace Case3.PcSWinkelen.DAL.Mappers
         /// </summary>
         /// <param name="updatedItem"></param>
         void Update(WinkelmandItem updatedItem);
+
+        /// <summary>
+        /// Method to delete a existing winkelmanditem
+        /// </summary>
+        /// <param name="deleteItem"></param>
+        void Delete(WinkelmandItem deleteItem);
+
+        /// <summary>
+        /// Method to find a winkelmanditem by sessieID
+        /// </summary>
+        /// <param name="sessieID"></param>
+        /// <returns></returns>
+        WinkelmandItem FindBySessieID(string sessieID);
     }
 }

@@ -67,6 +67,10 @@
     <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -86,6 +90,8 @@
   <ItemGroup>
     <Compile Include="DummyData.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Mappers\BestelItemWinkelmandItemMapper.cs" />
+    <Compile Include="Mappers\IBestelItemWinkelmandItemMapper.cs" />
     <Compile Include="Mappers\IWinkelmandItemDTOMapper.cs" />
     <Compile Include="Mappers\WinkelmandItemDTOMapper.cs" />
     <Compile Include="PcSWinkelenServiceHandler.cs" />
@@ -116,9 +122,13 @@
       <Project>{949FB4D2-FEB9-44EC-93BA-359C1BBCD860}</Project>
       <Name>08 - Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01c-PcSWinkelenSchema.csproj">
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSBestellenSchema\01c-PcSBestellenSchema.csproj">
+      <Project>{be21d871-9ecd-49ad-a204-9e4aaefc96f4}</Project>
+      <Name>01c-PcSBestellenSchema</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01d-PcSWinkelenSchema.csproj">
       <Project>{2742240d-a070-44a7-8560-8c8ba25a1c7b}</Project>
-      <Name>01c-PcSWinkelenSchema</Name>
+      <Name>01d-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
