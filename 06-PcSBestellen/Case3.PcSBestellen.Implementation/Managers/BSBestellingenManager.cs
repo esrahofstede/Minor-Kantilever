@@ -17,21 +17,21 @@ namespace Case3.PcSBestellen.Implementation.Managers
     /// </summary>
     public class BSBestellingenManager : IBSBestellingenManager
     {
-        private IBsBestellingenbeheerAgent _bsBestellingenAgent;
+        private IBSBestellingenbeheerAgent _bsBestellingenAgent;
 
         /// <summary>
         /// This is the default constructor
         /// </summary>
         public BSBestellingenManager()
         {
-            _bsBestellingenAgent = new BsBestellingenbeheerAgent();
+            _bsBestellingenAgent = new BSBestellingenbeheerAgent();
         }
 
         /// <summary>
         /// This constructor is for testing purposes
         /// </summary>
         /// <param name="agent">This should be a mock of IBsBestellingenbeheerAgent</param>
-        public BSBestellingenManager(IBsBestellingenbeheerAgent agent)
+        public BSBestellingenManager(IBSBestellingenbeheerAgent agent)
         {
             _bsBestellingenAgent = agent;
         }

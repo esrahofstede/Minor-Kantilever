@@ -1,4 +1,5 @@
 ﻿using Case3.BSBestellingenbeheer.V1.Messages;
+using Case3.PcSBestellen.V1.Messages;
 
 namespace Case3.PcSBestellen.Agent.Interfaces
 {
@@ -13,5 +14,8 @@ namespace Case3.PcSBestellen.Agent.Interfaces
         /// <param name="requestMessage">The Request Message</param>
         /// <returns>Returns a FindFirstBestellingResultMessage</returns>
         FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage);
+
+        BestellingPlaatsenResultMessage BestellingPlaatsen(BestellingPlaatsenRequestMessage bestelling);
+        BestellingPlaatsenResultMessage BestellingPlaatsenAsync(BestellingPlaatsenRequestMessage bestelling);
     }
 }

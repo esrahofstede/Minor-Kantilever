@@ -62,7 +62,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
         public void BSBestellingenManagerConvertsFindFirstResultMessageToFindNextResultMessage()
         {
             // Arrange
-            var mock = new Mock<IBsBestellingenbeheerAgent>(MockBehavior.Strict);
+            var mock = new Mock<IBSBestellingenbeheerAgent>(MockBehavior.Strict);
 
             var manager = new BSBestellingenManager(mock.Object);
             var findFirstResultMessage = CreateFindFirstBestellingResultMessage();
@@ -90,7 +90,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
         public void BSBestellingenManagerConvertsFindNextRequestMessageToFindFirstRequestMessage()
         {
             // Arrange
-            var mock = new Mock<IBsBestellingenbeheerAgent>(MockBehavior.Strict);
+            var mock = new Mock<IBSBestellingenbeheerAgent>(MockBehavior.Strict);
 
             var manager = new BSBestellingenManager(mock.Object);
             var findNextRequestMessage = CreateFindNextBestellingRequestMessage();
@@ -109,7 +109,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
             // Arrange
             var findNextRequestMessage = CreateFindNextBestellingRequestMessage();
             var findFirstResultMessage = CreateFindFirstBestellingResultMessage();
-            var mock = new Mock<IBsBestellingenbeheerAgent>(MockBehavior.Strict);
+            var mock = new Mock<IBSBestellingenbeheerAgent>(MockBehavior.Strict);
             mock.Setup(m => m.FindFirstBestelling(It.IsAny<FindFirstBestellingRequestMessage>()))
                 .Returns(findFirstResultMessage);
 

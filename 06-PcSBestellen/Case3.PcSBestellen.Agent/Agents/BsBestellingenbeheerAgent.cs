@@ -1,5 +1,6 @@
 ﻿using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.PcSBestellen.Agent.Interfaces;
+using Case3.PcSBestellen.V1.Messages;
 using Minor.ServiceBus.Agent.Implementation;
 
 namespace Case3.PcSBestellen.Agent.Agents
@@ -41,9 +42,14 @@ namespace Case3.PcSBestellen.Agent.Agents
             return result;
         }
 
-        public  BestellingPlaatsen()
+        public BestellingPlaatsenResultMessage BestellingPlaatsen(BestellingPlaatsenRequestMessage bestelling)
         {
-            
+            return new BestellingPlaatsenResultMessage();
+        }
+
+        public BestellingPlaatsenResultMessage BestellingPlaatsenAsync(BestellingPlaatsenRequestMessage bestelling)
+        {
+            return new BestellingPlaatsenResultMessage();
         }
     }
 }

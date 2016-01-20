@@ -55,7 +55,7 @@ namespace Case3.PcSBestellen.Agent.Tests.Agents
             mock.Setup(m => m.FindFirstBestelling(It.IsAny<FindFirstBestellingRequestMessage>()))
                 .Returns(resultMessage);
 
-            var agent = new BsBestellingenbeheerAgent(mock.Object);
+            var agent = new BSBestellingenbeheerAgent(mock.Object);
 
             //Act
             var result = agent.FindFirstBestelling(new FindFirstBestellingRequestMessage());
@@ -74,7 +74,7 @@ namespace Case3.PcSBestellen.Agent.Tests.Agents
             mock.Setup(m => m.FindFirstBestelling(It.IsAny<FindFirstBestellingRequestMessage>()))
                 .Returns(resultMessage);
 
-            var agent = new BsBestellingenbeheerAgent(mock.Object);
+            var agent = new BSBestellingenbeheerAgent(mock.Object);
 
             //Act
             var result = agent.FindFirstBestelling(new FindFirstBestellingRequestMessage());
