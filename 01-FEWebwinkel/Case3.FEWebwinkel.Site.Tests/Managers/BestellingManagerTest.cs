@@ -66,14 +66,14 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             var klant = CreateKlant();
             //needed to prevent that BestellingManager connects to PcSWinkelen
             var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
-            agentMock.Setup(x => x.SendBestelling("test", It.IsAny<Klantgegevens>()));
+            agentMock.Setup(x => x.SendBestelling("test", It.IsAny<Klantgegevens>(), It.IsAny<int>()));
             var target = new BestellingManager(agentMock.Object);
 
             // Act
             target.PlaatsBestelling("test", klant);
 
             // Assert
-            agentMock.Verify(x => x.SendBestelling("test", It.IsAny<Klantgegevens>()), Times.Once());
+            agentMock.Verify(x => x.SendBestelling("test", It.IsAny<Klantgegevens>(), It.IsAny<int>()), Times.Once());
         }
     }
 }

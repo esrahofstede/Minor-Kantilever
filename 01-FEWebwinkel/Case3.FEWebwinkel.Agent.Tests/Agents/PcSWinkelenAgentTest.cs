@@ -177,7 +177,7 @@ namespace Case3.FEWebwinkel.Agent.Tests.Agents
                 .Returns(It.IsAny<WinkelmandBestellenResponseMessage>());
 
             //Act
-            agent.SendBestelling("test", It.IsAny<Klantgegevens>());
+            agent.SendBestelling("test", It.IsAny<Klantgegevens>(), It.IsAny<int>());
 
             //Assert
             //Expect TechnicalException

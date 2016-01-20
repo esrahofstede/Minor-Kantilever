@@ -136,11 +136,12 @@ namespace Case3.FEWebwinkel.Agent
         /// <summary>
         /// Sends a Bestelling
         /// </summary>
-        /// <param name="sessionId">The sessionID, used to send the Winkelmand</param>
-        /// <param name="klant">The data of the Klant</param>
-        public void SendBestelling(string sessionId, Klantgegevens klant)
+        /// <param name="sessionId">The session ID to get the Winkelmand data</param>
+        /// <param name="klant">The Klant data</param>
+        /// <param name="btwPercentage">The current Btw-percentage</param>
+        public void SendBestelling(string sessionId, Klantgegevens klant, int btwPercentage)
         {
-            _agent.WinkelmandBestellen(new WinkelmandBestellenRequestMessage() { SessieId = sessionId, Klantgegevens = klant});
+            _agent.WinkelmandBestellen(new WinkelmandBestellenRequestMessage() { SessieId = sessionId, Klantgegevens = klant, BTWPercentage = btwPercentage });
         }
     }
 }
