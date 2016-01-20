@@ -1,4 +1,5 @@
 ﻿using Case3.BSBestellingenbeheer.V1.Messages;
+using Case3.Common.Faults;
 using System.ServiceModel;
 
 namespace Case3.BSBestellingenbeheer.Contract
@@ -18,11 +19,12 @@ namespace Case3.BSBestellingenbeheer.Contract
         FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage);
 
         /// <summary>
-        /// Method to insert a bestelling to the database
+        /// Method to insert a bestelling to the database. Could throw a FaultException with ErrorLijst list.
         /// </summary>
         /// <param name="bestelling">The request message containing the Bestelling to insert</param>
         /// <returns>Returns an InsertBestellingResultMessage</returns>
         [OperationContract]
+        [FaultContract(typeof(ErrorLijst))]
         InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling);
 
         /// <summary>

@@ -10,6 +10,7 @@
 
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.ProductNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.CategorieNS")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-common:v1:faults", ClrNamespace="Case3.Common.Faults")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="Case3.BSBestellingenbeheer.V1.Schema")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:messages", ClrNamespace="Case3.BSBestellingenbeheer.V1.Messages")]
 
@@ -230,6 +231,97 @@ namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
         }
     }
 }
+namespace Case3.Common.Faults
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ErrorDetail", Namespace="urn:case3-common:v1:faults")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.ProductNS.Product))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.CategorieNS.Categorie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.Common.Faults.ErrorLijst))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Schema.Bestelling))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Schema.BestelItem))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Schema.Klantgegevens))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Schema.Artikelen))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage))]
+    public partial class ErrorDetail : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ErrorCodeField;
+        
+        private string MessageField;
+        
+        private object DataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ErrorCode
+        {
+            get
+            {
+                return this.ErrorCodeField;
+            }
+            set
+            {
+                this.ErrorCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string Message
+        {
+            get
+            {
+                return this.MessageField;
+            }
+            set
+            {
+                this.MessageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public object Data
+        {
+            get
+            {
+                return this.DataField;
+            }
+            set
+            {
+                this.DataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ErrorLijst", Namespace="urn:case3-common:v1:faults", ItemName="ErrorDetail")]
+    public class ErrorLijst : System.Collections.Generic.List<Case3.Common.Faults.ErrorDetail>
+    {
+    }
+}
 namespace Case3.BSBestellingenbeheer.V1.Schema
 {
     using System.Runtime.Serialization;
@@ -342,6 +434,57 @@ namespace Case3.BSBestellingenbeheer.V1.Schema
             set
             {
                 this.KlantgegevensField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BestelItem", Namespace="urn:case3-bsbestellingenbeheer:v1:schema")]
+    public partial class BestelItem : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.BSCatalogusBeheer.Schema.ProductNS.Product ProductField;
+        
+        private int AantalField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.BSCatalogusBeheer.Schema.ProductNS.Product Product
+        {
+            get
+            {
+                return this.ProductField;
+            }
+            set
+            {
+                this.ProductField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int Aantal
+        {
+            get
+            {
+                return this.AantalField;
+            }
+            set
+            {
+                this.AantalField = value;
             }
         }
     }
@@ -462,57 +605,6 @@ namespace Case3.BSBestellingenbeheer.V1.Schema
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Artikelen", Namespace="urn:case3-bsbestellingenbeheer:v1:schema", ItemName="ArtikelItem")]
     public class Artikelen : System.Collections.Generic.List<Case3.BSBestellingenbeheer.V1.Schema.BestelItem>
     {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BestelItem", Namespace="urn:case3-bsbestellingenbeheer:v1:schema")]
-    public partial class BestelItem : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private Case3.BSCatalogusBeheer.Schema.ProductNS.Product ProductField;
-        
-        private int AantalField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.BSCatalogusBeheer.Schema.ProductNS.Product Product
-        {
-            get
-            {
-                return this.ProductField;
-            }
-            set
-            {
-                this.ProductField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
-        public int Aantal
-        {
-            get
-            {
-                return this.AantalField;
-            }
-            set
-            {
-                this.AantalField = value;
-            }
-        }
     }
 }
 namespace Case3.BSBestellingenbeheer.V1.Messages

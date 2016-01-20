@@ -4,10 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.Data.Entity.Validation;
+using Case3.BSBestellingenbeheer.DAL.Exceptions;
 
 namespace Case3.BSBestellingenbeheer.DAL.DataMappers
 {
@@ -16,6 +15,10 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
     /// </summary>
     public class BestellingDataMapper : IDataMapper<Bestelling,long>
     {
+        /// <summary>
+        /// This method persists a bestelling entity. If the operation could not complete, an error is thrown.
+        /// </summary>
+        /// <param name="item">Bestelling entity</param>
         public void Insert(Bestelling item)
         {
             using (var context = new BestellingContext())
@@ -25,9 +28,13 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
                     context.Bestellingen.Add(item);
                     context.SaveChanges();
                 }
+                catch (DbEntityValidationException)
+                {
+                    throw new FunctionalException("De bestelling kon niet opgeslagen worden.");
+                }
                 catch (Exception)
                 {
-                    throw;
+                    throw new TechnicalException("Er is een technische fout opgetreden tijdens het toevoegen van de bestelling");
                 }
             }
         }

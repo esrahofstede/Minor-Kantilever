@@ -6,6 +6,7 @@ using Moq;
 using Case3.BSBestellingenbeheer.Implementation.Tests.Mocks;
 using System.Data.Entity.Validation;
 using System.Collections.Generic;
+using Case3.BSBestellingenbeheer.DAL.Exceptions;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Tests
 {
@@ -135,8 +136,11 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             Assert.AreEqual(datum.ToString(), result.FactuurDatum);
         }
 
+        /// <summary>
+        /// This method uses a mock to verify if a valid product is inserted succesfully.
+        /// </summary>
         [TestMethod]
-        public void InsertBestellingAddsProduct()
+        public void InsertBestellingIncrementsCount()
         {
             //Arrange
             var mock = new BestellingDataMapperMock();
@@ -151,8 +155,11 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             Assert.AreEqual(initialValue + 1, mock.Count);
         }
 
+        /// <summary>
+        /// This integration test tests if inserting an invalid Bestelling throws an FunctionalException.
+        /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(FunctionalException))]
         public void Integration_InsertInvalidBestellingsThrowsException()
         {
             //Assert
@@ -162,9 +169,12 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             manager.InsertBestelling(_bestellingInvalid);
 
             //Arrange
-            //Expect InvalidOperationException
+            //Expect FunctionalException
         }
 
+        /// <summary>
+        /// This method verifies a product is added succesfully, even if the datetime is in bad format.
+        /// </summary>
         [TestMethod]
         public void InvalidDateTimeInsertDoesNotThrowException()
         {
@@ -175,6 +185,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             manager.InsertBestelling(_bestellingInvalidDatum);
 
             //Arrange
+            //Expect no exception
         }
 
 
