@@ -30,7 +30,7 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
                 }
                 catch (DbEntityValidationException)
                 {
-                    throw new FunctionalException("De bestelling kon niet opgeslagen worden.");
+                    throw new FunctionalException("De bestelling is niet van het juiste formaat. Hij kan niet opgeslagen worden.");
                 }
                 catch (Exception)
                 {

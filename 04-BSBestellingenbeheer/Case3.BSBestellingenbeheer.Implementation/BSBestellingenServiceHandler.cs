@@ -31,11 +31,6 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// </summary>
         public BSBestellingenServiceHandler()
         {
-            Database.SetInitializer(new BestellingDbInitializerTemporary());
-            using (var context = new BestellingContext())
-            {
-                context.Database.Initialize(false);
-            }
             _bestellingManager = new BestellingManager();
             _mapper = new BestellingDataMapper();
         }

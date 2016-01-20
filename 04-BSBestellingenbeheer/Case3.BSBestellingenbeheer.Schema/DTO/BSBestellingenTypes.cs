@@ -347,6 +347,8 @@ namespace Case3.BSBestellingenbeheer.V1.Schema
         
         private Case3.BSBestellingenbeheer.V1.Schema.Klantgegevens KlantgegevensField;
         
+        private System.Nullable<int> BTWPercentageField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -434,6 +436,19 @@ namespace Case3.BSBestellingenbeheer.V1.Schema
             set
             {
                 this.KlantgegevensField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public System.Nullable<int> BTWPercentage
+        {
+            get
+            {
+                return this.BTWPercentageField;
+            }
+            set
+            {
+                this.BTWPercentageField = value;
             }
         }
     }
