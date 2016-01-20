@@ -17,7 +17,7 @@ namespace Case3.FEBestellingen.Site.Managers
     public class BestellingManager : IBestellingManager
     {
         private IPcSBestellenAgent _pcsBestellenAgent;
-        private BTWCalculator _btwCalculator;
+        private BTWCalculator _btwCalculator = new BTWCalculator();
 
         /// <summary>
         /// This constructor is the default constructor
@@ -91,7 +91,6 @@ namespace Case3.FEBestellingen.Site.Managers
         {
             return bestelling.ArtikelenPcS.Select(art => new ArtikelViewModel
             {
-                
                 Naam = art.Product.Naam,
                 Prijs = art.Product.Prijs,
                 Leveranciersnaam = art.Product.LeverancierNaam,
