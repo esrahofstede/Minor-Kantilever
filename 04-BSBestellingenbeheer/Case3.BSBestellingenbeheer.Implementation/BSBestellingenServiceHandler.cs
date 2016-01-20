@@ -67,23 +67,36 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// <returns></returns>
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage request)
         {
-            try
+            if (request != null)
             {
-                _bestellingManager.InsertBestelling(request.Bestelling);
-                return new InsertBestellingResultMessage();
+                try
+                {
+                    _bestellingManager.InsertBestelling(request.Bestelling);
+                    return new InsertBestellingResultMessage();
+                }
+                catch (Exception)
+                {
+                    throw; //FAULTEXCEPTION!!
+                }
             }
-            catch (Exception)
+            else
             {
-                throw; //FAULTEXCEPTION!!
-            }  
+                throw new ArgumentNullException("Er is geen bestelling opgegeven."); //FAULTEXCEPTION!!
+            }
         }
 
         public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestelling)
         {
-            BestellingDataMapper mapper = new BestellingDataMapper();
-            mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
-
-            return new UpdateBestellingStatusResultMessage();
+            if (bestelling != null)
+            {
+                BestellingDataMapper mapper = new BestellingDataMapper();
+                mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
+                return new UpdateBestellingStatusResultMessage();
+            }
+            else
+            {
+                throw new ArgumentNullException("Er is geen bestelling opgegeven."); //FAULTEXCEPTION!!
+            }
         }
     }
 }

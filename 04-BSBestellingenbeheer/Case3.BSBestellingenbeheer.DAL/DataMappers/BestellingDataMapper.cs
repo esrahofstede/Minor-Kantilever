@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using System.Data.Entity.Validation;
 
 namespace Case3.BSBestellingenbeheer.DAL.DataMappers
 {
@@ -23,7 +24,7 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
                 {
                     context.Bestellingen.Add(item);
                     context.SaveChanges();
-                } 
+                }
                 catch (Exception)
                 {
                     throw;
