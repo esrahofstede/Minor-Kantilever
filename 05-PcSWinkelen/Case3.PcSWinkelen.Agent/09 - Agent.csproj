@@ -128,7 +128,7 @@
       <Name>01c-PcSBestellenSchema</Name>
     </ProjectReference>
     <ProjectReference Include="..\Case3.PcSWinkelen.PcSWinkelenSchema\01d-PcSWinkelenSchema.csproj">
-      <Project>{2742240d-a070-44a7-8560-8c8ba25a1c7b}</Project>
+      <Project>{2742240D-A070-44A7-8560-8C8BA25A1C7B}</Project>
       <Name>01d-PcSWinkelenSchema</Name>
     </ProjectReference>
   </ItemGroup>

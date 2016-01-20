@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Case3.PcSBestellen.MessagesNS;
+using PcSBestellenNS = Case3.PcSBestellen.MessagesNS;
 using Case3.PcSBestellen.SchemaNS;
 using Case3.PcSWinkelen.Agent.Interfaces;
 using log4net;
 using Minor.ServiceBus.Agent.Implementation;
+
 
 namespace Case3.PcSWinkelen.Agent.Agents
 {
@@ -58,7 +59,7 @@ namespace Case3.PcSWinkelen.Agent.Agents
             }
             try
             {  
-                _agent.BestellingPlaatsen(new BestellingPlaatsenRequestMessage { BestellingPcS = bestelling});
+                _agent.BestellingPlaatsen(new PcSBestellenNS.BestellingPlaatsenRequestMessage { BestellingPcS = bestelling});
             }
             catch (Exception ex)
             {

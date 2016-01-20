@@ -11,6 +11,7 @@
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.CategorieNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:messages", ClrNamespace="Case3.PcSBestellen.V1.Messages")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:schema", ClrNamespace="Case3.PcSBestellen.V1.Schema")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-common:v1:faults", ClrNamespace="case3common.v1.faults")]
 
 namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
 {
@@ -346,7 +347,7 @@ namespace Case3.PcSBestellen.V1.Schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
         public Case3.PcSBestellen.V1.Schema.ArtikelenPcS ArtikelenPcS
         {
             get
@@ -527,5 +528,96 @@ namespace Case3.PcSBestellen.V1.Schema
                 this.AantalField = value;
             }
         }
+    }
+}
+namespace case3common.v1.faults
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ErrorDetail", Namespace="urn:case3-common:v1:faults")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.ProductNS.Product))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.CategorieNS.Categorie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.V1.Messages.FindNextBestellingRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.V1.Messages.FindNextBestellingResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.V1.Messages.BestellingPlaatsenRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.V1.Messages.BestellingPlaatsenResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.V1.Messages.UpdateBestellingStatusRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.V1.Messages.UpdateBestellingStatusResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.V1.Schema.BestellingPcS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.V1.Schema.BestelItemPcS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.V1.Schema.KlantgegevensPcS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.PcSBestellen.V1.Schema.ArtikelenPcS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.ErrorLijst))]
+    public partial class ErrorDetail : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ErrorCodeField;
+        
+        private string MessageField;
+        
+        private object DataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ErrorCode
+        {
+            get
+            {
+                return this.ErrorCodeField;
+            }
+            set
+            {
+                this.ErrorCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string Message
+        {
+            get
+            {
+                return this.MessageField;
+            }
+            set
+            {
+                this.MessageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public object Data
+        {
+            get
+            {
+                return this.DataField;
+            }
+            set
+            {
+                this.DataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ErrorLijst", Namespace="urn:case3-common:v1:faults", ItemName="ErrorDetail")]
+    public class ErrorLijst : System.Collections.Generic.List<case3common.v1.faults.ErrorDetail>
+    {
     }
 }
