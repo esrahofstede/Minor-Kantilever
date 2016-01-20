@@ -19,7 +19,13 @@
   <xs:element name="FindFirstBestellingResultMessage" nillable="true" type="tns:FindFirstBestellingResultMessage" />
   <xs:complexType name="InsertBestellingRequestMessage">
     <xs:sequence>
-      <xs:element name="Bestelling" nillable="true" xmlns:q2="urn:case3-bsbestellingenbeheer:v1:schema" type="q2:Bestelling" />
+      <xs:element name="Bestelling" nillable="true" xmlns:q2="urn:case3-bsbestellingenbeheer:v1:schema" type="q2:Bestelling">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:element name="InsertBestellingRequestMessage" nillable="true" type="tns:InsertBestellingRequestMessage" />
@@ -27,14 +33,14 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="InsertBestellingResultMessage" nillable="true" type="tns:InsertBestellingResultMessage" />
-  <xs:complexType name="UpdateBestellingRequestMessage">
+  <xs:complexType name="UpdateBestellingStatusRequestMessage">
     <xs:sequence>
-      <xs:element name="Bestelling" nillable="true" xmlns:q3="urn:case3-bsbestellingenbeheer:v1:schema" type="q3:Bestelling" />
+      <xs:element name="BestellingID" type="xs:long" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="UpdateBestellingRequestMessage" nillable="true" type="tns:UpdateBestellingRequestMessage" />
-  <xs:complexType name="UpdateBestellingResultMessage">
+  <xs:element name="UpdateBestellingStatusRequestMessage" nillable="true" type="tns:UpdateBestellingStatusRequestMessage" />
+  <xs:complexType name="UpdateBestellingStatusResultMessage">
     <xs:sequence />
   </xs:complexType>
-  <xs:element name="UpdateBestellingResultMessage" nillable="true" type="tns:UpdateBestellingResultMessage" />
+  <xs:element name="UpdateBestellingStatusResultMessage" nillable="true" type="tns:UpdateBestellingStatusResultMessage" />
 </xs:schema>

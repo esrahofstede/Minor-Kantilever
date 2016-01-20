@@ -75,6 +75,10 @@
     <Compile Include="BSBestellingenServiceHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Case3.BSBestellingenbeheer.Entities\08 - Entities.csproj">
+      <Project>{0fb9a314-fd9d-4689-862c-02c7852a3ecd}</Project>
+      <Name>08 - Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.BSBestellingenbeheer.Implementation\04 - Implementation.csproj">
       <Project>{afc6389e-ad95-46a6-8b97-8b3c47e85c40}</Project>
       <Name>04 - Implementation</Name>

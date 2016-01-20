@@ -13,48 +13,40 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
 {
     public class BestellingManager : IBestellingManager
     {
-        /// <summary>
-        /// This method returns the First bestelling to be packed.
-        /// </summary>
-        /// <returns>Bestelling to be packed</returns>
-        public Bestelling FindFirstBestelling()
+        public Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity)
         {
 
-            Bestelling bestelling = new Bestelling()
+            Bestelling bestellingDTO = new Bestelling()
             {
-                Artikelen = new Artikelen()
+                Artikelen = new Artikelen(),
+                BestellingID = (int)bestellingEntity.ID,
+                FactuurDatum = bestellingEntity.BestelDatum.ToString()
+                
             };
 
-            BestellingDataMapper bestellingDataMappper = new BestellingDataMapper();
-
-            Entities.Bestelling bestellingEntity = null;
-
-            using (var context = new BestellingContext())
+            if (bestellingEntity != null)
             {
-                bestellingEntity = bestellingDataMappper.GetBestellingToPack(context);
-            
-                if (bestellingEntity != null)
+                if(bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
                 {
-                    if(bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
+                    foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
                     {
-                        foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
+                        bestellingDTO.Artikelen.Add(new BestelItem()
                         {
-                            bestelling.Artikelen.Add(new BestelItem()
+                            
+                            Product = new Product ()
                             {
-                                Product = new Product ()
-                                {
-                                    Naam = artikel.Naam,
-                                    LeverancierNaam = artikel.Leverancier,
-                                    LeveranciersProductId = artikel.Leverancierscode,
-                                },
-                                Aantal = artikel.Aantal
-                            });
-                        }
+                                Naam = artikel.Naam,
+                                LeverancierNaam = artikel.Leverancier,
+                                LeveranciersProductId = artikel.Leverancierscode,
+                            },
+                            Aantal = artikel.Aantal
+                        });
                     }
                 }
             }
+        
+        return bestellingDTO;
 
-            return bestelling;
         }
     }
 }

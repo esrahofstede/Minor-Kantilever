@@ -1,5 +1,6 @@
 ﻿using Case3.BSBestellingenbeheer.Contract;
 using Case3.BSBestellingenbeheer.DAL.Context;
+using Case3.BSBestellingenbeheer.DAL.DataMappers;
 using Case3.BSBestellingenbeheer.Implementation.Interfaces;
 using Case3.BSBestellingenbeheer.Implementation.Managers;
 using Case3.BSBestellingenbeheer.V1.Messages;
@@ -15,7 +16,8 @@ namespace Case3.BSBestellingenbeheer.Implementation
     /// </summary>
     public class BSBestellingenServiceHandler : IBSBestellingenbeheerService
     {
-        private IBestellingManager _bestellingManager;
+        private BestellingDataMapper _mapper;
+        private BestellingManager _manager;
 
         /// <summary>
         /// Creates instance and fills database for the first time
@@ -29,16 +31,16 @@ namespace Case3.BSBestellingenbeheer.Implementation
                 context.Database.Initialize(false);
             }
 
-            _bestellingManager = new BestellingManager();
+            _mapper = new BestellingDataMapper();
         }
 
         /// <summary>
         /// Creates instance of class but with mock possible
         /// </summary>
         /// <param name="bestellingManager"></param>
-        public BSBestellingenServiceHandler(IBestellingManager bestellingManager)
+        public BSBestellingenServiceHandler(BestellingDataMapper mapper)
         {
-            _bestellingManager = bestellingManager;
+            _mapper = mapper;
         }
 
 
@@ -49,9 +51,12 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// <returns></returns>
         public FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage)
         {
+
+            Entities.Bestelling firstBestelling = _mapper.GetBestellingToPack();
+
             return new FindFirstBestellingResultMessage()
             {
-                BestellingOpdracht = _bestellingManager.FindFirstBestelling()
+                BestellingOpdracht = _manager.ConvertBestellingEntityToDTO(firstBestelling),
             };
         }
 
@@ -65,14 +70,12 @@ namespace Case3.BSBestellingenbeheer.Implementation
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// Updates a bestelling in the database
-        /// </summary>
-        /// <param name="bestelling"></param>
-        /// <returns></returns>
-        public UpdateBestellingResultMessage UpdateBestelling(UpdateBestellingRequestMessage bestelling)
+        public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestelling)
         {
-            throw new NotImplementedException();
+            BestellingDataMapper mapper = new BestellingDataMapper();
+            mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
+
+            return new UpdateBestellingStatusResultMessage();
         }
     }
 }

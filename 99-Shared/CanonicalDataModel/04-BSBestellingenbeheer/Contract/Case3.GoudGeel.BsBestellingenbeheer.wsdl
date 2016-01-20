@@ -7,7 +7,6 @@
       <xsd:import namespace="urn:case3-bsbestellingenbeheer:v1:messages" />
       <xsd:import namespace="urn:case3-bsbestellingenbeheer:v1:schema" />
       <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" />
-      <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IBSBestellingenbeheerService_FindFirstBestelling_InputMessage">
@@ -22,11 +21,11 @@
   <wsdl:message name="IBSBestellingenbeheerService_InsertBestelling_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertBestellingResponse" />
   </wsdl:message>
-  <wsdl:message name="IBSBestellingenbeheerService_UpdateBestelling_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateBestelling" />
+  <wsdl:message name="IBSBestellingenbeheerService_UpdateBestellingStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBestellingStatus" />
   </wsdl:message>
-  <wsdl:message name="IBSBestellingenbeheerService_UpdateBestelling_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateBestellingResponse" />
+  <wsdl:message name="IBSBestellingenbeheerService_UpdateBestellingStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBestellingStatusResponse" />
   </wsdl:message>
   <wsdl:portType name="IBSBestellingenbeheerService">
     <wsdl:operation name="FindFirstBestelling">
@@ -37,9 +36,9 @@
       <wsdl:input wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestelling" message="tns:IBSBestellingenbeheerService_InsertBestelling_InputMessage" />
       <wsdl:output wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestellingResponse" message="tns:IBSBestellingenbeheerService_InsertBestelling_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateBestelling">
-      <wsdl:input wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" message="tns:IBSBestellingenbeheerService_UpdateBestelling_InputMessage" />
-      <wsdl:output wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestellingResponse" message="tns:IBSBestellingenbeheerService_UpdateBestelling_OutputMessage" />
+    <wsdl:operation name="UpdateBestellingStatus">
+      <wsdl:input wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestellingStatus" message="tns:IBSBestellingenbeheerService_UpdateBestellingStatus_InputMessage" />
+      <wsdl:output wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestellingStatusResponse" message="tns:IBSBestellingenbeheerService_UpdateBestellingStatus_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DefaultBinding_IBSBestellingenbeheerService" type="tns:IBSBestellingenbeheerService">
@@ -62,8 +61,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateBestelling">
-      <soap:operation soapAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" style="document" />
+    <wsdl:operation name="UpdateBestellingStatus">
+      <soap:operation soapAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestellingStatus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

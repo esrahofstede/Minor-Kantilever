@@ -20,9 +20,12 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         /// </summary>
         /// <param name="context">BestellingContext</param>
         /// <returns>Bestelling</returns>
-        public Bestelling GetBestellingToPack(BestellingContext context)
+        public Bestelling GetBestellingToPack()
         {
-            return context.Bestellingen.Where(b => b.Status == 0).OrderBy(b => b.BestelDatum).Include(b => b.Artikelen).FirstOrDefault();
+            using (var context = new BestellingContext())
+            {
+                return context.Bestellingen.Where(b => b.Status == 0).OrderBy(b => b.BestelDatum).Include(b => b.Artikelen).FirstOrDefault();
+            }
         }
 
         /// <summary>
