@@ -48,7 +48,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                     Status = (int)bestelling.Status,
                     KlantNaam = bestelling.Klantgegevens.Naam,
                     AdresRegel1 = bestelling.Klantgegevens.Adresregel1,
-                    AdresRegel2 = bestelling.Klantgegevens.Adresregel2 ?? string.Empty,
+                    AdresRegel2 = bestelling.Klantgegevens.Adresregel2,
                     Postcode = bestelling.Klantgegevens.Postcode,
                     Woonplaats = bestelling.Klantgegevens.Woonplaats,
                     Telefoonnummer = bestelling.Klantgegevens.Telefoonnummer,
