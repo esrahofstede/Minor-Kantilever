@@ -44,7 +44,8 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             // Arrange
             var klant = CreateKlant();
             //needed to prevent that BestellingManager connects to PcSWinkelen
-            var target = new BestellingManager();
+            var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
+            var target = new BestellingManager(agentMock.Object);
 
             // Act
             var result = target.ConvertKlantViewModelToDTO(klant);
@@ -58,7 +59,9 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         {
             // Arrange
             var klant = CreateKlant();
-            var target = new BestellingManager();
+            //needed to prevent that BestellingManager connects to PcSWinkelen
+            var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
+            var target = new BestellingManager(agentMock.Object);
 
             // Act
             var result = target.ConvertKlantViewModelToDTO(klant);
@@ -77,7 +80,9 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         {
             // Arrange
             var klant = CreateKlantWithoutTussenvoegsel();
-            var target = new BestellingManager();
+            //needed to prevent that BestellingManager connects to PcSWinkelen
+            var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
+            var target = new BestellingManager(agentMock.Object);
 
             // Act
             var result = target.ConvertKlantViewModelToDTO(klant);
