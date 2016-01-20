@@ -35,7 +35,9 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
                             Product = new BSCatalogusBeheer.Schema.ProductNS.Product()
                             {
                                 Id = 1,
-                                Naam = "Fietsbel"
+                                Naam = "Fietsbel",
+                                LeverancierNaam = "Gazelle",
+                                LeveranciersProductId = "GA01"
                             },
                             Aantal = 5
                         }
@@ -60,7 +62,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         }
 
         [TestMethod]
-        public void InsertBestellingReturnsReturnMessage()
+        public void Integration_InsertBestellingReturnsReturnMessage()
         {
             //Arrange
             var handler = new BSBestellingenServiceHandler();

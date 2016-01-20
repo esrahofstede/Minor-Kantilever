@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Case3.BSBestellingenbeheer.Implementation.Managers;
 using Case3.BSBestellingenbeheer.V1.Schema;
+using Moq;
+using Case3.BSBestellingenbeheer.Implementation.Tests.Mocks;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Tests
 {
@@ -11,6 +13,56 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
     [TestClass]
     public class BestellingenManagerTest
     {
+        #region dummydata
+        private Bestelling _bestellingValid = new Bestelling()
+        {
+            BestellingID = 1,
+            FactuurDatum = new DateTime(2015, 12, 12).ToString(),
+            FactuurID = 1,
+            Status = 1,
+            Klantgegevens = new Klantgegevens()
+            {
+                Naam = "Remco",
+                Adresregel1 = "Hofmeesterij 89",
+                Woonplaats = "Huissen",
+                Postcode = "6852NC",
+                Telefoonnummer = "0612697691"
+            },
+            Artikelen = new Artikelen()
+                    {
+                        new BestelItem()
+                        {
+                            Product = new BSCatalogusBeheer.Schema.ProductNS.Product()
+                            {
+                                Id = 1,
+                                Naam = "Fietsbel",
+                                LeverancierNaam = "Gazelle",
+                                LeveranciersProductId = "GA01"
+                            },
+                            Aantal = 5
+                        }
+                    }
+        };
+
+        private Bestelling _bestellingInvalid = new Bestelling()
+        {
+           
+            Klantgegevens = new Klantgegevens()
+            {
+            },
+            Artikelen = new Artikelen()
+                    {
+                        new BestelItem()
+                        {
+                            Product = new BSCatalogusBeheer.Schema.ProductNS.Product()
+                            {
+                               
+                            },
+                            Aantal = 5
+                        }
+                    }
+        };
+        #endregion
         /// <summary>
         /// Creates instance of BestellingManager and checks if the manager is instantiated correctly
         /// </summary>
@@ -55,6 +107,38 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             Assert.AreEqual("remschijf", result.Artikelen[1].Product.Naam);
             Assert.AreEqual("gazelle", result.Artikelen[1].Product.LeverancierNaam);
             Assert.AreEqual("oiaernglggafds234", result.Artikelen[1].Product.LeveranciersProductId);
+        }
+
+        [TestMethod]
+        public void InsertBestellingAddsProduct()
+        {
+            //Arrange
+            var mock = new BestellingDataMapperMock();
+            BestellingManager manager = new BestellingManager(mock);
+
+            //Act
+            int initialValue = mock.Count;
+            manager.InsertBestelling(_bestellingValid);
+            
+
+            //Assert
+            Assert.AreEqual(initialValue + 1, mock.Count);
+        }
+
+        [TestMethod]
+        public void InsertInvalid()
+        {
+            //Arrange
+            var mock = new BestellingDataMapperMock();
+            BestellingManager manager = new BestellingManager(mock);
+
+            //Act
+            int initialValue = mock.Count;
+            manager.InsertBestelling(_bestellingInvalid);
+
+
+            //Assert
+            Assert.AreEqual(initialValue + 1, mock.Count);
         }
     }
 }

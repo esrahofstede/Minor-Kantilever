@@ -15,6 +15,14 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
     /// </summary>
     public class BestellingDataMapper : IDataMapper<Bestelling,long>
     {
+        public void Insert(Bestelling item)
+        {
+            using (var context = new BestellingContext())
+            {
+                context.Bestellingen.Add(item);
+                context.SaveChanges();
+            }
+        }
 
         /// <summary>
         /// Gets one Bestelling where the status == 0 and ordered by BestelDatum
@@ -85,11 +93,6 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         }
 
         public Bestelling FindById(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Insert(Bestelling item)
         {
             throw new NotImplementedException();
         }

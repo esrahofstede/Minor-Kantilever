@@ -74,11 +74,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Mocks\BestellingDataMapperMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BestellingenManagerTest.cs" />
     <Compile Include="BSBestellingenServiceHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Case3.BSBestellingenbeheer.DAL\06 - DAL.csproj">
+      <Project>{c648b7a9-810b-4523-9473-686b2bff10bc}</Project>
+      <Name>06 - DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Case3.BSBestellingenbeheer.Entities\08 - Entities.csproj">
+      <Project>{0fb9a314-fd9d-4689-862c-02c7852a3ecd}</Project>
+      <Name>08 - Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.BSBestellingenbeheer.Implementation\04 - Implementation.csproj">
       <Project>{afc6389e-ad95-46a6-8b97-8b3c47e85c40}</Project>
       <Name>04 - Implementation</Name>
