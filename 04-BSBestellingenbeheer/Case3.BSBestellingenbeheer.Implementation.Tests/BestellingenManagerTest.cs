@@ -5,6 +5,7 @@ using Case3.BSBestellingenbeheer.V1.Schema;
 using Moq;
 using Case3.BSBestellingenbeheer.Implementation.Tests.Mocks;
 using System.Data.Entity.Validation;
+using System.Collections.Generic;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Tests
 {
