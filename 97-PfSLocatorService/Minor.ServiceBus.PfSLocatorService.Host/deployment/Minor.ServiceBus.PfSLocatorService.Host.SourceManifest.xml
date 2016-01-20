@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<sitemanifest>
-  <IisApp path="C:\GIT\Goudgeel\97-PfSLocatorService\Minor.ServiceBus.PfSLocatorService.Host\obj\Acceptatie\Package\PackageTmp" />
-  <setAcl path="C:\GIT\Goudgeel\97-PfSLocatorService\Minor.ServiceBus.PfSLocatorService.Host\obj\Acceptatie\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="C:\GIT\Goudgeel\97-PfSLocatorService\Minor.ServiceBus.PfSLocatorService.Host\obj\Acceptatie\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
-</sitemanifest>
