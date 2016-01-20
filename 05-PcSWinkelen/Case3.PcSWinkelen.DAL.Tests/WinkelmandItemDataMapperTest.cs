@@ -10,6 +10,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Case3.PcSWinkelen.DAL.Tests
 {
+    /// <summary>
+    /// TestClass for testint the WinkelMandItemDataMapper class and its functionalities
+    /// </summary>
     [TestClass]
     public class WinkelmandItemDataMapperTest
     {

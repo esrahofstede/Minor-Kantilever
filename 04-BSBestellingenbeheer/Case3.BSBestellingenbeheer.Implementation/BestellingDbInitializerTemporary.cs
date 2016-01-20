@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Case3.BSBestellingenbeheer.Implementation
 {
+    /// <summary>
+    /// Temporary db initializer class
+    /// </summary>
     [ExcludeFromCodeCoverageAttribute]
     internal class BestellingDbInitializerTemporary : DropCreateDatabaseIfModelChanges<BestellingContext>
     {

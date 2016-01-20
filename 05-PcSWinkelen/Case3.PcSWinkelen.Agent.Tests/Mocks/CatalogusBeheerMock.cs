@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Mocks
 {
+    /// <summary>
+    /// Class for testing purposes which creates a fake CatalogusBeheer class
+    /// </summary>
     public class CatalogusBeheerMock : ICatalogusBeheer
     {
         private bool ResponseSuccess = true;

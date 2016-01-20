@@ -9,6 +9,9 @@ using System.Globalization;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Agents
 {
+    /// <summary>
+    /// Test class which tests the functionality of the BSCatalogusBeheerAgent class
+    /// </summary>
     [TestClass]
     public class BSCatalogusBeheerAgentTest
     {
@@ -29,10 +32,10 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
         }
 
         /// <summary>
-        /// Check if return type is correct
+        /// Check if return type is correct. This test is dependent.
         /// </summary>
         [TestMethod]
-        public void CreateInstanceAndCheckReturnType()
+        public void Acceptation_CreateInstanceAndCheckReturnType()
         {
             //Assert
             BSCatalogusBeheerAgent agent = new BSCatalogusBeheerAgent();

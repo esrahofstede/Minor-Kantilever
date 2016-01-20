@@ -15,8 +15,10 @@
       <Word>Catalogus</Word>
       <Word>Catalogusbeheer</Word>
       <Word>Incl</Word>
+      <Word>Plaatsen</Word>
       <Word>Excl</Word>      
       <Word>Afbeeldingslocatie</Word>
+      <word>BSVoorraadBeheer</word>
       <Word>Webwinkel</Word>
       <Word>Prijs</Word>
       <Word>Klantbeheer</Word>
@@ -89,6 +91,7 @@
       <Word>Nog</Word>
       <Word>Eens</Word>
       <Word>Technische</Word>
+      <Word>DTO</Word>
   </Recognized>
     <Unrecognized>
     </Unrecognized>

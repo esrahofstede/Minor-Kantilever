@@ -10,6 +10,9 @@ using System.Data.Entity;
 
 namespace Case3.BSBestellingenbeheer.Implementation
 {
+    /// <summary>
+    /// Handler class for the BSBestellingenService
+    /// </summary>
     public class BSBestellingenServiceHandler : IBSBestellingenbeheerService
     {
         private IBestellingManager _bestellingManager;
@@ -52,11 +55,21 @@ namespace Case3.BSBestellingenbeheer.Implementation
             };
         }
 
+        /// <summary>
+        /// Inserts a bestelling to the database
+        /// </summary>
+        /// <param name="bestelling"></param>
+        /// <returns></returns>
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Updates a bestelling in the database
+        /// </summary>
+        /// <param name="bestelling"></param>
+        /// <returns></returns>
         public UpdateBestellingResultMessage UpdateBestelling(UpdateBestellingRequestMessage bestelling)
         {
             throw new NotImplementedException();

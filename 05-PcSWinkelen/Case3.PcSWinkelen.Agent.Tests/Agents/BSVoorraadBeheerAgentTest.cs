@@ -6,6 +6,9 @@ using Case3.PcSWinkelen.Agent.Exceptions;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Agents
 {
+    /// <summary>
+    /// Test class which tests the functionality of the BSVoorraadBeheerAgent class
+    /// </summary>
     [TestClass]
     public class BSVoorraadBeheerAgentTest
     {
@@ -27,13 +30,12 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
         }
 
         /// <summary>
-        /// Test which must throw an exception, the exception must be the right one
+        /// Test which must throw an exception, the exception must be the right one. This test is dependent.
         /// </summary>
         [TestMethod]
-        public void ProductNotExistsInVoorraadThrowsExceptionAndCheckExceptionDetails()
+        public void Acceptation_ProductNotExistsInVoorraadThrowsExceptionAndCheckExceptionDetails()
         {
             //Assert
-          
             BSVoorraadBeheerAgent agent = new BSVoorraadBeheerAgent();
 
             //Act
@@ -52,11 +54,11 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
         }
 
         /// <summary>
-        /// Test which must throw an exception because productId is null
+        /// Test which must throw an exception because productId is null. This test is dependent.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ProductVoorraadNotFoundException))]
-        public void GetProductVoorraadWithNullableProductId()
+        public void Acceptation_GetProductVoorraadWithNullableProductId()
         {
             //Assert
             BSVoorraadBeheerAgent agent = new BSVoorraadBeheerAgent();

@@ -74,7 +74,7 @@
 	</xs:complexType>
 	<xs:complexType name="MsgFindCategorieenResult">
 		<xs:sequence>
-			<xs:element name="Categorieen" type="c:CategorieCollection" nillable="true" minOccurs="0"/>
+			<!--<xs:element name="Categorieen" type="c:CategorieCollection" nillable="true" minOccurs="0"/>-->
 			<xs:element name="Succes" type="xs:boolean"/>
 			<xs:element name="Foutmelding" type="f:FoutMelding" minOccurs="0"/>
 		</xs:sequence>

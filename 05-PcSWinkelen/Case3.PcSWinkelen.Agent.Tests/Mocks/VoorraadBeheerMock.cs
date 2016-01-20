@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Mocks
 {
+    /// <summary>
+    /// Class for test purposes which creates a fake VoorraadBeheer class
+    /// </summary>
     public class VoorraadBeheerMock : IVoorraadBeheer
     {
         /// <summary>

@@ -51,9 +51,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BSVoorraadbeheer", "BSVoorr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commen", "Commen", "{1F860908-5665-4275-A58C-3E08CC6CA1E6}"
 	ProjectSection(SolutionItems) = preProject
+		Common\V1\ErrorLijst.xsd = Common\V1\ErrorLijst.xsd
 		Common\V1\FoutErnst.xsd = Common\V1\FoutErnst.xsd
 		Common\V1\FoutMelding.xsd = Common\V1\FoutMelding.xsd
-		Common\V1\FunctionalErrorList.xsd = Common\V1\FunctionalErrorList.xsd
 	EndProjectSection
 EndProject
 Global

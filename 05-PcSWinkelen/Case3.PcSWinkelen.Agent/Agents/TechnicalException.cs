@@ -1,9 +1,12 @@
-﻿using case3common.v1.faults;
+﻿using Case3.Common.Faults;
 using System;
 using System.Runtime.Serialization;
 
 namespace Case3.PcSWinkelen.Agent.Agents
 {
+    /// <summary>
+    /// TechnicalException which could be thrown when there is an error with connection a other service
+    /// </summary>
     [DataContract]
     public class TechnicalException : Exception
     {

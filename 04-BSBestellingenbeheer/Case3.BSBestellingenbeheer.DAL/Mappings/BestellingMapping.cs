@@ -8,8 +8,14 @@ using System.Threading.Tasks;
 
 namespace Case3.BSBestellingenbeheer.DAL.Mappings
 {
+    /// <summary>
+    /// Mapping class for the Bestelling entity
+    /// </summary>
     public class BestellingMapping : EntityTypeConfiguration<Bestelling>
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public BestellingMapping()
         {
             this.ToTable("Bestelling");
@@ -20,7 +26,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Mappings
                 .HasColumnName("bestelDatum");
 
             this.HasMany(b => b.Artikelen);
-    }
+        }
 
     }
 }

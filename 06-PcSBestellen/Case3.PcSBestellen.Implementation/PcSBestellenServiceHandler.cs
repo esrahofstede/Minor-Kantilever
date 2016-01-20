@@ -1,4 +1,5 @@
-﻿using Case3.PcSBestellen.Contract;
+﻿using System;
+using Case3.PcSBestellen.Contract;
 using Case3.PcSBestellen.Implementation.Managers;
 using Case3.PcSBestellen.Implementation.Managers.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
@@ -44,9 +45,24 @@ namespace Case3.PcSBestellen.Implementation
             return resultMessage;
         }
 
+        /// <summary>
+        /// This function sends a bestelling to the BSBestellingBeheer service
+        /// </summary>
+        /// <param name="bestelling">The bestelling containing the products and the Klant data</param>
+        /// <returns>Returns a BestellingPlaatsenResultMessage</returns>
         public BestellingPlaatsenResultMessage BestellingPlaatsen(BestellingPlaatsenRequestMessage bestelling)
         {
             throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// This function updates a Bestelling
+        /// </summary>
+        /// <param name="request">The request message containing an updated Bestelling</param>
+        /// <returns>Returns an UpdateBestellingStatusResultMessage</returns>
+        public UpdateBestellingStatusResultMessage UpdateBestelling(UpdateBestellingStatusRequestMessage request)
+        {
+            throw new NotImplementedException();
         }
     }
 }

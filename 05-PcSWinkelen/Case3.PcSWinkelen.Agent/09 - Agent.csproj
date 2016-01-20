@@ -91,6 +91,7 @@
     <Compile Include="Interfaces\IBSCatalogusBeheerAgent.cs" />
     <Compile Include="Interfaces\IBSVoorraadBeheerAgent.cs" />
     <Compile Include="Interfaces\ICatalogusManager.cs" />
+    <Compile Include="Interfaces\IPcSBestellenAgent.cs" />
     <Compile Include="Managers\CatalogusManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
