@@ -5,7 +5,7 @@ namespace Case3.PcSBestellen.Agent.Interfaces
     /// <summary>
     /// The BsBestellingenbeheerAgent Interface 
     /// </summary>
-    public interface IBsBestellingenbeheerAgent
+    public interface IBSBestellingenbeheerAgent
     {
         /// <summary>
         /// This function returns a FindFirstBestellingResultMessage

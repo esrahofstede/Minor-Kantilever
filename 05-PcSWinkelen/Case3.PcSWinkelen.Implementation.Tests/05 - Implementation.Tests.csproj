@@ -104,6 +104,7 @@
     <Compile Include="AddProductToWinkelmandTest.cs" />
     <Compile Include="DummyData.cs" />
     <Compile Include="GetWinkelmandTest.cs" />
+    <Compile Include="Mappers\BestelItemWinkelmandItemMapperTest.cs" />
     <Compile Include="Mappers\WinkelmandDTOMapperTest.cs" />
     <Compile Include="PcSBestellenAgentMock.cs" />
     <Compile Include="WinkelmandBestellenTest.cs" />

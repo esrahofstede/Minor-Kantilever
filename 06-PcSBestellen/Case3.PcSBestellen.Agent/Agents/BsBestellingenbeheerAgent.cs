@@ -7,7 +7,7 @@ namespace Case3.PcSBestellen.Agent.Agents
     /// <summary>
     /// Responsible for connecting to the BSBestellingen 
     /// </summary>
-    public class BsBestellingenbeheerAgent : IBsBestellingenbeheerAgent
+    public class BSBestellingenbeheerAgent : IBSBestellingenbeheerAgent
     {
         private ServiceFactory<IBSBestellingenbeheerService> _factory;
         private IBSBestellingenbeheerService _agent;
@@ -15,7 +15,7 @@ namespace Case3.PcSBestellen.Agent.Agents
         /// <summary>
         /// This is the default constructor
         /// </summary>
-        public BsBestellingenbeheerAgent()
+        public BSBestellingenbeheerAgent()
         {
             _factory = new ServiceFactory<IBSBestellingenbeheerService>("BSBestellingen");
             _agent = _factory.CreateAgent();
@@ -24,7 +24,7 @@ namespace Case3.PcSBestellen.Agent.Agents
         /// This constructor is for testing purposes
         /// </summary>
         /// <param name="agent">This should be a mock of IBSBestellingenbeheerService</param>
-        public BsBestellingenbeheerAgent(IBSBestellingenbeheerService agent)
+        public BSBestellingenbeheerAgent(IBSBestellingenbeheerService agent)
         {
             _agent = agent;
         }
@@ -39,6 +39,11 @@ namespace Case3.PcSBestellen.Agent.Agents
             FindFirstBestellingResultMessage result = _agent.FindFirstBestelling(requestMessage);
              
             return result;
+        }
+
+        public  BestellingPlaatsen()
+        {
+            
         }
     }
 }
