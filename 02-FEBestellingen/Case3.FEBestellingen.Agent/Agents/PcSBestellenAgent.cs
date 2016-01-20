@@ -3,6 +3,7 @@ using Case3.FEBestellingen.Agent.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
 using Minor.ServiceBus.Agent.Implementation;
 using case3pcsbestellen.v1.schema;
+using Case3.BSCatalogusBeheer.Schema.ProductNSPcS;
 
 namespace Case3.FEBestellingen.Agent.Agents
 {

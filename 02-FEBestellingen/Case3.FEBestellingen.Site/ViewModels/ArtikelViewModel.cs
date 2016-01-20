@@ -9,5 +9,6 @@
         public string Leveranciersnaam { get; set; }
         public string Leverancierscode { get; set; }
         public int Aantal { get; set; }
+        public decimal? Prijs { get; set; }
     }
 }

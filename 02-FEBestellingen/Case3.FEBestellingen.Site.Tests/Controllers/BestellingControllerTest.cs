@@ -25,19 +25,24 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
                 {
                     new ArtikelViewModel
                     {
+                        
                         Naam = "Fietsbel",
                         Leveranciersnaam = "Gazelle",
                         Leverancierscode = "GA12345FB",
-                        Aantal = 1
+                        Aantal = 1,
+                        Prijs = 4.95M,
+                        
                     },
                     new ArtikelViewModel
                     {
                         Naam = "Zadelpen",
                         Leveranciersnaam = "Giant",
                         Leverancierscode = "GI12345ZP",
-                        Aantal = 2
+                        Aantal = 2,
+                        Prijs = 4.95M,
                     }
                 },
+                BestellingID = 1,
                 KlantNaam = "Bob Jansma",
                 Adresregel1 = "Kerkstraat 5",
                 Adresregel2 = "t.a.v. Dhr. Jansma",

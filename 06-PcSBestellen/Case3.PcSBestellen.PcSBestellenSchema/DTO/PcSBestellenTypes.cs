@@ -8,9 +8,66 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.CategorieNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:messages", ClrNamespace="Case3.PcSBestellen.V1.Messages")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:schema", ClrNamespace="Case3.PcSBestellen.V1.Schema")]
 
+namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Categorie", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1")]
+    public partial class Categorie : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.Nullable<int> IdField;
+        
+        private string NaamField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                this.IdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string Naam
+        {
+            get
+            {
+                return this.NaamField;
+            }
+            set
+            {
+                this.NaamField = value;
+            }
+        }
+    }
+}
 namespace Case3.PcSBestellen.V1.Messages
 {
     using System.Runtime.Serialization;

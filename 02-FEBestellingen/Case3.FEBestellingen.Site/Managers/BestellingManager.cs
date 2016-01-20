@@ -1,9 +1,12 @@
-﻿using Case3.FEBestellingen.Agent.Agents;
+﻿using Case3.BTWConfigurationReader;
+using Case3.FEBestellingen.Agent.Agents;
 using Case3.FEBestellingen.Agent.Interfaces;
 using Case3.FEBestellingen.Site.Managers.Interfaces;
 using Case3.FEBestellingen.Site.ViewModels;
 using Case3.PcSBestellen.V1.Messages;
 using case3pcsbestellen.v1.schema;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Case3.FEBestellingen.Site.Managers
@@ -14,6 +17,7 @@ namespace Case3.FEBestellingen.Site.Managers
     public class BestellingManager : IBestellingManager
     {
         private IPcSBestellenAgent _pcsBestellenAgent;
+        private BTWCalculator _btwCalculator;
 
         /// <summary>
         /// This constructor is the default constructor
@@ -58,10 +62,9 @@ namespace Case3.FEBestellingen.Site.Managers
             if (bestelling != null)
             {
 
-                var artikelen = bestelling.ArtikelenPcS.Select(art => new ArtikelViewModel
-                {
+                bestellingModel = new BestellingViewModel
+                { 
                     BestellingID = bestelling.BestellingID,
-                    Artikelen = artikelen,
                     Adresregel1 = bestelling.Klantgegevens.Adresregel1,
                     Adresregel2 = bestelling.Klantgegevens.Adresregel2,
                     //FactuurDatum = bestelling.FactuurDatum,
@@ -71,6 +74,8 @@ namespace Case3.FEBestellingen.Site.Managers
                     Postcode = bestelling.Klantgegevens.Postcode,
                     Woonplaats = bestelling.Klantgegevens.Woonplaats,
                 };
+
+                bestellingModel.Artikelen = GetArtikelListFromBestelling(bestelling);
 
                 //Calculate total prices and BTW
                 CalculateTotalPricesBestellingViewModel(ref bestellingModel);
@@ -86,7 +91,8 @@ namespace Case3.FEBestellingen.Site.Managers
         {
             return bestelling.ArtikelenPcS.Select(art => new ArtikelViewModel
             {
-                ArtikelNaam = art.Product.Naam,
+                
+                Naam = art.Product.Naam,
                 Prijs = art.Product.Prijs,
                 Leveranciersnaam = art.Product.LeverancierNaam,
                 Leverancierscode = art.Product.LeveranciersProductId,

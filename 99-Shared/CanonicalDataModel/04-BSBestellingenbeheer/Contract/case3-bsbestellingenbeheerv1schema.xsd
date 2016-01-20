@@ -5,8 +5,9 @@
     <xs:sequence>
       <xs:element name="BestellingID" nillable="true" type="xs:int" />
       <xs:element name="FactuurID" nillable="true" type="xs:int" />
+      <xs:element name="FactuurDatum" nillable="true" type="xs:string" />
       <xs:element name="Artikelen" nillable="true" type="tns:Artikelen" />
-      <xs:element name="Status" nillable="true" type="xs:string" />
+      <xs:element name="Status" nillable="true" type="xs:int" />
       <xs:element name="Klantgegevens" nillable="true" type="tns:Klantgegevens" />
     </xs:sequence>
   </xs:complexType>

@@ -15,4 +15,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="InsertBestelling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bestelling" nillable="true" xmlns:q3="urn:case3-bsbestellingenbeheer:v1:messages" type="q3:InsertBestellingRequestMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertBestellingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertBestellingResult" nillable="true" xmlns:q4="urn:case3-bsbestellingenbeheer:v1:messages" type="q4:InsertBestellingResultMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBestelling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bestelling" nillable="true" xmlns:q5="urn:case3-bsbestellingenbeheer:v1:messages" type="q5:UpdateBestellingRequestMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBestellingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateBestellingResult" nillable="true" xmlns:q6="urn:case3-bsbestellingenbeheer:v1:messages" type="q6:UpdateBestellingResultMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
