@@ -34,7 +34,7 @@
 
   <xs:complexType name="UpdateBestellingStatusRequestMessage">
     <xs:sequence>
-      <xs:element name="Bestelling" type="k:BestellingPcS" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="BestellingID" type="xs:long" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 

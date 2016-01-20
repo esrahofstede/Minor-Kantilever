@@ -1,4 +1,5 @@
-﻿using Case3.BSBestellingenbeheer.V1.Messages;
+﻿using System;
+using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.PcSBestellen.Agent.Interfaces;
 using Minor.ServiceBus.Agent.Implementation;
 
@@ -38,6 +39,18 @@ namespace Case3.PcSBestellen.Agent.Agents
         {
             FindFirstBestellingResultMessage result = _agent.FindFirstBestelling(requestMessage);
              
+            return result;
+        }
+
+        /// <summary>
+        /// This function returns a UpdateBestellingStatusResultMessage
+        /// </summary>
+        /// <param name="requestMessage">The Request Message</param>
+        /// <returns>Returns a UpdateBestellingStatusResultMessage</returns>
+        public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage requestMessage)
+        {
+            var result = _agent.UpdateBestellingStatus(requestMessage);
+
             return result;
         }
     }

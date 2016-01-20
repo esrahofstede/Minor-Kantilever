@@ -12,7 +12,7 @@ namespace Case3.PcSBestellen.Implementation
     /// </summary>
     public class PcSBestellenServiceHandler : IPcSBestellenService
     {
-        private static ILog _logger = LogManager.GetLogger(typeof(PcSBestellenServiceHandler));
+        //private static ILog _logger = LogManager.GetLogger(typeof(PcSBestellenServiceHandler));
         private IBSBestellingenManager _bestellingenManager;
         
         /// <summary>
@@ -62,7 +62,8 @@ namespace Case3.PcSBestellen.Implementation
         /// <returns>Returns an UpdateBestellingStatusResultMessage</returns>
         public UpdateBestellingStatusResultMessage UpdateBestelling(UpdateBestellingStatusRequestMessage request)
         {
-            throw new NotImplementedException();
+            UpdateBestellingStatusResultMessage resultMessage = _bestellingenManager.UpdateBestelling(request);
+            return resultMessage;
         }
     }
 }
