@@ -9,8 +9,16 @@ using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.DAL.Mappers
 {
+    /// <summary>
+    /// DataMapper for the Winkelmand entity
+    /// </summary>
     public class WinkelmandDataMapper : IWinkelmandDataMapper
     {
+        /// <summary>
+        /// Retrieves all the winkelmanditem entities which satisfy the given expression
+        /// </summary>
+        /// <param name="isAny"></param>
+        /// <returns></returns>
         public IEnumerable<WinkelmandItem> FindAllBy(Expression<Func<WinkelmandItem, bool>> isAny)
         {
             using (var context = new WinkelmandContext())
@@ -19,6 +27,10 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             }
         }
 
+        /// <summary>
+        /// Adds the given winkelmanditem to the database
+        /// </summary>
+        /// <param name="item"></param>
         public void Insert(WinkelmandItem item)
         {
             using (var context = new WinkelmandContext())
@@ -28,6 +40,10 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             }
         }
 
+        /// <summary>
+        /// Updates the given winkelmanditem in the database
+        /// </summary>
+        /// <param name="updatedItem"></param>
         public void Update(WinkelmandItem updatedItem)
         {
             using (var context = new WinkelmandContext())
@@ -38,6 +54,10 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             }
         }
 
+        /// <summary>
+        /// Retrieves a list of all the winkelmandItems found in the database
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<WinkelmandItem> FindAll()
         {
             using (var context = new WinkelmandContext())
@@ -46,6 +66,10 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             }
         }
 
+        /// <summary>
+        /// Deletes the given winkelmanditem in the database
+        /// </summary>
+        /// <param name="deleteItem"></param>
         public void Delete(WinkelmandItem deleteItem)
         {
             using (var context = new WinkelmandContext())
@@ -60,6 +84,11 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             }
         }
 
+        /// <summary>
+        /// Retrieves a single winkelmandItem by sessieID
+        /// </summary>
+        /// <param name="sessieID"></param>
+        /// <returns></returns>
         public WinkelmandItem FindBySessieID(string sessieID)
         {
             using (var context = new WinkelmandContext())

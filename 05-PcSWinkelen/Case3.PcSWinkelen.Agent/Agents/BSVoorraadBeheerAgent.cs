@@ -7,6 +7,9 @@ using System;
 
 namespace Case3.PcSWinkelen.Agent.Agents
 {
+    /// <summary>
+    /// Agent class for communication with the BSVoorraadBeheer service
+    /// </summary>
     public class BSVoorraadBeheerAgent : IBSVoorraadBeheerAgent
     {
         private ServiceFactory<IVoorraadBeheer> _factory;

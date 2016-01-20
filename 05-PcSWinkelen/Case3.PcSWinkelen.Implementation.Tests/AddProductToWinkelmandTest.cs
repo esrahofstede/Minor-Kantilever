@@ -10,6 +10,9 @@ using Moq;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// Testclass for testing the add product to winkelmand functionality
+    /// </summary>
     [TestClass]
     public class AddProductToWinkelmandTest
     {

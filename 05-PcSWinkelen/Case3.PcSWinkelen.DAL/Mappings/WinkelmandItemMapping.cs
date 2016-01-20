@@ -10,6 +10,9 @@ using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.DAL.Mappings
 {
+    /// <summary>
+    /// Database mapper class to map the WinkelmandItem entity to the database
+    /// </summary>
     public class WinkelmandItemMapping : EntityTypeConfiguration<WinkelmandItem>
     {
         public WinkelmandItemMapping()

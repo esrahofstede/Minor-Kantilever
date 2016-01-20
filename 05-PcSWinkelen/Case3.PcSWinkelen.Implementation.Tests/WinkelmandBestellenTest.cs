@@ -14,6 +14,9 @@ using Moq;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// Test class for testing the WinkelmandBestellen functionality
+    /// </summary>
     [TestClass]
     public class WinkelmandBestellenTest
     {
@@ -37,6 +40,8 @@ namespace Case3.PcSWinkelen.Implementation.Tests
 
             //Act
             var test = handler.WinkelmandBestellen(DummyData.GetDummyWinkelmandBestellenRequestMessage);
+
+
 
             //Assert
             Assert.IsInstanceOfType(test, typeof(WinkelmandBestellenResponseMessage));

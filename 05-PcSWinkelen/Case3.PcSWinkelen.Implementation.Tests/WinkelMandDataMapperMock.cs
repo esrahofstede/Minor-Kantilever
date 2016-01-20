@@ -9,6 +9,9 @@ using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// WinkelmandDataMapper mock class for testing purposes
+    /// </summary>
     internal class WinkelMandDataMapperMock : IWinkelmandDataMapper
     {
         internal WinkelmandItem Item;

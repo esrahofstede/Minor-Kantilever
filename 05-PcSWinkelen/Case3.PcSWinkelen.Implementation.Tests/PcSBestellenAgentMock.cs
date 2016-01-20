@@ -8,6 +8,9 @@ using Case3.PcSWinkelen.Agent.Interfaces;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// Mock class for the PcSBestellenAgent, for testing purposes
+    /// </summary>
     internal class PcSBestellenAgentMock : IPcSBestellenAgent
     {
         public BestellingPcS Bestelling { get; set; }

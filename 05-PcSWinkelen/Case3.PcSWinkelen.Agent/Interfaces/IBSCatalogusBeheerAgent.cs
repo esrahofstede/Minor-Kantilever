@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Case3.PcSWinkelen.Agent.Interfaces
 {
+    /// <summary>
+    /// Interface for the BSCatalogusBeheerAgent
+    /// </summary>
     public interface IBSCatalogusBeheerAgent
     {
         /// <summary>

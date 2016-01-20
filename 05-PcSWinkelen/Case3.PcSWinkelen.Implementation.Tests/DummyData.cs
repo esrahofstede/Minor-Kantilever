@@ -13,6 +13,9 @@ using BestellenNS = Case3.PcSBestellen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// Test data for testing purposes
+    /// </summary>
     internal static class DummyData
     {
         private static int _dummyAantal = 2;

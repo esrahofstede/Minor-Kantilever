@@ -1,5 +1,8 @@
 ﻿namespace Case3.PcSWinkelen.Agent.Interfaces
 {
+    /// <summary>
+    /// Interface for the BSVoorraadBeheerAgent 
+    /// </summary>
     public interface IBSVoorraadBeheerAgent
     {
         /// <summary>

@@ -11,6 +11,9 @@ using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.DAL.Contexts
 {
+    /// <summary>
+    /// Context class for connection with the database
+    /// </summary>
     [ExcludeFromCodeCoverage]
     public class WinkelmandContext : DbContext
     {

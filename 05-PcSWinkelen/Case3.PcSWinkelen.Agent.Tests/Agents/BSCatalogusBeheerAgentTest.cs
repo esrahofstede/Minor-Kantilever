@@ -9,6 +9,9 @@ using System.Globalization;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Agents
 {
+    /// <summary>
+    /// Test class for the BSCatalogusBeheerAgent functionalities
+    /// </summary>
     [TestClass]
     public class BSCatalogusBeheerAgentTest
     {

@@ -9,8 +9,15 @@ using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.DAL.Tests
 {
+    /// <summary>
+    /// Initializer class for initialisation of the database before tests are run
+    /// </summary>
     internal class WinkelmandDBInitializer : DropCreateDatabaseAlways<WinkelmandContext>
     {
+        /// <summary>
+        /// Method to add entities to the database
+        /// </summary>
+        /// <param name="context"></param>
         protected override void Seed(WinkelmandContext context)
         {
             WinkelmandItem item1 = new WinkelmandItem

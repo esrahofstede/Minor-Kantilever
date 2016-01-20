@@ -4,6 +4,9 @@ using Case3.PcSWinkelen.MessagesNS;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// Testclass for testing the PcSWinkelenServiceHandler functionalities
+    /// </summary>
     [TestClass]
     public class PcSWinkelenServiceHandlerTest
     {

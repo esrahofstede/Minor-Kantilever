@@ -7,6 +7,9 @@ using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.DAL.Tests
 {
+    /// <summary>
+    /// Dummydata class for testing purposes
+    /// </summary>
     internal static class DummyData
     {
         internal static WinkelmandItem GetDummyWinkelmandItem = new WinkelmandItem

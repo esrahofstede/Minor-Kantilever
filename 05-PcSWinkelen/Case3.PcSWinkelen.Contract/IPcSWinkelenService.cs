@@ -10,6 +10,9 @@ using System.Text;
 
 namespace Case3.PcSWinkelen.Contract
 {
+    /// <summary>
+    /// Contract for connecting to PcSWinkelen service
+    /// </summary>
     [ServiceContract(Name = "urn:minor:case3:pcswinkelen:v1")]
     public interface IPcSWinkelenService
     {
@@ -22,12 +25,27 @@ namespace Case3.PcSWinkelen.Contract
         [FaultContract(typeof(ErrorLijst))]
         FindCatalogusResponseMessage GetCatalogusItems(FindCatalogusRequestMessage request);
 
+        /// <summary>
+        /// Adds product to winkelwagen
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [OperationContract]
         AddItemToWinkelmandResponseMessage AddProductToWinkelmand(AddItemToWinkelmandRequestMessage request);
 
+        /// <summary>
+        /// Retrieves the full winkelmand list
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [OperationContract]
         GetWinkelmandResponseMessage GetWinkelmand(GetWinkelmandRequestMessage request);
 
+        /// <summary>
+        /// Bestelt winkelmand
+        /// </summary>
+        /// <param name="bestelling"></param>
+        /// <returns></returns>
         [OperationContract]
         WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling);
 
