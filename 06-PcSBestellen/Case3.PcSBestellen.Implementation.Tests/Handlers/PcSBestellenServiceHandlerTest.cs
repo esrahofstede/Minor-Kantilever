@@ -14,7 +14,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Handlers
     public class PcSBestellenServiceHandlerTest
     {
         #region -------[Support functions for tests]-------
-        private FindNextBestellingResultMessage CreateFindNextBestellingResultMessage()
+        private static FindNextBestellingResultMessage CreateFindNextBestellingResultMessage()
         {
             return new FindNextBestellingResultMessage
             {

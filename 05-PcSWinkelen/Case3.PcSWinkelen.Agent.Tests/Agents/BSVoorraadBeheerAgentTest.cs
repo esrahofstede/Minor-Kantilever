@@ -33,7 +33,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
         /// Test which must throw an exception, the exception must be the right one. This test is dependent.
         /// </summary>
         [TestMethod]
-        public void Acceptation_ProductNotExistsInVoorraadThrowsExceptionAndCheckExceptionDetails()
+        public void AcceptationProductNotExistsInVoorraadThrowsExceptionAndCheckExceptionDetails()
         {
             //Assert
             BSVoorraadBeheerAgent agent = new BSVoorraadBeheerAgent();
@@ -41,7 +41,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             //Act
             try
             {
-                int voorraad = agent.GetProductVoorraad(87695687, "NOTEXISTS");
+                agent.GetProductVoorraad(87695687, "NOTEXISTS");
             }
             catch (ProductVoorraadNotFoundException exception)
             {
@@ -58,13 +58,13 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ProductVoorraadNotFoundException))]
-        public void Acceptation_GetProductVoorraadWithNullableProductId()
+        public void AcceptationGetProductVoorraadWithNullableProductId()
         {
             //Assert
             BSVoorraadBeheerAgent agent = new BSVoorraadBeheerAgent();
 
             //Act
-            int voorraad = agent.GetProductVoorraad(null, "GAZ");
+            agent.GetProductVoorraad(null, "GAZ");
 
             //Arrange
             //Expect exception, the product with no Id does not exists in BSVoorraadBeheer

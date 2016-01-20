@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agents\PcSBestellenAgent.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interfaces\IPcSBestellenAgent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

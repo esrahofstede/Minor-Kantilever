@@ -11,7 +11,6 @@
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:messages", ClrNamespace="Case3.BSBestellingenbeheer.V1.Messages")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="Case3.BSBestellingenbeheer.V1.Schema")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.ProductNS")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.CategorieNS")]
 
 namespace Case3.BSBestellingenbeheer.V1.Messages
 {
@@ -97,7 +96,7 @@ namespace Case3.BSBestellingenbeheer.V1.Messages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
         public Case3.BSBestellingenbeheer.V1.Schema.Bestelling Bestelling
         {
             get
@@ -154,7 +153,7 @@ namespace Case3.BSBestellingenbeheer.V1.Messages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
         public Case3.BSBestellingenbeheer.V1.Schema.Bestelling Bestelling
         {
             get
@@ -206,9 +205,11 @@ namespace Case3.BSBestellingenbeheer.V1.Schema
         
         private System.Nullable<int> FactuurIDField;
         
+        private string FactuurDatumField;
+        
         private Case3.BSBestellingenbeheer.V1.Schema.Artikelen ArtikelenField;
         
-        private string StatusField;
+        private System.Nullable<int> StatusField;
         
         private Case3.BSBestellingenbeheer.V1.Schema.Klantgegevens KlantgegevensField;
         
@@ -251,6 +252,19 @@ namespace Case3.BSBestellingenbeheer.V1.Schema
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public string FactuurDatum
+        {
+            get
+            {
+                return this.FactuurDatumField;
+            }
+            set
+            {
+                this.FactuurDatumField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
         public Case3.BSBestellingenbeheer.V1.Schema.Artikelen Artikelen
         {
             get
@@ -263,8 +277,8 @@ namespace Case3.BSBestellingenbeheer.V1.Schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public string Status
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public System.Nullable<int> Status
         {
             get
             {
@@ -276,7 +290,7 @@ namespace Case3.BSBestellingenbeheer.V1.Schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
         public Case3.BSBestellingenbeheer.V1.Schema.Klantgegevens Klantgegevens
         {
             get
@@ -490,8 +504,6 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNS
         
         private System.Nullable<decimal> PrijsField;
         
-        private Case3.BSCatalogusBeheer.Schema.CategorieNS.CategorieCollection CategorieLijstField;
-        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -618,82 +630,6 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNS
             set
             {
                 this.PrijsField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-        public Case3.BSCatalogusBeheer.Schema.CategorieNS.CategorieCollection CategorieLijst
-        {
-            get
-            {
-                return this.CategorieLijstField;
-            }
-            set
-            {
-                this.CategorieLijstField = value;
-            }
-        }
-    }
-}
-namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CategorieCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ItemName="Categorie")]
-    public class CategorieCollection : System.Collections.Generic.List<Case3.BSCatalogusBeheer.Schema.CategorieNS.Categorie>
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Categorie", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1")]
-    public partial class Categorie : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private System.Nullable<int> IdField;
-        
-        private string NaamField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Id
-        {
-            get
-            {
-                return this.IdField;
-            }
-            set
-            {
-                this.IdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public string Naam
-        {
-            get
-            {
-                return this.NaamField;
-            }
-            set
-            {
-                this.NaamField = value;
             }
         }
     }

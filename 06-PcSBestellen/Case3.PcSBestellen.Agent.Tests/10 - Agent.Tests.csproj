@@ -49,7 +49,8 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\99-Shared\GoudGeelRuleSet.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Minor.ServiceBus.Agent.Implementation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=73e451069382071b, processorArchitecture=MSIL">
@@ -83,6 +84,9 @@
     <None Include="..\..\99-Shared\Case3Key.snk">
       <Link>Case3Key.snk</Link>
     </None>
+    <CodeAnalysisDictionary Include="..\..\99-Shared\CustomDictionary.xml">
+      <Link>CustomDictionary.xml</Link>
+    </CodeAnalysisDictionary>
     <Content Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>

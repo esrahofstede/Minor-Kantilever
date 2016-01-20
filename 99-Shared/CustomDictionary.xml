@@ -23,6 +23,7 @@
       <Word>Prijs</Word>
       <Word>Adres</Word>
       <Word>Klantgegevens</Word>
+      <Word>Leverbaar</Word>
       <Word>Klant</Word>
       <Word>Woonplaats</Word>
       <Word>Adresregel</Word>
@@ -114,7 +115,7 @@
       <Term CompoundAlternate=""></Term>
     </Compound>
     <DiscreteExceptions>
-      <Term></Term>
+      <Term>BestellingenBeheer</Term>
     </DiscreteExceptions>
   </Words>
   <Acronyms>
