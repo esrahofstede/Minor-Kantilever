@@ -21,7 +21,7 @@ namespace Case3.PcSBestellen.Implementation
     /// </summary>
     public class PcSBestellenServiceHandler : IPcSBestellenService
     {
-        private static ILog _logger = LogManager.GetLogger(typeof(PcSBestellenServiceHandler));
+        //private static ILog _logger = LogManager.GetLogger(typeof(PcSBestellenServiceHandler));
         private IBSBestellingenManager _bestellingenManager;
         private IBSBestellingenbeheerAgent _bestellingenbeheerAgent;
         /// <summary>

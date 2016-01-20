@@ -11,7 +11,7 @@ namespace Case3.PcSBestellen.Agent.Tests.Agents
     public class BsBestellingenbeheerAgentTest
     {
         #region -------[Support functions for tests]-------
-        private FindFirstBestellingResultMessage CreateFindFirstBestellingResultMessage()
+        private static FindFirstBestellingResultMessage CreateFindFirstBestellingResultMessage()
         {
             return new FindFirstBestellingResultMessage
             {
@@ -59,7 +59,7 @@ namespace Case3.PcSBestellen.Agent.Tests.Agents
 
             //Act
             var result = agent.FindFirstBestelling(new FindFirstBestellingRequestMessage());
-            var artikelen = result.BestellingOpdracht.Artikelen;
+            
             //Assert
             Assert.IsInstanceOfType(result, typeof(FindFirstBestellingResultMessage));
         }

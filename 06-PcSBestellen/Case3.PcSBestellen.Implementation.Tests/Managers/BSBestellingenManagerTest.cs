@@ -17,7 +17,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
     public class BSBestellingenManagerTest
     {
         #region -------[Support functions for tests]-------
-        private FindFirstBestellingResultMessage CreateFindFirstBestellingResultMessage()
+        private static FindFirstBestellingResultMessage CreateFindFirstBestellingResultMessage()
         {
             return new FindFirstBestellingResultMessage
             {
@@ -49,7 +49,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
                 }
             };
         }
-        private FindNextBestellingRequestMessage CreateFindNextBestellingRequestMessage()
+        private static FindNextBestellingRequestMessage CreateFindNextBestellingRequestMessage()
         {
             return new FindNextBestellingRequestMessage
             {
