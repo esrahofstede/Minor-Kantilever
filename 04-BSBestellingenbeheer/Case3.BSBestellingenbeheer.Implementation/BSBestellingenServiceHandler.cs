@@ -18,6 +18,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
     {
         private BestellingDataMapper _mapper;
         private BestellingManager _bestellingManager;
+        
 
         /// <summary>
         /// Creates instance and fills database for the first time
@@ -41,6 +42,11 @@ namespace Case3.BSBestellingenbeheer.Implementation
         {
             _mapper = mapper;
             _bestellingManager = bestellingManager;
+        }
+
+        public BSBestellingenServiceHandler(BestellingDataMapper mapper)
+        {
+            _mapper = mapper;
         }
 
 
@@ -89,8 +95,8 @@ namespace Case3.BSBestellingenbeheer.Implementation
         {
             if (bestelling != null)
             {
-                BestellingDataMapper mapper = new BestellingDataMapper();
-                mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
+                _mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
+
                 return new UpdateBestellingStatusResultMessage();
             }
             else

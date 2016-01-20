@@ -37,7 +37,7 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         /// </summary>
         /// <param name="context">BestellingContext</param>
         /// <returns>Bestelling</returns>
-        public Bestelling GetBestellingToPack()
+        public virtual Bestelling GetBestellingToPack()
         {
             using (var context = new BestellingContext())
             {
@@ -49,7 +49,7 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         /// Updates a Bestelling.Status to 1
         /// </summary>
         /// <param name="bestellingId">Id of the Bestelling</param>
-        public void UpdateBestellingStatusToPacked(long bestellingID)
+        public virtual void UpdateBestellingStatusToPacked(long bestellingID)
         {
             using (var context = new BestellingContext())
             {

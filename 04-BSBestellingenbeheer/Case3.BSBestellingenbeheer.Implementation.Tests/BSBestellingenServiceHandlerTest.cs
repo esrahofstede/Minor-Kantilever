@@ -4,6 +4,9 @@ using Moq;
 using Case3.BSBestellingenbeheer.Implementation.Interfaces;
 using Case3.BSBestellingenbeheer.V1.Schema;
 using Case3.BSBestellingenbeheer.V1.Messages;
+using Case3.BSBestellingenbeheer.DAL.DataMappers;
+using System.Collections.Generic;
+using Case3.BSBestellingenbeheer.Implementation.Managers;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Tests
 {
@@ -43,6 +46,23 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
                         }
                     }
         };
+
+        private Entities.Bestelling bestellingEntity = new Entities.Bestelling()
+        {
+            ID = 1,
+            BestelDatum = DateTime.Now,
+            Status = 0,
+            Artikelen = null,
+            AdresRegel1 = "Hofmeesterij 89",
+            KlantNaam = "Henk Jansen",
+            Postcode = "6738PK",
+            Woonplaats = "Veenendaal",
+            BTWPercentage = 21,
+            Telefoonnummer = "0654789542",
+            TotaalPrijs = 63.50M
+        };
+
+       
         #endregion
 
         /// <summary>
@@ -75,6 +95,109 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
 
             //Assert
             Assert.IsInstanceOfType(result, typeof(InsertBestellingResultMessage));
+        }
+
+        [TestMethod]
+        public void TestFindFirstBestellingImplementation()
+        {
+            //Arrange
+            bestellingEntity.Artikelen = generateArtikelList();
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.GetBestellingToPack()).Returns(bestellingEntity);
+
+            var managerMock = new Mock<BestellingManager>(MockBehavior.Strict);
+            managerMock.Setup(m => m.ConvertBestellingEntityToDTO(It.IsAny<Entities.Bestelling>())).Returns(new Bestelling());
+
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object, managerMock.Object);
+
+            //Act
+            var result = handler.FindFirstBestelling(new FindFirstBestellingRequestMessage());
+
+            //Assert
+            Assert.IsInstanceOfType(result, typeof(FindFirstBestellingResultMessage));
+        }
+
+        [TestMethod]
+        public void TestUpdateBestellingStatusImplementation()
+        {
+            //Arrange
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.UpdateBestellingStatusToPacked(It.IsAny<long>()));
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object);
+
+            //Act
+            var result = handler.UpdateBestellingStatus(new UpdateBestellingStatusRequestMessage());
+
+            //Assert
+            Assert.IsInstanceOfType(result, typeof(UpdateBestellingStatusResultMessage));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestUpdateBestellingStatusRequestIsNullImplementation()
+        {
+            //Arrange
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.UpdateBestellingStatusToPacked(It.IsAny<long>()));
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object);
+
+            //Act
+            var result = handler.UpdateBestellingStatus(null);
+        }
+
+        private List<Entities.Artikel> generateArtikelList()
+        {
+            List<Entities.Artikel> lijst = new List<Entities.Artikel>();
+
+            Entities.Artikel artikel21 = new Entities.Artikel()
+            {
+                ID = 21,
+                Naam = "fietsbel",
+                Leverancier = "gazelle",
+                Leverancierscode = "03g54hbronlsfads",
+                Aantal = 3
+            };
+
+            Entities.Artikel artikel22 = new Entities.Artikel()
+            {
+                ID = 22,
+                Naam = "remschijf",
+                Leverancier = "gazelle",
+                Leverancierscode = "oiaernglggafds234",
+                Aantal = 3
+            };
+
+            Entities.Artikel artikel23 = new Entities.Artikel()
+            {
+                ID = 23,
+                Naam = "kantilever",
+                Leverancier = "gazelle",
+                Leverancierscode = "kvbaf9345245sda",
+                Aantal = 3
+            };
+
+
+            Entities.Artikel artikel24 = new Entities.Artikel()
+            {
+                ID = 24,
+                Naam = "zadel",
+                Leverancier = "gazelle",
+                Leverancierscode = "vbsdaijgbreq6542",
+                Aantal = 3
+            };
+
+            lijst.Add(artikel21);
+            lijst.Add(artikel22);
+            lijst.Add(artikel23);
+            lijst.Add(artikel24);
+
+            return lijst;
         }
     }
 }

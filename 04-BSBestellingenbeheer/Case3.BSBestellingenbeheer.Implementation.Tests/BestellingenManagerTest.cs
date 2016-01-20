@@ -136,6 +136,33 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         }
 
         [TestMethod]
+        //[ExpectedException(typeof())]
+        public void BestellingenManageConvertBestellingIsNull()
+        {
+            // Arrange
+            BestellingManager bestellingManager = new BestellingManager();
+
+            DateTime datum = DateTime.Now;
+
+            Entities.Bestelling bestelling = new Entities.Bestelling()
+            {
+                ID = 1,
+                BestelDatum = datum,
+                Status = 0,
+                Artikelen = new List<Entities.Artikel>(),
+            };
+
+            // Act
+            var result = bestellingManager.ConvertBestellingEntityToDTO(null);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(Bestelling));
+            Assert.AreEqual(1, result.BestellingID);
+            Assert.AreEqual(datum.ToString(), result.FactuurDatum);
+        }
+
+        [TestMethod]
         public void InsertBestellingAddsProduct()
         {
             //Arrange

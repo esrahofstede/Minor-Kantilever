@@ -73,7 +73,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
             }
         }
 
-        public Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity)
+        public virtual Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity)
         {
 
             Bestelling bestellingDTO = new Bestelling()
