@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Case3.PcSWinkelen.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.DAL.Mappers
 {
@@ -33,16 +30,16 @@ namespace Case3.PcSWinkelen.DAL.Mappers
         void Update(WinkelmandItem updatedItem);
 
         /// <summary>
-        /// Method to delete a existing winkelmanditem
+        /// Retrieves a single winkelmandItem by sessieID
         /// </summary>
-        /// <param name="deleteItem"></param>
+        /// <param name="sessieID">The Id of the Session of which the WinkelmandItems need to be removed</param>
         void DeleteBySessieID(string sessieID);
 
         /// <summary>
-        /// Method to find a winkelmanditem by sessieID
+        /// Retrieves a List of WinkelmandItems based on a SessionID
         /// </summary>
-        /// <param name="sessieID"></param>
-        /// <returns></returns>
+        /// <param name="sessieID">The Id of the Session of which the WinkelmandItems need to be found</param>
+        /// <returns>Returns a List of WinkelmandItems</returns>
         List<WinkelmandItem> FindBySessieID(string sessieID);
     }
 }
