@@ -1,5 +1,4 @@
-﻿using Case3.BSCatalogusBeheer.Schema.Product;
-using Case3.FEWebwinkel.Agent.Exceptions;
+﻿using Case3.FEWebwinkel.Agent.Exceptions;
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.PcSWinkelen.Messages;
 using Case3.PcSWinkelen.Schema;
