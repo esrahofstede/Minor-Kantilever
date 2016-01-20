@@ -7,6 +7,8 @@ using Case3.PcSBestellen.Agent.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
 using log4net;
 using Minor.ServiceBus.Agent.Implementation;
+using UpdateBestellingStatusRequestMessage = Case3.PcSBestellen.V1.Messages.UpdateBestellingStatusRequestMessage;
+using UpdateBestellingStatusResultMessage = Case3.PcSBestellen.V1.Messages.UpdateBestellingStatusResultMessage;
 
 namespace Case3.PcSBestellen.Agent.Agents
 {
@@ -60,6 +62,11 @@ namespace Case3.PcSBestellen.Agent.Agents
             FindFirstBestellingResultMessage result = _agent.FindFirstBestelling(requestMessage);
              
             return result;
+        }
+
+        public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage requestMessage)
+        {
+            throw new NotImplementedException();
         }
 
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)

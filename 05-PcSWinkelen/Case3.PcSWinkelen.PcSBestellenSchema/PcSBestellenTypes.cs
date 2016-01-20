@@ -138,7 +138,7 @@ namespace Case3.PcSBestellen.MessagesNS
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.PcSBestellen.SchemaNS.BestellingPcS BestellingField;
+        private long BestellingIDField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -152,16 +152,16 @@ namespace Case3.PcSBestellen.MessagesNS
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.PcSBestellen.SchemaNS.BestellingPcS Bestelling
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long BestellingID
         {
             get
             {
-                return this.BestellingField;
+                return this.BestellingIDField;
             }
             set
             {
-                this.BestellingField = value;
+                this.BestellingIDField = value;
             }
         }
     }

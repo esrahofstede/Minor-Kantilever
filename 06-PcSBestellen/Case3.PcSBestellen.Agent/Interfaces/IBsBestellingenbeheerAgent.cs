@@ -1,5 +1,7 @@
 ﻿using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.PcSBestellen.V1.Messages;
+using UpdateBestellingStatusRequestMessage = Case3.PcSBestellen.V1.Messages.UpdateBestellingStatusRequestMessage;
+using UpdateBestellingStatusResultMessage = Case3.PcSBestellen.V1.Messages.UpdateBestellingStatusResultMessage;
 
 namespace Case3.PcSBestellen.Agent.Interfaces
 {
