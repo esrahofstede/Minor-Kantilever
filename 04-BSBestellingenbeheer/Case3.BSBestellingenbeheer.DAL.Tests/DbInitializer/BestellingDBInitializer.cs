@@ -58,13 +58,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             lijst.Add(artikel3);
             lijst.Add(artikel4);
 
-            Bestelling a = new Bestelling()
-            {
-                ID = 1,
-                BestelDatum = DateTime.Now,
-                Status = 0,
-                Artikelen = lijst,
-            };
+          
             
 
             List<Artikel> lijst2 = new List<Artikel>();
@@ -111,13 +105,35 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             lijst2.Add(artikel23);
             lijst2.Add(artikel24);
 
+            Bestelling a = new Bestelling()
+            {
+                ID = 1,
+                BestelDatum = DateTime.Now,
+                Status = 0,
+                Artikelen = lijst,
+                AdresRegel1 = "Hofmeesterij 89",
+                KlantNaam = "Henk Jansen",
+                Postcode = "6738PK",
+                Woonplaats = "Veenendaal",
+                BTWPercentage = 21,
+                Telefoonnummer = "0654789542",
+                AdresRegel2 = "8B"
+            };
+
             Bestelling b = new Bestelling()
             {
                 ID = 2,
                 BestelDatum = DateTime.Now.AddDays(1),
                 Status = 1,
                 Artikelen = lijst2,
+                AdresRegel1 = "Hofmeesterij 89",
+                KlantNaam = "Henk Jansen",
+                Postcode = "6738PK",
+                Woonplaats = "Veenendaal",
+                BTWPercentage = 21,
+                Telefoonnummer = "0654789542",
             };
+
             context.Bestellingen.AddRange(new Bestelling[] { a, b });
             context.Artikelen.AddRange(new Artikel[] { artikel1, artikel2, artikel3, artikel4, artikel21, artikel22, artikel23, artikel24 });
             base.Seed(context);

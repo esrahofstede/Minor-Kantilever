@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Context\BestellingContext.cs" />
     <Compile Include="DataMappers\BestellingDataMapper.cs" />
+    <Compile Include="DataMappers\IDataMapper.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Mappings\ArtikelMapping.cs" />
     <Compile Include="Mappings\BestellingMapping.cs" />
