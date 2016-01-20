@@ -29,7 +29,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
             {
                 context.Database.Initialize(false);
             }
-
+            _bestellingManager = new BestellingManager();
             _mapper = new BestellingDataMapper();
         }
 
@@ -67,8 +67,15 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// <returns></returns>
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage request)
         {
-            _bestellingManager.InsertBestelling(request.Bestelling);
-            return new InsertBestellingResultMessage();  
+            try
+            {
+                _bestellingManager.InsertBestelling(request.Bestelling);
+                return new InsertBestellingResultMessage();
+            }
+            catch (Exception)
+            {
+                throw; //FAULTEXCEPTION!!
+            }  
         }
 
         public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestelling)

@@ -5,6 +5,8 @@ using Case3.BSBestellingenbeheer.Entities;
 using Case3.BSBestellingenbeheer.DAL.Context;
 using Case3.BSBestellingenbeheer.DAL.DataMappers;
 using System.Transactions;
+using System.Collections.Generic;
+using System.Data.Entity.Validation;
 
 namespace Case3.BSBestellingenbeheer.DAL.Tests
 {
@@ -14,6 +16,50 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
     [TestClass]
     public class BestellingDataMapperTest
     {
+        #region dummydata
+        private Bestelling _bestelling = new Bestelling()
+        {
+            ID = 334453,
+            BestelDatum = new DateTime(2015, 12, 12),
+            Status = 1,
+
+            KlantNaam = "Remco",
+            AdresRegel1 = "Hofmeesterij 89",
+            Woonplaats = "Huissen",
+            Postcode = "6852NC",
+            Telefoonnummer = "0612697691",
+            Artikelen = new List<Artikel>()
+            {
+                new Artikel()
+                {
+                    ID = 1,
+                    Naam = "Fietsbel",
+                    Leverancier = "Gazelle",
+                    Leverancierscode = "GAZ01",
+                    Aantal = 5
+                }
+            }
+        };
+
+        private Bestelling _bestellingNoKlantGegevens = new Bestelling()
+        {
+            ID = 1,
+            BestelDatum = new DateTime(2015, 12, 12),
+            Status = 1,
+
+            Artikelen = new List<Artikel>()
+            {
+                new Artikel()
+                {
+                    ID = 1,
+                    Naam = "Fietsbel",
+                    Leverancier = "Gazelle",
+                    Leverancierscode = "GAZ01",
+                    Aantal = 5
+                }
+            }
+        };
+        #endregion
         [ClassInitialize]
         public static void ClassInitialize(TestContext testcontext)
         {
@@ -104,8 +150,40 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 Assert.AreEqual(0, before.Status);
                 Assert.AreEqual(1, after.Status);
             }
-           
         }
 
+        [TestMethod]
+        public void TestInsertBestelling()
+        {
+            //Arrange
+            BestellingDataMapper mapper = new BestellingDataMapper();
+
+            //Act
+            using (TransactionScope scope = new TransactionScope())
+            {
+                mapper.Insert(_bestelling);
+                Bestelling newBestelling = mapper.FindBestellingByID(_bestelling.ID);
+
+                //Assert
+                Assert.AreEqual(newBestelling.ID, _bestelling.ID);
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DbEntityValidationException))]
+        public void ValidateInsertBestellingThrowsExceptionWhenBestellingIsNotValid()
+        {
+            //Arrange
+            BestellingDataMapper mapper = new BestellingDataMapper();
+
+            //Act
+            using (TransactionScope scope = new TransactionScope())
+            {
+                mapper.Insert(_bestellingNoKlantGegevens);
+
+                //Assert
+                //Expect DbEntityValidationException
+            }
+        }
     }
 }
