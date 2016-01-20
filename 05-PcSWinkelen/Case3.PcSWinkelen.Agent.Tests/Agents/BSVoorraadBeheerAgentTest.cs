@@ -6,6 +6,9 @@ using Case3.PcSWinkelen.Agent.Exceptions;
 
 namespace Case3.PcSWinkelen.Agent.Tests.Agents
 {
+    /// <summary>
+    /// Test class which tests the functionality of the BSVoorraadBeheerAgent class
+    /// </summary>
     [TestClass]
     public class BSVoorraadBeheerAgentTest
     {

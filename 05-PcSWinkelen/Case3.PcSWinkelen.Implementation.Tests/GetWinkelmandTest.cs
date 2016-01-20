@@ -15,6 +15,10 @@ using Moq;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+
+    /// <summary>
+    /// Testclass for retrieving the winkelmand
+    /// </summary>
     [TestClass]
     public class GetWinkelmandTest
     {

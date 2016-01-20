@@ -11,6 +11,9 @@ using Case3.Common.Faults;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// Test class for testing the PcSWinkelenServiceHandler class
+    /// </summary>
     [TestClass]
     public class PcSWinkelenServiceHandlerTest
     {

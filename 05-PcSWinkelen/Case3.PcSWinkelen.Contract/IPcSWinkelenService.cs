@@ -5,7 +5,7 @@ using System.ServiceModel;
 namespace Case3.PcSWinkelen.Contract
 {
     /// <summary>
-    /// The interface for the PcSWinkelenService
+    /// Contract for the PcSWinkelenService 
     /// </summary>
     [ServiceContract(Namespace = "Case3.GoudGeel.PcSWinkelen")]
     public interface IPcSWinkelenService
