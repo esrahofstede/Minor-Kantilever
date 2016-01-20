@@ -22,7 +22,7 @@ namespace Case3.FEBestellingen.Site.Controllers
         /// <summary>
         /// This constructor is for testing purposes
         /// </summary>
-        /// <param name="agent">This should be a mock of IPcSWinkelenAgent</param>
+        /// <param name="manager">This should be a mock of IBestellingManager</param>
         public BestellingController(IBestellingManager manager)
         {
             _bestellingManager = manager;

@@ -14,8 +14,8 @@ namespace Case3.FEBestellingen.Agent.Agents
 
         public PcSBestellenAgent()
         {
-            //_factory = new ServiceFactory<IPcSBestellenService>("PcSBestellen");
-            //_agent = _factory.CreateAgent();
+            _factory = new ServiceFactory<IPcSBestellenService>("PcSBestellen");
+            _agent = _factory.CreateAgent();
         }
 
         public PcSBestellenAgent(IPcSBestellenService agent)

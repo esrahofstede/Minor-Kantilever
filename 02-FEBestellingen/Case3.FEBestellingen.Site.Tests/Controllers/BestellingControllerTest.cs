@@ -25,37 +25,38 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
                 {
                     new ArtikelViewModel
                     {
+                        ID = 1,
                         ArtikelNaam = "Fietsbel",
                         Leveranciersnaam = "Gazelle",
                         Leverancierscode = "GA12345FB",
-                        Aantal = 1
+                        Aantal = 1,
+                        Prijs = 4.95M,
                     },
                     new ArtikelViewModel
                     {
+                        ID = 2,
                         ArtikelNaam = "Zadelpen",
                         Leveranciersnaam = "Giant",
                         Leverancierscode = "GI12345ZP",
-                        Aantal = 2
+                        Aantal = 2,
+                        Prijs = 4.95M,
                     }
-                }
+                },
+                KlantNaam = "Bob Jansma",
+                Adresregel1 = "Kerkstraat 5",
+                Adresregel2 = "t.a.v. Dhr. Jansma",
+                Postcode = "1234AB",
+                Woonplaats = "Veenendaal",
+                FactuurNummer = 10001,
+                FactuurDatum = DateTime.Now,
+                BTWPercentage = 21M,
+                TotaalBTW = 2.58M,
+                TotaalExclBTW = 12.27M,
+                TotaalInclBTW = 14.85M,                
             };
         }
         #endregion
         #region -------[Tests for Index Action]-------
-        [TestMethod]
-        public void BestellingControllerCreateInstance()
-        {
-            // Arrange
-
-            // Act
-            var controller = new BestellingController();
-
-            // Assert
-            Assert.IsNotNull(controller);
-            Assert.IsInstanceOfType(controller, typeof(BestellingController));
-        }
-
-
         [TestMethod]
         public void BestellingControllerIndexActionReturnsViewResult()
         {
@@ -91,15 +92,33 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
             Assert.IsInstanceOfType(result.Model, typeof(BestellingViewModel));
 
             //First item
+            Assert.AreEqual(1, bestellingViewModel.Artikelen[0].ID);
             Assert.AreEqual("Fietsbel", bestellingViewModel.Artikelen[0].ArtikelNaam);
             Assert.AreEqual("Gazelle", bestellingViewModel.Artikelen[0].Leveranciersnaam);
             Assert.AreEqual("GA12345FB", bestellingViewModel.Artikelen[0].Leverancierscode);
             Assert.AreEqual(1, bestellingViewModel.Artikelen[0].Aantal);
+            Assert.AreEqual(4.95M, bestellingViewModel.Artikelen[0].Prijs);
             //Second item
+            Assert.AreEqual(2, bestellingViewModel.Artikelen[1].ID);
             Assert.AreEqual("Zadelpen", bestellingViewModel.Artikelen[1].ArtikelNaam);
             Assert.AreEqual("Giant", bestellingViewModel.Artikelen[1].Leveranciersnaam);
             Assert.AreEqual("GI12345ZP", bestellingViewModel.Artikelen[1].Leverancierscode);
             Assert.AreEqual(2, bestellingViewModel.Artikelen[1].Aantal);
+            Assert.AreEqual(4.95M, bestellingViewModel.Artikelen[1].Prijs);
+            //Payment information
+            Assert.AreEqual(21M, bestellingViewModel.BTWPercentage);
+            Assert.AreEqual(2.58M, bestellingViewModel.TotaalBTW);
+            Assert.AreEqual(12.27M, bestellingViewModel.TotaalExclBTW);
+            Assert.AreEqual(14.85M, bestellingViewModel.TotaalInclBTW);
+            //Receipt information
+            Assert.AreEqual(DateTime.Now.ToString("dd/MM/yy"), bestellingViewModel.FactuurDatum.ToString("dd/MM/yy"));
+            Assert.AreEqual(10001, bestellingViewModel.FactuurNummer);
+            //Label information
+            Assert.AreEqual("Bob Jansma", bestellingViewModel.KlantNaam);
+            Assert.AreEqual("Kerkstraat 5", bestellingViewModel.Adresregel1);
+            Assert.AreEqual("t.a.v. Dhr. Jansma", bestellingViewModel.Adresregel2);
+            Assert.AreEqual("1234AB", bestellingViewModel.Postcode);
+            Assert.AreEqual("Veenendaal", bestellingViewModel.Woonplaats);
         }
         #endregion
         #region -------[IntegrationTests]-------
