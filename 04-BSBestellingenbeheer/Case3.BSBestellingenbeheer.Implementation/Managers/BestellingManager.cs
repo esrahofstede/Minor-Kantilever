@@ -5,23 +5,38 @@ using Case3.BSCatalogusBeheer.Schema.ProductNS;
 using Case3.BSBestellingenbeheer.DAL.Context;
 using System;
 using System.Collections.Generic;
+using Case3.BSBestellingenbeheer.DAL.Exceptions;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Managers
 {
+    /// <summary>
+    /// This class is responsible for mapping Bestelling DTO's to Bestelling entities and putting them together if necessary.
+    /// </summary>
     public class BestellingManager : IBestellingManager
     {
         private IDataMapper<Entities.Bestelling, long> _bestellingDataMapper;
 
+        /// <summary>
+        /// Constructor for the manager. Uses the BestellingDataMapper default. 
+        /// </summary>
         public BestellingManager()
         {
             _bestellingDataMapper = new BestellingDataMapper();
         }
 
+        /// <summary>
+        /// Constructor for testing purposes.
+        /// </summary>
+        /// <param name="datamapper"></param>
         public BestellingManager(IDataMapper<Entities.Bestelling, long> datamapper)
         {
             _bestellingDataMapper = datamapper;
         }
 
+        /// <summary>
+        /// This method maps a Bestelling DTO to a Bestelling Entity, and uses the BestellingDatamapper to persist.
+        /// </summary>
+        /// <param name="bestelling">Bestelling DTO</param>
         public void InsertBestelling(Bestelling bestelling)
         {
             DateTime besteldatum = ParseBestelDatum(bestelling.FactuurDatum);
@@ -29,7 +44,6 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
             {
                 Entities.Bestelling insertBestelling = new Entities.Bestelling()
                 {
-                    ID = (int)bestelling.BestellingID,
                     BestelDatum = besteldatum,
                     Status = (int)bestelling.Status,
                     KlantNaam = bestelling.Klantgegevens.Naam,
@@ -54,12 +68,20 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                 }
                 _bestellingDataMapper.Insert(insertBestelling);
             }
+            catch (InvalidOperationException)
+            {
+                throw new FunctionalException("De opgegeven bestelling is niet in het juiste formaat.");
+            }
             catch (Exception)
             {
                 throw;
             }
         }
-
+        /// <summary>
+        /// This method parses a string to a DateTime. If not possible, use the current DateTime.
+        /// </summary>
+        /// <param name="factuurDatum">date as a string</param>
+        /// <returns>Datetime</returns>
         private DateTime ParseBestelDatum(string factuurDatum)
         {
             DateTime result;

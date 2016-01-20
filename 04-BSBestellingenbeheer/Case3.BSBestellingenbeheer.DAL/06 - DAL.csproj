@@ -69,6 +69,8 @@
   <ItemGroup>
     <Compile Include="Context\BestellingContext.cs" />
     <Compile Include="DataMappers\BestellingDataMapper.cs" />
+    <Compile Include="Exceptions\TechnicalException.cs" />
+    <Compile Include="Exceptions\FunctionalException.cs" />
     <Compile Include="DataMappers\IDataMapper.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Mappings\ArtikelMapping.cs" />
@@ -93,6 +95,7 @@
       <Name>08 - Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

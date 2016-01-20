@@ -49,6 +49,10 @@
       <Word>niet</Word>
       <Word>gevonden</Word>
       <Word>Artikel</Word>
+      <Word>Kon</Word>
+      <Word>Opgeslagen</Word>
+      <Word>Toevoegen</Word>
+      <Word>Opgegeven</Word>
       <Word>Bestelling</Word>
       <Word>Leveranciersnaam</Word>
       <Word>Leverancierscode</Word>
@@ -92,6 +96,8 @@
       <Word>Eens</Word>
       <Word>Technische</Word>
       <Word>DTO</Word>
+      <Word>Formaat</Word>
+      <Word>Juiste</Word>
   </Recognized>
     <Unrecognized>
     </Unrecognized>

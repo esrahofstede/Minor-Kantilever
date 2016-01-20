@@ -14,7 +14,6 @@ namespace Case3.BSBestellingenbeheer.Entities
         private List<Artikel> _artikelen;
 
         private int _BTWPercentage;
-        private decimal _totaalPrijs;
 
         private string _klantNaam;
         private string _adresregel1;
@@ -51,12 +50,6 @@ namespace Case3.BSBestellingenbeheer.Entities
         {
             get { return _BTWPercentage; }
             set { _BTWPercentage = value; }
-        }
-
-        public decimal TotaalPrijs
-        {
-            get { return _totaalPrijs; }
-            set { _totaalPrijs = value; }
         }
 
         public string KlantNaam

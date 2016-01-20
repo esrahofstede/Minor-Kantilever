@@ -117,7 +117,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 Woonplaats = "Veenendaal",
                 BTWPercentage = 21,
                 Telefoonnummer = "0654789542",
-                TotaalPrijs = 63.50M
+                AdresRegel2 = "8B"
             };
 
             Bestelling b = new Bestelling()
@@ -132,7 +132,6 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 Woonplaats = "Veenendaal",
                 BTWPercentage = 21,
                 Telefoonnummer = "0654789542",
-                TotaalPrijs = 63.50M
             };
 
             context.Bestellingen.AddRange(new Bestelling[] { a, b });

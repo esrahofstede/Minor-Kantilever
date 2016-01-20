@@ -7,6 +7,7 @@ using Case3.BSBestellingenbeheer.DAL.DataMappers;
 using System.Transactions;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using Case3.BSBestellingenbeheer.DAL.Exceptions;
 
 namespace Case3.BSBestellingenbeheer.DAL.Tests
 {
@@ -170,7 +171,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(DbEntityValidationException))]
+        [ExpectedException(typeof(FunctionalException))]
         public void ValidateInsertBestellingThrowsExceptionWhenBestellingIsNotValid()
         {
             //Arrange
@@ -181,8 +182,8 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             {
                 mapper.Insert(_bestellingNoKlantGegevens);
 
-                //Assert
-                //Expect DbEntityValidationException
+            //Assert
+            //Expect FunctionalException
             }
         }
     }

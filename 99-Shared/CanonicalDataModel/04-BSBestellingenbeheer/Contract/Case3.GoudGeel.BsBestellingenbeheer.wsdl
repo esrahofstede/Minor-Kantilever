@@ -7,6 +7,8 @@
       <xsd:import namespace="urn:case3-bsbestellingenbeheer:v1:messages" />
       <xsd:import namespace="urn:case3-bsbestellingenbeheer:v1:schema" />
       <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1" />
+      <xsd:import namespace="urn:case3-common:v1:faults" />
+      <xsd:import namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IBSBestellingenbeheerService_FindFirstBestelling_InputMessage">
@@ -20,6 +22,9 @@
   </wsdl:message>
   <wsdl:message name="IBSBestellingenbeheerService_InsertBestelling_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertBestellingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBSBestellingenbeheerService_InsertBestelling_ErrorLijstFault_FaultMessage">
+    <wsdl:part name="detail" xmlns:q1="urn:case3-common:v1:faults" element="q1:ErrorLijst" />
   </wsdl:message>
   <wsdl:message name="IBSBestellingenbeheerService_UpdateBestellingStatus_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateBestellingStatus" />
@@ -35,6 +40,7 @@
     <wsdl:operation name="InsertBestelling">
       <wsdl:input wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestelling" message="tns:IBSBestellingenbeheerService_InsertBestelling_InputMessage" />
       <wsdl:output wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestellingResponse" message="tns:IBSBestellingenbeheerService_InsertBestelling_OutputMessage" />
+      <wsdl:fault wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestellingErrorLijstFault" name="ErrorLijstFault" message="tns:IBSBestellingenbeheerService_InsertBestelling_ErrorLijstFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateBestellingStatus">
       <wsdl:input wsaw:Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestellingStatus" message="tns:IBSBestellingenbeheerService_UpdateBestellingStatus_InputMessage" />
@@ -60,6 +66,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ErrorLijstFault">
+        <soap:fault name="ErrorLijstFault" use="literal" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="UpdateBestellingStatus">
       <soap:operation soapAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestellingStatus" style="document" />
