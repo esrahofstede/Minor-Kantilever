@@ -23,7 +23,8 @@ namespace Case3.PcSWinkelen.Implementation.Tests
 
         public Task<bool> BestellingPlaatsenAsync(BestellingPcS bestelling)
         {
-            throw new NotImplementedException();
+            Bestelling = bestelling;
+            return Task.FromResult(true);
         }
     }
 }

@@ -273,9 +273,9 @@ namespace Case3.PcSWinkelen.Implementation
                 ArtikelenPcS = artikelenPcS
             };
 
-            _bestellenAgent.BestellingPlaatsen(bestellingPcS);
+            _bestellenAgent.BestellingPlaatsenAsync(bestellingPcS);
 
-            _winkelmandDataMapper.Delete(_winkelmandDataMapper.FindBySessieID(bestelling.SessieId));
+            //_winkelmandDataMapper.Delete(_winkelmandDataMapper.FindBySessieID(bestelling.SessieId));
 
             return response;
         }

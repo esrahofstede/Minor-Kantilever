@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using AutoMapper;
 using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.BSBestellingenbeheer.V1.Schema;
@@ -78,7 +79,7 @@ namespace Case3.PcSBestellen.Implementation
             };
 
             _bestellingenbeheerAgent.InsertBestelling(BSBestelling);
-
+            
             return new BestellingPlaatsenResultMessage();
         }
     }
