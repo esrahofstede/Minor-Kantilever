@@ -35,13 +35,7 @@
   <xs:element name="BestellingPlaatsenResultMessage" nillable="true" type="tns:BestellingPlaatsenResultMessage" />
   <xs:complexType name="UpdateBestellingStatusRequestMessage">
     <xs:sequence>
-      <xs:element name="Bestelling" nillable="true" xmlns:q3="urn:case3-pcsbestellen:v1:schema" type="q3:BestellingPcS">
-        <xs:annotation>
-          <xs:appinfo>
-            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
+      <xs:element name="BestellingID" type="xs:long" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UpdateBestellingStatusRequestMessage" nillable="true" type="tns:UpdateBestellingStatusRequestMessage" />

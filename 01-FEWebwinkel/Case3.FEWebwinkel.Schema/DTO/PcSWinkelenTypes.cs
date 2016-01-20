@@ -1191,8 +1191,8 @@ namespace case3common.v1.faults
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.FindFirstBestellingResultMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.InsertBestellingRequestMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.InsertBestellingResultMessage))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.UpdateBestellingRequestMessage))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.UpdateBestellingResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.UpdateBestellingStatusRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.messages.UpdateBestellingStatusResultMessage))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.schema.Klantgegevens))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.schema.Bestelling))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3bsbestellingenbeheer.v1.schema.Artikelen))]
@@ -1408,13 +1408,13 @@ namespace case3bsbestellingenbeheer.v1.messages
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingRequestMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
-    public partial class UpdateBestellingRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingStatusRequestMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class UpdateBestellingStatusRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private case3bsbestellingenbeheer.v1.schema.Bestelling BestellingField;
+        private long BestellingIDField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -1428,24 +1428,24 @@ namespace case3bsbestellingenbeheer.v1.messages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public case3bsbestellingenbeheer.v1.schema.Bestelling Bestelling
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long BestellingID
         {
             get
             {
-                return this.BestellingField;
+                return this.BestellingIDField;
             }
             set
             {
-                this.BestellingField = value;
+                this.BestellingIDField = value;
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingResultMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
-    public partial class UpdateBestellingResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingStatusResultMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class UpdateBestellingStatusResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -1590,7 +1590,7 @@ namespace case3pcsbestellen.v1.messages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private case3pcsbestellen.v1.schema.BestellingPcS BestellingField;
+        private long BestellingIDField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -1604,16 +1604,16 @@ namespace case3pcsbestellen.v1.messages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public case3pcsbestellen.v1.schema.BestellingPcS Bestelling
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long BestellingID
         {
             get
             {
-                return this.BestellingField;
+                return this.BestellingIDField;
             }
             set
             {
-                this.BestellingField = value;
+                this.BestellingIDField = value;
             }
         }
     }
