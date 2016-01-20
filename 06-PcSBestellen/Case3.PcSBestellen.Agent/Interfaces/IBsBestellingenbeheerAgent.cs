@@ -15,6 +15,13 @@ namespace Case3.PcSBestellen.Agent.Interfaces
         /// <returns>Returns a FindFirstBestellingResultMessage</returns>
         FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage);
 
+        /// <summary>
+        /// This function returns a UpdateBestellingStatusResultMessage
+        /// </summary>
+        /// <param name="requestMessage">The Request Message</param>
+        /// <returns>Returns a UpdateBestellingStatusResultMessage</returns>
+        UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage requestMessage);
+
         InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling);
         InsertBestellingResultMessage InsertBestellingAsync(InsertBestellingRequestMessage bestelling);
     }

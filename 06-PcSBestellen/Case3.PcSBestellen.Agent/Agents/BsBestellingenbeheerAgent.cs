@@ -30,7 +30,7 @@ namespace Case3.PcSBestellen.Agent.Agents
             try
             {
                 _agent = factory.CreateAgent();
-            }
+        }
             catch (InvalidOperationException ex)
             {
                 throw new TechnicalException("BSBestellingen kan niet bereikt worden.", ex.InnerException);

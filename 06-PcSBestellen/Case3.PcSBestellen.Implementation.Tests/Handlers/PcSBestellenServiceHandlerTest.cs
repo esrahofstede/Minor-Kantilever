@@ -96,5 +96,24 @@ namespace Case3.PcSBestellen.Implementation.Tests.Handlers
             Assert.AreEqual(2, artikelen[1].Aantal);
         }
         #endregion
+        #region -------[Tests for UpdateBestelling]-------
+        [TestMethod]
+        public void PcSBestellenServiceHandlerUpdateBestellingReturnsUpdateResultMessage()
+        {
+            // Arrange
+            var mock = new Mock<IBSBestellingenManager>(MockBehavior.Strict);
+
+            mock.Setup(m => m.UpdateBestelling(It.IsAny<UpdateBestellingStatusRequestMessage>()))
+                .Returns(new UpdateBestellingStatusResultMessage());
+
+            var handler = new PcSBestellenServiceHandler(mock.Object);
+
+            // Act
+            var result = handler.UpdateBestelling(new UpdateBestellingStatusRequestMessage());
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(UpdateBestellingStatusResultMessage));
+        }
+        #endregion
     }
 }

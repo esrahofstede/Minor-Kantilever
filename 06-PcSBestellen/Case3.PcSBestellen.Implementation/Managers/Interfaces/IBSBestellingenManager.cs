@@ -28,5 +28,12 @@ namespace Case3.PcSBestellen.Implementation.Managers.Interfaces
         /// <param name="findFirstResultMessage">The resultmessage which has to be converted</param>
         /// <returns>Returns a FindNextBestellingResultMessage<returns>
         FindNextBestellingResultMessage ConvertFindFirstResultMessageToFindNextResultMessage(FindFirstBestellingResultMessage findFirstResultMessage);
+        
+        /// <summary>
+        /// This function updates the Bestelling and returns a UpdateBestellingStatusResultMessage
+        /// </summary>
+        /// <param name="request">The Request Message</param>
+        /// <returns>Returns a UpdateBestellingStatusResultMessage</returns>
+        V1.Messages.UpdateBestellingStatusResultMessage UpdateBestelling(V1.Messages.UpdateBestellingStatusRequestMessage request);
     }
 }

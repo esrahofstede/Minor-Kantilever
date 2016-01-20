@@ -1,14 +1,10 @@
-﻿using AutoMapper;
-using Case3.BSBestellingenbeheer.V1.Messages;
-using Case3.BSBestellingenbeheer.V1.Schema;
-using Case3.BSCatalogusBeheer.Schema.ProductNS;
+﻿using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.PcSBestellen.Agent.Agents;
 using Case3.PcSBestellen.Agent.Interfaces;
 using Case3.PcSBestellen.Implementation.Managers.Interfaces;
 using Case3.PcSBestellen.V1.Messages;
 using Case3.PcSBestellen.V1.Schema;
-using System.Collections.Generic;
-using System.Linq;
+using System;
 
 namespace Case3.PcSBestellen.Implementation.Managers
 {
@@ -93,6 +89,49 @@ namespace Case3.PcSBestellen.Implementation.Managers
             var findNextResultMessage = ConvertFindFirstResultMessageToFindNextResultMessage(findFirstResultMessage);
 
             return findNextResultMessage;
+        }
+
+        /// <summary>
+        /// This function updates the Bestelling and returns a UpdateBestellingStatusResultMessage
+        /// </summary>
+        /// <param name="request">The Request Message</param>
+        /// <returns>Returns a UpdateBestellingStatusResultMessage</returns>
+        public V1.Messages.UpdateBestellingStatusResultMessage UpdateBestelling(V1.Messages.UpdateBestellingStatusRequestMessage request)
+        {
+            //Convert the incoming requestMessage to the required requestMessage for the BsBestellingenbeheer
+            var bsRequestMessage = ConvertPcSUpdateRequestMessageToBSUpdateRequestMessage(request);
+            //Update the bestelling from the BsBestellingenbeheer using the agent
+            BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage bsResultMessage = _bsBestellingenAgent.UpdateBestellingStatus(bsRequestMessage);
+            //Convert the incoming resultMessage to the correct outgoing resultMessage for FEBestellen
+            V1.Messages.UpdateBestellingStatusResultMessage findNextResultMessage = ConvertBsUpdateResultMessageToPcSUpdateResultMessage(bsResultMessage);
+
+            return findNextResultMessage;
+        }
+
+        /// <summary>
+        /// This function converts a (BSBestellen)UpdateBestellingStatusResultMessage to a (PcSBestellen)UpdateBestellingStatusResultMessage
+        /// </summary>
+        /// <param name="bsResultMessage">The resultmessage which has to be converted</param>
+        /// <returns>Returns a UpdateBestellingStatusResultMessage<returns>
+        public V1.Messages.UpdateBestellingStatusResultMessage ConvertBsUpdateResultMessageToPcSUpdateResultMessage(BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage bsResultMessage)
+        {
+            return new V1.Messages.UpdateBestellingStatusResultMessage
+            {
+                //There is nothing to convert at this time, but this method has already been made for possible additions
+            };
+        }
+
+        /// <summary>
+        /// This function converts a (PcSBestellen)UpdateBestellingStatusRequestMessage to a (BSBestellen)UpdateBestellingStatusRequestMessage
+        /// </summary>
+        /// <param name="request">The request message which has to be converted</param>
+        /// <returns>Returns a UpdateBestellingStatusRequestMessage<returns>
+        public BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage ConvertPcSUpdateRequestMessageToBSUpdateRequestMessage(V1.Messages.UpdateBestellingStatusRequestMessage request)
+        {
+            return new BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage
+            {
+                BestellingID = request.BestellingID,
+            };
         }
     }
 }
