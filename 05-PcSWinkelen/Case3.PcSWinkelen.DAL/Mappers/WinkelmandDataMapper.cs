@@ -45,5 +45,27 @@ namespace Case3.PcSWinkelen.DAL.Mappers
                 return context.WinkelmandItems.ToList();
             }
         }
+
+        public void Delete(WinkelmandItem deleteItem)
+        {
+            using (var context = new WinkelmandContext())
+            {
+                var result = context.WinkelmandItems.Where(x => x.SessieID == deleteItem.SessieID).FirstOrDefault();
+
+                if (result != null)
+                {
+                    context.WinkelmandItems.Remove(result);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public WinkelmandItem FindBySessieID(string sessieID)
+        {
+            using (var context = new WinkelmandContext())
+            {
+                return context.WinkelmandItems.Where(x => x.SessieID == sessieID).FirstOrDefault();
+            }
+        }
     }
 }

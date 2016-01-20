@@ -13,6 +13,16 @@ namespace Case3.PcSWinkelen.Implementation.Tests
     {
         internal WinkelmandItem Item;
 
+        public void Delete(WinkelmandItem deleteItem)
+        {
+            throw new NotImplementedException();
+        }
+
+        public WinkelmandItem FindBySessieID(string sessieID)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<WinkelmandItem> FindAllBy(Expression<Func<WinkelmandItem, bool>> isAny)
         {
             throw new NotImplementedException();

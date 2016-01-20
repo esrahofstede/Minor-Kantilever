@@ -10,7 +10,6 @@
 
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:messages", ClrNamespace="Case3.PcSBestellen.MessagesNS")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-pcsbestellen:v1:schema", ClrNamespace="Case3.PcSBestellen.SchemaNS")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.PcSWinkelen.Schema.CategorieNS")]
 
 namespace Case3.PcSBestellen.MessagesNS
 {
@@ -148,7 +147,9 @@ namespace Case3.PcSBestellen.SchemaNS
         
         private System.Nullable<int> FactuurIDField;
         
-        private string StatusField;
+        private string FactuurDatumField;
+        
+        private System.Nullable<int> StatusField;
         
         private Case3.PcSBestellen.SchemaNS.KlantgegevensPcS KlantgegevensField;
         
@@ -192,8 +193,21 @@ namespace Case3.PcSBestellen.SchemaNS
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string Status
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public string FactuurDatum
+        {
+            get
+            {
+                return this.FactuurDatumField;
+            }
+            set
+            {
+                this.FactuurDatumField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public System.Nullable<int> Status
         {
             get
             {
@@ -205,7 +219,7 @@ namespace Case3.PcSBestellen.SchemaNS
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
         public Case3.PcSBestellen.SchemaNS.KlantgegevensPcS Klantgegevens
         {
             get
@@ -218,7 +232,7 @@ namespace Case3.PcSBestellen.SchemaNS
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
         public Case3.PcSBestellen.SchemaNS.ArtikelenPcS ArtikelenPcS
         {
             get
@@ -384,18 +398,6 @@ namespace Case3.PcSBestellen.SchemaNS
                 this.AantalField = value;
             }
         }
-    }
-}
-namespace Case3.PcSWinkelen.Schema.CategorieNS
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CategorieCollection", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ItemName="Categorie")]
-    public class CategorieCollection : System.Collections.Generic.List<Case3.PcSWinkelen.Schema.CategorieNS.Categorie>
-    {
     }
 }
 

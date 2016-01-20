@@ -80,7 +80,7 @@ namespace Case3.PcSWinkelen.DAL.Tests
                 target.Insert(DummyData.GetDummyWinkelmandItem);
                 var newItem = DummyData.GetDummyWinkelmandItem;
                 newItem.Aantal++;
-                
+
 
                 // Act
                 target.Update(newItem);
@@ -89,6 +89,66 @@ namespace Case3.PcSWinkelen.DAL.Tests
                 // Assert
                 Assert.AreEqual(6, result[0].Aantal);
             }
+        }
+
+        [TestMethod]
+        public void FindBySessieIDNotFoundWinkelmandItem()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                // Arrange
+                var target = new WinkelmandDataMapper();
+
+                // Act
+                var result = target.FindBySessieID("");
+
+                // Assert
+                Assert.IsNull(result);
+            }
+        }
+
+        [TestMethod]
+        public void FindBySessieIDFoundWinkelmandItem()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                // Arrange
+                var target = new WinkelmandDataMapper();
+
+                // Act
+                var result = target.FindBySessieID("210c796d-09a6-4ba0-a7d7-09226575f864");
+
+                // Assert
+                Assert.IsNotNull(result);
+                Assert.IsInstanceOfType(result, typeof(WinkelmandItem));
+                Assert.AreEqual("210c796d-09a6-4ba0-a7d7-09226575f864", result.SessieID);
+                Assert.AreEqual(1234, result.ProductID);
+                Assert.AreEqual("58585", result.LeveranciersProductId);
+                Assert.AreEqual("Gazelle", result.LeverancierNaam);
+                Assert.AreEqual("Fietsbel", result.Naam);
+                Assert.AreEqual(2.00M, result.Prijs);
+            }
+        }
+
+        [TestMethod]
+        public void DeleteFoundWinkelmandItem()
+        {
+            // Arrange
+            var target = new WinkelmandDataMapper();
+            
+            using (var scope = new TransactionScope())
+            {
+                // Act
+                var resultOld = target.FindBySessieID("210c796d-09a6-4ba0-a7d7-09226575f864");
+                Assert.IsNotNull(resultOld);
+
+                target.Delete(resultOld);
+                var result = target.FindBySessieID("210c796d-09a6-4ba0-a7d7-09226575f864");
+
+                // Assert
+                Assert.IsNull(result);
+            }
+
         }
 
     }

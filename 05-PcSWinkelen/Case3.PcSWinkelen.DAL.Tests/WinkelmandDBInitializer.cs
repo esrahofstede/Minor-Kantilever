@@ -16,7 +16,7 @@ namespace Case3.PcSWinkelen.DAL.Tests
             WinkelmandItem item1 = new WinkelmandItem
             {
                 Aantal = 2,
-                SessieID = Guid.NewGuid().ToString(),
+                SessieID = "210c796d-09a6-4ba0-a7d7-09226575f864",
                 ProductID = 1234,
                 LeveranciersProductId = "58585",
                 LeverancierNaam = "Gazelle",
@@ -27,7 +27,7 @@ namespace Case3.PcSWinkelen.DAL.Tests
             WinkelmandItem item2 = new WinkelmandItem
             {
                 Aantal = 2,
-                SessieID = Guid.NewGuid().ToString(),
+                SessieID = "2167f034-d240-4856-8ae7-070fb0ec9155",
                 ProductID = 1234,
                 LeveranciersProductId = "876554",
                 LeverancierNaam = "Gazelle",

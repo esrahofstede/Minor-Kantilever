@@ -271,8 +271,7 @@ namespace Case3.PcSWinkelen.Implementation
 
             _bestellenAgent.BestellingPlaatsen(bestellingPcS);
 
-            //VERWIJDEREN van de hele handel
-
+            _winkelmandDataMapper.Delete(_winkelmandDataMapper.FindBySessieID(bestelling.SessieId));
 
             return response;
         }
