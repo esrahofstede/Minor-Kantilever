@@ -6,14 +6,23 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Case3.BSBestellingenbeheer.DAL.DataMappers
 {
     /// <summary>
     /// Responsible for all CRUD actions for Bestellingen
     /// </summary>
-    public class BestellingDataMapper
+    public class BestellingDataMapper : IDataMapper<Bestelling,long>
     {
+        public void Insert(Bestelling item)
+        {
+            using (var context = new BestellingContext())
+            {
+                context.Bestellingen.Add(item);
+                context.SaveChanges();
+            }
+        }
 
         /// <summary>
         /// Gets one Bestelling where the status == 0 and ordered by BestelDatum
@@ -64,6 +73,36 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
                     throw new NullReferenceException("Bestelling niet gevonden");
                 }
             }
+        }
+
+        public void Delete(Bestelling item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Bestelling Find(long key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Bestelling> FindAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Bestelling> FindAllBy(Expression<Func<Bestelling, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Bestelling FindById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Bestelling item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

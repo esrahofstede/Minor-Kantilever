@@ -172,8 +172,8 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNS
                 this.PrijsField = value;
             }
         }
-    }
-}
+            }
+            }
 namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
 {
     using System.Runtime.Serialization;

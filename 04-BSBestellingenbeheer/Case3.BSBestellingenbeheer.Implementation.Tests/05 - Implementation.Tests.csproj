@@ -52,6 +52,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
@@ -70,11 +74,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Mocks\BestellingDataMapperMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BestellingenManagerTest.cs" />
     <Compile Include="BSBestellingenServiceHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Case3.BSBestellingenbeheer.DAL\06 - DAL.csproj">
+      <Project>{c648b7a9-810b-4523-9473-686b2bff10bc}</Project>
+      <Name>06 - DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.BSBestellingenbeheer.Entities\08 - Entities.csproj">
       <Project>{0fb9a314-fd9d-4689-862c-02c7852a3ecd}</Project>
       <Name>08 - Entities</Name>

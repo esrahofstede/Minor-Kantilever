@@ -117,6 +117,13 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 BestelDatum = DateTime.Now.AddDays(1),
                 Status = 1,
                 Artikelen = lijst2,
+                AdresRegel1 = "Hofmeesterij 89",
+                KlantNaam = "Henk Jansen",
+                Postcode = "6738PK",
+                Woonplaats = "Veenendaal",
+                BTWPercentage = 21,
+                Telefoonnummer = "0654789542",
+                TotaalPrijs = 63.50M
             };
             context.Bestellingen.AddRange(new Bestelling[] { a, b });
             context.Artikelen.AddRange(new Artikel[] { artikel1, artikel2, artikel3, artikel4, artikel21, artikel22, artikel23, artikel24 });
