@@ -78,31 +78,27 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
             return result;
         }
 
-        /// <summary>
-        /// This method returns the First bestelling to be packed.
-        /// </summary>
-        /// <returns>Bestelling to be packed</returns>
-        public Bestelling FindFirstBestelling()
+        public Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity)
         {
-            Bestelling bestelling = new Bestelling()
+
+            Bestelling bestellingDTO = new Bestelling()
             {
-                Artikelen = new Artikelen()
+                Artikelen = new Artikelen(),
+                BestellingID = (int)bestellingEntity.ID,
+                FactuurDatum = bestellingEntity.BestelDatum.ToString()
+                
             };
 
-            BestellingDataMapper bestellingDataMappper = new BestellingDataMapper();
-            Entities.Bestelling bestellingEntity = null;
-            using (var context = new BestellingContext())
-            {
-                bestellingEntity = bestellingDataMappper.GetBestellingToPack(context);
                 if (bestellingEntity != null)
                 {
                     if (bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
                     {
                         foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
                         {
-                            bestelling.Artikelen.Add(new BestelItem()
+                        bestellingDTO.Artikelen.Add(new BestelItem()
                             {
-                                Product = new Product()
+                            
+                            Product = new Product ()
                                 {
                                     Naam = artikel.Naam,
                                     LeverancierNaam = artikel.Leverancier,
@@ -113,8 +109,9 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                         }
                     }
                 }
-            }
-            return bestelling;
+        
+        return bestellingDTO;
+
         }
 
 

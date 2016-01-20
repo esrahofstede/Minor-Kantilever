@@ -32,7 +32,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
         {
             BestellingDataMapper mapper = new BestellingDataMapper();
 
-            Bestelling result = mapper.GetBestellingToPack(new BestellingContext());
+            Bestelling result = mapper.GetBestellingToPack();
 
             Assert.AreEqual(1, result.ID);
             Assert.IsNotNull(result.Artikelen);

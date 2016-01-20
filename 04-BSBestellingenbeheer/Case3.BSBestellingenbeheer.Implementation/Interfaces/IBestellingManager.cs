@@ -1,4 +1,6 @@
-﻿using Case3.BSBestellingenbeheer.V1.Schema;
+﻿using Case3.BSBestellingenbeheer.Contract;
+using Case3.BSBestellingenbeheer.V1.Messages;
+using Case3.BSBestellingenbeheer.V1.Schema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +12,11 @@ namespace Case3.BSBestellingenbeheer.Implementation.Interfaces
     public interface IBestellingManager
     {
         /// <summary>
-        /// This method returns the First bestelling to be packed.
+        /// Converts a BEstelling to DTO
         /// </summary>
-        /// <returns>Bestelling to be packed</returns>
-        Bestelling FindFirstBestelling();
+        /// <returns>BestellingDTO</returns>
+        Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity);
+
         void InsertBestelling(Bestelling bestelling);
     }
 }

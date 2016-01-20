@@ -83,31 +83,29 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         /// Gets the first bestelling and checks that bestelling
         /// </summary>
         [TestMethod]
-        public void BestellingenManagerFindFirstBestelling()
+        public void BestellingenManageConvertBestelling()
         {
             // Arrange
             BestellingManager bestellingManager = new BestellingManager();
 
+            DateTime datum = DateTime.Now;
+
+            Entities.Bestelling bestelling = new Entities.Bestelling()
+            {
+                ID = 1,
+                BestelDatum = datum,
+                Status = 0,
+                Artikelen = new List<Entities.Artikel>(),
+            };
+
             // Act
-            var result = bestellingManager.FindFirstBestelling();
+            var result = bestellingManager.ConvertBestellingEntityToDTO(bestelling);
 
             // Assert
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(Bestelling));
-
-            Assert.AreEqual(4, result.Artikelen.Count);
-
-            // Check first product
-            Assert.AreEqual(3, result.Artikelen[0].Aantal);
-            Assert.AreEqual("fietsbel", result.Artikelen[0].Product.Naam);
-            Assert.AreEqual("gazelle", result.Artikelen[0].Product.LeverancierNaam);
-            Assert.AreEqual("03g54hbronlsfads", result.Artikelen[0].Product.LeveranciersProductId);
-
-            // Check second product 
-            Assert.AreEqual(3, result.Artikelen[1].Aantal);
-            Assert.AreEqual("remschijf", result.Artikelen[1].Product.Naam);
-            Assert.AreEqual("gazelle", result.Artikelen[1].Product.LeverancierNaam);
-            Assert.AreEqual("oiaernglggafds234", result.Artikelen[1].Product.LeveranciersProductId);
+            Assert.AreEqual(1, result.BestellingID);
+            Assert.AreEqual(datum.ToString(), result.FactuurDatum);
         }
 
         [TestMethod]
