@@ -5,12 +5,9 @@ using Case3.BSBestellingenbeheer.DAL.Exceptions;
 using Case3.BSBestellingenbeheer.Implementation.Interfaces;
 using Case3.BSBestellingenbeheer.Implementation.Managers;
 using Case3.BSBestellingenbeheer.V1.Messages;
-using Case3.BSBestellingenbeheer.V1.Schema;
-using Case3.BSCatalogusBeheer.Schema.ProductNS;
 using Case3.Common.Faults;
 using log4net;
 using System;
-using System.Data.Entity;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 
@@ -24,7 +21,6 @@ namespace Case3.BSBestellingenbeheer.Implementation
         private BestellingDataMapper _mapper;
         private BestellingManager _bestellingManager;
         private static ILog _logger = LogManager.GetLogger(typeof(BSBestellingenServiceHandler));
-
 
         [DataMember]
         private ErrorLijst _list = new ErrorLijst();
@@ -54,7 +50,6 @@ namespace Case3.BSBestellingenbeheer.Implementation
             _mapper = mapper;
         }
 
-
         /// <summary>
         /// Get firstbestelling from bestellingmanager
         /// </summary>
@@ -62,7 +57,6 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// <returns></returns>
         public FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage)
         {
-
             Entities.Bestelling firstBestelling = _mapper.GetBestellingToPack();
 
             return new FindFirstBestellingResultMessage()
@@ -76,6 +70,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// </summary>
         /// <param name="bestelling">The request message containing the Bestelling to insert</param>
         /// <returns>Returns an InsertBestellingResultMessage if succesful. Else null.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
         {
             if (bestelling != null)
