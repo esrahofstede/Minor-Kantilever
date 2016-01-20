@@ -128,7 +128,6 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
             }
 
             return bestellingDTO;
-
         }
     }
 }

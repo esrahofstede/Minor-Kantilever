@@ -123,7 +123,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
                 ID = 1,
                 BestelDatum = datum,
                 Status = 0,
-                Artikelen = new List<Entities.Artikel>(),
+                Artikelen = generateArtikelList(),
             };
 
             // Act
@@ -140,34 +140,20 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         /// This method uses a mock to verify if a valid product is inserted succesfully.
         /// </summary>
         [TestMethod]
-        //[ExpectedException(typeof())]
+        [ExpectedException(typeof(NullReferenceException))]
         public void BestellingenManageConvertBestellingIsNull()
         {
             // Arrange
             BestellingManager bestellingManager = new BestellingManager();
-
-            DateTime datum = DateTime.Now;
-
-            Entities.Bestelling bestelling = new Entities.Bestelling()
-            {
-                ID = 1,
-                BestelDatum = datum,
-                Status = 0,
-                Artikelen = new List<Entities.Artikel>(),
-            };
-
+            
             // Act
             var result = bestellingManager.ConvertBestellingEntityToDTO(null);
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(Bestelling));
-            Assert.AreEqual(1, result.BestellingID);
-            Assert.AreEqual(datum.ToString(), result.FactuurDatum);
+            
         }
 
         [TestMethod]
-        public void InsertBestellingAddsProduct()
         public void InsertBestellingIncrementsCount()
         {
             //Arrange
@@ -216,6 +202,54 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             //Expect no exception
         }
 
+        private List<Entities.Artikel> generateArtikelList()
+        {
+            List<Entities.Artikel> lijst = new List<Entities.Artikel>();
+
+            Entities.Artikel artikel21 = new Entities.Artikel()
+            {
+                ID = 21,
+                Naam = "fietsbel",
+                Leverancier = "gazelle",
+                Leverancierscode = "03g54hbronlsfads",
+                Aantal = 3
+            };
+
+            Entities.Artikel artikel22 = new Entities.Artikel()
+            {
+                ID = 22,
+                Naam = "remschijf",
+                Leverancier = "gazelle",
+                Leverancierscode = "oiaernglggafds234",
+                Aantal = 3
+            };
+
+            Entities.Artikel artikel23 = new Entities.Artikel()
+            {
+                ID = 23,
+                Naam = "kantilever",
+                Leverancier = "gazelle",
+                Leverancierscode = "kvbaf9345245sda",
+                Aantal = 3
+            };
+
+
+            Entities.Artikel artikel24 = new Entities.Artikel()
+            {
+                ID = 24,
+                Naam = "zadel",
+                Leverancier = "gazelle",
+                Leverancierscode = "vbsdaijgbreq6542",
+                Aantal = 3
+            };
+
+            lijst.Add(artikel21);
+            lijst.Add(artikel22);
+            lijst.Add(artikel23);
+            lijst.Add(artikel24);
+
+            return lijst;
+        }
 
     }
 }

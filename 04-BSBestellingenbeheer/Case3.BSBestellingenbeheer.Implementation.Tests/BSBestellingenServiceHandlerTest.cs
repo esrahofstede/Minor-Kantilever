@@ -61,7 +61,6 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             Woonplaats = "Veenendaal",
             BTWPercentage = 21,
             Telefoonnummer = "0654789542",
-            TotaalPrijs = 63.50M
         };
 
        

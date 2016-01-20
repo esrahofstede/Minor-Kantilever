@@ -89,35 +89,5 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
                 }
             }
         }
-
-        public void Delete(Bestelling item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Bestelling Find(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Bestelling> FindAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Bestelling> FindAllBy(Expression<Func<Bestelling, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Bestelling FindById(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Bestelling item)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
