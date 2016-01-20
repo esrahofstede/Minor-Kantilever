@@ -30,7 +30,7 @@ namespace Case3.FEBestellingen.Agent.Agents
             {
                 BestellingID = 1,
                 FactuurID = 10001,
-                Status = "1",
+                Status = 1,
                 Klantgegevens = new KlantgegevensPcS
                 {
                     Naam = "Rogier Welten",

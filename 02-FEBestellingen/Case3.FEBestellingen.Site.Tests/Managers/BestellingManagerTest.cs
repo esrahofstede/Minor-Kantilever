@@ -55,7 +55,7 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
                     Postcode = "",
                     Woonplaats = ""
                 },
-                Status = "Open"
+                Status = 0
             };
             return bestelling;
         }
