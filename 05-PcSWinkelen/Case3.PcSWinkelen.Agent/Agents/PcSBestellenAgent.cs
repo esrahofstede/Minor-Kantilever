@@ -80,7 +80,7 @@ namespace Case3.PcSWinkelen.Agent.Agents
             {
                 await Task.Factory.StartNew(() =>
                 {
-                    _agent.BestellingPlaatsenAsync(new BestellingPlaatsenRequestMessage { BestellingPcS = bestelling });
+                    _agent.BestellingPlaatsenAsync(new PcSBestellenNS.BestellingPlaatsenRequestMessage { BestellingPcS = bestelling });
                 });
             }
             catch (Exception ex)

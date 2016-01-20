@@ -72,7 +72,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
 
             managerMock.Setup(p => p.GetVoorraadWithProductsList(1, 10)).Throws(new TechnicalException("Error tijdens het ophalen van producten"));
 
-            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object,bestellenAgentMock.Object, managerMock.Object);
+            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object,bestellenAgentMock.Object, managerMock.Object, null);
 
             //Act
             var result = handler.GetCatalogusItems(new FindCatalogusRequestMessage()
@@ -101,7 +101,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
 
             managerMock.Setup(p => p.GetVoorraadWithProductsList(1, 10)).Throws(new Exception("Null reference"));
 
-            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object);
+            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object, null);
 
             //Act
             var result = handler.GetCatalogusItems(new FindCatalogusRequestMessage()
@@ -129,7 +129,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
 
             managerMock.Setup(p => p.GetVoorraadWithProductsList(1, 20)).Throws(new TechnicalException("Error tijdens het ophalen van producten"));
 
-            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object);
+            PcSWinkelenServiceHandler handler = new PcSWinkelenServiceHandler(winkelmandDatamapperMock.Object, catalogusBeheerMock.Object, dtoMapperMock.Object, bestellenAgentMock.Object, managerMock.Object, null);
 
             try
             {

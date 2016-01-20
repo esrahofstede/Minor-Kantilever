@@ -12,10 +12,6 @@ using Case3.PcSWinkelen.Implementation.Mappers;
 using Case3.PcSWinkelen.Schema.ProductNS;
 using log4net;
 using System.ServiceModel;
-using WinkelenNS = Case3.PcSWinkelen.SchemaNS;
-using case3common.v1.faults;
-using System.Web.Hosting;
-using DTOSchema = Case3.PcSWinkelen.SchemaNS;
 using Case3.Common.Faults;
 using System.Runtime.Serialization;
 using AutoMapper;
@@ -56,10 +52,10 @@ namespace Case3.PcSWinkelen.Implementation
             IBSCatalogusBeheerAgent catalogusBeheerAgent,
             IWinkelmandItemDTOMapper dtoMapper,
             IPcSBestellenAgent bestellenAgent,
+            ICatalogusManager manager,
             IBestelItemWinkelmandItemMapper bestelItemWinkelmandItemMapper)
-            IPcSBestellenAgent bestellenAgent,
-            ICatalogusManager manager)
         {
+            
             _winkelmandItemDTOMapper = dtoMapper;
             _winkelmandDataMapper = dataMapper;
             _catalogusBeheerAgent = catalogusBeheerAgent;
