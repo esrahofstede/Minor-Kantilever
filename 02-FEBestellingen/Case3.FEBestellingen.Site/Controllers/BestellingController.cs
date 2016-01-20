@@ -68,6 +68,11 @@ namespace Case3.FEBestellingen.Site.Controllers
             return View(model);
         }
 
-
+        [Authorize(Roles = "Magazijnmedewerkers")]
+        [HttpPost]
+        public void ChangeStatus(long bestellingID)
+        {
+            _bestellingManager.ChangeStatusOfBestelling(bestellingID);
+        }
     }
 }

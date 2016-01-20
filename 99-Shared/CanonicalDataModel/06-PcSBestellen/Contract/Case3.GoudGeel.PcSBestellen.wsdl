@@ -22,6 +22,12 @@
   <wsdl:message name="IPcSBestellenService_BestellingPlaatsen_OutputMessage">
     <wsdl:part name="parameters" element="tns:BestellingPlaatsenResponse" />
   </wsdl:message>
+  <wsdl:message name="IPcSBestellenService_UpdateBestelling_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBestelling" />
+  </wsdl:message>
+  <wsdl:message name="IPcSBestellenService_UpdateBestelling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBestellingResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPcSBestellenService">
     <wsdl:operation name="FindNextBestelling">
       <wsdl:input wsaw:Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/FindNextBestelling" message="tns:IPcSBestellenService_FindNextBestelling_InputMessage" />
@@ -30,6 +36,10 @@
     <wsdl:operation name="BestellingPlaatsen">
       <wsdl:input wsaw:Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/BestellingPlaatsen" message="tns:IPcSBestellenService_BestellingPlaatsen_InputMessage" />
       <wsdl:output wsaw:Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/BestellingPlaatsenResponse" message="tns:IPcSBestellenService_BestellingPlaatsen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBestelling">
+      <wsdl:input wsaw:Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/UpdateBestelling" message="tns:IPcSBestellenService_UpdateBestelling_InputMessage" />
+      <wsdl:output wsaw:Action="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/UpdateBestellingResponse" message="tns:IPcSBestellenService_UpdateBestelling_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DefaultBinding_IPcSBestellenService" type="tns:IPcSBestellenService">
@@ -45,6 +55,15 @@
     </wsdl:operation>
     <wsdl:operation name="BestellingPlaatsen">
       <soap:operation soapAction="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/BestellingPlaatsen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBestelling">
+      <soap:operation soapAction="Case3.GoudGeel.PcSBestellen/IPcSBestellenService/UpdateBestelling" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

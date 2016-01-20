@@ -33,4 +33,14 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="BestellingPlaatsenResultMessage" nillable="true" type="tns:BestellingPlaatsenResultMessage" />
+  <xs:complexType name="UpdateBestellingStatusRequestMessage">
+    <xs:sequence>
+      <xs:element name="BestellingID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateBestellingStatusRequestMessage" nillable="true" type="tns:UpdateBestellingStatusRequestMessage" />
+  <xs:complexType name="UpdateBestellingStatusResultMessage">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="UpdateBestellingStatusResultMessage" nillable="true" type="tns:UpdateBestellingStatusResultMessage" />
 </xs:schema>

@@ -1,11 +1,9 @@
-﻿using System;
-
-using System.Threading.Tasks;
-using Case3.BSBestellingenbeheer.V1.Messages;
-using System.Collections.Generic;
-using Case3.BSCatalogusBeheer.Schema.ProductNS;
-using System.Globalization;
+﻿using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.BSBestellingenbeheer.V1.Schema;
+using Case3.BSCatalogusBeheer.Schema.ProductNS;
+using System;
+using System.Globalization;
+using System.Threading.Tasks;
 
 namespace Case3.PcSBestellen.Agent.Tests.Mocks
 {
@@ -78,6 +76,26 @@ namespace Case3.PcSBestellen.Agent.Tests.Mocks
         }
 
         public Task<FindFirstBestellingResultMessage> FindFirstBestellingAsync(FindFirstBestellingRequestMessage requestMessage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<InsertBestellingResultMessage> InsertBestellingAsync(InsertBestellingRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UpdateBestellingResultMessage UpdateBestelling(UpdateBestellingRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UpdateBestellingResultMessage> UpdateBestellingAsync(UpdateBestellingRequestMessage bestelling)
         {
             throw new NotImplementedException();
         }

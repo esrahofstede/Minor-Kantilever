@@ -45,6 +45,17 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
                        Aantal = 2,
                    }
                 },
+                FactuurID = 10001,
+                BestellingID = 10,
+                Klantgegevens = new KlantgegevensPcS()
+                {
+                    Naam = "",
+                    Adresregel1 = "",
+                    Adresregel2 = "",
+                    Postcode = "",
+                    Woonplaats = ""
+                },
+                Status = 0,
             };
             return bestelling;
         }
@@ -139,6 +150,24 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
             Assert.AreEqual("GI12345ZP", artikelen[1].Leverancierscode);
             Assert.AreEqual(2, artikelen[1].Aantal);
         }       
+        #endregion
+        #region -------[Tests for ChangeStatus Action]-------
+
+        [TestMethod]
+        public void ChangeStatusOfBestellingCallsAgentOneTime()
+        {
+            // Arrange
+            Mock<IPcSBestellenAgent> mock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
+            mock.Setup(m => m.ChangeStatusOfBestelling(1));
+
+            var manager = new BestellingManager(mock.Object);
+
+            // Act
+            manager.ChangeStatusOfBestelling(1);
+            // Assert
+            mock.Verify(m => m.ChangeStatusOfBestelling(1), Times.Once);
+
+        }
         #endregion
     }
 }
