@@ -8,6 +8,7 @@ using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.BSBestellingenbeheer.V1.Schema;
 using Case3.BSCatalogusBeheer.Schema.ProductNS;
 using Case3.Common.Faults;
+using log4net;
 using System;
 using System.Data.Entity;
 using System.Runtime.Serialization;
@@ -22,6 +23,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
     {
         private BestellingDataMapper _mapper;
         private BestellingManager _bestellingManager;
+        private static ILog _logger = LogManager.GetLogger(typeof(BSBestellingenServiceHandler));
 
 
         [DataMember]
@@ -44,6 +46,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
         {
             _mapper = mapper;
             _bestellingManager = bestellingManager;
+            log4net.Config.XmlConfigurator.Configure();
         }
 
         public BSBestellingenServiceHandler(BestellingDataMapper mapper)
@@ -91,6 +94,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
                             ErrorCode = 2,
                             Message = ex.Message,
                         });
+                        _logger.Fatal(ex.Message, ex);
                     }
                     catch (FunctionalException ex)
                     {
