@@ -23,6 +23,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             FactuurDatum = new DateTime(2015, 12, 12).ToString(),
             FactuurID = 1,
             Status = 1,
+            BTWPercentage = 21,
             Klantgegevens = new Klantgegevens()
             {
                 Naam = "Remco",
@@ -68,6 +69,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             FactuurDatum = "202",
             FactuurID = 1,
             Status = 1,
+            BTWPercentage = 7,
             Klantgegevens = new Klantgegevens()
             {
                 Naam = "Remco",
@@ -190,16 +192,18 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         /// This method verifies a product is added succesfully, even if the datetime is in bad format.
         /// </summary>
         [TestMethod]
-        public void InvalidDateTimeInsertDoesNotThrowException()
+        public void InvalidDateTimeInsertsNewBestellingOnWrongDateTimeInput()
         {
             //Assert
-            BestellingManager manager = new BestellingManager();
+            var mock = new BestellingDataMapperMock();
+            BestellingManager manager = new BestellingManager(mock);
 
             //Act
+            int initialValue = mock.Count;
             manager.InsertBestelling(_bestellingInvalidDatum);
 
             //Arrange
-            //Expect no exception
+            Assert.AreEqual(initialValue + 1, mock.Count);
         }
 
         private List<Entities.Artikel> generateArtikelList()

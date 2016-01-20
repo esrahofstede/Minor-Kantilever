@@ -25,6 +25,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             FactuurDatum = new DateTime(2015, 12, 12).ToString(),
             FactuurID = 1,
             Status = 1,
+            BTWPercentage = 19,
             Klantgegevens = new Klantgegevens()
             {
                 Naam = "Remco",

@@ -9,6 +9,7 @@
       <xs:element name="Artikelen" nillable="true" type="tns:Artikelen" />
       <xs:element name="Status" nillable="true" type="xs:int" />
       <xs:element name="Klantgegevens" nillable="true" type="tns:Klantgegevens" />
+      <xs:element name="BTWPercentage" nillable="true" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Bestelling" nillable="true" type="tns:Bestelling" />

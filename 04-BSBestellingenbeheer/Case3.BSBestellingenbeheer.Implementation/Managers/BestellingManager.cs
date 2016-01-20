@@ -53,6 +53,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                     Woonplaats = bestelling.Klantgegevens.Woonplaats,
                     Telefoonnummer = bestelling.Klantgegevens.Telefoonnummer,
                     Artikelen = new List<Entities.Artikel>(),
+                    BTWPercentage = (int) bestelling.BTWPercentage,
                 };
 
                 foreach (var item in bestelling.Artikelen)
