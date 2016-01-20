@@ -1,8 +1,6 @@
 ﻿@model Case3.FEBestellingen.Site.ViewModels.BestellingViewModel
 
-@{
-    ViewBag.Title = "Index";
-}
+@* Begin Bestelling Page *@
 <div id="bestellen">
     <h2>Bestelling</h2>
     <table class="table">
@@ -46,6 +44,8 @@
         </tr>
     </table>
 </div>
+@* End Bestelling Page *@
+@* Begin Factuur Page *@
 <div id="factuur" class="hide">
     <div>
         <h1>Factuur</h1>
@@ -120,20 +120,31 @@
     </table>
     <button id="factuurbutton" class="no-print btn-primary btn-lg clearfix pull-right">Afleveradres tonen</button>
 </div>
+@* End Factuur Page *@
+@* Begin Afleveradres Page *@
 <div id="afleveradres" class="hide">
     <h2 class="no-print">Afleveradres</h2>
-
-        @Html.DisplayFor(modelItem => Model.KlantNaam)
-        
-        @Html.DisplayFor(modelItem => Model.Adresregel1)
-        
+    <div class="sticker">
+        <h1>
+            @Html.DisplayFor(modelItem => Model.KlantNaam)
+        </h1>
+        <h1>
+            @Html.DisplayFor(modelItem => Model.Adresregel1)
+        </h1>
         @if (Model.Adresregel2 != null)
         {
-            @Html.DisplayFor(modelItem => Model.Adresregel2)
+            <h1>
+                @Html.DisplayFor(modelItem => Model.Adresregel2)
+            </h1>
         }
-        @Html.DisplayFor(modelItem => Model.Postcode) @Html.DisplayFor(modelItem => Model.Woonplaats)
-        @Html.ActionLink("Volgende bestelling", "Index", "Bestelling", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop no-print" })
+        <h1>
+            @Html.DisplayFor(modelItem => Model.Postcode) @Html.DisplayFor(modelItem => Model.Woonplaats)
+        </h1>
+    </div>
+            @Html.ActionLink("Volgende bestelling", "Index", "Bestelling", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop no-print pull-right" })
 </div>
+@* End Afleveradres Page *@
+<div class="clearfix"></div>
 @Scripts.Render("~/bundles/jquery")
 <script type="text/javascript">
     $(document).ready(function () {
