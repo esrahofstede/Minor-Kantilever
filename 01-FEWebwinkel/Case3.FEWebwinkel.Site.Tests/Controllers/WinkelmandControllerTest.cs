@@ -112,6 +112,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             Assert.AreEqual(121M, modelResult.TotaalInclBTW);
             Assert.AreEqual(100M, modelResult.TotaalExclBTW);
             Assert.AreEqual(21, modelResult.BTWPercentage);
+            Assert.AreEqual(21M, modelResult.TotaalBTW);
         }
         #endregion
         #region -------[Integration Test for index action]-------

@@ -3,6 +3,7 @@ using Case3.FEWebwinkel.Agent.Exceptions;
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.PcSWinkelen.Messages;
 using Case3.PcSWinkelen.Schema;
+using case3bsbestellingenbeheer.v1.schema;
 using case3common.v1.faults;
 using Minor.ServiceBus.Agent.Implementation;
 using System;
@@ -99,13 +100,23 @@ namespace Case3.FEWebwinkel.Agent
             return result;
         }
 
+        /// <summary>
+        /// Gets the current Winkelmand
+        /// </summary>
+        /// <param name="sessionId">The session ID to find the correct Winkelmand</param>
+        /// <returns>A WinkelmandCollection containing all items in the Winkelmand</returns>
         public WinkelMandCollection GetWinkelmand(string sessionId)
         {
             GetWinkelmandResponseMessage result = _agent.GetWinkelmand(new GetWinkelmandRequestMessage() { SessieId = sessionId });
             return result.WinkelmandCollection;
         }
-
-
+        
+        /// <summary>
+        /// Adds a Product to the Winkelmand
+        /// </summary>
+        /// <param name="productId">The product to add to the Winkelmand</param>
+        /// <param name="sessionId">The session ID of the current user</param>
+        /// <returns>A boolean that shows if the product was successfully added</returns>
         public bool AddProductToWinkelmand(int productId, string sessionId)
         {
             AddItemToWinkelmandResponseMessage result = _agent.AddProductToWinkelmand(
@@ -122,9 +133,14 @@ namespace Case3.FEWebwinkel.Agent
             return result.Succeeded;
         }
 
-        public void SendBestelling(string sessionId, KlantRegistreerViewModel klant)
+        /// <summary>
+        /// Sends a Bestelling
+        /// </summary>
+        /// <param name="sessionId">The sessionID, used to send the Winkelmand</param>
+        /// <param name="klant">The data of the Klant</param>
+        public void SendBestelling(string sessionId, Klantgegevens klant)
         {
-            WinkelmandBestellenResponseMessage result = _agent.WinkelmandBestellen(new WinkelmandBestellenRequestMessage() { SessieId = sessionId, Klantgegevens = klant});
+            _agent.WinkelmandBestellen(new WinkelmandBestellenRequestMessage() { SessieId = sessionId, Klantgegevens = klant});
         }
     }
 }

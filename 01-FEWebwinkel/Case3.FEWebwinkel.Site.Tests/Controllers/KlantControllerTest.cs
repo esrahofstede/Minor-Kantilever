@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Case3.FEWebwinkel.Site.Controllers;
 using System.Web.Mvc;
 using Case3.FEWebwinkel.Site.ViewModels;
+using Case3.FEWebwinkel.Site.Managers.Interfaces;
+using Moq;
 
 namespace Case3.FEWebwinkel.Site.Tests.Controllers
 {
@@ -26,7 +28,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
         }
 
         [TestMethod]
-        public void CreateActionHasCorrectModel()
+        public void IndexActionHasCorrectModel()
         {
             // Arrange
             var controller = new KlantController();
@@ -62,6 +64,38 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             Assert.AreEqual("Haagstraat 5", (result.Model as KlantRegistreerViewModel).AdresRegel1);
             Assert.AreEqual("4921XA", (result.Model as KlantRegistreerViewModel).Postcode);
             Assert.AreEqual("Made", (result.Model as KlantRegistreerViewModel).Woonplaats);
+        }
+
+        [TestMethod]
+        public void CreatePostCallsManagerAndCookieNatorAndReturnsCorrectAction()
+        {
+            // Arrange
+            var cookieMock = new Mock<ICookieNator<Guid>>(MockBehavior.Strict);
+            cookieMock.Setup(x => x.GetCookieValue("UserGuid")).Returns("test");
+
+            var managerMock = new Mock<IBestellingManager>(MockBehavior.Strict);
+            managerMock.Setup(x => x.PlaatsBestelling("test", It.IsAny<KlantRegistreerViewModel>()));
+
+            var controller = new KlantController(managerMock.Object, cookieMock.Object);
+            var model = new KlantRegistreerViewModel
+            {
+                Voornaam = "Sjaak",
+                Tussenvoegsel = "de",
+                Achternaam = "Vries",
+                AdresRegel1 = "Bosweg 3",
+                Postcode = "6802BR",
+                Woonplaats = "Amsterdam",
+                Telefoonnummer = "06-12900921"
+            };
+
+            // Act
+            var result = controller.Create(model) as RedirectToRouteResult;
+
+            // Assert
+            cookieMock.Verify(x => x.GetCookieValue("UserGuid"), Times.Once());
+            managerMock.Verify(x => x.PlaatsBestelling("test", model), Times.Once());
+            Assert.AreEqual("Bestellen", result.RouteValues["action"]);
+            Assert.AreEqual("Winkelmand", result.RouteValues["controller"]);
         }
     }
 }

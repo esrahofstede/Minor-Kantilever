@@ -12,6 +12,7 @@ namespace Case3.FEWebwinkel.Site.Controllers
     public class KlantController : Controller
     {
         private IBestellingManager _bestellingManager;
+        private ICookieNator<Guid> _cookieNator;
 
         /// <summary>
         /// This constructor is the default constructor
@@ -24,9 +25,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// This constructor is for testing purposes
         /// </summary>
         /// <param name="manager">This should be a mock of ICatalogusManager</param>
-        public KlantController(IBestellingManager manager)
+        public KlantController(IBestellingManager manager, ICookieNator<Guid> cookieNator)
         {
             _bestellingManager = manager;
+            _cookieNator = cookieNator;
         }
 
         /// <summary>
@@ -53,11 +55,13 @@ namespace Case3.FEWebwinkel.Site.Controllers
             }
             else
             {
-                CookieNator<Guid> cookieNator = new CookieNator<Guid>(Request.Cookies);
-                var userGuid = cookieNator.GetCookieValue("UserGuid");
+                if (_cookieNator == null)
+                {
+                    _cookieNator = new CookieNator<Guid>(Request.Cookies);
+                }
 
-                //TODO hier de koppeling maken met de manager naar pcsWinkelen voor het plaatsen van een bestelling
-                //TODO doorlinken naar Bevestigingsview -> Uw bestelling wordt zo snel mogelijk verwerkt
+                var userGuid = _cookieNator.GetCookieValue("UserGuid");
+                    
                 _bestellingManager.PlaatsBestelling(userGuid,klant);
 
                 return RedirectToAction("Bestellen", "Winkelmand");

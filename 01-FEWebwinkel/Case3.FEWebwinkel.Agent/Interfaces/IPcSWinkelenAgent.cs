@@ -1,4 +1,5 @@
 ﻿using Case3.PcSWinkelen.Schema;
+using case3bsbestellingenbeheer.v1.schema;
 
 namespace Case3.FEWebwinkel.Agent.Interfaces
 {
@@ -10,6 +11,6 @@ namespace Case3.FEWebwinkel.Agent.Interfaces
 
         bool AddProductToWinkelmand(int productId, string sessionId);
 
-        void SendBestelling(string sessionId, KlantRegistreerViewModel klant);
+        void SendBestelling(string sessionId, Klantgegevens klant);
     }
 }
