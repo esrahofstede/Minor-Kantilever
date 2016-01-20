@@ -51,11 +51,11 @@ namespace Case3.PcSWinkelen.DAL.Mappers
             {
                 if (updatedItem != null)
                 {
-                var oldItem = context.WinkelmandItems.Find(updatedItem.ID);
-                context.Entry(oldItem).CurrentValues.SetValues(updatedItem);
-                context.SaveChanges();
+                    var oldItem = context.WinkelmandItems.Find(updatedItem.ID);
+                    context.Entry(oldItem).CurrentValues.SetValues(updatedItem);
+                    context.SaveChanges();
+                }
             }
-        }
         }
 
         /// <summary>
@@ -74,15 +74,18 @@ namespace Case3.PcSWinkelen.DAL.Mappers
         /// Deletes the given winkelmanditem in the database
         /// </summary>
         /// <param name="deleteItem"></param>
-        public void Delete(WinkelmandItem deleteItem)
+        public void DeleteBySessieID(string sessieID)
         {
             using (var context = new WinkelmandContext())
             {
-                var result = context.WinkelmandItems.Where(x => x.SessieID == deleteItem.SessieID).FirstOrDefault();
+                var winkelmandItemList = context.WinkelmandItems.Where(x => x.SessieID == sessieID).ToList();
 
-                if (result != null)
+                if (winkelmandItemList != null && winkelmandItemList.Count > 0)
                 {
-                    context.WinkelmandItems.Remove(result);
+                    foreach (WinkelmandItem item in winkelmandItemList)
+                    {
+                        context.WinkelmandItems.Remove(item);
+                    }
                     context.SaveChanges();
                 }
             }
@@ -93,11 +96,11 @@ namespace Case3.PcSWinkelen.DAL.Mappers
         /// </summary>
         /// <param name="sessieID"></param>
         /// <returns></returns>
-        public WinkelmandItem FindBySessieID(string sessieID)
+        public List<WinkelmandItem> FindBySessieID(string sessieID)
         {
             using (var context = new WinkelmandContext())
             {
-                return context.WinkelmandItems.Where(x => x.SessieID == sessieID).FirstOrDefault();
+                return context.WinkelmandItems.Where(x => x.SessieID == sessieID).ToList();
             }
         }
     }
