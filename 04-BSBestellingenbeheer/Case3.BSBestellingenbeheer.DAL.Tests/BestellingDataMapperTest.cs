@@ -12,11 +12,22 @@ using Case3.BSBestellingenbeheer.DAL.Exceptions;
 namespace Case3.BSBestellingenbeheer.DAL.Tests
 {
     /// <summary>
-    /// Responsable for testing the BestellinDataMapper class
+    /// Responsable for testing the BestellingDataMapper class
     /// </summary>
     [TestClass]
     public class BestellingDataMapperTest
     {
+
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext testcontext)
+        {
+            Database.SetInitializer(new BestellingDBInitializer());
+            using (var context = new BestellingContext())
+            {
+                context.Database.Initialize(false);
+            }
+        }
+
         #region dummydata
         private Bestelling _bestelling = new Bestelling()
         {
@@ -61,15 +72,6 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             }
         };
         #endregion
-        [ClassInitialize]
-        public static void ClassInitialize(TestContext testcontext)
-        {
-            Database.SetInitializer(new BestellingDBInitializer());
-            using (var context = new BestellingContext())
-            {
-                context.Database.Initialize(false);
-            }
-        }
 
         /// <summary>
         /// GetBestellingToPack should return 1 Bestelling where the status == 0 and ordered by BestelDatum
@@ -94,6 +96,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
         /// When a Bestelling does not exsist with the given id it should return a NullReferenceException with the message "Bestelling niet gevonden"
         /// </summary>
         [TestMethod]
+        
         public void FindBestellingByIdIsThree()
         {
             //Arrange
@@ -102,13 +105,14 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             //Act
             try
             {
-                Bestelling result = mapper.FindBestellingByID(3);
+                Bestelling result = mapper.FindBestellingByID(1865);
+                Assert.Fail("De bestelling is gevonden, terwijl dit niet zou moeten");
             }
-            catch (NullReferenceException ex)
+            catch (FunctionalException ex)
             {
                 //Assert
                 Assert.AreEqual("Bestelling niet gevonden", ex.Message);
-                Assert.AreEqual(typeof(NullReferenceException), ex.GetType());
+               Assert.AreEqual(typeof(FunctionalException), ex.GetType());
             }
         }
 

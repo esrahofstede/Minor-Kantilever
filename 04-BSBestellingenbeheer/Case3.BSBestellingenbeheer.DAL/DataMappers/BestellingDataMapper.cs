@@ -30,7 +30,7 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
                 }
                 catch (DbEntityValidationException)
                 {
-                    throw new FunctionalException("De bestelling is niet van het juiste formaat. Hij kan niet opgeslagen worden.");
+                    throw new FunctionalException("De bestelling is niet van het juiste formaat en kan niet opgeslagen worden.");
                 }
                 catch (Exception)
                 {
@@ -79,13 +79,18 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         {
             using (var context = new BestellingContext())
             {
+
                 try
                 {
-                    return context.Bestellingen.Where(b => b.ID == bestellingID).Include(b => b.Artikelen).SingleOrDefault();
+                    return context.Bestellingen.Where(b => b.ID == bestellingID).Include(b => b.Artikelen).Single();
                 }
-                catch (NullReferenceException)
+                catch (InvalidOperationException)
                 {
-                    throw new NullReferenceException("Bestelling niet gevonden");
+                    throw new FunctionalException("Bestelling niet gevonden");
+                }
+                catch (Exception)
+                {
+                    throw new TechnicalException("Er is een technische fout opgetreden tijdens het vinden van de bestelling");
                 }
             }
         }
