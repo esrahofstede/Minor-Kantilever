@@ -25,6 +25,19 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             };
         }
 
+        private static KlantRegistreerViewModel CreateKlantWithoutTussenvoegsel()
+        {
+            return new KlantRegistreerViewModel
+            {
+                Voornaam = "Sjaak",
+                Achternaam = "Vries",
+                AdresRegel1 = "Bosweg 3",
+                Postcode = "6802BR",
+                Woonplaats = "Amsterdam",
+                Telefoonnummer = "06-12900921"
+            };
+        }
+
         [TestMethod]
         public void ManagerConvertsKlantViewModelToDTO()
         {
@@ -60,11 +73,30 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
         }
 
         [TestMethod]
+        public void ManagerConvertsKlantViewModelWithoutTussenvoegselToDTO()
+        {
+            // Arrange
+            var klant = CreateKlantWithoutTussenvoegsel();
+            var target = new BestellingManager();
+
+            // Act
+            var result = target.ConvertKlantViewModelToDTO(klant);
+
+            // Assert
+            Assert.AreEqual("Sjaak Vries", result.Naam);
+            Assert.AreEqual("Bosweg 3", result.Adresregel1);
+            Assert.AreEqual(null, result.Adresregel2);
+            Assert.AreEqual("6802BR", result.Postcode);
+            Assert.AreEqual("Amsterdam", result.Woonplaats);
+            Assert.AreEqual("06-12900921", result.Telefoonnummer);
+        }
+
+        [TestMethod]
         public void ManagerCallsAgentToPlaceBestelling()
         {
             // Arrange
             var klant = CreateKlant();
-            //needed to prevent that BestellingManager connects to PcSWinkelen
+            //needed to prevent that BestellingManager connects to PcSWinkelenAgent
             var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
             agentMock.Setup(x => x.SendBestelling("test", It.IsAny<Klantgegevens>(), It.IsAny<int>()));
             var target = new BestellingManager(agentMock.Object);

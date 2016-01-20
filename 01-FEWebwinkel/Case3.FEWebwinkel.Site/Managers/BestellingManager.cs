@@ -11,6 +11,9 @@ using System.Web;
 
 namespace Case3.FEWebwinkel.Site.Managers
 {
+    /// <summary>
+    /// This manager manages the placing of a Bestelling
+    /// </summary>
     public class BestellingManager : IBestellingManager
     {
         private IPcSWinkelenAgent _pcsWinkelenAgent;
@@ -51,15 +54,25 @@ namespace Case3.FEWebwinkel.Site.Managers
         /// <returns>A Klantgegevens object with the data from viewmodel</returns>
         public Klantgegevens ConvertKlantViewModelToDTO(KlantRegistreerViewModel klant)
         {
-            return new Klantgegevens
+
+            var klantGegevens = new Klantgegevens
             {
-                Naam = $"{klant.Voornaam} {klant.Tussenvoegsel} {klant.Achternaam}",
+                Naam = klant.Voornaam,
                 Adresregel1 = klant.AdresRegel1,
                 Adresregel2 = klant.AdresRegel2,
                 Postcode = klant.Postcode,
                 Woonplaats = klant.Woonplaats,
                 Telefoonnummer = klant.Telefoonnummer
             };
+
+            if(klant.Tussenvoegsel != null)
+            {
+                klantGegevens.Naam += " " + klant.Tussenvoegsel;
+            }
+
+            klantGegevens.Naam += " " + klant.Achternaam;
+
+            return klantGegevens;
         }
     }
 }

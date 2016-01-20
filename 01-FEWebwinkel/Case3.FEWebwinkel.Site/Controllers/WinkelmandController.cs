@@ -53,6 +53,10 @@ namespace Case3.FEWebwinkel.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// This function returns a view with the message that a Bestelling is being processed
+        /// </summary>
+        /// <returns>Returns a view</returns>
         public ActionResult Bestellen()
         {
             return View();

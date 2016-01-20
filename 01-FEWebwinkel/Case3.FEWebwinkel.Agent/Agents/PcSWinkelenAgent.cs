@@ -11,6 +11,9 @@ using System.ServiceModel;
 
 namespace Case3.FEWebwinkel.Agent
 {
+    /// <summary>
+    /// The agent for PcSWinkelen
+    /// </summary>
     public class PcSWinkelenAgent : IPcSWinkelenAgent
     {
         private ServiceFactory<IPcSWinkelenService> _factory;

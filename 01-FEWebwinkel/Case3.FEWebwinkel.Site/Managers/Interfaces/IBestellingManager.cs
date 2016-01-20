@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Case3.FEWebwinkel.Site.Managers.Interfaces
 {
+    /// <summary>
+    /// The interface of the BestellingManager
+    /// </summary>
     public interface IBestellingManager
     {
         /// <summary>
