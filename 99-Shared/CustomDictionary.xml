@@ -21,7 +21,15 @@
       <word>BSVoorraadBeheer</word>
       <Word>Webwinkel</Word>
       <Word>Prijs</Word>
+      <Word>Adres</Word>
+      <Word>Klantgegevens</Word>
+      <Word>Klant</Word>
+      <Word>Woonplaats</Word>
+      <Word>Adresregel</Word>
+      <Word>Aflever</Word>
       <Word>Klantbeheer</Word>
+      <Word>Nummer</Word>
+      <Word>Factuur</Word>
       <Word>Leverancier</Word>
       <Word>Leveranciers</Word>
       <Word>Sessie</Word>
