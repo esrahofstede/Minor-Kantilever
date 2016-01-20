@@ -101,7 +101,8 @@ svcutil.exe ^
  /n:"urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1,Case3.BSCatalogusBeheer.Schema.CategorieNS" ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Product.xsd" ^
  "$(SolutionDir)..\99-Shared\CanonicalDataModel\BSCatalogusBeheer\Schema\Categorie.xsd" ^
- "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Schema\*.xsd"
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\06-PcSBestellen\Schema\*.xsd" ^
+ "$(SolutionDir)..\99-Shared\CanonicalDataModel\Common\V1\ErrorLijst.xsd"
 
 </PreBuildEvent>
   </PropertyGroup>

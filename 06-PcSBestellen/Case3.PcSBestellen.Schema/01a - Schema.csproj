@@ -94,6 +94,7 @@ svcutil.exe ^
    /n:"urn:case3-bdklantbeheer:v1:schema,Case3.BSKlantbeheer.V1.Schema" ^
    "$(SolutionDir)..\99-Shared\CanonicalDataModel\03-BSKlantbeheer\Schema\*.xsd"
 
+if not $(ConfigurationName) == DebugWithoutBuild ^
 svcutil ^
   /out:$(ProjectDir)DTO\BSBestellingenbeheerTypes.cs ^
   /n:"urn:case3-bsbestellingenbeheer:v1:messages,Case3.BSBestellingenbeheer.V1.Messages" ^

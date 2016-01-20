@@ -54,7 +54,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
 
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
         {
-            throw new NotImplementedException();
+            return new InsertBestellingResultMessage();
         }
 
         public UpdateBestellingResultMessage UpdateBestelling(UpdateBestellingRequestMessage bestelling)

@@ -81,5 +81,25 @@ namespace Case3.PcSBestellen.Agent.Tests.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<InsertBestellingResultMessage> InsertBestellingAsync(InsertBestellingRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UpdateBestellingResultMessage UpdateBestelling(UpdateBestellingRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UpdateBestellingResultMessage> UpdateBestellingAsync(UpdateBestellingRequestMessage bestelling)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

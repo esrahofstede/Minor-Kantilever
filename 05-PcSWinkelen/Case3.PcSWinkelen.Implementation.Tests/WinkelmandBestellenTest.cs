@@ -32,6 +32,9 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             var dataMapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             dataMapperMock.Setup(dataMapper => dataMapper.FindAllBy(It.IsAny<Expression<Func<WinkelmandItem, bool>>>()))
                 .Returns(new List<WinkelmandItem> { DummyData.GetDummyWinkelmandItem });
+            dataMapperMock.Setup(dataMapper => dataMapper.FindBySessieID(It.IsAny<string>()))
+                .Returns(DummyData.GetDummyWinkelmandItem);
+            dataMapperMock.Setup(dataMapper => dataMapper.Delete(It.IsAny<WinkelmandItem>()));
             var agentMock = new PcSBestellenAgentMock();
             var dtoMapperMock = new Mock<IWinkelmandItemDTOMapper>(MockBehavior.Strict);
             dtoMapperMock.Setup(dtopmapper => dtopmapper.MapDTOToEntity(It.IsAny<SchemaNS.WinkelmandItem>())).Returns(DummyData.GetDummyWinkelmandItem);

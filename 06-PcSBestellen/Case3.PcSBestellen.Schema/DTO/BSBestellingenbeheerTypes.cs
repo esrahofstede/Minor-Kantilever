@@ -73,6 +73,120 @@ namespace Case3.BSBestellingenbeheer.V1.Messages
             }
         }
     }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertBestellingRequestMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class InsertBestellingRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.BSBestellingenbeheer.V1.Schema.Bestelling BestellingField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.BSBestellingenbeheer.V1.Schema.Bestelling Bestelling
+        {
+            get
+            {
+                return this.BestellingField;
+            }
+            set
+            {
+                this.BestellingField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertBestellingResultMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class InsertBestellingResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingRequestMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class UpdateBestellingRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Case3.BSBestellingenbeheer.V1.Schema.Bestelling BestellingField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public Case3.BSBestellingenbeheer.V1.Schema.Bestelling Bestelling
+        {
+            get
+            {
+                return this.BestellingField;
+            }
+            set
+            {
+                this.BestellingField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingResultMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class UpdateBestellingResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
 }
 namespace Case3.BSBestellingenbeheer.V1.Schema
 {
@@ -508,19 +622,39 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNS
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ServiceModel.ServiceContractAttribute(Namespace="Case3.GoudGeel.BsBestellingenbeheer", ConfigurationName="IBSBestellingenbeheerService")]
+[System.ServiceModel.ServiceContractAttribute(Namespace="urn:minor:case3:bsbestellingenbeheer:v1", ConfigurationName="IBSBestellingenbeheerService")]
 public interface IBSBestellingenbeheerService
 {
     
-    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
-        "ing", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
-        "ingResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/FindFirstBes" +
+        "telling", ReplyAction="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/FindFirstBes" +
+        "tellingResponse")]
     Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingResultMessage FindFirstBestelling(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingRequestMessage requestMessage);
     
-    [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
-        "ing", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
-        "ingResponse")]
+    [System.ServiceModel.OperationContractAttribute(Action="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/FindFirstBes" +
+        "telling", ReplyAction="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/FindFirstBes" +
+        "tellingResponse")]
     System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingResultMessage> FindFirstBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingRequestMessage requestMessage);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/InsertBestel" +
+        "ling", ReplyAction="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/InsertBestel" +
+        "lingResponse")]
+    Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingResultMessage InsertBestelling(Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingRequestMessage bestelling);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/InsertBestel" +
+        "ling", ReplyAction="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/InsertBestel" +
+        "lingResponse")]
+    System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingResultMessage> InsertBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingRequestMessage bestelling);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/UpdateBestel" +
+        "ling", ReplyAction="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/UpdateBestel" +
+        "lingResponse")]
+    Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingResultMessage UpdateBestelling(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingRequestMessage bestelling);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/UpdateBestel" +
+        "ling", ReplyAction="urn:minor:case3:bsbestellingenbeheer:v1/IBSBestellingenbeheerService/UpdateBestel" +
+        "lingResponse")]
+    System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingResultMessage> UpdateBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingRequestMessage bestelling);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -565,5 +699,25 @@ public partial class BSBestellingenbeheerServiceClient : System.ServiceModel.Cli
     public System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingResultMessage> FindFirstBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingRequestMessage requestMessage)
     {
         return base.Channel.FindFirstBestellingAsync(requestMessage);
+    }
+    
+    public Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingResultMessage InsertBestelling(Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingRequestMessage bestelling)
+    {
+        return base.Channel.InsertBestelling(bestelling);
+    }
+    
+    public System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingResultMessage> InsertBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingRequestMessage bestelling)
+    {
+        return base.Channel.InsertBestellingAsync(bestelling);
+    }
+    
+    public Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingResultMessage UpdateBestelling(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingRequestMessage bestelling)
+    {
+        return base.Channel.UpdateBestelling(bestelling);
+    }
+    
+    public System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingResultMessage> UpdateBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingRequestMessage bestelling)
+    {
+        return base.Channel.UpdateBestellingAsync(bestelling);
     }
 }
