@@ -66,7 +66,7 @@ namespace Case3.PcSBestellen.Agent.Agents
 
         public UpdateBestellingStatusResultMessage UpdateBestellingStatus(BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage requestMessage)
         {
-            throw new NotImplementedException();
+            return new UpdateBestellingStatusResultMessage();
         }
 
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
