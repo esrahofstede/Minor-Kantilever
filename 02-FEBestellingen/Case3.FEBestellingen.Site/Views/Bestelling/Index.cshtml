@@ -151,14 +151,12 @@
     $(document).ready(function () {
         $("#bestelbutton").click(function ()
         {
-            console.log("ajax call");
             $.ajax({
                 type: "POST",
                 url: '@Url.Action("ChangeStatus", "Bestelling")',
                 contentType: "application/json; charset=utf-8",
                 data: "{ 'bestellingID': '@Model.BestellingID' }",
                 dataType: "json",
-                success: function () { alert('Success'); }
             });
             $("#bestellen").toggleClass("hide");
             $("#factuur").toggleClass("hide");

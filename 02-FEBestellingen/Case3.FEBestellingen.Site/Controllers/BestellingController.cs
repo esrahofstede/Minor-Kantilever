@@ -42,32 +42,13 @@ namespace Case3.FEBestellingen.Site.Controllers
         {
             var requestMessage = new FindNextBestellingRequestMessage();
             var model = _bestellingManager.FindNextBestelling(requestMessage);
-            
-            
-            //dummy data, delete this when real data is available
-            /*var model = new BestellingViewModel
-            {
-                Artikelen = new List<ArtikelViewModel>
-                {
-                    new ArtikelViewModel
-                    {
-                        Naam = "Fietsbel",
-                        Leveranciersnaam = "Gazelle",
-                        Leverancierscode = "GA12345FB",
-                        Aantal = 1,                        
-                    },
-                    new ArtikelViewModel
-                    {
-                        Naam = "Zadelpen",
-                        Leveranciersnaam = "Giant",
-                        Leverancierscode = "GI12345ZP",
-                        Aantal = 2,
-                    }
-                }
-            };*/
             return View(model);
         }
 
+        /// <summary>
+        /// Changes the status of a bestelling
+        /// </summary>
+        /// <param name="bestellingID">The ID of the Bestelling to update</param>
         [Authorize(Roles = "Magazijnmedewerkers")]
         [HttpPost]
         public void ChangeStatus(long bestellingID)
