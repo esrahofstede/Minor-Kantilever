@@ -188,8 +188,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Managers\BestellingManager.cs" />
     <Compile Include="Managers\CatalogusManager.cs" />
     <Compile Include="Managers\CookieNator.cs" />
+    <Compile Include="Managers\Interfaces\IBestellingManager.cs" />
     <Compile Include="Managers\Interfaces\ICatalogusManager.cs" />
     <Compile Include="Managers\Interfaces\ICookieNator.cs" />
     <Compile Include="Managers\Interfaces\IWinkelmandManager.cs" />

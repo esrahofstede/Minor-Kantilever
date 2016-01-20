@@ -8,6 +8,9 @@ using System.Web.Mvc;
 
 namespace Case3.FEWebwinkel.Site.Controllers
 {
+    /// <summary>
+    /// This class is responsible for all interactions with the Winkelmand
+    /// </summary>
     public class WinkelmandController : Controller
     {
         private IWinkelmandManager _winkelmandManager;
@@ -53,9 +56,14 @@ namespace Case3.FEWebwinkel.Site.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// This function returns a view with the message that a Bestelling is being processed
+        /// </summary>
+        /// <returns>Returns a view</returns>
         public ActionResult Bestellen()
         {
-            return View();
+            var model = "Uw bestelling wordt zo spoedig mogelijk verwerkt";
+            return View(model as object);
         }
     }
 }

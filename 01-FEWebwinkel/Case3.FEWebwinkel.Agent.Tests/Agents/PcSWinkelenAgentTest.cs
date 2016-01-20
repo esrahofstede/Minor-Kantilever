@@ -6,6 +6,7 @@ using Moq;
 using Case3.PcSWinkelen.Messages;
 using case3common.v1.faults;
 using System.ServiceModel;
+using case3bsbestellingenbeheer.v1.schema;
 
 namespace Case3.FEWebwinkel.Agent.Tests.Agents
 {
@@ -164,6 +165,23 @@ namespace Case3.FEWebwinkel.Agent.Tests.Agents
 
             //Assert
             //Expect TechnicalException
+        }
+
+        [TestMethod]
+        public void AgentCallsServiceToSendBestelling()
+        {
+            //Arrange
+            var mock = new Mock<IPcSWinkelenService>(MockBehavior.Strict);
+            PcSWinkelenAgent agent = new PcSWinkelenAgent(mock.Object);
+            mock.Setup(p => p.WinkelmandBestellen(It.IsAny<WinkelmandBestellenRequestMessage>()))
+                .Returns(It.IsAny<WinkelmandBestellenResponseMessage>());
+
+            //Act
+            agent.SendBestelling("test", It.IsAny<Klantgegevens>(), It.IsAny<int>());
+
+            //Assert
+            //Expect TechnicalException
+            mock.Verify(x => x.WinkelmandBestellen(It.IsAny<WinkelmandBestellenRequestMessage>()), Times.Once());
         }
     }
 }

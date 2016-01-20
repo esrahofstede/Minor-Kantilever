@@ -680,6 +680,8 @@ namespace Case3.PcSWinkelen.MessagesNS
         
         private int BTWPercentageField;
         
+        private int BTWPercentageField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get

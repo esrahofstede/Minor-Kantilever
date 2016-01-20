@@ -386,6 +386,8 @@ namespace Case3.PcSWinkelen.Messages
         
         private Case3.PcSWinkelen.Schema.KlantgegevensPcS KlantgegevensField;
         
+        private int BTWPercentageField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -421,6 +423,19 @@ namespace Case3.PcSWinkelen.Messages
             set
             {
                 this.KlantgegevensField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public int BTWPercentage
+        {
+            get
+            {
+                return this.BTWPercentageField;
+            }
+            set
+            {
+                this.BTWPercentageField = value;
             }
         }
     }

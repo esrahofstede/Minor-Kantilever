@@ -101,6 +101,7 @@
     <Compile Include="Controllers\KlantControllerTest.cs" />
     <Compile Include="Helpers\CookieHelperTest.cs" />
     <Compile Include="Controllers\WinkelmandControllerTest.cs" />
+    <Compile Include="Managers\BestellingManagerTest.cs" />
     <Compile Include="Managers\CatalogusManagerTest.cs" />
     <Compile Include="Managers\WinkelmandManagerTest.cs" />
     <Compile Include="Mocks\CatalogusManagerMock.cs" />

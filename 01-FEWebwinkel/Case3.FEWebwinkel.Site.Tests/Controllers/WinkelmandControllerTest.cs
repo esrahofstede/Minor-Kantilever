@@ -112,6 +112,37 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
             Assert.AreEqual(121M, modelResult.TotaalInclBTW);
             Assert.AreEqual(100M, modelResult.TotaalExclBTW);
             Assert.AreEqual(21, modelResult.BTWPercentage);
+            Assert.AreEqual(21M, modelResult.TotaalBTW);
+        }
+        #endregion
+        #region -------[Test for the Bestellen action]-------
+        [TestMethod]
+        public void WinkelmandControllerBestellenActionHasStringModel()
+        {
+            // Arrange
+            var mock = new Mock<IWinkelmandManager>(MockBehavior.Strict);
+
+            var controller = new WinkelmandController(mock.Object);
+
+            // Act
+            var result = controller.Bestellen() as ViewResult;
+
+            // Assert
+            Assert.IsInstanceOfType(result.Model, typeof(string));
+        }
+        [TestMethod]
+        public void WinkelmandControllerBestellenActionHasCorrectModel()
+        {
+            // Arrange
+            var mock = new Mock<IWinkelmandManager>(MockBehavior.Strict);
+
+            var controller = new WinkelmandController(mock.Object);
+
+            // Act
+            var result = controller.Bestellen() as ViewResult;
+
+            // Assert
+            Assert.AreEqual("Uw bestelling wordt zo spoedig mogelijk verwerkt", result.Model);
         }
         #endregion
         #region -------[Integration Test for index action]-------
