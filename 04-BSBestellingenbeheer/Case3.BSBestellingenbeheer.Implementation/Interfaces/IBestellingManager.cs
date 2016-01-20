@@ -17,8 +17,6 @@ namespace Case3.BSBestellingenbeheer.Implementation.Interfaces
         /// <returns>BestellingDTO</returns>
         Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity);
 
-        /// <returns>Bestelling to be packed</returns>
-        Bestelling FindFirstBestelling();
         void InsertBestelling(Bestelling bestelling);
     }
 }

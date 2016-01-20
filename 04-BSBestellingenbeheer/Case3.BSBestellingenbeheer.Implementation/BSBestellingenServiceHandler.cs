@@ -17,7 +17,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
     public class BSBestellingenServiceHandler : IBSBestellingenbeheerService
     {
         private BestellingDataMapper _mapper;
-        private BestellingManager _manager;
+        private BestellingManager _bestellingManager;
 
         /// <summary>
         /// Creates instance and fills database for the first time
@@ -55,7 +55,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
 
             return new FindFirstBestellingResultMessage()
             {
-                BestellingOpdracht = _manager.ConvertBestellingEntityToDTO(firstBestelling),
+                BestellingOpdracht = _bestellingManager.ConvertBestellingEntityToDTO(firstBestelling),
             };
         }
 

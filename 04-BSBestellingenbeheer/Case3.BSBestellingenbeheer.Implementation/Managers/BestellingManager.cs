@@ -74,11 +74,6 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
             return result;
         }
 
-        /// <summary>
-        /// This method returns the First bestelling to be packed.
-        /// </summary>
-        /// <returns>Bestelling to be packed</returns>
-        public Bestelling FindFirstBestelling()
         public Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity)
         {
 
