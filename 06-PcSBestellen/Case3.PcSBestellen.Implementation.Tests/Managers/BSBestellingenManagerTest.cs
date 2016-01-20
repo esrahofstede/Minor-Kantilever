@@ -122,5 +122,58 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
             Assert.IsInstanceOfType(result, typeof(FindNextBestellingResultMessage));
         }
         #endregion
+        #region -------[Tests for ConvertPcSUpdateRequestMessageToBSUpdateRequestMessage]-------
+        [TestMethod]
+        public void BSBestellingenManagerConvertsPcSUpdateRequestMessageToBSUpdateRequestMessage()
+        {
+            // Arrange
+            var mock = new Mock<IBsBestellingenbeheerAgent>(MockBehavior.Strict);
+
+            var manager = new BSBestellingenManager(mock.Object);
+            var pcsUpdateRequestMessage = new V1.Messages.UpdateBestellingStatusRequestMessage { BestellingID = 1};
+
+            // Act
+            var result = manager.ConvertPcSUpdateRequestMessageToBSUpdateRequestMessage(pcsUpdateRequestMessage);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage));
+        }
+        #endregion
+        #region -------[Tests for ConvertBsUpdateResultMessageToPcSUpdateResultMessage]-------
+        [TestMethod]
+        public void BSBestellingenManagerConvertsBsUpdateResultMessageToPcSUpdateResultMessage()
+        {
+            // Arrange
+            var mock = new Mock<IBsBestellingenbeheerAgent>(MockBehavior.Strict);
+
+            var manager = new BSBestellingenManager(mock.Object);
+            var bsUpdateResultMessage = new BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage();
+
+            // Act
+            var result = manager.ConvertBsUpdateResultMessageToPcSUpdateResultMessage(bsUpdateResultMessage);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(V1.Messages.UpdateBestellingStatusResultMessage));
+        }
+        #endregion
+        #region -------[Tests for UpdateBestelling]-------
+        [TestMethod]
+        public void BSBestellingenManagerUpdatesBestelling()
+        {
+            // Arrange
+            var mock = new Mock<IBsBestellingenbeheerAgent>(MockBehavior.Strict);
+            mock.Setup(m => m.UpdateBestellingStatus(It.IsAny<BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage>()))
+                .Returns(new BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage());
+
+            var manager = new BSBestellingenManager(mock.Object);
+            var pcsUpdateRequestMessage = new V1.Messages.UpdateBestellingStatusRequestMessage { BestellingID = 1 }; ;
+
+            // Act
+            var result = manager.UpdateBestelling(pcsUpdateRequestMessage);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(V1.Messages.UpdateBestellingStatusResultMessage));
+        }
+        #endregion
     }
 }

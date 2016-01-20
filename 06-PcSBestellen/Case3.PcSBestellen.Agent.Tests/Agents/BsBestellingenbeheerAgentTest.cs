@@ -93,5 +93,22 @@ namespace Case3.PcSBestellen.Agent.Tests.Agents
             Assert.AreEqual(2, artikelen[1].Aantal);
         }
         #endregion
+        #region -------[Tests for UpdateBestellingStatus]-------
+        [TestMethod]
+        public void PcSBestellenAgentUpdatesBestelling()
+        {
+            //Arrange
+            var mock = new Mock<IBSBestellingenbeheerService>(MockBehavior.Strict);
+            mock.Setup(m => m.UpdateBestellingStatus(It.IsAny<UpdateBestellingStatusRequestMessage>()))
+                .Returns(new UpdateBestellingStatusResultMessage());
+
+            var agent = new BsBestellingenbeheerAgent(mock.Object);
+
+            //Act
+            var result = agent.UpdateBestellingStatus(new UpdateBestellingStatusRequestMessage());
+            //Assert
+            Assert.IsInstanceOfType(result, typeof(UpdateBestellingStatusResultMessage));
+        }
+        #endregion
     }
 }

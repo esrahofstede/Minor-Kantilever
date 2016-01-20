@@ -24,7 +24,19 @@ namespace Case3.BSBestellingenbeheer.DAL.Mappings
             this.HasKey(a => a.ID);
 
             this.Property(b => b.Naam)
-                .HasColumnName("naam");
+            .HasMaxLength(150)
+            .HasColumnName("Naam")
+            .IsRequired();
+
+            this.Property(p => p.Leverancier)
+            .HasMaxLength(250)
+            .HasColumnName("Leverancier")
+            .IsRequired();
+
+            this.Property(p => p.Leverancierscode)
+            .HasMaxLength(150)
+            .HasColumnName("Leverancierscode")
+            .IsRequired();
         }
 
     }

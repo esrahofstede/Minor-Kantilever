@@ -133,13 +133,13 @@ namespace Case3.BSBestellingenbeheer.V1.Messages
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingRequestMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
-    public partial class UpdateBestellingRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingStatusRequestMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class UpdateBestellingStatusRequestMessage : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Case3.BSBestellingenbeheer.V1.Schema.Bestelling BestellingField;
+        private long BestellingIDField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -153,24 +153,24 @@ namespace Case3.BSBestellingenbeheer.V1.Messages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public Case3.BSBestellingenbeheer.V1.Schema.Bestelling Bestelling
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long BestellingID
         {
             get
             {
-                return this.BestellingField;
+                return this.BestellingIDField;
             }
             set
             {
-                this.BestellingField = value;
+                this.BestellingIDField = value;
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingResultMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
-    public partial class UpdateBestellingResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateBestellingStatusResultMessage", Namespace="urn:case3-bsbestellingenbeheer:v1:messages")]
+    public partial class UpdateBestellingStatusResultMessage : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -662,14 +662,14 @@ public interface IBSBestellingenbeheerService
     System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingResultMessage> InsertBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingRequestMessage bestelling);
     
     [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
-        "", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
-        "Response")]
-    Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingResultMessage UpdateBestelling(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingRequestMessage bestelling);
+        "Status", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
+        "StatusResponse")]
+    Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage UpdateBestellingStatus(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestellingID);
     
     [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
-        "", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
-        "Response")]
-    System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingResultMessage> UpdateBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingRequestMessage bestelling);
+        "Status", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
+        "StatusResponse")]
+    System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage> UpdateBestellingStatusAsync(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestellingID);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -726,13 +726,13 @@ public partial class BSBestellingenbeheerServiceClient : System.ServiceModel.Cli
         return base.Channel.InsertBestellingAsync(bestelling);
     }
     
-    public Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingResultMessage UpdateBestelling(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingRequestMessage bestelling)
+    public Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage UpdateBestellingStatus(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestellingID)
     {
-        return base.Channel.UpdateBestelling(bestelling);
+        return base.Channel.UpdateBestellingStatus(bestellingID);
     }
     
-    public System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingResultMessage> UpdateBestellingAsync(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingRequestMessage bestelling)
+    public System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage> UpdateBestellingStatusAsync(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestellingID)
     {
-        return base.Channel.UpdateBestellingAsync(bestelling);
+        return base.Channel.UpdateBestellingStatusAsync(bestellingID);
     }
 }

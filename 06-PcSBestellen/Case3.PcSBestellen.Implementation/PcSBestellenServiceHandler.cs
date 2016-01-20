@@ -62,7 +62,8 @@ namespace Case3.PcSBestellen.Implementation
         /// <returns>Returns an UpdateBestellingStatusResultMessage</returns>
         public UpdateBestellingStatusResultMessage UpdateBestelling(UpdateBestellingStatusRequestMessage request)
         {
-            throw new NotImplementedException();
+            UpdateBestellingStatusResultMessage resultMessage = _bestellingenManager.UpdateBestelling(request);
+            return resultMessage;
         }
     }
 }
