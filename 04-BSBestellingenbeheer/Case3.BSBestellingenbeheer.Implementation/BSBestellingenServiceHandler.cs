@@ -22,7 +22,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
     {
         private BestellingDataMapper _mapper;
         private BestellingManager _bestellingManager;
-        
+
 
         [DataMember]
         private ErrorLijst _list = new ErrorLijst();
@@ -75,14 +75,14 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// <returns>Returns an InsertBestellingResultMessage if succesful. Else null.</returns>
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage request)
         {
-            if (request.Bestelling != null)
+            if (request.Bestelling != null && request != null)
             {
                 try
                 {
                     _bestellingManager.InsertBestelling(request.Bestelling);
                     return new InsertBestellingResultMessage();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     _list.Add(new ErrorDetail()
                     {

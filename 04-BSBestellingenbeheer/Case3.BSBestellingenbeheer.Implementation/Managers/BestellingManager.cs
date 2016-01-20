@@ -39,43 +39,47 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
         /// <param name="bestelling">Bestelling DTO</param>
         public void InsertBestelling(Bestelling bestelling)
         {
-            DateTime besteldatum = ParseBestelDatum(bestelling.FactuurDatum);
-            try
+            if (bestelling != null)
             {
-                Entities.Bestelling insertBestelling = new Entities.Bestelling()
+                DateTime besteldatum = ParseBestelDatum(bestelling.FactuurDatum);
+                try
                 {
-                    BestelDatum = besteldatum,
-                    Status = (int)bestelling.Status,
-                    KlantNaam = bestelling.Klantgegevens.Naam,
-                    AdresRegel1 = bestelling.Klantgegevens.Adresregel1,
-                    AdresRegel2 = bestelling.Klantgegevens.Adresregel2,
-                    Postcode = bestelling.Klantgegevens.Postcode,
-                    Woonplaats = bestelling.Klantgegevens.Woonplaats,
-                    Telefoonnummer = bestelling.Klantgegevens.Telefoonnummer,
-                    Artikelen = new List<Entities.Artikel>(),
-                    BTWPercentage = (int) bestelling.BTWPercentage,
-                };
-
-                foreach (var item in bestelling.Artikelen)
-                {
-                    insertBestelling.Artikelen.Add(new Entities.Artikel()
+                    Entities.Bestelling insertBestelling = new Entities.Bestelling()
                     {
-                        ID = (long)item.Product.Id,
-                        Naam = item.Product.Naam,
-                        Leverancier = item.Product.LeverancierNaam,
-                        Leverancierscode = item.Product.LeveranciersProductId,
-                        Aantal = item.Aantal
-                    });
+                        BestelDatum = besteldatum,
+                        Status = (int)bestelling.Status,
+                        KlantNaam = bestelling.Klantgegevens.Naam,
+                        AdresRegel1 = bestelling.Klantgegevens.Adresregel1,
+                        AdresRegel2 = bestelling.Klantgegevens.Adresregel2,
+                        Postcode = bestelling.Klantgegevens.Postcode,
+                        Woonplaats = bestelling.Klantgegevens.Woonplaats,
+                        Telefoonnummer = bestelling.Klantgegevens.Telefoonnummer,
+                        Artikelen = new List<Entities.Artikel>(),
+                        BTWPercentage = (int)bestelling.BTWPercentage,
+                    };
+
+                    foreach (var item in bestelling.Artikelen)
+                    {
+                        insertBestelling.Artikelen.Add(new Entities.Artikel()
+                        {
+                            ID = (long)item.Product.Id,
+                            Naam = item.Product.Naam,
+                            Leverancier = item.Product.LeverancierNaam,
+                            Leverancierscode = item.Product.LeveranciersProductId,
+                            Aantal = item.Aantal
+                        });
+                    }
+                    _bestellingDataMapper.Insert(insertBestelling);
                 }
-                _bestellingDataMapper.Insert(insertBestelling);
-            }
-            catch (InvalidOperationException)
-            {
-                throw new FunctionalException("De opgegeven bestelling is niet in het juiste formaat.");
-            }
-            catch (Exception)
-            {
-                throw;
+
+                catch (InvalidOperationException)
+                {
+                    throw new FunctionalException("De opgegeven bestelling is niet in het juiste formaat.");
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
         /// <summary>
@@ -83,7 +87,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
         /// </summary>
         /// <param name="factuurDatum">date as a string</param>
         /// <returns>Datetime</returns>
-        private DateTime ParseBestelDatum(string factuurDatum)
+        private static DateTime ParseBestelDatum(string factuurDatum)
         {
             DateTime result;
             if (DateTime.TryParse(factuurDatum, out result))
@@ -98,7 +102,6 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
 
         public virtual Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity)
         {
-
             Bestelling bestellingDTO = new Bestelling()
             {
                 Artikelen = new Artikelen(),
@@ -127,8 +130,8 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                     }
                 }
             }
-
             return bestellingDTO;
         }
     }
 }
+
