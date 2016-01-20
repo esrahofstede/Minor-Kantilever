@@ -346,7 +346,7 @@ namespace Case3.PcSBestellen.V1.Schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
         public Case3.PcSBestellen.V1.Schema.ArtikelenPcS ArtikelenPcS
         {
             get

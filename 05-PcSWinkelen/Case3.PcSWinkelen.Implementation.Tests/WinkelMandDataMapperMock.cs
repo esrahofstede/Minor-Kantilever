@@ -9,9 +9,22 @@ using Case3.PcSWinkelen.Entities;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// WinkelmandDataMapper mock class for testing purposes
+    /// </summary>
     internal class WinkelMandDataMapperMock : IWinkelmandDataMapper
     {
         internal WinkelmandItem Item;
+
+        public void Delete(WinkelmandItem deleteItem)
+        {
+            throw new NotImplementedException();
+        }
+
+        public WinkelmandItem FindBySessieID(string sessieID)
+        {
+            throw new NotImplementedException();
+        }
 
         public IEnumerable<WinkelmandItem> FindAllBy(Expression<Func<WinkelmandItem, bool>> isAny)
         {

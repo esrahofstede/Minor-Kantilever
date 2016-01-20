@@ -9,6 +9,9 @@ using Case3.PcSWinkelen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Agent.Managers
 {
+    /// <summary>
+    /// Manager class for the Catalogus functionalities
+    /// </summary>
     public class CatalogusManager : ICatalogusManager
     {
         private IBSVoorraadBeheerAgent _bSVoorraadBeheerAgent;

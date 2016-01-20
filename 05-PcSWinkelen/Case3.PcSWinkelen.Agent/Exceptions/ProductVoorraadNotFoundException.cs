@@ -3,6 +3,9 @@ using System;
 
 namespace Case3.PcSWinkelen.Agent.Exceptions
 {
+    /// <summary>
+    /// Custom exception which could be thrown when a ProductVoorraad is not found.
+    /// </summary>
     [Serializable]
     public class ProductVoorraadNotFoundException : Exception
     {

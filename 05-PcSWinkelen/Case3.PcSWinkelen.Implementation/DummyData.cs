@@ -9,6 +9,9 @@ using Case3.PcSWinkelen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Implementation
 {
+    /// <summary>
+    /// DummyData for testing purposes
+    /// </summary>
     [ExcludeFromCodeCoverage]
     static class DummyData
     {

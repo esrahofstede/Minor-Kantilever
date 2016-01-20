@@ -4,6 +4,9 @@ using System.Runtime.Serialization;
 
 namespace Case3.PcSWinkelen.Agent.Agents
 {
+    /// <summary>
+    /// Custom TechnicalException for throwing exceptions with WCF
+    /// </summary>
     [DataContract]
     public class TechnicalException : Exception
     {

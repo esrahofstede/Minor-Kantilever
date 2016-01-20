@@ -20,6 +20,9 @@ using BestellenNS = Case3.PcSBestellen.SchemaNS;
 
 namespace Case3.PcSWinkelen.Implementation
 {
+    /// <summary>
+    /// Handler class for the PcSWinkelen service
+    /// </summary>
     public class PcSWinkelenServiceHandler : IPcSWinkelenService
     {
         /// <summary>
@@ -246,6 +249,7 @@ namespace Case3.PcSWinkelen.Implementation
         /// Cals the agent PcSBestellen
         /// Retrieves the winkelmanditems from the database
         /// Sends all the items to the PcSBestellen
+        /// Deletes the winkelmand from the PcSBestellen database
         /// </summary>
         /// <param name="bestelling">The session id of the client</param>
         /// <returns></returns>
@@ -271,8 +275,7 @@ namespace Case3.PcSWinkelen.Implementation
 
             _bestellenAgent.BestellingPlaatsen(bestellingPcS);
 
-            //VERWIJDEREN van de hele handel
-
+            _winkelmandDataMapper.Delete(_winkelmandDataMapper.FindBySessieID(bestelling.SessieId));
 
             return response;
         }

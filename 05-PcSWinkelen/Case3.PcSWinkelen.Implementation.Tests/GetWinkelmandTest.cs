@@ -15,6 +15,9 @@ using Moq;
 
 namespace Case3.PcSWinkelen.Implementation.Tests
 {
+    /// <summary>
+    /// Test class for testing the GetWinkelmand functionality
+    /// </summary>
     [TestClass]
     public class GetWinkelmandTest
     {

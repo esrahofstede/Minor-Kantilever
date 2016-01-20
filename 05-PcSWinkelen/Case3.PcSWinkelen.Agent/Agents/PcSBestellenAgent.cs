@@ -8,11 +8,17 @@ using Minor.ServiceBus.Agent.Implementation;
 
 namespace Case3.PcSWinkelen.Agent.Agents
 {
+    /// <summary>
+    /// Agent class for the communication with the PcSBestellen service
+    /// </summary>
     public class PcSBestellenAgent : IPcSBestellenAgent
     {
         private static ILog _logger;
         private readonly IPcSBestellenService _agent;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public PcSBestellenAgent()
         {
             _logger = LogManager.GetLogger(typeof(PcSBestellenAgent));
@@ -30,6 +36,12 @@ namespace Case3.PcSWinkelen.Agent.Agents
                 throw;
             }
         }
+
+        /// <summary>
+        /// Method to plaats a bestelling
+        /// </summary>
+        /// <param name="bestelling"></param>
+        /// <returns></returns>
 
         public PcSBestellenAgent(IPcSBestellenService agent, ILog logger)
         {

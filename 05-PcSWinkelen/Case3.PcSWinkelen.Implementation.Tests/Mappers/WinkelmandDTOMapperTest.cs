@@ -4,6 +4,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Case3.PcSWinkelen.Implementation.Tests.Mappers
 {
+    /// <summary>
+    /// Testclass for testing the winkelmand to DTO mapper functionality
+    /// </summary>
     [TestClass]
     public class WinkelmandDTOMapperTest
     {

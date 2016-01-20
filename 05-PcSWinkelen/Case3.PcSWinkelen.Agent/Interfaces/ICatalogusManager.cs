@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Case3.PcSWinkelen.Agent.Interfaces
 {
+    /// <summary>
+    /// Interface for the CatalogusManager
+    /// </summary>
     public interface ICatalogusManager
     {
         /// <summary>
