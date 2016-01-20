@@ -73,12 +73,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Case3.PcSWinkelen.Host\Bin\Case3.PcSWinkelen.PcSWinkelenSchema.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -96,6 +101,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Agents\BSCatalogusbeheerAgentTest.cs" />
+    <Compile Include="Agents\PcSBestellenAgentTest.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Managers\CatalogusManagerTest.cs" />
     <Compile Include="Mocks\CatalogusbeheerMock.cs" />

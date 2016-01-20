@@ -1,22 +1,25 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Case3.PcSBestellen.MessagesNS;
 using Case3.PcSBestellen.SchemaNS;
 using Case3.PcSWinkelen.Agent.Interfaces;
+using log4net;
 using Minor.ServiceBus.Agent.Implementation;
 
 namespace Case3.PcSWinkelen.Agent.Agents
 {
     public class PcSBestellenAgent : IPcSBestellenAgent
     {
-        private ServiceFactory<IPcSBestellenService> _factory;
-        private IPcSBestellenService _agent;
+        private static ILog _logger;
+        private readonly IPcSBestellenService _agent;
 
         public PcSBestellenAgent()
         {
-            _factory = new ServiceFactory<IPcSBestellenService>("PcSBestellen");
+            _logger = LogManager.GetLogger(typeof(PcSBestellenAgent));
+            var factory = new ServiceFactory<IPcSBestellenService>("PcSBestellen");
             try
             {
-                _agent = _factory.CreateAgent();
+                _agent = factory.CreateAgent();
             }
             catch (InvalidOperationException ex)
             {
@@ -27,16 +30,52 @@ namespace Case3.PcSWinkelen.Agent.Agents
                 throw;
             }
         }
+
+        public PcSBestellenAgent(IPcSBestellenService agent, ILog logger)
+        {
+            _agent = agent;
+            _logger = logger;
+        }
+        
         public bool BestellingPlaatsen(BestellingPcS bestelling)
         {
-            var result = _agent.BestellingPlaatsen(new BestellingPlaatsenRequestMessage { BestellingPcS = bestelling});
+            if (bestelling == null)
+            {
+                _logger.Error("Bestelling magt niet null zijn");
+                throw new TechnicalException("Bestelling mag niet null zijn");
+            }
+            try
+            {  
+                _agent.BestellingPlaatsen(new BestellingPlaatsenRequestMessage { BestellingPcS = bestelling});
+            }
+            catch (Exception ex)
+            {
+                _logger.Fatal("PcSBestellenAgent - BestellingPlaatsen", ex);
+                throw new TechnicalException("Er is iets misgegaan met het versturen van de bestelling", ex);
+            }
             return true;
         }
 
-        public bool BestellingPlaatsenAsync(BestellingPcS bestelling)
+        public async Task<bool> BestellingPlaatsenAsync(BestellingPcS bestelling)
         {
-
-            var result = _agent.BestellingPlaatsen(new BestellingPlaatsenRequestMessage { BestellingPcS = bestelling });
+            if (bestelling == null)
+            {
+                _logger.Error("Bestelling magt niet null zijn");
+                throw new TechnicalException("Bestelling mag niet null zijn");
+            }
+            try
+            {
+                await Task.Factory.StartNew(() =>
+                {
+                    _agent.BestellingPlaatsenAsync(new BestellingPlaatsenRequestMessage { BestellingPcS = bestelling });
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.Fatal("PcSBestellenAgent - BestellingPlaatsenAsync", ex);
+                throw new TechnicalException("Er is iets misgegaan met het versturen van de bestelling async", ex.InnerException);
+            }
+            
             return true;
         }
 

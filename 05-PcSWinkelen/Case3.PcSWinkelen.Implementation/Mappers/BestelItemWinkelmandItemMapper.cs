@@ -13,6 +13,10 @@ namespace Case3.PcSWinkelen.Implementation.Mappers
     {
         public Entities.WinkelmandItem MapBestelItemToWinkelmandItem(BestelItemPcS item)
         {
+            if (item == null)
+            {
+                return null;
+            }
             return new Entities.WinkelmandItem
             {
                 Aantal = item.Aantal,
@@ -31,6 +35,10 @@ namespace Case3.PcSWinkelen.Implementation.Mappers
 
         public BestelItemPcS MapWinkelmandItemToBestelItem(Entities.WinkelmandItem item)
         {
+            if (item == null)
+            {
+                return null;
+            }
             return new BestelItemPcS
             {
                 Aantal = item.Aantal,

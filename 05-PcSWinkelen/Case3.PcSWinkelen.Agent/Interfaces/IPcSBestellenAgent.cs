@@ -10,5 +10,7 @@ namespace Case3.PcSWinkelen.Agent.Interfaces
     public interface IPcSBestellenAgent
     {
         bool BestellingPlaatsen(BestellingPcS bestelling);
+
+        Task<bool> BestellingPlaatsenAsync(BestellingPcS bestelling);
     }
 }
