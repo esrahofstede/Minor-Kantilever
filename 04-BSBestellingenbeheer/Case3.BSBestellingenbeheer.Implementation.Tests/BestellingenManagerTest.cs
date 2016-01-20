@@ -139,10 +139,9 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         }
 
         /// <summary>
-        /// This method uses a mock to verify if a valid product is inserted succesfully.
+        /// This method tests the result is null, if the input is null.
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
         public void BestellingenManageConvertBestellingIsNull()
         {
             // Arrange
@@ -152,9 +151,12 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             var result = bestellingManager.ConvertBestellingEntityToDTO(null);
 
             // Assert
-            
+            Assert.IsNull(result);
         }
 
+        /// <summary>
+        /// This method tests if the count increments if an valid products is inserted.
+        /// </summary>
         [TestMethod]
         public void InsertBestellingIncrementsCount()
         {

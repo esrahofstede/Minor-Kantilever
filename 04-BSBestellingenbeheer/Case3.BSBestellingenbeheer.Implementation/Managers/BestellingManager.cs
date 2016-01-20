@@ -27,10 +27,10 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
         /// <summary>
         /// Constructor for testing purposes.
         /// </summary>
-        /// <param name="datamapper"></param>
-        public BestellingManager(IDataMapper<Entities.Bestelling, long> datamapper)
+        /// <param name="dataMapper"></param>
+        public BestellingManager(IDataMapper<Entities.Bestelling, long> dataMapper)
         {
-            _bestellingDataMapper = datamapper;
+            _bestellingDataMapper = dataMapper;
         }
 
         /// <summary>
@@ -102,35 +102,39 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
 
         public virtual Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity)
         {
-            Bestelling bestellingDTO = new Bestelling()
-            {
-                Artikelen = new Artikelen(),
-                BestellingID = (int)bestellingEntity.ID,
-                FactuurDatum = bestellingEntity.BestelDatum.ToString()
-
-            };
-
             if (bestellingEntity != null)
             {
-                if (bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
+                Bestelling bestellingDTO = new Bestelling()
                 {
-                    foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
-                    {
-                        bestellingDTO.Artikelen.Add(new BestelItem()
-                        {
+                    Artikelen = new Artikelen(),
+                    BestellingID = (int)bestellingEntity.ID,
+                    FactuurDatum = bestellingEntity.BestelDatum.ToString()
 
-                            Product = new Product()
+                };
+
+                if (bestellingEntity != null)
+                {
+                    if (bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
+                    {
+                        foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
+                        {
+                            bestellingDTO.Artikelen.Add(new BestelItem()
                             {
-                                Naam = artikel.Naam,
-                                LeverancierNaam = artikel.Leverancier,
-                                LeveranciersProductId = artikel.Leverancierscode,
-                            },
-                            Aantal = artikel.Aantal
-                        });
+
+                                Product = new Product()
+                                {
+                                    Naam = artikel.Naam,
+                                    LeverancierNaam = artikel.Leverancier,
+                                    LeveranciersProductId = artikel.Leverancierscode,
+                                },
+                                Aantal = artikel.Aantal
+                            });
+                        }
                     }
                 }
+                return bestellingDTO;
             }
-            return bestellingDTO;
+            return null;
         }
     }
 }

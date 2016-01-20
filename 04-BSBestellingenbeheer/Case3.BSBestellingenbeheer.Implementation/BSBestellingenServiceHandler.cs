@@ -73,36 +73,56 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// </summary>
         /// <param name="bestelling">The request message containing the Bestelling to insert</param>
         /// <returns>Returns an InsertBestellingResultMessage if succesful. Else null.</returns>
-        public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage request)
-        {
-            if (request.Bestelling != null && request != null)
-            {
-                try
-                {
-                    _bestellingManager.InsertBestelling(request.Bestelling);
-                    return new InsertBestellingResultMessage();
-                }
-                catch (Exception ex)
-                {
-                    _list.Add(new ErrorDetail()
-                    {
-                        ErrorCode = 2,
-                        Message = ex.Message,
-                    });
-                }
-                if (_list.Count > 0)
-                {
-                    throw new FaultException<ErrorLijst>(_list, "Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie.");
-                }
-            }
-            return null;
-        }
-
-        public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestelling)
+        public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
         {
             if (bestelling != null)
             {
-                _mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
+                if (bestelling.Bestelling != null)
+                {
+                    try
+                    {
+                        _bestellingManager.InsertBestelling(bestelling.Bestelling);
+                        return new InsertBestellingResultMessage();
+                    }
+                    catch (TechnicalException ex)
+                    {
+                        _list.Add(new ErrorDetail()
+                        {
+                            ErrorCode = 2,
+                            Message = ex.Message,
+                        });
+                    }
+                    catch (FunctionalException ex)
+                    {
+                        _list.Add(new ErrorDetail()
+                        {
+                            ErrorCode = 2,
+                            Message = ex.Message,
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        _list.Add(new ErrorDetail()
+                        {
+                            ErrorCode = 2,
+                            Message = ex.Message,
+                        });
+                    }
+                    if (_list.Count > 0)
+                    {
+                        throw new FaultException<ErrorLijst>(_list, "Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie.");
+                    }
+                }
+                return null;
+            }
+            return new InsertBestellingResultMessage();
+        }
+
+        public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestellingID)
+        {
+            if (bestellingID != null)
+            {
+                _mapper.UpdateBestellingStatusToPacked(bestellingID.BestellingID);
 
                 return new UpdateBestellingStatusResultMessage();
             }

@@ -90,7 +90,7 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
                 }
                 catch (Exception)
                 {
-                    throw new TechnicalException("Er is een technische fout opgetreden tijdens het vinden van de bestelling");
+                    throw new TechnicalException("Er is een technische fout opgetreden tijdens het ophalen van de bestelling.");
                 }
             }
         }

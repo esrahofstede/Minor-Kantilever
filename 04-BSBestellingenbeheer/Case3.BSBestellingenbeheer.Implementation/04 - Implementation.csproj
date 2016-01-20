@@ -68,7 +68,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BestellingDbInitializerTemporary.cs" />
     <Compile Include="BSBestellingenServiceHandler.cs" />
     <Compile Include="Interfaces\IBestellingManager.cs" />
     <Compile Include="Managers\BestellingManager.cs" />
