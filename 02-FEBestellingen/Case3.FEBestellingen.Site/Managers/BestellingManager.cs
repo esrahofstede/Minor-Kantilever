@@ -125,6 +125,7 @@ namespace Case3.FEBestellingen.Site.Managers
                 // Calculate the BTW for the price
                 bestellingViewModel.TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW);
             }
+        }
         /// <summary>
         /// This function changes the status of a Bestelling
         /// </summary>

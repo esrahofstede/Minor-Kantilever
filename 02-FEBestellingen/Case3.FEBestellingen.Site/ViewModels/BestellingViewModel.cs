@@ -24,5 +24,6 @@ namespace Case3.FEBestellingen.Site.ViewModels
         public string Adresregel2 { get; set; }
         public string Postcode { get; set; }
         public string Woonplaats { get; set; }
+        public int BestellingID { get; set; }
     }
 }
