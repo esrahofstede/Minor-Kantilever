@@ -4,10 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.Data.Entity.Validation;
+using Case3.BSBestellingenbeheer.DAL.Exceptions;
 
 namespace Case3.BSBestellingenbeheer.DAL.DataMappers
 {
@@ -16,6 +15,10 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
     /// </summary>
     public class BestellingDataMapper : IDataMapper<Bestelling,long>
     {
+        /// <summary>
+        /// This method persists a bestelling entity. If the operation could not complete, an error is thrown.
+        /// </summary>
+        /// <param name="item">Bestelling entity</param>
         public void Insert(Bestelling item)
         {
             using (var context = new BestellingContext())
@@ -25,19 +28,23 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
                     context.Bestellingen.Add(item);
                     context.SaveChanges();
                 }
+                catch (DbEntityValidationException)
+                {
+                    throw new FunctionalException("De bestelling is niet van het juiste formaat. Opslaan is niet mogelijk.");
+                }
                 catch (Exception)
                 {
-                    throw;
+                    throw new TechnicalException("Er is een technische fout opgetreden tijdens het toevoegen van de bestelling");
                 }
             }
         }
 
         /// <summary>
-        /// Gets one Bestelling where the status == 0 and ordered by BestelDatum
+        /// Gets one Bestelling where the status == 0 and ordered by BestelDatum. Method is virtual so that MoQ can override it
         /// </summary>
         /// <param name="context">BestellingContext</param>
         /// <returns>Bestelling</returns>
-        public Bestelling GetBestellingToPack()
+        public virtual Bestelling GetBestellingToPack()
         {
             using (var context = new BestellingContext())
             {
@@ -46,10 +53,10 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         }
 
         /// <summary>
-        /// Updates a Bestelling.Status to 1
+        /// Updates a Bestelling.Status to 1. Method is virtual so that MoQ can override it
         /// </summary>
         /// <param name="bestellingId">Id of the Bestelling</param>
-        public void UpdateBestellingStatusToPacked(long bestellingID)
+        public virtual void UpdateBestellingStatusToPacked(long bestellingID)
         {
             using (var context = new BestellingContext())
             {
@@ -72,45 +79,20 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         {
             using (var context = new BestellingContext())
             {
+
                 try
                 {
-                    return context.Bestellingen.Where(b => b.ID == bestellingID).Include(b => b.Artikelen).SingleOrDefault();
+                    return context.Bestellingen.Where(b => b.ID == bestellingID).Include(b => b.Artikelen).Single();
                 }
-                catch (NullReferenceException)
+                catch (InvalidOperationException)
                 {
-                    throw new NullReferenceException("Bestelling niet gevonden");
+                    throw new FunctionalException("Bestelling niet gevonden");
+                }
+                catch (Exception)
+                {
+                    throw new TechnicalException("Er is een technische fout opgetreden tijdens het ophalen van de bestelling.");
                 }
             }
-        }
-
-        public void Delete(Bestelling item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Bestelling Find(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Bestelling> FindAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Bestelling> FindAllBy(Expression<Func<Bestelling, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Bestelling FindById(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Bestelling item)
-        {
-            throw new NotImplementedException();
         }
     }
 }

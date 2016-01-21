@@ -4,18 +4,17 @@ using System.Linq.Expressions;
 
 namespace Case3.BSBestellingenbeheer.DAL.DataMappers
 {
+    /// <summary>
+    /// The generic datamapper
+    /// </summary>
+    /// <typeparam name="T">The item</typeparam>
+    /// <typeparam name="TKey">The key of the item</typeparam>
     public interface IDataMapper<T, TKey> where T : class
     {
-        IEnumerable<T> FindAll();
-        IEnumerable<T> FindAllBy(Expression<Func<T, bool>> filter);
-        T FindById(TKey id);
-
-        T Find(TKey key);
-
+        /// <summary>
+        /// Inserts a new item
+        /// </summary>
+        /// <param name="item">The item to insert</param>
         void Insert(T item);
-
-        void Update(T item);
-
-        void Delete(T item);
     }
 }

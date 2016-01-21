@@ -6,6 +6,7 @@
       <Word>een</Word>
       <Word>fout</Word>
       <Word>opgetreden</Word>
+      <Word>Opslaan</Word>
       <Word>ophalen</Word>
       <Word>Afbeeldingslocatie</Word>
       <Word>Beheer</Word>
@@ -38,6 +39,7 @@
       <Word>PcSBestellen</Word>
       <Word>Voorraad</Word>
       <Word>Mvc</Word>
+      <Word>Mogelijk</Word>
       <Word>Naam</Word>
       <Word>Prijs</Word>
       <Word>Serverity</Word>
@@ -61,6 +63,10 @@
       <Word>niet</Word>
       <Word>gevonden</Word>
       <Word>Artikel</Word>
+      <Word>Kon</Word>
+      <Word>Opgeslagen</Word>
+      <Word>Toevoegen</Word>
+      <Word>Opgegeven</Word>
       <Word>Bestelling</Word>
       <Word>Leveranciersnaam</Word>
       <Word>Leverancierscode</Word>
@@ -104,7 +110,8 @@
       <Word>Eens</Word>
       <Word>Technische</Word>
       <Word>DTO</Word>
-      <Word>Plaats</Word>
+      <Word>Formaat</Word>
+      <Word>Juiste</Word>
   </Recognized>
     <Unrecognized>
     </Unrecognized>

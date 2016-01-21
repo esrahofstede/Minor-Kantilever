@@ -6,8 +6,14 @@ using Case3.BSBestellingenbeheer.Entities;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Tests.Mocks
 {
+    /// <summary>
+    /// Mock used for test purposes
+    /// </summary>
     public class BestellingDataMapperMock : IDataMapper<Bestelling, long>
     {
+        /// <summary>
+        /// Contains a list of Bestellingen
+        /// </summary>
         private List<Bestelling> _list = new List<Bestelling>();
 
         public int Count
