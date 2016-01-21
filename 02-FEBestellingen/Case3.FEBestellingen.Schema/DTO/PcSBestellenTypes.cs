@@ -146,7 +146,7 @@ namespace Case3.PcSBestellen.V1.Messages
             get
             {
                 return this.extensionDataField;
-}
+            }
             set
             {
                 this.extensionDataField = value;
@@ -263,19 +263,6 @@ namespace case3pcsbestellen.v1.schema
             set
             {
                 this.FactuurDatumField = value;
-        }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
-        public string FactuurDatum
-        {
-            get
-            {
-                return this.FactuurDatumField;
-            }
-            set
-            {
-                this.FactuurDatumField = value;
             }
         }
         
@@ -318,7 +305,7 @@ namespace case3pcsbestellen.v1.schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=6)]
         public case3pcsbestellen.v1.schema.ArtikelenPcS ArtikelenPcS
         {
             get
@@ -662,6 +649,7 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNSPcS
         }
     }
 }
+
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 [System.ServiceModel.ServiceContractAttribute(Namespace="Case3.GoudGeel.PcSBestellen", ConfigurationName="IPcSBestellenService")]
