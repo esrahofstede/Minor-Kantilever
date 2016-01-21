@@ -31,6 +31,7 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
                            Naam = "Fietsbel",
                            LeverancierNaam = "Gazelle",
                            LeveranciersProductId = "GZ12345FB",
+                           Prijs = 4.95M
                        },
                        Aantal = 1,
                    },
@@ -41,6 +42,7 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
                            Naam = "Zadelpen",
                            LeverancierNaam = "Giant",
                            LeveranciersProductId = "GI12345ZP",
+                           Prijs = 4.95M
                        },
                        Aantal = 2,
                    }

@@ -95,13 +95,13 @@ namespace Case3.FEBestellingen.Site.Managers
         private List<ArtikelViewModel> GetArtikelListFromBestelling(BestellingPcS bestelling)
         {
             return bestelling.ArtikelenPcS.Select(art => new ArtikelViewModel
-            {
+                {
                 ArtikelNaam = art.Product.Naam,
                 Prijs = _btwCalculator.CalculatePriceInclusiveBTW(art.Product.Prijs),
-                Leveranciersnaam = art.Product.LeverancierNaam,
-                Leverancierscode = art.Product.LeveranciersProductId,
-                Aantal = art.Aantal,
-            }).ToList();
+                    Leveranciersnaam = art.Product.LeverancierNaam,
+                    Leverancierscode = art.Product.LeveranciersProductId,
+                    Aantal = art.Aantal,
+                }).ToList();
         }
 
         /// <summary>
@@ -125,6 +125,13 @@ namespace Case3.FEBestellingen.Site.Managers
                 // Calculate the BTW for the price
                 bestellingViewModel.TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW);
             }
+        /// <summary>
+        /// This function changes the status of a Bestelling
+        /// </summary>
+        /// <param name="bestellingID">The Id of the Bestelling Which's status has to be changed</param>
+        public void ChangeStatusOfBestelling(long bestellingID)
+        {
+            _pcsBestellenAgent.ChangeStatusOfBestelling(bestellingID);
         }
     }
 }

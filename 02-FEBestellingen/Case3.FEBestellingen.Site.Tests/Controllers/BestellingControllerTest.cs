@@ -42,6 +42,7 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
                         Prijs = 4.95M,
                     }
                 },
+                BestellingID = 1,
                 KlantNaam = "Bob Jansma",
                 Adresregel1 = "Kerkstraat 5",
                 Adresregel2 = "t.a.v. Dhr. Jansma",
@@ -111,6 +112,7 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
             Assert.AreEqual(12.27M, bestellingViewModel.TotaalExclBTW);
             Assert.AreEqual(14.85M, bestellingViewModel.TotaalInclBTW);
             //Receipt information
+            Assert.AreEqual(1, bestellingViewModel.BestellingID);
             Assert.AreEqual(DateTime.Now.ToString("dd/MM/yy"), bestellingViewModel.FactuurDatum.ToString("dd/MM/yy"));
             Assert.AreEqual(10001, bestellingViewModel.FactuurNummer);
             //Label information
@@ -119,6 +121,24 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
             Assert.AreEqual("t.a.v. Dhr. Jansma", bestellingViewModel.Adresregel2);
             Assert.AreEqual("1234AB", bestellingViewModel.Postcode);
             Assert.AreEqual("Veenendaal", bestellingViewModel.Woonplaats);
+        }
+        #endregion
+        #region -------[Tests for ChangeStatus Action]-------
+
+        [TestMethod]
+        public void ChangeStatusActionCallsManagerOneTime()
+        {
+            // Arrange
+            Mock<IBestellingManager> mock = new Mock<IBestellingManager>(MockBehavior.Strict);
+            mock.Setup(m => m.ChangeStatusOfBestelling(1));
+
+            var controller = new BestellingController(mock.Object);
+
+            // Act
+            controller.ChangeStatus(1);
+            // Assert
+            mock.Verify(m => m.ChangeStatusOfBestelling(1), Times.Once);
+
         }
         #endregion
         #region -------[IntegrationTests]-------

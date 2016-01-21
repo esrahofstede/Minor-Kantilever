@@ -21,5 +21,10 @@ namespace Case3.FEBestellingen.Site.Managers.Interfaces
         /// <param name="bestelling">The Bestelling which has to be converted</param>
         /// <returns>Returns a BestellingViewModel<returns>
         BestellingViewModel ConvertBestellingToBestellingViewModel(BestellingPcS bestelling);
+        /// <summary>
+        /// This function changes the status of a Bestelling
+        /// </summary>
+        /// <param name="bestellingID">The Id of the Bestelling Which's status has to be changed</param>
+        void ChangeStatusOfBestelling(long bestellingID);
     }
 }
