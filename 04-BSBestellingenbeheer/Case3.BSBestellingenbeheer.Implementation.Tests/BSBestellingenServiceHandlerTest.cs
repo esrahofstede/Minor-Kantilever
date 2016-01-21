@@ -144,6 +144,75 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void TestFindFirstBestellingImplementationThrowsFunctionalException()
+        {
+            //Arrange
+            _dummyData.BestellingEntity.Artikelen = generateArtikelList();
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.GetBestellingToPack()).Throws(new FunctionalException());
+
+            var managerMock = new Mock<BestellingManager>(MockBehavior.Strict);
+            managerMock.Setup(m => m.ConvertBestellingEntityToDTO(It.IsAny<Entities.Bestelling>())).Returns(new Bestelling());
+
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object, managerMock.Object);
+
+            //Act
+            var result = handler.FindFirstBestelling(new FindFirstBestellingRequestMessage());
+
+            //Assert
+          
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void TestFindFirstBestellingImplementationThrowsTechnicalException()
+        {
+            //Arrange
+            _dummyData.BestellingEntity.Artikelen = generateArtikelList();
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.GetBestellingToPack()).Throws(new TechnicalException());
+
+            var managerMock = new Mock<BestellingManager>(MockBehavior.Strict);
+            managerMock.Setup(m => m.ConvertBestellingEntityToDTO(It.IsAny<Entities.Bestelling>())).Returns(new Bestelling());
+
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object, managerMock.Object);
+
+            //Act
+            var result = handler.FindFirstBestelling(new FindFirstBestellingRequestMessage());
+
+            //Assert
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void TestFindFirstBestellingImplementationThrowsException()
+        {
+            //Arrange
+            _dummyData.BestellingEntity.Artikelen = generateArtikelList();
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.GetBestellingToPack()).Throws(new Exception());
+
+            var managerMock = new Mock<BestellingManager>(MockBehavior.Strict);
+            managerMock.Setup(m => m.ConvertBestellingEntityToDTO(It.IsAny<Entities.Bestelling>())).Returns(new Bestelling());
+
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object, managerMock.Object);
+
+            //Act
+            var result = handler.FindFirstBestelling(new FindFirstBestellingRequestMessage());
+
+            //Assert
+
+        }
+
+        [TestMethod]
         public void TestUpdateBestellingStatusImplementation()
         {
             //Arrange
