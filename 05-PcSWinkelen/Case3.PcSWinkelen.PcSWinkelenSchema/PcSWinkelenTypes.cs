@@ -232,6 +232,8 @@ namespace Case3.PcSWinkelen.SchemaNS
         
         private string WoonplaatsField;
         
+        private string TelefoonnummerField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -306,6 +308,19 @@ namespace Case3.PcSWinkelen.SchemaNS
             set
             {
                 this.WoonplaatsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public string Telefoonnummer
+        {
+            get
+            {
+                return this.TelefoonnummerField;
+            }
+            set
+            {
+                this.TelefoonnummerField = value;
             }
         }
     }

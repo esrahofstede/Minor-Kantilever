@@ -68,7 +68,7 @@ namespace Case3.PcSWinkelen.Agent.Agents
             }
             catch (Exception ex)
             {
-                _logger.Fatal("PcSBestellenAgent - BestellingPlaatsen", ex);
+                _logger.Fatal("PcSBestellenAgent - BestellingPlaatsen", ex.InnerException);
                 throw new TechnicalException("Er is iets misgegaan met het versturen van de bestelling", ex);
             }
             return true;
