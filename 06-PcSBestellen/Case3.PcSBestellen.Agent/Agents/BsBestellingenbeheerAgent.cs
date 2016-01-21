@@ -4,6 +4,8 @@ using Case3.PcSBestellen.Agent.Interfaces;
 using log4net;
 using Minor.ServiceBus.Agent.Implementation;
 using System;
+using System.Linq;
+using System.ServiceModel;
 using System.Threading.Tasks;
 
 namespace Case3.PcSBestellen.Agent.Agents
@@ -54,12 +56,30 @@ namespace Case3.PcSBestellen.Agent.Agents
         public FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage)
         {
             FindFirstBestellingResultMessage result = _agent.FindFirstBestelling(requestMessage);
-             
+            if (result.BestellingOpdracht.BTWPercentage == null)
+            {
+                throw new FaultException("BTWpercentage is null in BSBestellingenAgent");
+            }
+
+            if (result.BestellingOpdracht.Klantgegevens == null)
+            {
+                throw new FaultException("BTWpercentage is null in BSBestellingenAgent");
+            }
+
+            if (result.BestellingOpdracht.Artikelen != null)
+            {
+                if (result.BestellingOpdracht.Artikelen.First().Product.Prijs == null)
+                {
+                    throw new FaultException("Prijs is null in BSBestellingenAgent");
+                }
+            }
+
             return result;
         }
 
         public BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage UpdateBestellingStatus(BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage requestMessage)
         {
+            _agent.UpdateBestellingStatus(requestMessage);
             return new BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage();
         }
 
