@@ -1,5 +1,4 @@
 ﻿using Case3.PcSWinkelen.Schema;
-using case3bsbestellingenbeheer.v1.schema;
 
 namespace Case3.FEWebwinkel.Agent.Interfaces
 {
@@ -39,6 +38,6 @@ namespace Case3.FEWebwinkel.Agent.Interfaces
         /// <param name="sessionId">The session ID to get the Winkelmand data</param>
         /// <param name="klant">The Klant data</param>
         /// <param name="btwPercentage">The current Btw-percentage</param>
-        void SendBestelling(string sessionId, Klantgegevens klant, int btwPercentage);
+        void SendBestelling(string sessionId, KlantgegevensPcS klant, int btwPercentage);
     }
 }

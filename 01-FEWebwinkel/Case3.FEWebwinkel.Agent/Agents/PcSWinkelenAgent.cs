@@ -2,7 +2,6 @@
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.PcSWinkelen.Messages;
 using Case3.PcSWinkelen.Schema;
-using case3bsbestellingenbeheer.v1.schema;
 using case3common.v1.faults;
 using Minor.ServiceBus.Agent.Implementation;
 using System;
@@ -141,7 +140,7 @@ namespace Case3.FEWebwinkel.Agent
         /// <param name="sessionId">The session ID to get the Winkelmand data</param>
         /// <param name="klant">The Klant data</param>
         /// <param name="btwPercentage">The current Btw-percentage</param>
-        public void SendBestelling(string sessionId, Klantgegevens klant, int btwPercentage)
+        public void SendBestelling(string sessionId, KlantgegevensPcS klant, int btwPercentage)
         {
             _agent.WinkelmandBestellen(new WinkelmandBestellenRequestMessage()
             {
