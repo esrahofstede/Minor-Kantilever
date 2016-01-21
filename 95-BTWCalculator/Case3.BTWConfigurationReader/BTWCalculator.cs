@@ -44,10 +44,6 @@ namespace Case3.BTWConfigurationReader
             {
                 return _btwPercentage;
             }
-            set
-            {
-                _btwPercentage = value;
-            }
         }
 
         /// <summary>
