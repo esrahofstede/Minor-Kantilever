@@ -29,7 +29,8 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
                         Id = 1,
                         Naam = "Fietsbel",
                         LeverancierNaam = "Gazelle",
-                        LeveranciersProductId = "GA01"
+                        LeveranciersProductId = "GA01",
+                        Prijs = 3.00M
                     },
                     Aantal = 5
                 }
@@ -75,7 +76,8 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
                         Id = 1,
                         Naam = "Fietsbel",
                         LeverancierNaam = "Gazelle",
-                        LeveranciersProductId = "GA01"
+                        LeveranciersProductId = "GA01",
+                        Prijs = 25.00M
                     },
                     Aantal = 5
                 }
@@ -106,7 +108,8 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
                                 Id = 1,
                                 Naam = "Fietsbel",
                                 LeverancierNaam = "Gazelle",
-                                LeveranciersProductId = "GA01"
+                                LeveranciersProductId = "GA01",
+                                Prijs = 4.00M
                             },
                             Aantal = 5
                         }
