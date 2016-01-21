@@ -33,6 +33,6 @@ namespace Case3.BSBestellingenbeheer.Contract
         /// <param name="bestelling">Request message containing an updated Bestelling</param>
         /// <returns>Returns an UpdateBestellinResultMessage</returns>
         [OperationContract]
-        UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestellingID);
+        UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestelling);
     }
 }
