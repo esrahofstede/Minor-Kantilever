@@ -77,7 +77,7 @@ namespace Case3.FEWebwinkel.Site.Managers
             var CatalogusViewModels = catalogusCollection.Select(cat => new CatalogusViewModel
             {
                 ID = cat.Product.Id,
-                Afbeeldingslocatie = "Kantilever/Content/Product_img/" + cat.Product.AfbeeldingURL,
+                Afbeeldingslocatie = "http://minorbldsrv/Goudgeel/Kantilever/Content/Product_img/" + cat.Product.AfbeeldingURL,
                 Leverancier = cat.Product.LeverancierNaam,
                 Naam = cat.Product.Naam,
                 Prijs = _btwCalculator.CalculatePriceInclusiveBTW(cat.Product.Prijs),
