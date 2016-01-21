@@ -34,13 +34,13 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             var winkelmandItemMapperMock = new Mock<IBestelItemWinkelmandItemMapper>(MockBehavior.Strict);
             winkelmandItemMapperMock.Setup(itemMapper => itemMapper.MapWinkelmandItemsToBestelItems(It.IsAny<IEnumerable<Entities.WinkelmandItem>>())).Returns(DummyData.GetDummyBestelItems);
 
-            var dataMapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
+            var dataMapperMock = new Mock<IWinkelmandDataMapper>();
             dataMapperMock.Setup(dataMapper => dataMapper.FindAllBy(It.IsAny<Expression<Func<WinkelmandItem, bool>>>()))
                 .Returns(new List<WinkelmandItem> { DummyData.GetDummyWinkelmandItem });
 
             var agentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
             agentMock.Setup(agent => agent.BestellingPlaatsen(It.IsAny<BestellingPcS>())).Returns(true);
-            agentMock.Setup(agent => agent.BestellingPlaatsenAsync(It.IsAny<BestellingPcS>())).Returns(Task.FromResult(true));
+            agentMock.Setup(agent => agent.BestellingPlaatsen(It.IsAny<BestellingPcS>())).Returns((true));
             var bestellenAgentMock = new Mock<IPcSBestellenAgent>(MockBehavior.Strict);
             var managerMock = new Mock<ICatalogusManager>(MockBehavior.Strict);
             var catalogusBeheerMock = new Mock<IBSCatalogusBeheerAgent>(MockBehavior.Strict);
@@ -59,7 +59,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             //Assert
             Assert.IsInstanceOfType(test, typeof(WinkelmandBestellenResponseMessage));
             dataMapperMock.Verify(dataMapper => dataMapper.FindAllBy(It.IsAny<Expression<Func<WinkelmandItem, bool>>>()), Times.Once());
-            agentMock.Verify(agent => agent.BestellingPlaatsenAsync(It.IsAny<BestellingPcS>()), Times.AtLeastOnce);
+            agentMock.Verify(agent => agent.BestellingPlaatsen(It.IsAny<BestellingPcS>()), Times.AtLeastOnce);
         }
 
         [TestMethod]
@@ -74,6 +74,7 @@ namespace Case3.PcSWinkelen.Implementation.Tests
             var dataMapperMock = new Mock<IWinkelmandDataMapper>(MockBehavior.Strict);
             dataMapperMock.Setup(dataMapper => dataMapper.FindAllBy(It.IsAny<Expression<Func<WinkelmandItem, bool>>>()))
                 .Returns(new List<WinkelmandItem> { DummyData.GetDummyWinkelmandItem });
+            dataMapperMock.Setup(dataMapper => dataMapper.DeleteBySessieID(It.IsAny<string>()));
 
             //Agent
             var agentMock = new PcSBestellenAgentMock();

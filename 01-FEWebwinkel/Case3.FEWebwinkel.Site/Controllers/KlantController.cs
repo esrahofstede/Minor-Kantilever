@@ -25,6 +25,14 @@ namespace Case3.FEWebwinkel.Site.Controllers
         /// This constructor is for testing purposes
         /// </summary>
         /// <param name="manager">This should be a mock of ICatalogusManager</param>
+        public KlantController(IBestellingManager manager)
+        {
+            _bestellingManager = manager;
+        }
+        /// <summary>
+        /// This constructor is for testing purposes
+        /// </summary>
+        /// <param name="manager">This should be a mock of ICatalogusManager</param>
         public KlantController(IBestellingManager manager, ICookieNator<Guid> cookieNator)
         {
             _bestellingManager = manager;
