@@ -305,7 +305,7 @@ namespace case3pcsbestellen.v1.schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
         public case3pcsbestellen.v1.schema.ArtikelenPcS ArtikelenPcS
         {
             get

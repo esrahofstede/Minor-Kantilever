@@ -9,13 +9,7 @@
       <xs:element name="Status" nillable="true" type="xs:int" />
       <xs:element name="BTWPercentage" nillable="true" type="xs:int" />
       <xs:element name="Klantgegevens" nillable="true" type="tns:KlantgegevensPcS" />
-      <xs:element name="ArtikelenPcS" nillable="true" type="tns:ArtikelenPcS">
-        <xs:annotation>
-          <xs:appinfo>
-            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:element>
+      <xs:element name="ArtikelenPcS" nillable="true" type="tns:ArtikelenPcS" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BestellingPcS" nillable="true" type="tns:BestellingPcS" />
