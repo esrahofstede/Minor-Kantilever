@@ -1,6 +1,7 @@
 ﻿using Case3.BSBestellingenbeheer.Contract;
 using Case3.BSBestellingenbeheer.DAL.DataMappers;
 using Case3.BSBestellingenbeheer.DAL.Exceptions;
+using Case3.BSBestellingenbeheer.Implementation.Interfaces;
 using Case3.BSBestellingenbeheer.Implementation.Managers;
 using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.Common.Faults;
@@ -17,7 +18,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
     public class BSBestellingenServiceHandler : IBSBestellingenbeheerService
     {
         private BestellingDataMapper _mapper;
-        private BestellingManager _bestellingManager;
+        private IBestellingManager _bestellingManager;
         private static ILog _logger = LogManager.GetLogger(typeof(BSBestellingenServiceHandler));
 
         [DataMember]
@@ -37,7 +38,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// </summary>
         /// <param name="mapper">BestellingDataMapper mock</param>
         /// <param name="bestellingManager">BestellingManager mock</param>
-        public BSBestellingenServiceHandler(BestellingDataMapper mapper, BestellingManager bestellingManager)
+        public BSBestellingenServiceHandler(BestellingDataMapper mapper, IBestellingManager bestellingManager)
         {
             _mapper = mapper;
             _bestellingManager = bestellingManager;
