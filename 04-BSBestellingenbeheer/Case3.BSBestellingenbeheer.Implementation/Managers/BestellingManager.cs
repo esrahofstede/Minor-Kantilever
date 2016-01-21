@@ -65,6 +65,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                             Naam = item.Product.Naam,
                             Leverancier = item.Product.LeverancierNaam,
                             Leverancierscode = item.Product.LeveranciersProductId,
+                            Prijs = (decimal) item.Product.Prijs,
                             Aantal = item.Aantal
                         });
                     }
@@ -133,12 +134,12 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                         {
                             bestellingDTO.Artikelen.Add(new BestelItem()
                             {
-
                                 Product = new Product()
                                 {
                                     Naam = artikel.Naam,
                                     LeverancierNaam = artikel.Leverancier,
                                     LeveranciersProductId = artikel.Leverancierscode,
+                                    Prijs = artikel.Prijs
                                 },
                                 Aantal = artikel.Aantal
                             });
