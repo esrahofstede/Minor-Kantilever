@@ -77,7 +77,8 @@ namespace Case3.PcSBestellen.Implementation
                  Bestelling = new Bestelling
         {
                      Klantgegevens = klantgegevens,
-                     Artikelen = artikelen
+                     Artikelen = artikelen,
+                     Status = 0
                  },
             };
 
