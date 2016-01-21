@@ -49,7 +49,7 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
                 Woonplaats = "Veenendaal",
                 FactuurNummer = 10001,
                 FactuurDatum = DateTime.Now,
-                BTWPercentage = 21M,
+                BTWPercentage = 21,
                 TotaalBTW = 2.58M,
                 TotaalExclBTW = 12.27M,
                 TotaalInclBTW = 14.85M,                
@@ -106,7 +106,7 @@ namespace Case3.FEBestellingen.Site.Tests.Controllers
             Assert.AreEqual(2, bestellingViewModel.Artikelen[1].Aantal);
             Assert.AreEqual(4.95M, bestellingViewModel.Artikelen[1].Prijs);
             //Payment information
-            Assert.AreEqual(21M, bestellingViewModel.BTWPercentage);
+            Assert.AreEqual(21, bestellingViewModel.BTWPercentage);
             Assert.AreEqual(2.58M, bestellingViewModel.TotaalBTW);
             Assert.AreEqual(12.27M, bestellingViewModel.TotaalExclBTW);
             Assert.AreEqual(14.85M, bestellingViewModel.TotaalInclBTW);

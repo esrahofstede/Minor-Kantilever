@@ -55,7 +55,8 @@ namespace Case3.FEBestellingen.Site.Tests.Managers
                     Postcode = "",
                     Woonplaats = ""
                 },
-                Status = 0
+                Status = 0, 
+                BTWPercentage = 25,
             };
             return bestelling;
         }
