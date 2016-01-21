@@ -1,8 +1,6 @@
 ﻿using Case3.BSBestellingenbeheer.Contract;
-using Case3.BSBestellingenbeheer.DAL.Context;
 using Case3.BSBestellingenbeheer.DAL.DataMappers;
 using Case3.BSBestellingenbeheer.DAL.Exceptions;
-using Case3.BSBestellingenbeheer.Implementation.Interfaces;
 using Case3.BSBestellingenbeheer.Implementation.Managers;
 using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.Common.Faults;
@@ -37,7 +35,8 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// <summary>
         /// Creates instance of class but with mock possible
         /// </summary>
-        /// <param name="bestellingManager"></param>
+        /// <param name="mapper">BestellingDataMapper mock</param>
+        /// <param name="bestellingManager">BestellingManager mock</param>
         public BSBestellingenServiceHandler(BestellingDataMapper mapper, BestellingManager bestellingManager)
         {
             _mapper = mapper;
@@ -45,6 +44,10 @@ namespace Case3.BSBestellingenbeheer.Implementation
             log4net.Config.XmlConfigurator.Configure();
         }
 
+        /// <summary>
+        /// Constructor with only a BestellingDataMapper as a mock
+        /// </summary>
+        /// <param name="mapper">A custom BestellingDataMapper</param>
         public BSBestellingenServiceHandler(BestellingDataMapper mapper)
         {
             _mapper = mapper;
@@ -53,7 +56,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// <summary>
         /// Get firstbestelling from bestellingmanager
         /// </summary>
-        /// <param name="requestMessage"></param>
+        /// <param name="requestMessage">RequestMessage to find the next bestelling</param>
         /// <returns></returns>
         public FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage)
         {
@@ -117,11 +120,16 @@ namespace Case3.BSBestellingenbeheer.Implementation
             return new InsertBestellingResultMessage();
         }
 
-        public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestellingID)
+        /// <summary>
+        /// Updates the bestellings
+        /// </summary>
+        /// <param name="bestelling">The bestelling to update</param>
+        /// <returns></returns>
+        public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestelling)
         {
-            if (bestellingID != null)
+            if (bestelling != null)
             {
-                _mapper.UpdateBestellingStatusToPacked(bestellingID.BestellingID);
+                _mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
 
                 return new UpdateBestellingStatusResultMessage();
             }

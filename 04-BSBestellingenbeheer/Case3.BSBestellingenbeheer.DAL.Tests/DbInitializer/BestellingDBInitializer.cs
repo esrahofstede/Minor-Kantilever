@@ -9,8 +9,15 @@ using System.Threading.Tasks;
 
 namespace Case3.BSBestellingenbeheer.DAL.Tests
 {
+    /// <summary>
+    /// Deletes and recreates the database
+    /// </summary>
     internal class BestellingDBInitializer : DropCreateDatabaseAlways<BestellingContext>
     {
+        /// <summary>
+        /// Seeds the database with data
+        /// </summary>
+        /// <param name="context"></param>
         protected override void Seed(BestellingContext context)
         {
 

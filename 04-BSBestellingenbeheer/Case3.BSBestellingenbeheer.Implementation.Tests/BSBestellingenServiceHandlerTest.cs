@@ -18,80 +18,8 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
     [TestClass]
     public class BSBestellingenServiceHandlerTest
     {
-        #region dummydata
-        private Bestelling _bestelling = new Bestelling()
-        {
-            BestellingID = 1,
-            FactuurDatum = new DateTime(2015, 12, 12).ToString(),
-            FactuurID = 1,
-            Status = 1,
-            BTWPercentage = 19,
-            Klantgegevens = new Klantgegevens()
-            {
-                Naam = "Remco",
-                Adresregel1 = "Hofmeesterij 89",
-                Woonplaats = "Huissen",
-                Postcode = "6852NC",
-                Telefoonnummer = "0612697691"
-            },
-            Artikelen = new Artikelen()
-                    {
-                        new BestelItem()
-                        {
-                            Product = new BSCatalogusBeheer.Schema.ProductNS.Product()
-                            {
-                                Id = 1,
-                                Naam = "Fietsbel",
-                                LeverancierNaam = "Gazelle",
-                                LeveranciersProductId = "GA01"
-                            },
-                            Aantal = 5
-                        }
-                    }
-        };
-
-        private Entities.Bestelling bestellingEntity = new Entities.Bestelling()
-        {
-            ID = 1,
-            BestelDatum = DateTime.Now,
-            Status = 0,
-            Artikelen = null,
-            AdresRegel1 = "Hofmeesterij 89",
-            KlantNaam = "Henk Jansen",
-            Postcode = "6738PK",
-            Woonplaats = "Veenendaal",
-            BTWPercentage = 21,
-            Telefoonnummer = "0654789542",
-        };
-
-       
-
-        private Bestelling _invalidBestelling = new Bestelling()
-        {
-            BestellingID = 1,
-            FactuurDatum = new DateTime(2015, 12, 12).ToString(),
-            Klantgegevens = new Klantgegevens()
-            {
-                Naam = "Remco",
-                Telefoonnummer = "0612697691"
-            },
-            Artikelen = new Artikelen()
-                    {
-                        new BestelItem()
-                        {
-                            Product = new BSCatalogusBeheer.Schema.ProductNS.Product()
-                            {
-                                Id = 1,
-                                Naam = "Fietsbel",
-                                LeverancierNaam = "Gazelle",
-                                LeveranciersProductId = "GA01"
-                            },
-                            Aantal = 5
-                        }
-                    }
-        };
-        #endregion
-
+        private readonly DummyData _dummyData = new DummyData();
+        
         /// <summary>
         /// Test to check if instantiating a BSBestellingenServiceHandler works correctly
         /// </summary>
@@ -120,7 +48,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             //Act
             var result = handler.InsertBestelling(new InsertBestellingRequestMessage()
             {
-                Bestelling = _bestelling
+                Bestelling = _dummyData.Bestelling
             });
 
             //Assert
@@ -140,7 +68,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             //Act
             var result = handler.InsertBestelling(new InsertBestellingRequestMessage()
             {
-                Bestelling = _invalidBestelling
+                Bestelling = _dummyData.InvalidBestelling
             });
 
             //Assert
@@ -161,7 +89,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             {
                 var result = handler.InsertBestelling(new InsertBestellingRequestMessage()
                 {
-                    Bestelling = _invalidBestelling
+                    Bestelling = _dummyData.InvalidBestelling
                 });
             }
             catch (FaultException<ErrorLijst> ex)
@@ -194,10 +122,10 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         public void TestFindFirstBestellingImplementation()
         {
             //Arrange
-            bestellingEntity.Artikelen = generateArtikelList();
+            _dummyData.BestellingEntity.Artikelen = generateArtikelList();
 
             var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
-            mapperMock.Setup(m => m.GetBestellingToPack()).Returns(bestellingEntity);
+            mapperMock.Setup(m => m.GetBestellingToPack()).Returns(_dummyData.BestellingEntity);
 
             var managerMock = new Mock<BestellingManager>(MockBehavior.Strict);
             managerMock.Setup(m => m.ConvertBestellingEntityToDTO(It.IsAny<Entities.Bestelling>())).Returns(new Bestelling());

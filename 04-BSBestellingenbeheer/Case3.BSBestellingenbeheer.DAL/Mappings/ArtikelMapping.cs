@@ -16,6 +16,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Mappings
     {
         /// <summary>
         /// Default constructor
+        /// Defines the Artikel table
         /// </summary>
         public ArtikelMapping()
         {
