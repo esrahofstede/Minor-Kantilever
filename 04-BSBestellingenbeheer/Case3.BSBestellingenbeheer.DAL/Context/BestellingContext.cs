@@ -28,7 +28,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Context
         /// <summary>
         /// Model creating method
         /// </summary>
-        /// <param name="modelBuilder"></param>
+        /// <param name="modelBuilder">The modelbuilder is used for creating the tables</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add<Bestelling>(new BestellingMapping());

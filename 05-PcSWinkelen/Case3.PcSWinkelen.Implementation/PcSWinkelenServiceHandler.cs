@@ -266,7 +266,7 @@ namespace Case3.PcSWinkelen.Implementation
         /// Deletes the winkelmand from the PcSBestellen database
         /// </summary>
         /// <param name="bestelling">The session id of the client</param>
-        /// <returns></returns>
+        /// <returns>The response message</returns>
         public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
         {
             var response = new WinkelmandBestellenResponseMessage();

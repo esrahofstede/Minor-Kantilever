@@ -1,42 +1,18 @@
 ﻿namespace Case3.BSBestellingenbeheer.Entities
 {
+    /// <summary>
+    /// The artikel entity
+    /// </summary>
     public class Artikel
     {
-        private long _id;
-        private string _naam;
-        private string _leverancierscode;
-        private string _leverancier;
-        private int _aantal;
+        public long ID { get; set; }
 
-        public long ID
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+        public string Naam { get; set; }
 
-        public string Naam
-        {
-            get { return _naam; }
-            set { _naam = value; }
-        }
+        public int Aantal { get; set; }
 
-        public int Aantal
-        {
-            get { return _aantal; }
-            set { _aantal = value; }
-        }
+        public string Leverancierscode { get; set; }
 
-        public string Leverancierscode
-        {
-            get { return _leverancierscode; }
-            set { _leverancierscode = value; }
-        }
-
-        public string Leverancier
-        {
-            get { return _leverancier; }
-            set { _leverancier = value; }
-        }
-
+        public string Leverancier { get; set; }
     }
 }
