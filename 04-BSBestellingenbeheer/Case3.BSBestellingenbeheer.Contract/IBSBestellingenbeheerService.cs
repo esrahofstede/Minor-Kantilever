@@ -7,7 +7,7 @@ namespace Case3.BSBestellingenbeheer.Contract
     /// <summary>
     /// Contract for the BSBestellingenbeheerService
     /// </summary>
-    [ServiceContract(Namespace = "urn:case3:bestellingenbeheer:v1")]
+    [ServiceContract(Namespace = "Case3.GoudGeel.BsBestellingenbeheer")]
     public interface IBSBestellingenbeheerService
     {
         /// <summary>
