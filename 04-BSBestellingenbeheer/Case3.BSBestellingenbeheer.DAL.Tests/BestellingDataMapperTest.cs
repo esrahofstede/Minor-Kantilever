@@ -95,9 +95,8 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
         /// <summary>
         /// When a Bestelling does not exsist with the given id it should return a NullReferenceException with the message "Bestelling niet gevonden"
         /// </summary>
-        [TestMethod]
-        
-        public void FindBestellingByIdIsThree()
+        [TestMethod] 
+        public void FindBestellingByIdIs30()
         {
             //Arrange
             BestellingDataMapper mapper = new BestellingDataMapper();
@@ -105,7 +104,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             //Act
             try
             {
-                Bestelling result = mapper.FindBestellingByID(1865);
+                Bestelling result = mapper.FindBestellingByID(30);
                 Assert.Fail("De bestelling is gevonden, terwijl dit niet zou moeten");
             }
             catch (FunctionalException ex)

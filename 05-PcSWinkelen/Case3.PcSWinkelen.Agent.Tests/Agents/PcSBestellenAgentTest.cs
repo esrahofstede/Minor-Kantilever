@@ -22,7 +22,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             var agent = new PcSBestellenAgent(agentMock.Object, null);
 
             //Act
-            var result = agent.BestellingPlaatsen(new BestellingPcS());
+            agent.BestellingPlaatsen(new BestellingPcS());
 
             //Assert
             agentMock.Verify(pcsMock => pcsMock.BestellingPlaatsen(It.IsAny<BestellingPlaatsenRequestMessage>()), Times.Once);
@@ -60,7 +60,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             //Act
             try
             {
-                var result = agent.BestellingPlaatsen(null);
+                agent.BestellingPlaatsen(null);
             }
             catch (TechnicalException ex)
             {
@@ -119,7 +119,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             //Act
             try
             {
-                var result = agent.BestellingPlaatsen(null);
+                agent.BestellingPlaatsen(null);
             }
             catch (TechnicalException)
             {
@@ -143,7 +143,7 @@ namespace Case3.PcSWinkelen.Agent.Tests.Agents
             //Act
             try
             {
-                var result = agent.BestellingPlaatsen(new BestellingPcS());
+                agent.BestellingPlaatsen(new BestellingPcS());
             }
             catch (TechnicalException)
             {

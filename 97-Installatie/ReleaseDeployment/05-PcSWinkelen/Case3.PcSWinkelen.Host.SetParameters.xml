@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/Goudgeel/Kantilever/PcSWinkelen" />
+  <setParameter name="PcSWinkelenDB-Web.config Connection String" value="Data Source=.\SQLEXPRESS;Initial Catalog=Goudgeel_PcSWinkelenDB;Integrated Security=true" />
+</parameters>

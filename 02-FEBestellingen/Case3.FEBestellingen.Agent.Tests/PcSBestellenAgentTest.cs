@@ -49,6 +49,7 @@ namespace Case3.FEBestellingen.Agent.Tests
         [TestMethod]
         public void PcSBestellenAgentReturnsBestelling()
         {
+            //Arrange
             FindNextBestellingResultMessage resultMessage = CreateFindNextBestellingResultMessage();
             var mock = new Mock<IPcSBestellenService>(MockBehavior.Strict);
             mock.Setup(m => m.FindNextBestelling(It.IsAny<FindNextBestellingRequestMessage>()))
@@ -60,6 +61,24 @@ namespace Case3.FEBestellingen.Agent.Tests
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(BestellingPcS));
+        }
+        #endregion
+        #region -------[Tests for FindNextBestelling]-------
+        [TestMethod]
+        public void AgentChangeStatusOfBestellingCallsPcSOneTime()
+        {
+            //Arrange
+            var mock = new Mock<IPcSBestellenService>(MockBehavior.Strict);
+            mock.Setup(m => m.UpdateBestelling(It.IsAny<UpdateBestellingStatusRequestMessage>()))
+                .Returns(new UpdateBestellingStatusResultMessage());
+
+            var agent = new PcSBestellenAgent(mock.Object);
+
+            // Act
+            agent.ChangeStatusOfBestelling(1);
+
+            // Assert
+            mock.Verify(m => m.UpdateBestelling(It.IsAny<UpdateBestellingStatusRequestMessage>()), Times.Once);
         }
         #endregion
     }

@@ -111,9 +111,17 @@
       <Word>Technische</Word>
       <Word>DTO</Word>
       <Word>Formaat</Word>
+      <Word>Exc</Word>
+      <Word>BSBestellingen</Word>
+      <Word>toegevoegd</Word>
+      <Word>Factuur</Word>
+      <Word>Nummer</Word>
+      <Word>Adresregel</Word>
       <Word>Juiste</Word>
-    </Recognized>
+    
+  </Recognized>
     <Unrecognized>
+      
     </Unrecognized>
     <Deprecated>
       <Term PreferredAlternate=""></Term>
@@ -123,6 +131,7 @@
       <Term>VoorraadBeheer</Term>
       <Term>catalogusBeheer</Term>
       <Term>voorraadBeheer</Term>
+      <Term>BSBestellingen</Term>
       <Term CompoundAlternate=""></Term>
     </Compound>
     <DiscreteExceptions>

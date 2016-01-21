@@ -1,14 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using Case3.BSBestellingenbeheer.V1.Messages;
-using Case3.BSBestellingenbeheer.V1.Schema;
+﻿using Case3.BSBestellingenbeheer.V1.Messages;
 using Case3.PcSBestellen.Agent.Exceptions;
 using Case3.PcSBestellen.Agent.Interfaces;
-using Case3.PcSBestellen.V1.Messages;
 using log4net;
 using Minor.ServiceBus.Agent.Implementation;
-using UpdateBestellingStatusRequestMessage = Case3.PcSBestellen.V1.Messages.UpdateBestellingStatusRequestMessage;
-using UpdateBestellingStatusResultMessage = Case3.PcSBestellen.V1.Messages.UpdateBestellingStatusResultMessage;
+using System;
+using System.Threading.Tasks;
 
 namespace Case3.PcSBestellen.Agent.Agents
 {
@@ -18,7 +14,6 @@ namespace Case3.PcSBestellen.Agent.Agents
     public class BSBestellingenbeheerAgent : IBSBestellingenbeheerAgent
     {
         private static ILog _logger;
-        private ServiceFactory<IBSBestellingenbeheerService> _factory;
         private IBSBestellingenbeheerService _agent;
 
         /// <summary>
@@ -27,7 +22,6 @@ namespace Case3.PcSBestellen.Agent.Agents
         public BSBestellingenbeheerAgent()
         {
             _logger = LogManager.GetLogger(typeof(BSBestellingenbeheerAgent));
-            _factory = new ServiceFactory<IBSBestellingenbeheerService>("BSBestellingen");
             var factory = new ServiceFactory<IBSBestellingenbeheerService>("BSBestellingen");
             try
             {

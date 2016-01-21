@@ -15,7 +15,7 @@ namespace Case3.FEBestellingen.Site.ViewModels
         public int? FactuurNummer { get; set; }
         public decimal TotaalExclBTW { get; set; }
         public decimal TotaalInclBTW { get; set; }
-        public decimal BTWPercentage { get; set; }
+        public int? BTWPercentage { get; set; }
         public decimal TotaalBTW { get; set; }
 
         //Klant information
@@ -24,5 +24,6 @@ namespace Case3.FEBestellingen.Site.ViewModels
         public string Adresregel2 { get; set; }
         public string Postcode { get; set; }
         public string Woonplaats { get; set; }
+        public int BestellingID { get; set; }
     }
 }

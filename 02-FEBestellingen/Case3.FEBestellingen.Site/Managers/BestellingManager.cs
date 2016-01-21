@@ -17,7 +17,7 @@ namespace Case3.FEBestellingen.Site.Managers
     public class BestellingManager : IBestellingManager
     {
         private IPcSBestellenAgent _pcsBestellenAgent;
-        private BTWCalculator _btwCalculator = new BTWCalculator();
+        private BTWCalculator _btwCalculator;
 
         /// <summary>
         /// This constructor is the default constructor
@@ -25,7 +25,9 @@ namespace Case3.FEBestellingen.Site.Managers
         public BestellingManager()
         {
             _pcsBestellenAgent = new PcSBestellenAgent();
+            _btwCalculator= new BTWCalculator();
         }
+
         /// <summary>
         /// This constructor is for testing purposes
         /// </summary>
@@ -33,6 +35,7 @@ namespace Case3.FEBestellingen.Site.Managers
         public BestellingManager(IPcSBestellenAgent agent)
         {
             _pcsBestellenAgent = agent;
+            _btwCalculator = new BTWCalculator();
         }
 
         /// <summary>
@@ -61,6 +64,8 @@ namespace Case3.FEBestellingen.Site.Managers
             //Create Artikelen based on the Bestelling
             if (bestelling != null)
             {
+
+                _btwCalculator = new BTWCalculator((int)bestelling.BTWPercentage);
                 List<ArtikelViewModel> artikelen = GetArtikelListFromBestelling(bestelling);
 
                 bestellingModel = new BestellingViewModel
@@ -74,6 +79,7 @@ namespace Case3.FEBestellingen.Site.Managers
                     KlantNaam = bestelling.Klantgegevens.Naam,
                     Postcode = bestelling.Klantgegevens.Postcode,
                     Woonplaats = bestelling.Klantgegevens.Woonplaats,
+                    BTWPercentage = bestelling.BTWPercentage,
                 };
 
                 //Calculate total prices and BTW
@@ -89,13 +95,13 @@ namespace Case3.FEBestellingen.Site.Managers
         private List<ArtikelViewModel> GetArtikelListFromBestelling(BestellingPcS bestelling)
         {
             return bestelling.ArtikelenPcS.Select(art => new ArtikelViewModel
-            {
+                {
                 ArtikelNaam = art.Product.Naam,
-                Prijs = art.Product.Prijs,
-                Leveranciersnaam = art.Product.LeverancierNaam,
-                Leverancierscode = art.Product.LeveranciersProductId,
-                Aantal = art.Aantal,
-            }).ToList();
+                Prijs = _btwCalculator.CalculatePriceInclusiveBTW(art.Product.Prijs),
+                    Leveranciersnaam = art.Product.LeverancierNaam,
+                    Leverancierscode = art.Product.LeveranciersProductId,
+                    Aantal = art.Aantal,
+                }).ToList();
         }
 
         /// <summary>
@@ -113,13 +119,20 @@ namespace Case3.FEBestellingen.Site.Managers
                 decimal totaalExclBTW = _btwCalculator.CalculatePriceExclBTW(totaalInclBTW);
 
                 // Sets the values in the bestellingViewModel
-                bestellingViewModel.BTWPercentage = _btwCalculator.BTWPercentage;
                 bestellingViewModel.TotaalInclBTW = totaalInclBTW;
                 bestellingViewModel.TotaalExclBTW = totaalExclBTW;
 
                 // Calculate the BTW for the price
                 bestellingViewModel.TotaalBTW = _btwCalculator.CalculateBTWOfPrice(totaalExclBTW);
             }
+        }
+        /// <summary>
+        /// This function changes the status of a Bestelling
+        /// </summary>
+        /// <param name="bestellingID">The Id of the Bestelling Which's status has to be changed</param>
+        public void ChangeStatusOfBestelling(long bestellingID)
+        {
+            _pcsBestellenAgent.ChangeStatusOfBestelling(bestellingID);
         }
     }
 }

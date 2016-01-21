@@ -47,7 +47,7 @@ namespace Case3.PcSBestellen.Implementation
             _bestellingenbeheerAgent = bestellingenbeheerAgent;
         }
 
-        
+
         /// <summary>
         /// This function returns a FindNextBestellingResultMessage
         /// </summary>
@@ -59,30 +59,36 @@ namespace Case3.PcSBestellen.Implementation
             return resultMessage;
         }
 
-        public BestellingPlaatsenResultMessage BestellingPlaatsen(BestellingPlaatsenRequestMessage bestellingRequestMessage)
+        public BestellingPlaatsenResultMessage BestellingPlaatsen(BestellingPlaatsenRequestMessage bestelling)
         {
-            Mapper.Initialize(asd => asd.CreateMap<KlantgegevensPcS, Klantgegevens>()
-                .IgnoreAllPropertiesWithAnInaccessibleSetter());
-            var klantgegevens = Mapper.Map<Klantgegevens>(bestellingRequestMessage.BestellingPcS.Klantgegevens);
-
-            Mapper.CreateMap<BestelItemPcS, BestelItem>()
-              .ForMember(d => d.Aantal, opt => opt.MapFrom(s => s.Aantal))
-              .ForMember(d => d.Product,
-                         opt => opt.MapFrom(s => Mapper.Map<Product, Product>(s.Product)));
-            var artikelen = Mapper.Map<Artikelen>(bestellingRequestMessage.BestellingPcS.ArtikelenPcS);
-
-
-            var BSBestelling = new InsertBestellingRequestMessage
+            if(bestelling != null)
             {
-                 Bestelling = new Bestelling
-        {
-                     Klantgegevens = klantgegevens,
-                     Artikelen = artikelen
-                 },
-            };
 
-            _bestellingenbeheerAgent.InsertBestelling(BSBestelling);
-            
+                Mapper.Initialize(asd => asd.CreateMap<KlantgegevensPcS, Klantgegevens>()
+                    .IgnoreAllPropertiesWithAnInaccessibleSetter());
+                var klantgegevens = Mapper.Map<Klantgegevens>(bestelling.BestellingPcS.Klantgegevens);
+
+                Mapper.CreateMap<BestelItemPcS, BestelItem>()
+                  .ForMember(d => d.Aantal, opt => opt.MapFrom(s => s.Aantal))
+                  .ForMember(d => d.Product,
+                             opt => opt.MapFrom(s => Mapper.Map<Product, Product>(s.Product)));
+                var artikelen = Mapper.Map<Artikelen>(bestelling.BestellingPcS.ArtikelenPcS);
+
+
+                var BSBestelling = new InsertBestellingRequestMessage
+                {
+                    Bestelling = new Bestelling
+                    {
+                        Klantgegevens = klantgegevens,
+                        Artikelen = artikelen,
+                        BTWPercentage = bestelling.BestellingPcS.BTWPercentage,
+                        Status = 0,
+                    },
+                };
+
+                _bestellingenbeheerAgent.InsertBestelling(BSBestelling);
+            }
+
             return new BestellingPlaatsenResultMessage();
         }
 

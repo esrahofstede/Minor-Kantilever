@@ -61,7 +61,8 @@ namespace Case3.FEWebwinkel.Site.Managers
                 Adresregel1 = klant.AdresRegel1,
                 Adresregel2 = klant.AdresRegel2,
                 Postcode = klant.Postcode,
-                Woonplaats = klant.Woonplaats
+                Woonplaats = klant.Woonplaats,
+                Telefoonnummer = klant.Telefoonnummer
             };
 
             if(klant.Tussenvoegsel != null)

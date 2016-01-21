@@ -14,5 +14,7 @@
         public string Leverancierscode { get; set; }
 
         public string Leverancier { get; set; }
+
+        public decimal Prijs { get; set; }
     }
 }

@@ -7,7 +7,7 @@
       <xs:element name="FactuurID" nillable="true" type="xs:int" />
       <xs:element name="FactuurDatum" nillable="true" type="xs:string" />
       <xs:element name="Status" nillable="true" type="xs:int" />
-      <xs:element name="BTWPercentage" nillable="true" type="xs:decimal" />
+      <xs:element name="BTWPercentage" nillable="true" type="xs:int" />
       <xs:element name="Klantgegevens" nillable="true" type="tns:KlantgegevensPcS" />
       <xs:element name="ArtikelenPcS" nillable="true" type="tns:ArtikelenPcS" />
     </xs:sequence>

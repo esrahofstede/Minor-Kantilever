@@ -29,6 +29,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 Naam = "fietsbel",
                 Leverancier = "gazelle",
                 Leverancierscode = "03g54hbronlsfads",
+                Prijs = 3.00M,
                 Aantal = 3
             };
 
@@ -38,6 +39,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 Naam = "remschijf",
                 Leverancier = "gazelle",
                 Leverancierscode = "oiaernglggafds234",
+                Prijs = 3.00M,
                 Aantal = 3
             };
 
@@ -47,6 +49,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 Naam = "kantilever",
                 Leverancier = "gazelle",
                 Leverancierscode = "kvbaf9345245sda",
+                Prijs = 3.00M,
                 Aantal = 3
             };
 
@@ -57,6 +60,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 Naam = "zadel",
                 Leverancier = "gazelle",
                 Leverancierscode = "vbsdaijgbreq6542",
+                Prijs = 3.00M,
                 Aantal = 3
             };
 
@@ -76,6 +80,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 Naam = "fietsbel",
                 Leverancier = "gazelle",
                 Leverancierscode = "03g54hbronlsfads",
+                Prijs = 4.00M,
                 Aantal = 3
             };
 
@@ -84,6 +89,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 ID = 22,
                 Naam = "remschijf",
                 Leverancier = "gazelle",
+                Prijs = 4.00M,
                 Leverancierscode = "oiaernglggafds234",
                 Aantal = 3
             };
@@ -93,6 +99,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
                 ID = 23,
                 Naam = "kantilever",
                 Leverancier = "gazelle",
+                Prijs = 4.00M,
                 Leverancierscode = "kvbaf9345245sda",
                 Aantal = 3
             };
@@ -102,6 +109,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Tests
             {
                 ID = 24,
                 Naam = "zadel",
+                Prijs = 4.00M,
                 Leverancier = "gazelle",
                 Leverancierscode = "vbsdaijgbreq6542",
                 Aantal = 3

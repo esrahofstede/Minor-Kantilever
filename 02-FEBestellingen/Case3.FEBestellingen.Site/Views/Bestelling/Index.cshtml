@@ -61,14 +61,14 @@
         </div>
     </div>
     <div class="clearfix"></div>
-        <h2>Ordergegevens</h2>
-        <hr />
-        <span class="margin-right-receipt">
-            Factuurnummer: @Model.FactuurNummer
-        </span>
-        <span class="margin-right-receipt">
-            Factuurdatum: @Html.DisplayFor(modelItem => Model.FactuurDatum)
-        </span>
+    <h2>Ordergegevens</h2>
+    <hr />
+    <span class="margin-right-receipt">
+        Factuurnummer: @Model.FactuurNummer
+    </span>
+    <span class="margin-right-receipt">
+        Factuurdatum: @Html.DisplayFor(modelItem => Model.FactuurDatum)
+    </span>
     <table class="table">
         <tr>
             <th>
@@ -141,18 +141,28 @@
             @Html.DisplayFor(modelItem => Model.Postcode) @Html.DisplayFor(modelItem => Model.Woonplaats)
         </h1>
     </div>
-            @Html.ActionLink("Volgende bestelling", "Index", "Bestelling", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop no-print pull-right" })
+    @Html.ActionLink("Volgende bestelling", "Index", "Bestelling", new { area = "" }, new { @class = "btn btn-primary btn-lg bestel-knop no-print pull-right" })
 </div>
 @* End Afleveradres Page *@
+<div class="clearfix"></div>
 <div class="clearfix"></div>
 @Scripts.Render("~/bundles/jquery")
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#bestelbutton").click(function(){
+        $("#bestelbutton").click(function ()
+        {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ChangeStatus", "Bestelling")',
+                contentType: "application/json; charset=utf-8",
+                data: "{ 'bestellingID': '@Model.BestellingID' }",
+                dataType: "json",
+            });
             $("#bestellen").toggleClass("hide");
             $("#factuur").toggleClass("hide");
         });
-        $("#factuurbutton").click(function () {
+        $("#factuurbutton").click(function ()
+        {
             $("#factuur").toggleClass("hide");
             $("#afleveradres").toggleClass("hide");
         });

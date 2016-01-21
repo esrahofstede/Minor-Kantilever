@@ -40,46 +40,47 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
         {
             if (bestelling != null)
             {
-            DateTime besteldatum = ParseBestelDatum(bestelling.FactuurDatum);
-            try
-            {
-                Entities.Bestelling insertBestelling = new Entities.Bestelling()
+                DateTime besteldatum = ParseBestelDatum(bestelling.FactuurDatum);
+                try
                 {
-                    BestelDatum = besteldatum,
-                    Status = (int)bestelling.Status,
-                    KlantNaam = bestelling.Klantgegevens.Naam,
-                    AdresRegel1 = bestelling.Klantgegevens.Adresregel1,
-                        AdresRegel2 = bestelling.Klantgegevens.Adresregel2,
-                    Postcode = bestelling.Klantgegevens.Postcode,
-                    Woonplaats = bestelling.Klantgegevens.Woonplaats,
-                    Telefoonnummer = bestelling.Klantgegevens.Telefoonnummer,
-                    Artikelen = new List<Entities.Artikel>(),
-                        BTWPercentage = (int)bestelling.BTWPercentage,
-                };
-
-                foreach (var item in bestelling.Artikelen)
-                {
-                    insertBestelling.Artikelen.Add(new Entities.Artikel()
+                    Entities.Bestelling insertBestelling = new Entities.Bestelling()
                     {
-                        ID = (long)item.Product.Id,
-                        Naam = item.Product.Naam,
-                        Leverancier = item.Product.LeverancierNaam,
-                        Leverancierscode = item.Product.LeveranciersProductId,
-                        Aantal = item.Aantal
-                    });
-                }
-                _bestellingDataMapper.Insert(insertBestelling);
-            }
+                        BestelDatum = besteldatum,
+                        Status = 0, //Status: Besteld
+                        KlantNaam = bestelling.Klantgegevens.Naam,
+                        AdresRegel1 = bestelling.Klantgegevens.Adresregel1,
+                        AdresRegel2 = bestelling.Klantgegevens.Adresregel2,
+                        Postcode = bestelling.Klantgegevens.Postcode,
+                        Woonplaats = bestelling.Klantgegevens.Woonplaats,
+                        Telefoonnummer = bestelling.Klantgegevens.Telefoonnummer,
+                        Artikelen = new List<Entities.Artikel>(),
+                        BTWPercentage = (int)bestelling.BTWPercentage,
+                    };
 
-                catch (InvalidOperationException)
-                {
-                    throw new FunctionalException("De opgegeven bestelling is niet in het juiste formaat.");
+                    foreach (var item in bestelling.Artikelen)
+                    {
+                        insertBestelling.Artikelen.Add(new Entities.Artikel()
+                        {
+                            ID = (long)item.Product.Id,
+                            Naam = item.Product.Naam,
+                            Leverancier = item.Product.LeverancierNaam,
+                            Leverancierscode = item.Product.LeveranciersProductId,
+                            Prijs = (decimal) item.Product.Prijs,
+                            Aantal = item.Aantal
+                        });
+                    }
+                    _bestellingDataMapper.Insert(insertBestelling);
                 }
-            catch (Exception)
-            {
-                throw;
+
+                catch (InvalidOperationException ex)
+                {
+                    throw new FunctionalException("De opgegeven bestelling is niet in het juiste formaat.", ex);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
-        }
         }
         /// <summary>
         /// This method parses a string to a DateTime. If not possible, use the current DateTime.
@@ -106,36 +107,52 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
         /// <returns></returns>
         public virtual Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity)
         {
-            if (bestellingEntity != null)
-        {
-            Bestelling bestellingDTO = new Bestelling()
+            try
             {
-                Artikelen = new Artikelen(),
-                BestellingID = (int)bestellingEntity.ID,
-                FactuurDatum = bestellingEntity.BestelDatum.ToString()
-
-            };
-
-                if (bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
+                if (bestellingEntity != null)
                 {
-                    foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
+                    Bestelling bestellingDTO = new Bestelling()
                     {
-                        bestellingDTO.Artikelen.Add(new BestelItem()
+                        Artikelen = new Artikelen(),
+                        BestellingID = (int)bestellingEntity.ID,
+                        FactuurDatum = bestellingEntity.BestelDatum.ToString(),
+                        Klantgegevens = new Klantgegevens
                         {
+                            Naam = bestellingEntity.KlantNaam,
+                            Adresregel1 = bestellingEntity.AdresRegel1,
+                            Adresregel2 = bestellingEntity.AdresRegel2,
+                            Postcode = bestellingEntity.Postcode,
+                            Telefoonnummer = bestellingEntity.Telefoonnummer,
+                            Woonplaats = bestellingEntity.Woonplaats
+                        }
 
-                            Product = new Product()
+                    };
+
+                    if (bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
+                    {
+                        foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
+                        {
+                            bestellingDTO.Artikelen.Add(new BestelItem()
                             {
-                                Naam = artikel.Naam,
-                                LeverancierNaam = artikel.Leverancier,
-                                LeveranciersProductId = artikel.Leverancierscode,
-                            },
-                            Aantal = artikel.Aantal
-                        });
+                                Product = new Product()
+                                {
+                                    Naam = artikel.Naam,
+                                    LeverancierNaam = artikel.Leverancier,
+                                    LeveranciersProductId = artikel.Leverancierscode,
+                                    Prijs = artikel.Prijs
+                                },
+                                Aantal = artikel.Aantal
+                            });
+                        }
                     }
+                    return bestellingDTO;
                 }
-            return bestellingDTO;
+                return null;
             }
-            return null;
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

@@ -38,6 +38,10 @@ namespace Case3.BSBestellingenbeheer.DAL.Mappings
             .HasMaxLength(150)
             .HasColumnName("Leverancierscode")
             .IsRequired();
+
+            this.Property(p => p.Prijs)
+            .HasColumnName("Prijs")
+            .IsRequired();
         }
 
     }
