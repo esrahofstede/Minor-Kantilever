@@ -3,7 +3,7 @@ using Case3.FEWebwinkel.Agent;
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.ViewModels;
-using case3bsbestellingenbeheer.v1.schema;
+using Case3.PcSWinkelen.Schema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +42,7 @@ namespace Case3.FEWebwinkel.Site.Managers
         /// <param name="klant">The data of the Klant</param>
         public void PlaatsBestelling(string sessionId, KlantRegistreerViewModel klant)
         {
-            Klantgegevens klantGegevens = ConvertKlantViewModelToDTO(klant);
+            KlantgegevensPcS klantGegevens = ConvertKlantViewModelToDTO(klant);
 
             _pcsWinkelenAgent.SendBestelling(sessionId, klantGegevens, (int)_btwCalculator.BTWPercentage);
         }
@@ -52,17 +52,16 @@ namespace Case3.FEWebwinkel.Site.Managers
         /// </summary>
         /// <param name="klant">The Klant viewmodel</param>
         /// <returns>A Klantgegevens object with the data from viewmodel</returns>
-        public Klantgegevens ConvertKlantViewModelToDTO(KlantRegistreerViewModel klant)
+        public KlantgegevensPcS ConvertKlantViewModelToDTO(KlantRegistreerViewModel klant)
         {
 
-            var klantGegevens = new Klantgegevens
+            var klantGegevens = new KlantgegevensPcS
             {
                 Naam = klant.Voornaam,
                 Adresregel1 = klant.AdresRegel1,
                 Adresregel2 = klant.AdresRegel2,
                 Postcode = klant.Postcode,
-                Woonplaats = klant.Woonplaats,
-                Telefoonnummer = klant.Telefoonnummer
+                Woonplaats = klant.Woonplaats
             };
 
             if(klant.Tussenvoegsel != null)

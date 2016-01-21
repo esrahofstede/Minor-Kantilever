@@ -1,10 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Case3.FEWebwinkel.Site.ViewModels;
 using Case3.FEWebwinkel.Agent.Interfaces;
 using Moq;
 using Case3.FEWebwinkel.Site.Managers;
-using case3bsbestellingenbeheer.v1.schema;
+using Case3.PcSWinkelen.Schema;
 
 namespace Case3.FEWebwinkel.Site.Tests.Managers
 {
@@ -51,7 +50,7 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             var result = target.ConvertKlantViewModelToDTO(klant);
 
             // Assert
-            Assert.AreEqual(typeof(Klantgegevens), result.GetType());
+            Assert.AreEqual(typeof(KlantgegevensPcS), result.GetType());
         }
 
         [TestMethod]
@@ -72,7 +71,6 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             Assert.AreEqual(null, result.Adresregel2);
             Assert.AreEqual("6802BR", result.Postcode);
             Assert.AreEqual("Amsterdam", result.Woonplaats);
-            Assert.AreEqual("06-12900921", result.Telefoonnummer);
         }
 
         [TestMethod]
@@ -93,7 +91,6 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             Assert.AreEqual(null, result.Adresregel2);
             Assert.AreEqual("6802BR", result.Postcode);
             Assert.AreEqual("Amsterdam", result.Woonplaats);
-            Assert.AreEqual("06-12900921", result.Telefoonnummer);
         }
 
         [TestMethod]
@@ -103,14 +100,14 @@ namespace Case3.FEWebwinkel.Site.Tests.Managers
             var klant = CreateKlant();
             //needed to prevent that BestellingManager connects to PcSWinkelenAgent
             var agentMock = new Mock<IPcSWinkelenAgent>(MockBehavior.Strict);
-            agentMock.Setup(x => x.SendBestelling("test", It.IsAny<Klantgegevens>(), It.IsAny<int>()));
+            agentMock.Setup(x => x.SendBestelling("test", It.IsAny<KlantgegevensPcS>(), It.IsAny<int>()));
             var target = new BestellingManager(agentMock.Object);
 
             // Act
             target.PlaatsBestelling("test", klant);
 
             // Assert
-            agentMock.Verify(x => x.SendBestelling("test", It.IsAny<Klantgegevens>(), It.IsAny<int>()), Times.Once());
+            agentMock.Verify(x => x.SendBestelling("test", It.IsAny<KlantgegevensPcS>(), It.IsAny<int>()), Times.Once());
         }
     }
 }

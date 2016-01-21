@@ -6,7 +6,7 @@ using Moq;
 using Case3.PcSWinkelen.Messages;
 using case3common.v1.faults;
 using System.ServiceModel;
-using case3bsbestellingenbeheer.v1.schema;
+using Case3.PcSWinkelen.Schema;
 
 namespace Case3.FEWebwinkel.Agent.Tests.Agents
 {
@@ -177,7 +177,7 @@ namespace Case3.FEWebwinkel.Agent.Tests.Agents
                 .Returns(It.IsAny<WinkelmandBestellenResponseMessage>());
 
             //Act
-            agent.SendBestelling("test", It.IsAny<Klantgegevens>(), It.IsAny<int>());
+            agent.SendBestelling("test", It.IsAny<KlantgegevensPcS>(), It.IsAny<int>());
 
             //Assert
             //Expect TechnicalException
