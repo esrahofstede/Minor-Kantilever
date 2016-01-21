@@ -13,12 +13,17 @@ namespace Case3.PcSWinkelen.Agent.Interfaces
     public interface IPcSBestellenAgent
     {
         /// <summary>
-        /// Method to plaats a bestelling
+        /// Method to place a bestelling
         /// </summary>
-        /// <param name="bestelling"></param>
-        /// <returns></returns>
+        /// <param name="bestelling">The Bestelling to place</param>
+        /// <returns>A boolean to see if the Bestelling was successfully placed</returns>
         bool BestellingPlaatsen(BestellingPcS bestelling);
 
+        /// <summary>
+        /// Method to place bestellingen async
+        /// </summary>
+        /// <param name="bestelling">The Bestelling to place</param>
+        /// <returns>A boolean to see if the Bestelling was successfully placed</returns>
         Task<bool> BestellingPlaatsenAsync(BestellingPcS bestelling);
     }
 }
