@@ -74,6 +74,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// </summary>
         /// <param name="bestelling">The request message containing the Bestelling to insert</param>
         /// <returns>Returns an InsertBestellingResultMessage if succesful. Else null.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "Case3.Common.Faults.ErrorDetail.set_Message(System.String)")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
         {
@@ -82,37 +83,36 @@ namespace Case3.BSBestellingenbeheer.Implementation
             {
                 try
                 {
-                        _bestellingManager.InsertBestelling(bestelling.Bestelling);
-                    return new InsertBestellingResultMessage();
+                    _bestellingManager.InsertBestelling(bestelling.Bestelling);
                 }
-                    catch (TechnicalException ex)
-                    {
-                        _list.Add(new ErrorDetail()
-                        {
-                            ErrorCode = 2,
-                            Message = ex.Message,
-                        });
-                        _logger.Fatal(ex.Message, ex);
-                    }
-                    catch (FunctionalException ex)
-                    {
-                        _list.Add(new ErrorDetail()
-                        {
-                            ErrorCode = 2,
-                            Message = ex.Message,
-                        });
-                    }
-                    catch (Exception ex)
-                    {
-                        _list.Add(new ErrorDetail()
-                        {
-                            ErrorCode = 2,
-                            Message = ex.Message,
-                        });
-                    }
-                    if (_list.Count > 0)
+                catch (TechnicalException ex)
                 {
-                        throw new FaultException<ErrorLijst>(_list, "Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie.");
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                    });
+                    _logger.Fatal(ex.Message, ex);
+                }
+                catch (FunctionalException ex)
+                {
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                    });
+                }
+                catch (Exception ex)
+                {
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                    });
+                }
+                if (_list.Count > 0)
+                {
+                    throw new FaultException<ErrorLijst > (_list, "Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie.");
                 }
             }
             else
@@ -125,7 +125,6 @@ namespace Case3.BSBestellingenbeheer.Implementation
 
                 throw new FaultException<ErrorLijst>(_list, "Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie.");
             }
-
             return new InsertBestellingResultMessage();
         }
 
@@ -134,6 +133,8 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// </summary>
         /// <param name="bestelling">The bestelling to update</param>
         /// <returns></returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "Case3.Common.Faults.ErrorDetail.set_Message(System.String)")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         public UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestelling)
         {
             if (bestelling != null)
@@ -142,8 +143,8 @@ namespace Case3.BSBestellingenbeheer.Implementation
                 {
                     _mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
 
-                return new UpdateBestellingStatusResultMessage();
-            }
+                    return new UpdateBestellingStatusResultMessage();
+                }
                 catch (TechnicalException ex)
                 {
                     _list.Add(new ErrorDetail()

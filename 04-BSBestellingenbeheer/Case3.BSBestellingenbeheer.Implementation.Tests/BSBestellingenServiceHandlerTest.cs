@@ -9,6 +9,8 @@ using System.Linq;
 using Case3.BSBestellingenbeheer.DAL.DataMappers;
 using System.Collections.Generic;
 using Case3.BSBestellingenbeheer.Implementation.Managers;
+using Case3.BSBestellingenbeheer.Implementation.Interfaces;
+using Case3.BSBestellingenbeheer.DAL.Exceptions;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Tests
 {
@@ -116,7 +118,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             });
 
             //Assert
-            //Assert.IsNull(result);
+            //Expect FaultException<ErrorLijst>
         }
 
         [TestMethod]
@@ -220,6 +222,60 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             lijst.Add(artikel24);
 
             return lijst;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void VerifyInsertBestellingThrowsFaultExceptionWhenTechnicalExceptionOccurs()
+        {
+            //Arrange
+            var mock = new Mock<IBestellingManager>(MockBehavior.Strict);
+            mock.Setup(p => p.InsertBestelling(It.IsAny<Bestelling>())).Throws(new TechnicalException());
+            var handler = new BSBestellingenServiceHandler(null, mock.Object);
+
+            var request = new InsertBestellingRequestMessage() { Bestelling = new Bestelling() };
+
+            //Act
+            handler.InsertBestelling(request);
+
+            //Act
+            //Expect FaultException<ErrorLijst>
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void VerifyInsertBestellingThrowsFaultExceptionWhenFunctionalExceptionOccurs()
+        {
+            //Arrange
+            var mock = new Mock<IBestellingManager>(MockBehavior.Strict);
+            mock.Setup(p => p.InsertBestelling(It.IsAny<Bestelling>())).Throws(new FunctionalException());
+            var handler = new BSBestellingenServiceHandler(null, mock.Object);
+
+            var request = new InsertBestellingRequestMessage() { Bestelling = new Bestelling() };
+
+            //Act
+            handler.InsertBestelling(request);
+
+            //Act
+            //Expect FaultException<ErrorLijst>
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void VerifyInsertBestellingThrowsFaultExceptionWhenExceptionOccurs()
+        {
+            //Arrange
+            var mock = new Mock<IBestellingManager>(MockBehavior.Strict);
+            mock.Setup(p => p.InsertBestelling(It.IsAny<Bestelling>())).Throws(new Exception());
+            var handler = new BSBestellingenServiceHandler(null, mock.Object);
+
+            var request = new InsertBestellingRequestMessage() { Bestelling = new Bestelling() };
+
+            //Act
+            handler.InsertBestelling(request);
+
+            //Act
+            //Expect FaultException<ErrorLijst>
         }
     }
 }
