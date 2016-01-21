@@ -57,7 +57,18 @@ namespace Case3.PcSBestellen.Implementation.Managers
             {
                 BestellingOpdracht = new BestellingPcS
                 {
-                    ArtikelenPcS = artikelen
+                    BestellingID = findFirstResultMessage.BestellingOpdracht.BestellingID,
+                    BTWPercentage = findFirstResultMessage.BestellingOpdracht.BTWPercentage,
+                    ArtikelenPcS = artikelen,
+                    Klantgegevens = new KlantgegevensPcS
+                    {
+                        Naam = findFirstResultMessage.BestellingOpdracht.Klantgegevens.Naam,
+                        Adresregel1 = findFirstResultMessage.BestellingOpdracht.Klantgegevens.Adresregel1,
+                        Adresregel2 = findFirstResultMessage.BestellingOpdracht.Klantgegevens.Adresregel2,
+                        Postcode = findFirstResultMessage.BestellingOpdracht.Klantgegevens.Postcode,
+                        Telefoonnummer = findFirstResultMessage.BestellingOpdracht.Klantgegevens.Telefoonnummer,
+                        Woonplaats = findFirstResultMessage.BestellingOpdracht.Klantgegevens.Woonplaats
+                    }
                 },
             };
         }

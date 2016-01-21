@@ -70,6 +70,7 @@ namespace Case3.FEBestellingen.Site.Managers
 
                 bestellingModel = new BestellingViewModel
                 {
+                    BestellingID = (int) bestelling.BestellingID,
                     Artikelen = artikelen,
                     Adresregel1 = bestelling.Klantgegevens.Adresregel1,
                     Adresregel2 = bestelling.Klantgegevens.Adresregel2,

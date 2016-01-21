@@ -1,5 +1,6 @@
 ﻿using Case3.FEBestellingen.Site.Managers;
 using Case3.FEBestellingen.Site.Managers.Interfaces;
+using Case3.FEBestellingen.Site.ViewModels;
 using Case3.PcSBestellen.V1.Messages;
 using System.Web.Mvc;
 
@@ -35,8 +36,16 @@ namespace Case3.FEBestellingen.Site.Controllers
         public ActionResult Index()
         {
             var requestMessage = new FindNextBestellingRequestMessage();
-            var model = _bestellingManager.FindNextBestelling(requestMessage);
-            return View(model);
+            try
+            {
+                var model = _bestellingManager.FindNextBestelling(requestMessage);
+                return View(model);
+            }
+            catch (System.Exception)
+            {
+                return View("GeenBestellingen");
+            }
+            
         }
 
         /// <summary>
