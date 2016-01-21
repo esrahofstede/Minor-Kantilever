@@ -16,6 +16,7 @@ using Case3.Common.Faults;
 using System.Runtime.Serialization;
 using AutoMapper;
 using BestellenNS = Case3.PcSBestellen.SchemaNS;
+using Case3.BTWConfigurationReader;
 
 namespace Case3.PcSWinkelen.Implementation
 {
@@ -38,6 +39,7 @@ namespace Case3.PcSWinkelen.Implementation
         private IPcSBestellenAgent _bestellenAgent;
         private ICatalogusManager _manager;
         private IBestelItemWinkelmandItemMapper _bestelItemWinkelmandItemMapper;
+        private BTWCalculator _btwCalculator = new BTWCalculator();
 
         /// <summary>
         /// Custom constructor for testing purposes
@@ -266,10 +268,9 @@ namespace Case3.PcSWinkelen.Implementation
         /// Deletes the winkelmand from the PcSBestellen database
         /// </summary>
         /// <param name="bestelling">The session id of the client</param>
-        /// <returns></returns>
+        /// <returns>The response message</returns>
         public WinkelmandBestellenResponseMessage WinkelmandBestellen(WinkelmandBestellenRequestMessage bestelling)
         {
-            var response = new WinkelmandBestellenResponseMessage();
             var winkelmandItems = _winkelmandDataMapper.FindAllBy(wi => wi.SessieID == bestelling.SessieId);
             var bestelItems = _bestelItemWinkelmandItemMapper.MapWinkelmandItemsToBestelItems(winkelmandItems);
 
@@ -284,14 +285,15 @@ namespace Case3.PcSWinkelen.Implementation
             var bestellingPcS = new BestellenNS.BestellingPcS
             {
                 Klantgegevens = klantgegevens,
-                ArtikelenPcS = artikelenPcS
+                ArtikelenPcS = artikelenPcS,
+                BTWPercentage = _btwCalculator.BTWPercentage,
             };
 
             _bestellenAgent.BestellingPlaatsenAsync(bestellingPcS);
 
             //_winkelmandDataMapper.DeleteBySessieID(bestelling.SessieId);
 
-            return response;
+            return new WinkelmandBestellenResponseMessage();
         }
     }
 }

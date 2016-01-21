@@ -208,6 +208,8 @@ namespace Case3.PcSBestellen.SchemaNS
         
         private System.Nullable<int> StatusField;
         
+        private System.Nullable<decimal> BTWPercentageField;
+        
         private Case3.PcSBestellen.SchemaNS.KlantgegevensPcS KlantgegevensField;
         
         private Case3.PcSBestellen.SchemaNS.ArtikelenPcS ArtikelenPcSField;
@@ -277,6 +279,19 @@ namespace Case3.PcSBestellen.SchemaNS
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public System.Nullable<decimal> BTWPercentage
+        {
+            get
+            {
+                return this.BTWPercentageField;
+            }
+            set
+            {
+                this.BTWPercentageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
         public Case3.PcSBestellen.SchemaNS.KlantgegevensPcS Klantgegevens
         {
             get
@@ -289,7 +304,7 @@ namespace Case3.PcSBestellen.SchemaNS
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
         public Case3.PcSBestellen.SchemaNS.ArtikelenPcS ArtikelenPcS
         {
             get
