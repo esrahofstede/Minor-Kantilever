@@ -150,6 +150,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
                         ErrorCode = 2,
                         Message = ex.Message,
                     });
+                    _logger.Fatal(ex.Message, ex);
                 }
                 catch (FunctionalException ex)
                 {
