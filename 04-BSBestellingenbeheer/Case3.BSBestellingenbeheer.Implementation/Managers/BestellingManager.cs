@@ -107,12 +107,14 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
         /// <returns></returns>
         public virtual Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity)
         {
+            
             try
             {
                 if (bestellingEntity != null)
                 {
                     Bestelling bestellingDTO = new Bestelling()
                     {
+                        BTWPercentage = bestellingEntity.BTWPercentage,
                         Artikelen = new Artikelen(),
                         BestellingID = (int)bestellingEntity.ID,
                         FactuurDatum = bestellingEntity.BestelDatum.ToString(),

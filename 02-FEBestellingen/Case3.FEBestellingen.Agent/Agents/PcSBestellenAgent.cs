@@ -40,6 +40,14 @@ namespace Case3.FEBestellingen.Agent.Agents
         public BestellingPcS FindNextBestelling(FindNextBestellingRequestMessage requestMessage)
         {
             FindNextBestellingResultMessage result = _agent.FindNextBestelling(requestMessage);
+            if (result.BestellingOpdracht.BTWPercentage == null)
+            {
+                throw new Exception("BTWpercentage is null in PcSBestellenAgent");
+            }
+            if (result.BestellingOpdracht.Klantgegevens == null)
+            {
+                throw new Exception("Klantgegevens is null in PcSBestellenAgent");
+            }
             return result.BestellingOpdracht;
         }
 

@@ -182,6 +182,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Bestelling\Index.cshtml" />
+    <Content Include="Views\Bestelling\GeenBestellingen.cshtml" />
     <None Include="Web.Acceptatie.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
