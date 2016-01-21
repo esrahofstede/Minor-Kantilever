@@ -102,7 +102,7 @@ namespace Case3.PcSBestellen.Implementation.Managers
             //Convert the incoming requestMessage to the required requestMessage for the BsBestellingenbeheer
             var bsRequestMessage = ConvertPcSUpdateRequestMessageToBSUpdateRequestMessage(request);
             //Update the bestelling from the BsBestellingenbeheer using the agent
-            var bsResultMessage = _bsBestellingenAgent.UpdateBestellingStatus(bsRequestMessage);
+            _bsBestellingenAgent.UpdateBestellingStatus(bsRequestMessage);
             //Convert the incoming resultMessage to the correct outgoing resultMessage for FEBestellen
             //var findNextResultMessage = ConvertBsUpdateResultMessageToPcSUpdateResultMessage(bsResultMessage);
 
