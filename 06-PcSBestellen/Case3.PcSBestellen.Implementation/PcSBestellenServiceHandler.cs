@@ -47,7 +47,7 @@ namespace Case3.PcSBestellen.Implementation
             _bestellingenbeheerAgent = bestellingenbeheerAgent;
         }
 
-        
+
         /// <summary>
         /// This function returns a FindNextBestellingResultMessage
         /// </summary>
@@ -74,16 +74,17 @@ namespace Case3.PcSBestellen.Implementation
 
             var BSBestelling = new InsertBestellingRequestMessage
             {
-                 Bestelling = new Bestelling
-        {
-                     Klantgegevens = klantgegevens,
-                     Artikelen = artikelen,
-                     Status = 0
-                 },
+                Bestelling = new Bestelling
+        	{
+                   Klantgegevens = klantgegevens,
+                   Artikelen = artikelen,
+		   BTWPercentage = bestellingRequestMessage.BestellingPcS.BTWPercentage,
+                   Status = 0,
+                },
             };
 
             _bestellingenbeheerAgent.InsertBestelling(BSBestelling);
-            
+
             return new BestellingPlaatsenResultMessage();
         }
 

@@ -11,6 +11,8 @@
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:messages", ClrNamespace="Case3.BSBestellingenbeheer.V1.Messages")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-bsbestellingenbeheer:v1:schema", ClrNamespace="Case3.BSBestellingenbeheer.V1.Schema")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:product:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.ProductNS")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:case3-common:v1:faults", ClrNamespace="case3common.v1.faults")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1", ClrNamespace="Case3.BSCatalogusBeheer.Schema.CategorieNS")]
 
 namespace Case3.BSBestellingenbeheer.V1.Messages
 {
@@ -213,6 +215,8 @@ namespace Case3.BSBestellingenbeheer.V1.Schema
         
         private Case3.BSBestellingenbeheer.V1.Schema.Klantgegevens KlantgegevensField;
         
+        private System.Nullable<int> BTWPercentageField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -300,6 +304,19 @@ namespace Case3.BSBestellingenbeheer.V1.Schema
             set
             {
                 this.KlantgegevensField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public System.Nullable<int> BTWPercentage
+        {
+            get
+            {
+                return this.BTWPercentageField;
+            }
+            set
+            {
+                this.BTWPercentageField = value;
             }
         }
     }
@@ -634,6 +651,153 @@ namespace Case3.BSCatalogusBeheer.Schema.ProductNS
         }
     }
 }
+namespace case3common.v1.faults
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ErrorLijst", Namespace="urn:case3-common:v1:faults", ItemName="ErrorDetail")]
+    public class ErrorLijst : System.Collections.Generic.List<case3common.v1.faults.ErrorDetail>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ErrorDetail", Namespace="urn:case3-common:v1:faults")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Schema.Bestelling))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Schema.Artikelen))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Schema.BestelItem))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSBestellingenbeheer.V1.Schema.Klantgegevens))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(case3common.v1.faults.ErrorLijst))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.CategorieNS.Categorie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Case3.BSCatalogusBeheer.Schema.ProductNS.Product))]
+    public partial class ErrorDetail : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ErrorCodeField;
+        
+        private string MessageField;
+        
+        private object DataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ErrorCode
+        {
+            get
+            {
+                return this.ErrorCodeField;
+            }
+            set
+            {
+                this.ErrorCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string Message
+        {
+            get
+            {
+                return this.MessageField;
+            }
+            set
+            {
+                this.MessageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public object Data
+        {
+            get
+            {
+                return this.DataField;
+            }
+            set
+            {
+                this.DataField = value;
+            }
+        }
+    }
+}
+namespace Case3.BSCatalogusBeheer.Schema.CategorieNS
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Categorie", Namespace="urn:schemas-www-kantilever-nl:bscatalogusbeheer:categorie:v1")]
+    public partial class Categorie : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.Nullable<int> IdField;
+        
+        private string NaamField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                this.IdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string Naam
+        {
+            get
+            {
+                return this.NaamField;
+            }
+            set
+            {
+                this.NaamField = value;
+            }
+        }
+    }
+}
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -654,6 +818,8 @@ public interface IBSBestellingenbeheerService
     [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestelling" +
         "", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestelling" +
         "Response")]
+    [System.ServiceModel.FaultContractAttribute(typeof(case3common.v1.faults.ErrorLijst), Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestelling" +
+        "ErrorLijstFault", Name="ErrorLijst", Namespace="urn:case3-common:v1:faults")]
     Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingResultMessage InsertBestelling(Case3.BSBestellingenbeheer.V1.Messages.InsertBestellingRequestMessage bestelling);
     
     [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/InsertBestelling" +
@@ -664,12 +830,12 @@ public interface IBSBestellingenbeheerService
     [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
         "Status", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
         "StatusResponse")]
-    Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage UpdateBestellingStatus(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestellingID);
+    Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage UpdateBestellingStatus(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestelling);
     
     [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
         "Status", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
         "StatusResponse")]
-    System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage> UpdateBestellingStatusAsync(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestellingID);
+    System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage> UpdateBestellingStatusAsync(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestelling);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -726,13 +892,13 @@ public partial class BSBestellingenbeheerServiceClient : System.ServiceModel.Cli
         return base.Channel.InsertBestellingAsync(bestelling);
     }
     
-    public Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage UpdateBestellingStatus(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestellingID)
+    public Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage UpdateBestellingStatus(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestelling)
     {
-        return base.Channel.UpdateBestellingStatus(bestellingID);
+        return base.Channel.UpdateBestellingStatus(bestelling);
     }
     
-    public System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage> UpdateBestellingStatusAsync(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestellingID)
+    public System.Threading.Tasks.Task<Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage> UpdateBestellingStatusAsync(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestelling)
     {
-        return base.Channel.UpdateBestellingStatusAsync(bestellingID);
+        return base.Channel.UpdateBestellingStatusAsync(bestelling);
     }
 }
