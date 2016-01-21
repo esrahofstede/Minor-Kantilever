@@ -286,7 +286,7 @@ namespace Case3.PcSWinkelen.Implementation
             {
                 Klantgegevens = klantgegevens,
                 ArtikelenPcS = artikelenPcS,
-                BTWPercentage = _btwCalculator.BTWPercentage,
+                BTWPercentage = (int) _btwCalculator.BTWPercentage,
             };
 
             _bestellenAgent.BestellingPlaatsenAsync(bestellingPcS);
