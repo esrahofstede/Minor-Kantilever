@@ -3,6 +3,7 @@ using Case3.FEWebwinkel.Site.Managers;
 using Case3.FEWebwinkel.Site.Managers.Interfaces;
 using Case3.FEWebwinkel.Site.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.ServiceModel;
 using System.Web.Mvc;
@@ -47,7 +48,8 @@ namespace Case3.FEWebwinkel.Site.Controllers
         {
             try
             {
-                var model = _catalogusManager.FindAllProducts();
+                IEnumerable<CatalogusViewModel> model = _catalogusManager.FindAllProducts();
+
                 return View(model);
             }
             catch (TechnicalException ex)
