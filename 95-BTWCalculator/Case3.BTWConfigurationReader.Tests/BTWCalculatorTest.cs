@@ -261,5 +261,55 @@ namespace Case3.BTWConfigurationReader.Tests
             Assert.AreEqual(0M, result);
         }
         #endregion
+        #region -------[Tests for CustomPercentage Constructor]-------
+        [TestMethod]
+        public void CustomPercentageHasBeenSetCorrectly()
+        {
+            // Arrange
+            var target = new BTWCalculator(25);
+
+            // Act
+            var result = target.BTWPercentage;
+
+            // Assert
+            Assert.AreEqual(25M, result);
+        }
+        [TestMethod]
+        public void CustomPercentageCalculatesInclCorrectly()
+        {
+            // Arrange
+            var target = new BTWCalculator(25);
+
+            // Act
+            var result = target.CalculatePriceInclusiveBTW(100.00M);
+
+            // Assert
+            Assert.AreEqual(125.00M, result);
+        }
+        [TestMethod]
+        public void CustomPercentageCalculatesExclCorrectly()
+        {
+            // Arrange
+            var target = new BTWCalculator(25);
+
+            // Act
+            var result = target.CalculatePriceExclBTW(125.00M);
+
+            // Assert
+            Assert.AreEqual(100.00M, result);
+        }
+        [TestMethod]
+        public void CustomPercentageCalculatesBTWOfPriceCorrectly()
+        {
+            // Arrange
+            var target = new BTWCalculator(25);
+
+            // Act
+            var result = target.CalculateBTWOfPrice(100.00M);
+
+            // Assert
+            Assert.AreEqual(25.00M, result);
+        }
+        #endregion
     }
 }
