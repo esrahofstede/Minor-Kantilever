@@ -1,14 +1,10 @@
-﻿using Case3.BSBestellingenbeheer.Contract;
-using Case3.BSBestellingenbeheer.V1.Messages;
-using Case3.BSBestellingenbeheer.V1.Schema;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Case3.BSBestellingenbeheer.V1.Schema;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Interfaces
 {
+    /// <summary>
+    /// This interface is used to manage bestellingen
+    /// </summary>
     public interface IBestellingManager
     {
         /// <summary>
@@ -17,6 +13,10 @@ namespace Case3.BSBestellingenbeheer.Implementation.Interfaces
         /// <returns>BestellingDTO</returns>
         Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity);
 
+        /// <summary>
+        /// Inserts a new bestelling
+        /// </summary>
+        /// <param name="bestelling">The bestelling which should be inserted</param>
         void InsertBestelling(Bestelling bestelling);
     }
 }
