@@ -71,9 +71,9 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                 _bestellingDataMapper.Insert(insertBestelling);
             }
 
-                catch (InvalidOperationException)
+                catch (InvalidOperationException ex)
                 {
-                    throw new FunctionalException("De opgegeven bestelling is niet in het juiste formaat.");
+                    throw new FunctionalException("De opgegeven bestelling is niet in het juiste formaat.", ex);
                 }
             catch (Exception)
             {
