@@ -48,7 +48,21 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         {
             using (var context = new BestellingContext())
             {
-                return context.Bestellingen.Where(b => b.Status == 0).OrderBy(b => b.BestelDatum).Include(b => b.Artikelen).FirstOrDefault();
+                try
+                {
+                    Bestelling bestellingtoPack = context.Bestellingen.Where(b => b.Status == 0).OrderBy(b => b.BestelDatum).Include(b => b.Artikelen).FirstOrDefault();
+
+                    if (bestellingtoPack == null)
+                    {
+                        throw new FunctionalException("Er kan geen nieuwe bestelling gevonden worden");
+                    }
+
+                    return bestellingtoPack;
+                }
+                catch (Exception)
+                {
+                    throw new TechnicalException("Er is een technische fout opgetreden tijdens het ophalen van de bestelling");
+                }      
             }
         }
 
