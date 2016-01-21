@@ -291,7 +291,7 @@ namespace Case3.PcSWinkelen.Implementation
 
             _bestellenAgent.BestellingPlaatsenAsync(bestellingPcS);
 
-            //_winkelmandDataMapper.DeleteBySessieID(bestelling.SessieId);
+            _winkelmandDataMapper.DeleteBySessieID(bestelling.SessieId);
 
             return new WinkelmandBestellenResponseMessage();
         }
