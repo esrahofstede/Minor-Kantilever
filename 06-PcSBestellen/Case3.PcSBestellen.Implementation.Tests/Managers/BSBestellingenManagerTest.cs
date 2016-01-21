@@ -163,7 +163,7 @@ namespace Case3.PcSBestellen.Implementation.Tests.Managers
             // Arrange
             var mock = new Mock<IBSBestellingenbeheerAgent>(MockBehavior.Strict);
             mock.Setup(m => m.UpdateBestellingStatus(It.IsAny<BSBestellingenNS.UpdateBestellingStatusRequestMessage>()))
-                .Returns(new PcSBestellenNS.UpdateBestellingStatusResultMessage());
+                .Returns(new BSBestellingenNS.UpdateBestellingStatusResultMessage());
 
             var manager = new BSBestellingenManager(mock.Object);
             var pcsUpdateRequestMessage = new V1.Messages.UpdateBestellingStatusRequestMessage { BestellingID = 1 }; ;
