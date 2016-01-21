@@ -18,7 +18,8 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
         public void IndexActionReturnsViewResult()
         {
             // Arrange
-            var controller = new KlantController();
+            var mock = new Mock<IBestellingManager>(MockBehavior.Strict);
+            var controller = new KlantController(mock.Object);
 
             // Act
             ActionResult result = controller.Index();
@@ -31,7 +32,9 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
         public void IndexActionHasCorrectModel()
         {
             // Arrange
-            var controller = new KlantController();
+            var mock = new Mock<IBestellingManager>(MockBehavior.Strict);
+            var controller = new KlantController(mock.Object);
+
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -43,7 +46,9 @@ namespace Case3.FEWebwinkel.Site.Tests.Controllers
         public void CreatePostReturnsModelWithErrorsTelefoonnummerMissing()
         {
             // Arrange
-            var controller = new KlantController();
+            var mock = new Mock<IBestellingManager>(MockBehavior.Strict);
+            var controller = new KlantController(mock.Object);
+
             controller.ModelState.AddModelError("Telefoonnummer", "Telefoonnummer is verplicht");
 
             var model = new KlantRegistreerViewModel
