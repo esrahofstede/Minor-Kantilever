@@ -49,7 +49,12 @@ namespace Case3.PcSWinkelen.Agent.Agents
             _agent = agent;
             _logger = logger;
         }
-        
+
+        /// <summary>
+        /// Method to place a bestelling
+        /// </summary>
+        /// <param name="bestelling">The Bestelling to place</param>
+        /// <returns>A boolean to see if the Bestelling was successfully placed</returns>
         public bool BestellingPlaatsen(BestellingPcS bestelling)
         {
             if (bestelling == null)
@@ -69,6 +74,11 @@ namespace Case3.PcSWinkelen.Agent.Agents
             return true;
         }
 
+        /// <summary>
+        /// Method to place bestellingen async
+        /// </summary>
+        /// <param name="bestelling">The Bestelling to place</param>
+        /// <returns>A boolean to see if the Bestelling was successfully placed</returns>
         public async Task<bool> BestellingPlaatsenAsync(BestellingPcS bestelling)
         {
             if (bestelling == null)

@@ -9,8 +9,13 @@
     <name>PcSBestellen</name>
     <profile>Acceptatie</profile>
     <metadataAddress>http://minorbldsrv/Goudgeel/Acceptatie/PcSBestellen/PcSBestellen.svc/mex</metadataAddress>
-  </serviceLocation>  
-   <serviceLocation>
+  </serviceLocation>
+  <serviceLocation>
+    <name>PcSBestellen</name>
+    <profile>Production</profile>
+    <metadataAddress>http://minorbldsrv/Goudgeel/Kantilever/PcSBestellen/PcSBestellen.svc/mex</metadataAddress>
+  </serviceLocation>
+  <serviceLocation>
     <name>PcSWinkelen</name>
     <profile>Development</profile>
     <metadataAddress>http://localhost:30178/PcSWinkelen.svc/mex</metadataAddress>
@@ -19,6 +24,11 @@
     <name>PcSWinkelen</name>
     <profile>Acceptatie</profile>
     <metadataAddress>http://minorbldsrv/Goudgeel/Acceptatie/PcSWinkelen/PcSWinkelen.svc/mex</metadataAddress>
+  </serviceLocation>
+  <serviceLocation>
+    <name>PcSWinkelen</name>
+    <profile>Production</profile>
+    <metadataAddress>http://minorbldsrv/Goudgeel/Kantilever/PcSWinkelen/PcSWinkelen.svc/mex</metadataAddress>
   </serviceLocation>
   <serviceLocation>
     <name>BSBestellingen</name>
@@ -31,6 +41,11 @@
     <metadataAddress>http://minorbldsrv/Goudgeel/Acceptatie/BSBestellingenBeheer/BSBestellingen.svc/mex</metadataAddress>
   </serviceLocation>
   <serviceLocation>
+    <name>BSBestellingen</name>
+    <profile>Production</profile>
+    <metadataAddress>http://minorbldsrv/Goudgeel/Kantilever/BSBestellingenBeheer/BSBestellingen.svc/mex</metadataAddress>
+  </serviceLocation>
+  <serviceLocation>
     <name>BSVoorraadBeheer</name>
     <profile>Development</profile>
     <metadataAddress>http://localhost:4001/Design_Time_Addresses/Kantilever/BSVoorraadBeheer/mex</metadataAddress>
@@ -41,8 +56,18 @@
     <metadataAddress>http://minorbldsrv:4001/Design_Time_Addresses/Kantilever/BSVoorraadBeheer/mex</metadataAddress>
   </serviceLocation>
   <serviceLocation>
+    <name>BSVoorraadBeheer</name>
+    <profile>Production</profile>
+    <metadataAddress>http://minorbldsrv:4001/Design_Time_Addresses/Kantilever/BSVoorraadBeheer/mex</metadataAddress>
+  </serviceLocation>
+  <serviceLocation>
     <name>BSCatalogusBeheer</name>
     <profile>Development</profile>
+    <metadataAddress>http://localhost:4000/Design_Time_Addresses/Kantilever/BSCatalogusBeheer/mex</metadataAddress>
+  </serviceLocation>
+  <serviceLocation>
+    <name>BSCatalogusBeheer</name>
+    <profile>Production</profile>
     <metadataAddress>http://localhost:4000/Design_Time_Addresses/Kantilever/BSCatalogusBeheer/mex</metadataAddress>
   </serviceLocation>
   <serviceLocation>

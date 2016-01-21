@@ -175,6 +175,51 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             var result = handler.UpdateBestellingStatus(null);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void TestUpdateBestellingStatusImplementationThrowsTechnicalException()
+        {
+            //Arrange
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.UpdateBestellingStatusToPacked(It.IsAny<long>())).Throws(new TechnicalException());
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object);
+
+            //Act
+            var result = handler.UpdateBestellingStatus(new UpdateBestellingStatusRequestMessage());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void TestUpdateBestellingStatusImplementationThrowsFunctionalException()
+        {
+            //Arrange
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.UpdateBestellingStatusToPacked(It.IsAny<long>())).Throws(new FunctionalException());
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object);
+
+            //Act
+            var result = handler.UpdateBestellingStatus(new UpdateBestellingStatusRequestMessage());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void TestUpdateBestellingStatusImplementationThrowsException()
+        {
+            //Arrange
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.UpdateBestellingStatusToPacked(It.IsAny<long>())).Throws(new Exception());
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object);
+
+            //Act
+            var result = handler.UpdateBestellingStatus(new UpdateBestellingStatusRequestMessage());
+        }
+
         private List<Entities.Artikel> generateArtikelList()
         {
             List<Entities.Artikel> lijst = new List<Entities.Artikel>();
