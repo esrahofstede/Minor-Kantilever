@@ -75,10 +75,11 @@ namespace Case3.PcSBestellen.Implementation
             var BSBestelling = new InsertBestellingRequestMessage
             {
                 Bestelling = new Bestelling
-                {
-                    Klantgegevens = klantgegevens,
-                    Artikelen = artikelen,
-                    BTWPercentage = bestellingRequestMessage.BestellingPcS.BTWPercentage,
+        	{
+                   Klantgegevens = klantgegevens,
+                   Artikelen = artikelen,
+		   BTWPercentage = bestellingRequestMessage.BestellingPcS.BTWPercentage,
+                   Status = 0,
                 },
             };
 
