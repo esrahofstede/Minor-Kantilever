@@ -104,6 +104,10 @@
       <Project>{91ac1292-b089-46ea-8cca-0919b6ce637a}</Project>
       <Name>09 - Agent</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Case3.PcSBestellen.BSBestellingenbeheerSchema\01b-BSBestellingenbeheerSchema.csproj">
+      <Project>{a3cd13d4-0aef-41d6-bfa4-e5ba7a68543d}</Project>
+      <Name>01b-BSBestellingenbeheerSchema</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.PcSBestellen.PcSBestellenSchema\01c-PcSBestellenSchema.csproj">
       <Project>{22c02c22-9975-4d18-89c7-dc424663e0af}</Project>
       <Name>01c-PcSBestellenSchema</Name>
