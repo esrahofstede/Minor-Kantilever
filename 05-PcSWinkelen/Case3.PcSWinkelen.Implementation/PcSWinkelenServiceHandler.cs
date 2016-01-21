@@ -289,7 +289,7 @@ namespace Case3.PcSWinkelen.Implementation
                 BTWPercentage = (int) _btwCalculator.BTWPercentage,
             };
 
-            _bestellenAgent.BestellingPlaatsenAsync(bestellingPcS);
+            _bestellenAgent.BestellingPlaatsen(bestellingPcS);
 
             _winkelmandDataMapper.DeleteBySessieID(bestelling.SessieId);
 
