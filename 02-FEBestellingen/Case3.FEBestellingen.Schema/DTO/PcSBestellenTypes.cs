@@ -209,6 +209,8 @@ namespace case3pcsbestellen.v1.schema
         
         private System.Nullable<int> StatusField;
         
+        private System.Nullable<int> BTWPercentageField;
+        
         private case3pcsbestellen.v1.schema.KlantgegevensPcS KlantgegevensField;
         
         private case3pcsbestellen.v1.schema.ArtikelenPcS ArtikelenPcSField;
@@ -278,6 +280,19 @@ namespace case3pcsbestellen.v1.schema
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public System.Nullable<int> BTWPercentage
+        {
+            get
+            {
+                return this.BTWPercentageField;
+            }
+            set
+            {
+                this.BTWPercentageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
         public case3pcsbestellen.v1.schema.KlantgegevensPcS Klantgegevens
         {
             get
@@ -290,7 +305,7 @@ namespace case3pcsbestellen.v1.schema
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
         public case3pcsbestellen.v1.schema.ArtikelenPcS ArtikelenPcS
         {
             get

@@ -208,7 +208,7 @@ namespace Case3.PcSBestellen.SchemaNS
         
         private System.Nullable<int> StatusField;
         
-        private System.Nullable<decimal> BTWPercentageField;
+        private System.Nullable<int> BTWPercentageField;
         
         private Case3.PcSBestellen.SchemaNS.KlantgegevensPcS KlantgegevensField;
         
@@ -279,7 +279,7 @@ namespace Case3.PcSBestellen.SchemaNS
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
-        public System.Nullable<decimal> BTWPercentage
+        public System.Nullable<int> BTWPercentage
         {
             get
             {
