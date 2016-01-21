@@ -40,7 +40,7 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         }
 
         /// <summary>
-        /// Gets one Bestelling where the status == 0 and ordered by BestelDatum
+        /// Gets one Bestelling where the status == 0 and ordered by BestelDatum. Method is virtual so that MoQ can override it
         /// </summary>
         /// <param name="context">BestellingContext</param>
         /// <returns>Bestelling</returns>
@@ -53,7 +53,7 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
         }
 
         /// <summary>
-        /// Updates a Bestelling.Status to 1
+        /// Updates a Bestelling.Status to 1. Method is virtual so that MoQ can override it
         /// </summary>
         /// <param name="bestellingId">Id of the Bestelling</param>
         public virtual void UpdateBestellingStatusToPacked(long bestellingID)
