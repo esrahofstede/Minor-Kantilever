@@ -808,6 +808,8 @@ public interface IBSBestellingenbeheerService
     [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
         "ing", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
         "ingResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(case3common.v1.faults.ErrorLijst), Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
+        "ingErrorLijstFault", Name="ErrorLijst", Namespace="urn:case3-common:v1:faults")]
     Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingResultMessage FindFirstBestelling(Case3.BSBestellingenbeheer.V1.Messages.FindFirstBestellingRequestMessage requestMessage);
     
     [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/FindFirstBestell" +
@@ -830,6 +832,8 @@ public interface IBSBestellingenbeheerService
     [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
         "Status", ReplyAction="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
         "StatusResponse")]
+    [System.ServiceModel.FaultContractAttribute(typeof(case3common.v1.faults.ErrorLijst), Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
+        "StatusErrorLijstFault", Name="ErrorLijst", Namespace="urn:case3-common:v1:faults")]
     Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusResultMessage UpdateBestellingStatus(Case3.BSBestellingenbeheer.V1.Messages.UpdateBestellingStatusRequestMessage bestelling);
     
     [System.ServiceModel.OperationContractAttribute(Action="Case3.GoudGeel.BsBestellingenbeheer/IBSBestellingenbeheerService/UpdateBestelling" +
