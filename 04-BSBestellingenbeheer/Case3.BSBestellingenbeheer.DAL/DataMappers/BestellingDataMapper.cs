@@ -50,7 +50,10 @@ namespace Case3.BSBestellingenbeheer.DAL.DataMappers
             {
                 try
                 {
-                    Bestelling bestellingtoPack = context.Bestellingen.Where(b => b.Status == 0).OrderBy(b => b.BestelDatum).Include(b => b.Artikelen).FirstOrDefault();
+                    Bestelling bestellingtoPack = context.Bestellingen
+                        .Where(b => b.Status == 0).OrderBy(b => b.BestelDatum)
+                        .Include(b => b.Artikelen)
+                        .FirstOrDefault();
 
                     if (bestellingtoPack == null)
                     {

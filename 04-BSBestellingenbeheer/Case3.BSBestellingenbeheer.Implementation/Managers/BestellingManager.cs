@@ -114,7 +114,16 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
                     {
                         Artikelen = new Artikelen(),
                         BestellingID = (int)bestellingEntity.ID,
-                        FactuurDatum = bestellingEntity.BestelDatum.ToString()
+                        FactuurDatum = bestellingEntity.BestelDatum.ToString(),
+                        Klantgegevens = new Klantgegevens
+                        {
+                            Naam = bestellingEntity.KlantNaam,
+                            Adresregel1 = bestellingEntity.AdresRegel1,
+                            Adresregel2 = bestellingEntity.AdresRegel2,
+                            Postcode = bestellingEntity.Postcode,
+                            Telefoonnummer = bestellingEntity.Telefoonnummer,
+                            Woonplaats = bestellingEntity.Woonplaats
+                        }
 
                     };
 
