@@ -1,1 +1,6 @@
-﻿
+﻿2016-01-21 12:09:45,940 FATAL Case3.PcSBestellen.Agent.Agents.BSBestellingenbeheerAgent - BSBestellingenbeheerAgent - InsertBestelling
+System.ServiceModel.FaultException`1[case3common.v1.faults.ErrorLijst]: Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie. (Fault Detail is equal to case3common.v1.faults.ErrorLijst).
+2016-01-21 12:10:07,940 FATAL Case3.PcSBestellen.Agent.Agents.BSBestellingenbeheerAgent - BSBestellingenbeheerAgent - InsertBestelling
+System.ServiceModel.FaultException`1[case3common.v1.faults.ErrorLijst]: Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie. (Fault Detail is equal to case3common.v1.faults.ErrorLijst).
+2016-01-21 12:11:19,712 FATAL Case3.PcSBestellen.Agent.Agents.BSBestellingenbeheerAgent - BSBestellingenbeheerAgent - InsertBestelling
+System.ServiceModel.FaultException`1[case3common.v1.faults.ErrorLijst]: Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie. (Fault Detail is equal to case3common.v1.faults.ErrorLijst).
