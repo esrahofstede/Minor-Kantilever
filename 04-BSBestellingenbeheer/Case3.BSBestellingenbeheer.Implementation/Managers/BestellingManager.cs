@@ -106,36 +106,43 @@ namespace Case3.BSBestellingenbeheer.Implementation.Managers
         /// <returns></returns>
         public virtual Bestelling ConvertBestellingEntityToDTO(Entities.Bestelling bestellingEntity)
         {
-            if (bestellingEntity != null)
+            try
             {
-                Bestelling bestellingDTO = new Bestelling()
+                if (bestellingEntity != null)
                 {
-                    Artikelen = new Artikelen(),
-                    BestellingID = (int)bestellingEntity.ID,
-                    FactuurDatum = bestellingEntity.BestelDatum.ToString()
-
-                };
-
-                if (bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
-                {
-                    foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
+                    Bestelling bestellingDTO = new Bestelling()
                     {
-                        bestellingDTO.Artikelen.Add(new BestelItem()
-                        {
+                        Artikelen = new Artikelen(),
+                        BestellingID = (int)bestellingEntity.ID,
+                        FactuurDatum = bestellingEntity.BestelDatum.ToString()
 
-                            Product = new Product()
+                    };
+
+                    if (bestellingEntity.Artikelen != null && bestellingEntity.Artikelen.Count > 0)
+                    {
+                        foreach (Entities.Artikel artikel in bestellingEntity.Artikelen)
+                        {
+                            bestellingDTO.Artikelen.Add(new BestelItem()
                             {
-                                Naam = artikel.Naam,
-                                LeverancierNaam = artikel.Leverancier,
-                                LeveranciersProductId = artikel.Leverancierscode,
-                            },
-                            Aantal = artikel.Aantal
-                        });
+
+                                Product = new Product()
+                                {
+                                    Naam = artikel.Naam,
+                                    LeverancierNaam = artikel.Leverancier,
+                                    LeveranciersProductId = artikel.Leverancierscode,
+                                },
+                                Aantal = artikel.Aantal
+                            });
+                        }
                     }
+                    return bestellingDTO;
                 }
-                return bestellingDTO;
+                return null;
             }
-            return null;
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

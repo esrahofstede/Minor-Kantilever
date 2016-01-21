@@ -59,14 +59,46 @@ namespace Case3.BSBestellingenbeheer.Implementation
         /// </summary>
         /// <param name="requestMessage">RequestMessage to find the next bestelling</param>
         /// <returns></returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         public FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage)
         {
-            Entities.Bestelling firstBestelling = _mapper.GetBestellingToPack();
+            FindFirstBestellingResultMessage response = new FindFirstBestellingResultMessage();
 
-            return new FindFirstBestellingResultMessage()
+            try
             {
-                BestellingOpdracht = _bestellingManager.ConvertBestellingEntityToDTO(firstBestelling),
-            };
+                response.BestellingOpdracht = _bestellingManager.ConvertBestellingEntityToDTO(_mapper.GetBestellingToPack());
+            }
+            catch (TechnicalException ex)
+            {
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = ex.Message,
+                });
+                _logger.Fatal(ex.Message, ex);
+            }
+            catch (FunctionalException ex)
+            {
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = ex.Message,
+                });
+            }
+            catch (Exception ex)
+            {
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = ex.Message,
+                });
+            }
+            if (_list.Count > 0)
+            {
+                throw new FaultException<ErrorLijst>(_list, "Er is iets fout gegaan tijdens het ophalen van een bestelling. Zie de innerdetails voor meer informatie.");
+            }
+            return response;
+
         }
 
         /// <summary>
@@ -83,36 +115,36 @@ namespace Case3.BSBestellingenbeheer.Implementation
             {
                 try
                 {
-                        _bestellingManager.InsertBestelling(bestelling.Bestelling);
+                    _bestellingManager.InsertBestelling(bestelling.Bestelling);
                 }
-                    catch (TechnicalException ex)
-                    {
-                        _list.Add(new ErrorDetail()
-                        {
-                            ErrorCode = 2,
-                            Message = ex.Message,
-                        });
-                        _logger.Fatal(ex.Message, ex);
-                    }
-                    catch (FunctionalException ex)
-                    {
-                        _list.Add(new ErrorDetail()
-                        {
-                            ErrorCode = 2,
-                            Message = ex.Message,
-                        });
-                    }
-                    catch (Exception ex)
-                    {
-                        _list.Add(new ErrorDetail()
-                        {
-                            ErrorCode = 2,
-                            Message = ex.Message,
-                        });
-                    }
-                    if (_list.Count > 0)
+                catch (TechnicalException ex)
                 {
-                    throw new FaultException<ErrorLijst > (_list, "Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie.");
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                    });
+                    _logger.Fatal(ex.Message, ex);
+                }
+                catch (FunctionalException ex)
+                {
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                    });
+                }
+                catch (Exception ex)
+                {
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                    });
+                }
+                if (_list.Count > 0)
+                {
+                    throw new FaultException<ErrorLijst>(_list, "Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie.");
                 }
             }
             else
@@ -142,7 +174,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
                 try
                 {
                     _mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
-            }
+                }
                 catch (TechnicalException ex)
                 {
                     _list.Add(new ErrorDetail()

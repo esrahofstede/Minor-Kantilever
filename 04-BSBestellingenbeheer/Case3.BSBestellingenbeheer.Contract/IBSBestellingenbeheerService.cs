@@ -16,6 +16,7 @@ namespace Case3.BSBestellingenbeheer.Contract
         /// <param name="requestMessage">The request message</param>
         /// <returns>The result message containing a Bestelling</returns>
         [OperationContract]
+        [FaultContract(typeof(ErrorLijst))]
         FindFirstBestellingResultMessage FindFirstBestelling(FindFirstBestellingRequestMessage requestMessage);
 
         /// <summary>
@@ -33,6 +34,7 @@ namespace Case3.BSBestellingenbeheer.Contract
         /// <param name="bestelling">Request message containing an updated Bestelling</param>
         /// <returns>Returns an UpdateBestellinResultMessage</returns>
         [OperationContract]
+        [FaultContract(typeof(ErrorLijst))]
         UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestelling);
     }
 }
