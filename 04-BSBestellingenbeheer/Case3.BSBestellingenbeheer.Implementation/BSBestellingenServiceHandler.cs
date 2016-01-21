@@ -77,10 +77,9 @@ namespace Case3.BSBestellingenbeheer.Implementation
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
         {
-            if (bestelling != null)
+
+            if (bestelling != null || bestelling.Bestelling != null)
             {
-                if (bestelling.Bestelling != null)
-                {
                     try
                     {
                         _bestellingManager.InsertBestelling(bestelling.Bestelling);
@@ -116,8 +115,17 @@ namespace Case3.BSBestellingenbeheer.Implementation
                         throw new FaultException<ErrorLijst>(_list, "Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie.");
                     }
                 }
-                return null;
+            else
+            {
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = "Bad request",
+                });
+
+                throw new FaultException<ErrorLijst>(_list, "Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie.");
             }
+
             return new InsertBestellingResultMessage();
         }
 
@@ -130,14 +138,53 @@ namespace Case3.BSBestellingenbeheer.Implementation
         {
             if (bestelling != null)
             {
-                _mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
+                try
+                {
+                    _mapper.UpdateBestellingStatusToPacked(bestellingID.BestellingID);
 
                 return new UpdateBestellingStatusResultMessage();
             }
+                catch (TechnicalException ex)
+                {
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                    });
+                }
+                catch (FunctionalException ex)
+                {
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                    });
+                }
+                catch (Exception ex)
+                {
+                    _list.Add(new ErrorDetail()
+                    {
+                        ErrorCode = 2,
+                        Message = ex.Message,
+                    });
+                }
+                if (_list.Count > 0)
+                {
+                    throw new FaultException<ErrorLijst>(_list, "Er is iets fout gegaan tijdens het aanpassen van de status van een bestelling. Zie de innerdetails voor meer informatie.");
+                }
+            }
             else
             {
-                throw new ArgumentNullException("Er is geen bestelling opgegeven."); //FAULTEXCEPTION!!
+                _list.Add(new ErrorDetail()
+                {
+                    ErrorCode = 2,
+                    Message = "Bad request",
+                });
+
+                throw new FaultException<ErrorLijst>(_list, "Er is iets fout gegaan tijdens het aanpassen van de status van een bestelling. Zie de innerdetails voor meer informatie.");
+
             }
+            return new UpdateBestellingStatusResultMessage();
         }
     }
 }
