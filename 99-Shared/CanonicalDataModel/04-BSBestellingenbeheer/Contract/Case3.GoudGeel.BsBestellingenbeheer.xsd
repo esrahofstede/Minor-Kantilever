@@ -32,7 +32,7 @@
   <xs:element name="UpdateBestellingStatus">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="bestellingID" nillable="true" xmlns:q5="urn:case3-bsbestellingenbeheer:v1:messages" type="q5:UpdateBestellingStatusRequestMessage" />
+        <xs:element minOccurs="0" name="bestelling" nillable="true" xmlns:q5="urn:case3-bsbestellingenbeheer:v1:messages" type="q5:UpdateBestellingStatusRequestMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
