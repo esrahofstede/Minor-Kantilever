@@ -4,3 +4,29 @@ System.ServiceModel.FaultException`1[case3common.v1.faults.ErrorLijst]: Er is ie
 System.ServiceModel.FaultException`1[case3common.v1.faults.ErrorLijst]: Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie. (Fault Detail is equal to case3common.v1.faults.ErrorLijst).
 2016-01-21 12:11:19,712 FATAL Case3.PcSBestellen.Agent.Agents.BSBestellingenbeheerAgent - BSBestellingenbeheerAgent - InsertBestelling
 System.ServiceModel.FaultException`1[case3common.v1.faults.ErrorLijst]: Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie. (Fault Detail is equal to case3common.v1.faults.ErrorLijst).
+2016-01-21 12:40:00,534 FATAL Case3.PcSBestellen.Agent.Agents.BSBestellingenbeheerAgent - BSBestellingenbeheerAgent - InsertBestelling
+System.ServiceModel.FaultException`1[case3common.v1.faults.ErrorLijst]: Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie. (Fault Detail is equal to case3common.v1.faults.ErrorLijst).
+2016-01-21 12:40:59,138 FATAL Case3.PcSBestellen.Agent.Agents.BSBestellingenbeheerAgent - BSBestellingenbeheerAgent - InsertBestelling
+System.ServiceModel.FaultException`1[case3common.v1.faults.ErrorLijst]: Er is iets fout gegaan tijdens het toevoegen van een bestelling. Zie de innerdetails voor meer informatie. (Fault Detail is equal to case3common.v1.faults.ErrorLijst).
+2016-01-21 12:42:18,321 FATAL Case3.PcSBestellen.Agent.Agents.BSBestellingenbeheerAgent - BSBestellingenbeheerAgent - InsertBestelling
+System.TimeoutException: The request channel timed out while waiting for a reply after 00:00:59.9989993. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout. ---> System.TimeoutException: The HTTP request to 'http://localhost:38936/BSBestellingen.svc' has exceeded the allotted timeout of 00:01:00. The time allotted to this operation may have been a portion of a longer timeout. ---> System.Net.WebException: The request was aborted: The operation has timed out.
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at IBSBestellingenbeheerService.InsertBestelling(InsertBestellingRequestMessage bestelling)
+   at Case3.PcSBestellen.Agent.Agents.BSBestellingenbeheerAgent.InsertBestelling(InsertBestellingRequestMessage bestelling) in C:\GIT\Goudgeel\06-PcSBestellen\Case3.PcSBestellen.Agent\Agents\BSBestellingenbeheerAgent.cs:line 75
