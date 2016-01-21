@@ -175,6 +175,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         /// This method verfies if the result is null if the Bestelling is null.
         /// </summary>
         [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
         public void VerifyIfInsertBestellingReturnsNullWhenEntryIsNull()
         {
             //Arrange
@@ -187,7 +188,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             });
 
             //Assert
-            Assert.IsNull(result);
+            //Assert.IsNull(result);
         }
 
         [TestMethod]
@@ -230,7 +231,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
         public void TestUpdateBestellingStatusRequestIsNullImplementation()
         {
             //Arrange
