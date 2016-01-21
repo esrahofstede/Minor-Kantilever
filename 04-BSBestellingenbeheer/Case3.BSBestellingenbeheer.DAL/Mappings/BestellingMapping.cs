@@ -15,6 +15,7 @@ namespace Case3.BSBestellingenbeheer.DAL.Mappings
     {
         /// <summary>
         /// Default constructor
+        /// Defines the Bestelling table
         /// </summary>
         public BestellingMapping()
         {

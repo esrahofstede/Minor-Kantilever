@@ -16,84 +16,8 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
     [TestClass]
     public class BestellingenManagerTest
     {
-        #region dummydata
-        private Bestelling _bestellingValid = new Bestelling()
-        {
-            BestellingID = 1,
-            FactuurDatum = new DateTime(2015, 12, 12).ToString(),
-            FactuurID = 1,
-            Status = 1,
-            BTWPercentage = 21,
-            Klantgegevens = new Klantgegevens()
-            {
-                Naam = "Remco",
-                Adresregel1 = "Hofmeesterij 89",
-                Woonplaats = "Huissen",
-                Postcode = "6852NC",
-                Telefoonnummer = "0612697691"
-            },
-            Artikelen = new Artikelen()
-                    {
-                        new BestelItem()
-                        {
-                            Product = new BSCatalogusBeheer.Schema.ProductNS.Product()
-                            {
-                                Id = 1,
-                                Naam = "Fietsbel",
-                                LeverancierNaam = "Gazelle",
-                                LeveranciersProductId = "GA01"
-                            },
-                            Aantal = 5
-                        }
-                    }
-        };
+        private readonly DummyData _dummyData = new DummyData();
 
-        private Bestelling _bestellingInvalid = new Bestelling()
-        {
-           
-            Klantgegevens = new Klantgegevens()
-            {
-            },
-            Artikelen = new Artikelen()
-                    {
-                        new BestelItem()
-                        {
-                            Aantal = 5
-                        }
-                    }
-        };
-
-        private Bestelling _bestellingInvalidDatum = new Bestelling()
-        {
-            BestellingID = 45435,
-            FactuurDatum = "202",
-            FactuurID = 1,
-            Status = 1,
-            BTWPercentage = 7,
-            Klantgegevens = new Klantgegevens()
-            {
-                Naam = "Remco",
-                Adresregel1 = "Hofmeesterij 89",
-                Woonplaats = "Huissen",
-                Postcode = "6852NC",
-                Telefoonnummer = "0612697691"
-            },
-            Artikelen = new Artikelen()
-                    {
-                        new BestelItem()
-                        {
-                            Product = new BSCatalogusBeheer.Schema.ProductNS.Product()
-                            {
-                                Id = 1,
-                                Naam = "Fietsbel",
-                                LeverancierNaam = "Gazelle",
-                                LeveranciersProductId = "GA01"
-                            },
-                            Aantal = 5
-                        }
-                    }
-        };
-        #endregion
         /// <summary>
         /// Creates instance of BestellingManager and checks if the manager is instantiated correctly
         /// </summary>
@@ -166,7 +90,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
 
             //Act
             int initialValue = mock.Count;
-            manager.InsertBestelling(_bestellingValid);
+            manager.InsertBestelling(_dummyData.BestellingValid);
             
 
             //Assert
@@ -184,7 +108,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
             BestellingManager manager = new BestellingManager();
 
             //Act
-            manager.InsertBestelling(_bestellingInvalid);
+            manager.InsertBestelling(_dummyData.BestellingInvalid);
 
             //Arrange
             //Expect FunctionalException
@@ -202,7 +126,7 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
 
             //Act
             int initialValue = mock.Count;
-            manager.InsertBestelling(_bestellingInvalidDatum);
+            manager.InsertBestelling(_dummyData.BestellingInvalidDatum);
 
             //Arrange
             Assert.AreEqual(initialValue + 1, mock.Count);

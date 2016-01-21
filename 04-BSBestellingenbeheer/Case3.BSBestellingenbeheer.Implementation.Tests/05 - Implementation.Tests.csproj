@@ -58,6 +58,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <Choose>
@@ -75,12 +76,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DummyData.cs" />
     <Compile Include="Mocks\BestellingDataMapperMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BestellingenManagerTest.cs" />
     <Compile Include="BSBestellingenServiceHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Case3.BSBestellingenbeheer.Contract\02 - Contract.csproj">
+      <Project>{A654623F-7A0B-4ABF-8E6E-A08EF24FDABA}</Project>
+      <Name>02 - Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Case3.BSBestellingenbeheer.DAL\06 - DAL.csproj">
       <Project>{c648b7a9-810b-4523-9473-686b2bff10bc}</Project>
       <Name>06 - DAL</Name>
