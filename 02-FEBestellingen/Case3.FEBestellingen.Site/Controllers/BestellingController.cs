@@ -34,8 +34,20 @@ namespace Case3.FEBestellingen.Site.Controllers
         [Authorize(Roles = "Magazijnmedewerkers")]
         public ActionResult Index()
         {
-            var model = _bestellingManager.FindNextBestelling(new FindNextBestellingRequestMessage());
+            var requestMessage = new FindNextBestellingRequestMessage();
+            var model = _bestellingManager.FindNextBestelling(requestMessage);
             return View(model);
+        }
+
+        /// <summary>
+        /// Changes the status of a bestelling
+        /// </summary>
+        /// <param name="bestellingID">The ID of the Bestelling to update</param>
+        [Authorize(Roles = "Magazijnmedewerkers")]
+        [HttpPost]
+        public void ChangeStatus(long bestellingID)
+        {
+            _bestellingManager.ChangeStatusOfBestelling(bestellingID);
         }
 
     }

@@ -12,11 +12,10 @@ namespace Case3.PcSBestellen.Agent.Exceptions
     /// Custom TechnicalException for throwing exceptions with WCF
     /// </summary>
     [DataContract]
+    [Serializable]
     public class TechnicalException : Exception
     {
-        [DataMember]
-        public ErrorLijst Errors { get; set; }
-
+     
         public TechnicalException()
         {
         }

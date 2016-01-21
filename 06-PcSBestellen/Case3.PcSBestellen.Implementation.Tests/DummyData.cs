@@ -56,25 +56,5 @@ namespace Case3.PcSBestellen.Implementation.Tests
             }
         };
 
-        internal static KlantgegevensPcS GetDummyKlantgegevensPcS = new KlantgegevensPcS
-        {
-            Naam = "Marco Pil",
-            Adresregel1 = "Afdeling Infosupport",
-            Adresregel2 = "Sint Jacobsstraat 12",
-            Postcode = "3511 BS",
-            Woonplaats = "Utrecht"
-        };
-
-        internal static BestelItemPcS GetDummyBestelItem = new BestelItemPcS
-        {
-            Product = GetDummyProduct,
-            Aantal = _dummyAantal
-        };
-
-        internal static IEnumerable<BestelItemPcS> GetDummyBestelItems = new List<BestelItemPcS>
-        {
-            GetDummyBestelItem
-        };
-        
     }
 }

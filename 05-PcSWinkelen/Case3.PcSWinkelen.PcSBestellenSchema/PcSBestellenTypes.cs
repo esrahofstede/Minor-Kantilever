@@ -304,7 +304,7 @@ namespace Case3.PcSBestellen.SchemaNS
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=6)]
         public Case3.PcSBestellen.SchemaNS.ArtikelenPcS ArtikelenPcS
         {
             get
