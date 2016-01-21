@@ -9,6 +9,7 @@ using System.Linq;
 using Case3.BSBestellingenbeheer.DAL.DataMappers;
 using System.Collections.Generic;
 using Case3.BSBestellingenbeheer.Implementation.Managers;
+using Case3.BSBestellingenbeheer.DAL.Exceptions;
 
 namespace Case3.BSBestellingenbeheer.Implementation.Tests
 {
@@ -171,6 +172,51 @@ namespace Case3.BSBestellingenbeheer.Implementation.Tests
 
             //Act
             var result = handler.UpdateBestellingStatus(null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void TestUpdateBestellingStatusImplementationThrowsTechnicalException()
+        {
+            //Arrange
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.UpdateBestellingStatusToPacked(It.IsAny<long>())).Throws(new TechnicalException());
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object);
+
+            //Act
+            var result = handler.UpdateBestellingStatus(new UpdateBestellingStatusRequestMessage());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void TestUpdateBestellingStatusImplementationThrowsFunctionalException()
+        {
+            //Arrange
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.UpdateBestellingStatusToPacked(It.IsAny<long>())).Throws(new FunctionalException());
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object);
+
+            //Act
+            var result = handler.UpdateBestellingStatus(new UpdateBestellingStatusRequestMessage());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<ErrorLijst>))]
+        public void TestUpdateBestellingStatusImplementationThrowsException()
+        {
+            //Arrange
+
+            var mapperMock = new Mock<BestellingDataMapper>(MockBehavior.Strict);
+            mapperMock.Setup(m => m.UpdateBestellingStatusToPacked(It.IsAny<long>())).Throws(new Exception());
+
+            var handler = new BSBestellingenServiceHandler(mapperMock.Object);
+
+            //Act
+            var result = handler.UpdateBestellingStatus(new UpdateBestellingStatusRequestMessage());
         }
 
         private List<Entities.Artikel> generateArtikelList()
