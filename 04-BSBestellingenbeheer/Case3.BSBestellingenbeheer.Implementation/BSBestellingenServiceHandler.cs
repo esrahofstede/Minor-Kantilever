@@ -78,7 +78,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
         public InsertBestellingResultMessage InsertBestelling(InsertBestellingRequestMessage bestelling)
         {
 
-            if (bestelling != null || bestelling.Bestelling != null)
+            if (bestelling != null && bestelling.Bestelling != null)
             {
                     try
                     {
@@ -140,7 +140,7 @@ namespace Case3.BSBestellingenbeheer.Implementation
             {
                 try
                 {
-                    _mapper.UpdateBestellingStatusToPacked(bestellingID.BestellingID);
+                    _mapper.UpdateBestellingStatusToPacked(bestelling.BestellingID);
 
                 return new UpdateBestellingStatusResultMessage();
             }
