@@ -89,6 +89,7 @@
       <Link>Case3Key.snk</Link>
     </Content>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\ReleaseBldSrv.pubxml" />
     <None Include="Properties\PublishProfiles\AcceptatieBldSrv.pubxml" />
     <None Include="Web.Acceptatie.config">
       <DependentUpon>Web.config</DependentUpon>
