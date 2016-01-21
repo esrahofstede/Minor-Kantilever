@@ -17,7 +17,7 @@
       <Word>Catalogusbeheer</Word>
       <Word>Incl</Word>
       <Word>Plaatsen</Word>
-      <Word>Excl</Word>      
+      <Word>Excl</Word>
       <Word>Afbeeldingslocatie</Word>
       <word>BSVoorraadBeheer</word>
       <Word>Webwinkel</Word>
@@ -112,7 +112,7 @@
       <Word>DTO</Word>
       <Word>Formaat</Word>
       <Word>Juiste</Word>
-  </Recognized>
+    </Recognized>
     <Unrecognized>
     </Unrecognized>
     <Deprecated>
@@ -127,6 +127,7 @@
     </Compound>
     <DiscreteExceptions>
       <Term>BestellingenBeheer</Term>
+      <Term>AdresRegel</Term>
     </DiscreteExceptions>
   </Words>
   <Acronyms>
@@ -152,6 +153,6 @@
       <Acronym>ID</Acronym>
       <Acronym>SMS</Acronym>
       <Acronym>Bs</Acronym>
-    </CasingExceptions> 
+    </CasingExceptions>
   </Acronyms>
 </Dictionary>

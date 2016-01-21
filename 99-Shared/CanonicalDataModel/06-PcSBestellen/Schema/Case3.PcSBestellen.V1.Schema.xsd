@@ -15,6 +15,7 @@
       <xs:element name="FactuurID" nillable="true" minOccurs="1" maxOccurs="1" type="xs:int" />
       <xs:element name="FactuurDatum" nillable="true" minOccurs="1" maxOccurs="1" type="xs:date" />
       <xs:element name="Status" nillable="true" minOccurs="1" maxOccurs="1" type="xs:int" />
+      <xs:element name="BTWPercentage" nillable="true" minOccurs="1" maxOccurs="1" type="xs:decimal" />
       <xs:element name="Klantgegevens" nillable="true" minOccurs="1" maxOccurs="1" type="k:KlantgegevensPcS" />
       <xs:element name="ArtikelenPcS" nillable="true" minOccurs="1" maxOccurs="1" type="k:ArtikelenPcS" />
     </xs:sequence>

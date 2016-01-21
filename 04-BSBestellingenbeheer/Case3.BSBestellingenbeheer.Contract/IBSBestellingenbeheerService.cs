@@ -7,7 +7,7 @@ namespace Case3.BSBestellingenbeheer.Contract
     /// <summary>
     /// Contract for the BSBestellingenbeheerService
     /// </summary>
-    [ServiceContract(Namespace = "urn:case3:bestellingenbeheer:v1")]
+    [ServiceContract(Namespace = "Case3.GoudGeel.BsBestellingenbeheer")]
     public interface IBSBestellingenbeheerService
     {
         /// <summary>
@@ -33,6 +33,6 @@ namespace Case3.BSBestellingenbeheer.Contract
         /// <param name="bestelling">Request message containing an updated Bestelling</param>
         /// <returns>Returns an UpdateBestellinResultMessage</returns>
         [OperationContract]
-        UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestellingID);
+        UpdateBestellingStatusResultMessage UpdateBestellingStatus(UpdateBestellingStatusRequestMessage bestelling);
     }
 }
